@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)https://delicate-pine-6fa3.yxnatakeuchi.workers.dev/Programmability/command_cheatsheet.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 3 — コマンド一覧チートシート</title>
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #334155;
+    --heading: #0f172a;
+    --muted: #64748b;
+    --accent-1: #2563eb;
+    --accent-2: #7c3aed;
+    --accent-3: #059669;
+    --accent-4: #d97706;
+    --code-bg: #f1f5f9;
+    --code-border: #e2e8f0;
+    --red: #dc2626;
+    --pre-color: #334155;
+    --script-bg: #f8fafc;
+    --script-color: #475569;
+    --script-kw: #7c3aed;
+    --script-fn: #2563eb;
+    --script-str: #059669;
+    --script-comment: #94a3b8;
+    --note-bg: rgba(0,0,0,.02);
+  }
+  :root[data-theme="dark"] {
+      --bg: #0c0f14;
+      --surface: #151921;
+      --border: #2a3040;
+      --text: #c8cdd8;
+      --heading: #e8ecf2;
+      --muted: #6b7280;
+      --accent-1: #38bdf8;
+      --accent-2: #a78bfa;
+      --accent-3: #34d399;
+      --accent-4: #fb923c;
+      --code-bg: #1e2330;
+      --code-border: #2d3548;
+      --red: #ef4444;
+      --pre-color: #b0bbd0;
+      --script-bg: #1a1e2a;
+      --script-color: #9ca3af;
+      --script-kw: #a78bfa;
+      --script-fn: #38bdf8;
+      --script-str: #34d399;
+      --script-comment: #555e70;
+      --note-bg: rgba(255,255,255,.02);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'SF Mono','Fira Code','Consolas',monospace; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 13px; padding: 24px; }
+  .page { max-width: 860px; margin: 0 auto; }
+  h1 { color: var(--heading); font-size: 20px; text-align: center; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: var(--muted); font-size: 11px; margin-bottom: 32px; }
+  .section { margin-bottom: 36px; }
+  .section-title { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .section-title .badge { font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 5px; flex-shrink: 0; }
+  .badge-1 { background: rgba(37,99,235,.1); color: var(--accent-1); }
+  .badge-2 { background: rgba(124,58,237,.1); color: var(--accent-2); }
+  .badge-3 { background: rgba(5,150,105,.1); color: var(--accent-3); }
+  .section-title h2 { font-size: 15px; color: var(--heading); }
+  .device { margin-bottom: 16px; }
+  .device-name { font-size: 12px; font-weight: 700; color: var(--accent-4); margin-bottom: 4px; letter-spacing: 1px; }
+  .step-label { font-size: 11px; color: var(--accent-2); margin: 10px 0 2px; font-weight: 700; }
+  pre { background: var(--code-bg); border: 1px solid var(--code-border); border-radius: 6px; padding: 14px 18px; overflow-x: auto; margin-bottom: 8px; font-size: 12.5px; line-height: 1.65; color: var(--pre-color); }
+  pre .comment { color: var(--script-comment); font-style: italic; }
+  pre .highlight { color: var(--accent-3); }
+  pre .warn { color: var(--accent-4); }
+  .note { font-size: 11px; color: var(--muted); padding: 6px 10px; background: var(--note-bg); border-radius: 4px; margin-bottom: 8px; border-left: 2px solid var(--border); }
+  .divider { height: 1px; background: var(--border); margin: 12px 0; }
+  .script-block { background: var(--script-bg); border: 1px solid var(--code-border); border-radius: 6px; padding: 14px 18px; overflow-x: auto; margin-bottom: 8px; font-size: 12px; line-height: 1.65; color: var(--script-color); white-space: pre; }
+  .script-block .kw { color: var(--script-kw); }
+  .script-block .fn { color: var(--script-fn); }
+  .script-block .str { color: var(--script-str); }
+  .script-block .comment { color: var(--script-comment); font-style: italic; }
+  .bug-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 3px; background: rgba(220,38,38,.1); color: var(--red); margin-right: 4px; vertical-align: middle; }
+  .fix-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 3px; background: rgba(5,150,105,.1); color: var(--accent-3); margin-right: 4px; vertical-align: middle; }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    body { padding: 14px 10px; font-size: 12px; }
+    h1 { font-size: 17px; }
+    .section-title { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .section-title h2 { font-size: 14px; }
+    pre { padding: 10px 12px; font-size: 11px; }
+    .script-block { padding: 10px 12px; font-size: 11px; }
+    .note { font-size: 10px; }
+  }
+</style>
+<style>:root{--toastify-color-light:#fff;--toastify-color-dark:#121212;--toastify-color-info:#3498db;--toastify-color-success:#07bc0c;--toastify-color-warning:#f1c40f;--toastify-color-error:#e74c3c;--toastify-color-transparent:hsla(0,0%,100%,.7);--toastify-icon-color-info:var(--toastify-color-info);--toastify-icon-color-success:var(--toastify-color-success);--toastify-icon-color-warning:var(--toastify-color-warning);--toastify-icon-color-error:var(--toastify-color-error);--toastify-toast-width:320px;--toastify-toast-offset:16px;--toastify-toast-top:max(var(--toastify-toast-offset),env(safe-area-inset-top));--toastify-toast-right:max(var(--toastify-toast-offset),env(safe-area-inset-right));--toastify-toast-left:max(var(--toastify-toast-offset),env(safe-area-inset-left));--toastify-toast-bottom:max(var(--toastify-toast-offset),env(safe-area-inset-bottom));--toastify-toast-background:#fff;--toastify-toast-min-height:64px;--toastify-toast-max-height:800px;--toastify-toast-bd-radius:6px;--toastify-font-family:sans-serif;--toastify-z-index:9999;--toastify-text-color-light:#757575;--toastify-text-color-dark:#fff;--toastify-text-color-info:#fff;--toastify-text-color-success:#fff;--toastify-text-color-warning:#fff;--toastify-text-color-error:#fff;--toastify-spinner-color:#616161;--toastify-spinner-color-empty-area:#e0e0e0;--toastify-color-progress-light:linear-gradient(90deg,#4cd964,#5ac8fa,#007aff,#34aadc,#5856d6,#ff2d55);--toastify-color-progress-dark:#bb86fc;--toastify-color-progress-info:var(--toastify-color-info);--toastify-color-progress-success:var(--toastify-color-success);--toastify-color-progress-warning:var(--toastify-color-warning);--toastify-color-progress-error:var(--toastify-color-error);--toastify-color-progress-bgo:0.2}.Toastify__toast-container{z-index:var(--toastify-z-index);-webkit-transform:translateZ(var(--toastify-z-index));position:fixed;padding:4px;width:var(--toastify-toast-width);box-sizing:border-box;color:#fff}.Toastify__toast-container--top-left{top:var(--toastify-toast-top);left:var(--toastify-toast-left)}.Toastify__toast-container--top-center{top:var(--toastify-toast-top);left:50%;transform:translateX(-50%)}.Toastify__toast-container--top-right{top:var(--toastify-toast-top);right:var(--toastify-toast-right)}.Toastify__toast-container--bottom-left{bottom:var(--toastify-toast-bottom);left:var(--toastify-toast-left)}.Toastify__toast-container--bottom-center{bottom:var(--toastify-toast-bottom);left:50%;transform:translateX(-50%)}.Toastify__toast-container--bottom-right{bottom:var(--toastify-toast-bottom);right:var(--toastify-toast-right)}@media only screen and (max-width:480px){.Toastify__toast-container{width:100vw;padding:0;left:env(safe-area-inset-left);margin:0}.Toastify__toast-container--top-center,.Toastify__toast-container--top-left,.Toastify__toast-container--top-right{top:env(safe-area-inset-top);transform:translateX(0)}.Toastify__toast-container--bottom-center,.Toastify__toast-container--bottom-left,.Toastify__toast-container--bottom-right{bottom:env(safe-area-inset-bottom);transform:translateX(0)}.Toastify__toast-container--rtl{right:env(safe-area-inset-right);left:auto}}.Toastify__toast{--y:0;position:relative;-ms-touch-action:none;touch-action:none;min-height:var(--toastify-toast-min-height);box-sizing:border-box;margin-bottom:1rem;padding:8px;border-radius:var(--toastify-toast-bd-radius);box-shadow:0 4px 12px rgba(0,0,0,.1);display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;max-height:var(--toastify-toast-max-height);font-family:var(--toastify-font-family);cursor:default;direction:ltr;z-index:0;overflow:hidden}.Toastify__toast--stacked{position:absolute;width:100%;transform:translate3d(0,var(--y),0) scale(var(--s));transition:transform .3s}.Toastify__toast--stacked[data-collapsed] .Toastify__close-button,.Toastify__toast--stacked[data-collapsed] .Toastify__toast-body{transition:opacity .1s}.Toastify__toast--stacked[data-collapsed=false]{overflow:visible}.Toastify__toast--stacked[data-collapsed=true]:not(:last-child)>*{opacity:0}.Toastify__toast--stacked:after{content:"";position:absolute;left:0;right:0;height:calc(var(--g) * 1px);bottom:100%}.Toastify__toast--stacked[data-pos=top]{top:0}.Toastify__toast--stacked[data-pos=bot]{bottom:0}.Toastify__toast--stacked[data-pos=bot].Toastify__toast--stacked:before{transform-origin:top}.Toastify__toast--stacked[data-pos=top].Toastify__toast--stacked:before{transform-origin:bottom}.Toastify__toast--stacked:before{content:"";position:absolute;left:0;right:0;bottom:0;height:100%;transform:scaleY(3);z-index:-1}.Toastify__toast--rtl{direction:rtl}.Toastify__toast--close-on-click{cursor:pointer}.Toastify__toast-body{margin:auto 0;-ms-flex:1 1 auto;flex:1 1 auto;padding:6px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center}.Toastify__toast-body>div:last-child{word-break:break-word;-ms-flex:1;flex:1}.Toastify__toast-icon{-webkit-margin-end:10px;margin-inline-end:10px;width:20px;-ms-flex-negative:0;flex-shrink:0;display:-ms-flexbox;display:flex}.Toastify--animate{animation-fill-mode:both;animation-duration:.5s}.Toastify--animate-icon{animation-fill-mode:both;animation-duration:.3s}@media only screen and (max-width:480px){.Toastify__toast{margin-bottom:0;border-radius:0}}.Toastify__toast-theme--dark{background:var(--toastify-color-dark);color:var(--toastify-text-color-dark)}.Toastify__toast-theme--colored.Toastify__toast--default,.Toastify__toast-theme--light{background:var(--toastify-color-light);color:var(--toastify-text-color-light)}.Toastify__toast-theme--colored.Toastify__toast--info{color:var(--toastify-text-color-info);background:var(--toastify-color-info)}.Toastify__toast-theme--colored.Toastify__toast--success{color:var(--toastify-text-color-success);background:var(--toastify-color-success)}.Toastify__toast-theme--colored.Toastify__toast--warning{color:var(--toastify-text-color-warning);background:var(--toastify-color-warning)}.Toastify__toast-theme--colored.Toastify__toast--error{color:var(--toastify-text-color-error);background:var(--toastify-color-error)}.Toastify__progress-bar-theme--light{background:var(--toastify-color-progress-light)}.Toastify__progress-bar-theme--dark{background:var(--toastify-color-progress-dark)}.Toastify__progress-bar--info{background:var(--toastify-color-progress-info)}.Toastify__progress-bar--success{background:var(--toastify-color-progress-success)}.Toastify__progress-bar--warning{background:var(--toastify-color-progress-warning)}.Toastify__progress-bar--error{background:var(--toastify-color-progress-error)}.Toastify__progress-bar-theme--colored.Toastify__progress-bar--error,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--info,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--success,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--warning{background:var(--toastify-color-transparent)}.Toastify__close-button{color:#fff;background:transparent;outline:none;border:none;padding:0;cursor:pointer;opacity:.7;transition:.3s ease;-ms-flex-item-align:start;align-self:flex-start;z-index:1}.Toastify__close-button--light{color:#000;opacity:.3}.Toastify__close-button>svg{fill:currentColor;height:16px;width:14px}.Toastify__close-button:focus,.Toastify__close-button:hover{opacity:1}@keyframes Toastify__trackProgress{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Toastify__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:100%;z-index:var(--toastify-z-index);opacity:.7;transform-origin:left;border-bottom-left-radius:var(--toastify-toast-bd-radius)}.Toastify__progress-bar--animated{animation:Toastify__trackProgress linear 1 forwards}.Toastify__progress-bar--controlled{transition:transform .2s}.Toastify__progress-bar--rtl{right:0;left:auto;transform-origin:right;border-bottom-left-radius:0;border-bottom-right-radius:var(--toastify-toast-bd-radius)}.Toastify__progress-bar--wrp{position:absolute;bottom:0;left:0;width:100%;height:5px;border-bottom-left-radius:var(--toastify-toast-bd-radius)}.Toastify__progress-bar--wrp[data-hidden=true]{opacity:0}.Toastify__progress-bar--bg{opacity:var(--toastify-color-progress-bgo);width:100%;height:100%}.Toastify__spinner{width:20px;height:20px;box-sizing:border-box;border:2px solid;border-radius:100%;border-color:var(--toastify-spinner-color-empty-area);border-right-color:var(--toastify-spinner-color);animation:Toastify__spin .65s linear infinite}@keyframes Toastify__bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes Toastify__bounceOutRight{20%{opacity:1;transform:translate3d(-20px,var(--y),0)}to{opacity:0;transform:translate3d(2000px,var(--y),0)}}@keyframes Toastify__bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes Toastify__bounceOutLeft{20%{opacity:1;transform:translate3d(20px,var(--y),0)}to{opacity:0;transform:translate3d(-2000px,var(--y),0)}}@keyframes Toastify__bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes Toastify__bounceOutUp{20%{transform:translate3d(0,calc(var(--y) - 10px),0)}40%,45%{opacity:1;transform:translate3d(0,calc(var(--y) + 20px),0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes Toastify__bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes Toastify__bounceOutDown{20%{transform:translate3d(0,calc(var(--y) - 10px),0)}40%,45%{opacity:1;transform:translate3d(0,calc(var(--y) + 20px),0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Toastify__bounce-enter--bottom-left,.Toastify__bounce-enter--top-left{animation-name:Toastify__bounceInLeft}.Toastify__bounce-enter--bottom-right,.Toastify__bounce-enter--top-right{animation-name:Toastify__bounceInRight}.Toastify__bounce-enter--top-center{animation-name:Toastify__bounceInDown}.Toastify__bounce-enter--bottom-center{animation-name:Toastify__bounceInUp}.Toastify__bounce-exit--bottom-left,.Toastify__bounce-exit--top-left{animation-name:Toastify__bounceOutLeft}.Toastify__bounce-exit--bottom-right,.Toastify__bounce-exit--top-right{animation-name:Toastify__bounceOutRight}.Toastify__bounce-exit--top-center{animation-name:Toastify__bounceOutUp}.Toastify__bounce-exit--bottom-center{animation-name:Toastify__bounceOutDown}@keyframes Toastify__zoomIn{0%{opacity:0;transform:scale3d(.3,.3,.3)}50%{opacity:1}}@keyframes Toastify__zoomOut{0%{opacity:1}50%{opacity:0;transform:translate3d(0,var(--y),0) scale3d(.3,.3,.3)}to{opacity:0}}.Toastify__zoom-enter{animation-name:Toastify__zoomIn}.Toastify__zoom-exit{animation-name:Toastify__zoomOut}@keyframes Toastify__flipIn{0%{transform:perspective(400px) rotateX(90deg);animation-timing-function:ease-in;opacity:0}40%{transform:perspective(400px) rotateX(-20deg);animation-timing-function:ease-in}60%{transform:perspective(400px) rotateX(10deg);opacity:1}80%{transform:perspective(400px) rotateX(-5deg)}to{transform:perspective(400px)}}@keyframes Toastify__flipOut{0%{transform:translate3d(0,var(--y),0) perspective(400px)}30%{transform:translate3d(0,var(--y),0) perspective(400px) rotateX(-20deg);opacity:1}to{transform:translate3d(0,var(--y),0) perspective(400px) rotateX(90deg);opacity:0}}.Toastify__flip-enter{animation-name:Toastify__flipIn}.Toastify__flip-exit{animation-name:Toastify__flipOut}@keyframes Toastify__slideInRight{0%{transform:translate3d(110%,0,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideInLeft{0%{transform:translate3d(-110%,0,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideInUp{0%{transform:translate3d(0,110%,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideInDown{0%{transform:translate3d(0,-110%,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideOutRight{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(110%,var(--y),0)}}@keyframes Toastify__slideOutLeft{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(-110%,var(--y),0)}}@keyframes Toastify__slideOutDown{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(0,500px,0)}}@keyframes Toastify__slideOutUp{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(0,-500px,0)}}.Toastify__slide-enter--bottom-left,.Toastify__slide-enter--top-left{animation-name:Toastify__slideInLeft}.Toastify__slide-enter--bottom-right,.Toastify__slide-enter--top-right{animation-name:Toastify__slideInRight}.Toastify__slide-enter--top-center{animation-name:Toastify__slideInDown}.Toastify__slide-enter--bottom-center{animation-name:Toastify__slideInUp}.Toastify__slide-exit--bottom-left,.Toastify__slide-exit--top-left{animation-name:Toastify__slideOutLeft;animation-timing-function:ease-in;animation-duration:.3s}.Toastify__slide-exit--bottom-right,.Toastify__slide-exit--top-right{animation-name:Toastify__slideOutRight;animation-timing-function:ease-in;animation-duration:.3s}.Toastify__slide-exit--top-center{animation-name:Toastify__slideOutUp;animation-timing-function:ease-in;animation-duration:.3s}.Toastify__slide-exit--bottom-center{animation-name:Toastify__slideOutDown;animation-timing-function:ease-in;animation-duration:.3s}@keyframes Toastify__spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}</style><style>@font-face{font-family:"ProximaVara-Roman";src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/proxima-vara-roman-black.f99ab2034eea98d11ef4.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/proxima-vara-roman-black.fe9b55be9cb49a68107a.woff) format("woff");font-weight:100 1000;font-display:swap;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.scispace-plugin-maximized{width:calc(100% - 420px) !important}@media print{#scispace-extension-root{visibility:hidden}.scispace-plugin-maximized{width:initial !important}}</style><style>@font-face{font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_AMS-Regular.73ea273a72f4aca30ca5.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_AMS-Regular.d562e886c52f12660a41.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf) format("truetype")}@font-face{font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Caligraphic-Bold.a1abf90dfd72792a577a.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Caligraphic-Bold.d757c535a2e5902f1325.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Caligraphic-Bold.7489a2fbfb9bfe704420.ttf) format("truetype")}@font-face{font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Caligraphic-Regular.d6484fce1ef428d5bd94.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Caligraphic-Regular.db074fa22cf224af93d7.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Caligraphic-Regular.7e873d3833eb108a0758.ttf) format("truetype")}@font-face{font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Fraktur-Bold.931d67ea207ab37ee693.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Fraktur-Bold.354501bac435c3264834.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Fraktur-Bold.4c761b3711973ab04edf.ttf) format("truetype")}@font-face{font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Fraktur-Regular.172d3529b26f8cedef6b.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Fraktur-Regular.6fdf0ac577be0ba82a4c.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Fraktur-Regular.ed305b5434865e06ffde.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-Bold.39890742bc957b368704.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-Bold.0c3b8929d377c0e9b2f3.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-Bold.8169508bf58f8bd92ad8.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-BoldItalic.20f389c4120be058d80a.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-BoldItalic.428978dc7837d46de091.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-BoldItalic.828abcb200061cffbaae.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-Italic.fe2176f79edaa716e621.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-Italic.fd947498bc16392e76c2.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-Italic.fa675e5e4bec9eb250b6.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-Regular.f650f111a3b890d116f1.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-Regular.4f35fbcc9ee8614c2bcc.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf) format("truetype")}@font-face{font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Math-BoldItalic.dcbcbd93bac0470b462d.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Math-BoldItalic.3f07ed67f06c720120ce.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Math-BoldItalic.bf2d440b3a42ea78a998.ttf) format("truetype")}@font-face{font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Math-Italic.6d3d25f4820d0da8f01f.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Math-Italic.96759856b4e70f3a8338.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Math-Italic.8a5f936332e8028c7278.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:normal;font-weight:700;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_SansSerif-Bold.95591a929f0d32aa282a.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_SansSerif-Bold.b9cd458ac6d5889ff9c3.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_SansSerif-Bold.5b49f4993ae22d7975b4.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:italic;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_SansSerif-Italic.7d393d382f3e7fb1c637.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_SansSerif-Italic.8d593cfaa96238d5e2f8.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_SansSerif-Italic.b257a18c016f37ee4543.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:normal;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_SansSerif-Regular.cd5e231e0cc53b2cb2c0.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_SansSerif-Regular.02271ec5cb9f5b4588ac.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_SansSerif-Regular.2f7bc363fc5424ebda59.ttf) format("truetype")}@font-face{font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Script-Regular.c81d1b2a4b75d3eded60.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Script-Regular.073b3402d036714b4370.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Script-Regular.fc9ba5249878cd8f8d88.ttf) format("truetype")}@font-face{font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size1-Regular.6eec866c69313624be60.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size1-Regular.0108e89c9003e8c14ea3.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size1-Regular.6de7d4b539221a49e9e2.ttf) format("truetype")}@font-face{font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size2-Regular.2960900c4f271311eb36.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size2-Regular.3a99e70aee4076660d38.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size2-Regular.57f5c1837853986ea1db.ttf) format("truetype")}@font-face{font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size3-Regular.7947224e8a9914fa332b.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size3-Regular.8d6b6822586eea3d3b20.ttf) format("truetype")}@font-face{font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size4-Regular.e418bf257af1052628d8.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size4-Regular.aeffd8025cba3647f1a6.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Size4-Regular.4ad7c7e8bb8d10a34bb7.ttf) format("truetype")}@font-face{font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Typewriter-Regular.c295e7f71970f03c0549.woff2) format("woff2"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Typewriter-Regular.4c6b94fd1d07f8beff7c.woff) format("woff"),url(chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/fonts/KaTeX_Typewriter-Regular.c5c02d763c89380dcb4e.ttf) format("truetype")}.katex{text-rendering:auto;font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2;text-indent:0}.katex *{-ms-high-contrast-adjust:none!important;border-color:currentColor}.katex .katex-version:after{content:"0.16.7"}.katex .katex-mathml{clip:rect(1px,1px,1px,1px);border:0;height:1px;overflow:hidden;padding:0;position:absolute;width:1px}.katex .katex-html>.newline{display:block}.katex .base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .base,.katex .strut{display:inline-block}.katex .textbf{font-weight:700}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:700}.katex .boldsymbol{font-family:KaTeX_Math;font-style:italic;font-weight:700}.katex .amsrm,.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}.katex .mathitsf,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{border-collapse:collapse;display:inline-table;table-layout:fixed}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;position:relative;vertical-align:bottom}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;font-size:1px;min-width:2px;vertical-align:bottom;width:2px}.katex .vbox{align-items:baseline;display:inline-flex;flex-direction:column}.katex .hbox{width:100%}.katex .hbox,.katex .thinbox{display:inline-flex;flex-direction:row}.katex .thinbox{max-width:0;width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline,.katex .hline,.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .rule,.katex .underline .underline-line{min-height:1px}.katex .mspace{display:inline-block}.katex .clap,.katex .llap,.katex .rlap{position:relative;width:0}.katex .clap>.inner,.katex .llap>.inner,.katex .rlap>.inner{position:absolute}.katex .clap>.fix,.katex .llap>.fix,.katex .rlap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .clap>.inner,.katex .rlap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{border:0 solid;display:inline-block;position:relative}.katex .hline,.katex .overline .overline-line,.katex .underline .underline-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline{border-bottom-style:dashed;display:inline-block;width:100%}.katex .sqrt>.root{margin-left:.27777778em;margin-right:-.55555556em}.katex .fontsize-ensurer.reset-size1.size1,.katex .sizing.reset-size1.size1{font-size:1em}.katex .fontsize-ensurer.reset-size1.size2,.katex .sizing.reset-size1.size2{font-size:1.2em}.katex .fontsize-ensurer.reset-size1.size3,.katex .sizing.reset-size1.size3{font-size:1.4em}.katex .fontsize-ensurer.reset-size1.size4,.katex .sizing.reset-size1.size4{font-size:1.6em}.katex .fontsize-ensurer.reset-size1.size5,.katex .sizing.reset-size1.size5{font-size:1.8em}.katex .fontsize-ensurer.reset-size1.size6,.katex .sizing.reset-size1.size6{font-size:2em}.katex .fontsize-ensurer.reset-size1.size7,.katex .sizing.reset-size1.size7{font-size:2.4em}.katex .fontsize-ensurer.reset-size1.size8,.katex .sizing.reset-size1.size8{font-size:2.88em}.katex .fontsize-ensurer.reset-size1.size9,.katex .sizing.reset-size1.size9{font-size:3.456em}.katex .fontsize-ensurer.reset-size1.size10,.katex .sizing.reset-size1.size10{font-size:4.148em}.katex .fontsize-ensurer.reset-size1.size11,.katex .sizing.reset-size1.size11{font-size:4.976em}.katex .fontsize-ensurer.reset-size2.size1,.katex .sizing.reset-size2.size1{font-size:.83333333em}.katex .fontsize-ensurer.reset-size2.size2,.katex .sizing.reset-size2.size2{font-size:1em}.katex .fontsize-ensurer.reset-size2.size3,.katex .sizing.reset-size2.size3{font-size:1.16666667em}.katex .fontsize-ensurer.reset-size2.size4,.katex .sizing.reset-size2.size4{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size2.size5,.katex .sizing.reset-size2.size5{font-size:1.5em}.katex .fontsize-ensurer.reset-size2.size6,.katex .sizing.reset-size2.size6{font-size:1.66666667em}.katex .fontsize-ensurer.reset-size2.size7,.katex .sizing.reset-size2.size7{font-size:2em}.katex .fontsize-ensurer.reset-size2.size8,.katex .sizing.reset-size2.size8{font-size:2.4em}.katex .fontsize-ensurer.reset-size2.size9,.katex .sizing.reset-size2.size9{font-size:2.88em}.katex .fontsize-ensurer.reset-size2.size10,.katex .sizing.reset-size2.size10{font-size:3.45666667em}.katex .fontsize-ensurer.reset-size2.size11,.katex .sizing.reset-size2.size11{font-size:4.14666667em}.katex .fontsize-ensurer.reset-size3.size1,.katex .sizing.reset-size3.size1{font-size:.71428571em}.katex .fontsize-ensurer.reset-size3.size2,.katex .sizing.reset-size3.size2{font-size:.85714286em}.katex .fontsize-ensurer.reset-size3.size3,.katex .sizing.reset-size3.size3{font-size:1em}.katex .fontsize-ensurer.reset-size3.size4,.katex .sizing.reset-size3.size4{font-size:1.14285714em}.katex .fontsize-ensurer.reset-size3.size5,.katex .sizing.reset-size3.size5{font-size:1.28571429em}.katex .fontsize-ensurer.reset-size3.size6,.katex .sizing.reset-size3.size6{font-size:1.42857143em}.katex .fontsize-ensurer.reset-size3.size7,.katex .sizing.reset-size3.size7{font-size:1.71428571em}.katex .fontsize-ensurer.reset-size3.size8,.katex .sizing.reset-size3.size8{font-size:2.05714286em}.katex .fontsize-ensurer.reset-size3.size9,.katex .sizing.reset-size3.size9{font-size:2.46857143em}.katex .fontsize-ensurer.reset-size3.size10,.katex .sizing.reset-size3.size10{font-size:2.96285714em}.katex .fontsize-ensurer.reset-size3.size11,.katex .sizing.reset-size3.size11{font-size:3.55428571em}.katex .fontsize-ensurer.reset-size4.size1,.katex .sizing.reset-size4.size1{font-size:.625em}.katex .fontsize-ensurer.reset-size4.size2,.katex .sizing.reset-size4.size2{font-size:.75em}.katex .fontsize-ensurer.reset-size4.size3,.katex .sizing.reset-size4.size3{font-size:.875em}.katex .fontsize-ensurer.reset-size4.size4,.katex .sizing.reset-size4.size4{font-size:1em}.katex .fontsize-ensurer.reset-size4.size5,.katex .sizing.reset-size4.size5{font-size:1.125em}.katex .fontsize-ensurer.reset-size4.size6,.katex .sizing.reset-size4.size6{font-size:1.25em}.katex .fontsize-ensurer.reset-size4.size7,.katex .sizing.reset-size4.size7{font-size:1.5em}.katex .fontsize-ensurer.reset-size4.size8,.katex .sizing.reset-size4.size8{font-size:1.8em}.katex .fontsize-ensurer.reset-size4.size9,.katex .sizing.reset-size4.size9{font-size:2.16em}.katex .fontsize-ensurer.reset-size4.size10,.katex .sizing.reset-size4.size10{font-size:2.5925em}.katex .fontsize-ensurer.reset-size4.size11,.katex .sizing.reset-size4.size11{font-size:3.11em}.katex .fontsize-ensurer.reset-size5.size1,.katex .sizing.reset-size5.size1{font-size:.55555556em}.katex .fontsize-ensurer.reset-size5.size2,.katex .sizing.reset-size5.size2{font-size:.66666667em}.katex .fontsize-ensurer.reset-size5.size3,.katex .sizing.reset-size5.size3{font-size:.77777778em}.katex .fontsize-ensurer.reset-size5.size4,.katex .sizing.reset-size5.size4{font-size:.88888889em}.katex .fontsize-ensurer.reset-size5.size5,.katex .sizing.reset-size5.size5{font-size:1em}.katex .fontsize-ensurer.reset-size5.size6,.katex .sizing.reset-size5.size6{font-size:1.11111111em}.katex .fontsize-ensurer.reset-size5.size7,.katex .sizing.reset-size5.size7{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size5.size8,.katex .sizing.reset-size5.size8{font-size:1.6em}.katex .fontsize-ensurer.reset-size5.size9,.katex .sizing.reset-size5.size9{font-size:1.92em}.katex .fontsize-ensurer.reset-size5.size10,.katex .sizing.reset-size5.size10{font-size:2.30444444em}.katex .fontsize-ensurer.reset-size5.size11,.katex .sizing.reset-size5.size11{font-size:2.76444444em}.katex .fontsize-ensurer.reset-size6.size1,.katex .sizing.reset-size6.size1{font-size:.5em}.katex .fontsize-ensurer.reset-size6.size2,.katex .sizing.reset-size6.size2{font-size:.6em}.katex .fontsize-ensurer.reset-size6.size3,.katex .sizing.reset-size6.size3{font-size:.7em}.katex .fontsize-ensurer.reset-size6.size4,.katex .sizing.reset-size6.size4{font-size:.8em}.katex .fontsize-ensurer.reset-size6.size5,.katex .sizing.reset-size6.size5{font-size:.9em}.katex .fontsize-ensurer.reset-size6.size6,.katex .sizing.reset-size6.size6{font-size:1em}.katex .fontsize-ensurer.reset-size6.size7,.katex .sizing.reset-size6.size7{font-size:1.2em}.katex .fontsize-ensurer.reset-size6.size8,.katex .sizing.reset-size6.size8{font-size:1.44em}.katex .fontsize-ensurer.reset-size6.size9,.katex .sizing.reset-size6.size9{font-size:1.728em}.katex .fontsize-ensurer.reset-size6.size10,.katex .sizing.reset-size6.size10{font-size:2.074em}.katex .fontsize-ensurer.reset-size6.size11,.katex .sizing.reset-size6.size11{font-size:2.488em}.katex .fontsize-ensurer.reset-size7.size1,.katex .sizing.reset-size7.size1{font-size:.41666667em}.katex .fontsize-ensurer.reset-size7.size2,.katex .sizing.reset-size7.size2{font-size:.5em}.katex .fontsize-ensurer.reset-size7.size3,.katex .sizing.reset-size7.size3{font-size:.58333333em}.katex .fontsize-ensurer.reset-size7.size4,.katex .sizing.reset-size7.size4{font-size:.66666667em}.katex .fontsize-ensurer.reset-size7.size5,.katex .sizing.reset-size7.size5{font-size:.75em}.katex .fontsize-ensurer.reset-size7.size6,.katex .sizing.reset-size7.size6{font-size:.83333333em}.katex .fontsize-ensurer.reset-size7.size7,.katex .sizing.reset-size7.size7{font-size:1em}.katex .fontsize-ensurer.reset-size7.size8,.katex .sizing.reset-size7.size8{font-size:1.2em}.katex .fontsize-ensurer.reset-size7.size9,.katex .sizing.reset-size7.size9{font-size:1.44em}.katex .fontsize-ensurer.reset-size7.size10,.katex .sizing.reset-size7.size10{font-size:1.72833333em}.katex .fontsize-ensurer.reset-size7.size11,.katex .sizing.reset-size7.size11{font-size:2.07333333em}.katex .fontsize-ensurer.reset-size8.size1,.katex .sizing.reset-size8.size1{font-size:.34722222em}.katex .fontsize-ensurer.reset-size8.size2,.katex .sizing.reset-size8.size2{font-size:.41666667em}.katex .fontsize-ensurer.reset-size8.size3,.katex .sizing.reset-size8.size3{font-size:.48611111em}.katex .fontsize-ensurer.reset-size8.size4,.katex .sizing.reset-size8.size4{font-size:.55555556em}.katex .fontsize-ensurer.reset-size8.size5,.katex .sizing.reset-size8.size5{font-size:.625em}.katex .fontsize-ensurer.reset-size8.size6,.katex .sizing.reset-size8.size6{font-size:.69444444em}.katex .fontsize-ensurer.reset-size8.size7,.katex .sizing.reset-size8.size7{font-size:.83333333em}.katex .fontsize-ensurer.reset-size8.size8,.katex .sizing.reset-size8.size8{font-size:1em}.katex .fontsize-ensurer.reset-size8.size9,.katex .sizing.reset-size8.size9{font-size:1.2em}.katex .fontsize-ensurer.reset-size8.size10,.katex .sizing.reset-size8.size10{font-size:1.44027778em}.katex .fontsize-ensurer.reset-size8.size11,.katex .sizing.reset-size8.size11{font-size:1.72777778em}.katex .fontsize-ensurer.reset-size9.size1,.katex .sizing.reset-size9.size1{font-size:.28935185em}.katex .fontsize-ensurer.reset-size9.size2,.katex .sizing.reset-size9.size2{font-size:.34722222em}.katex .fontsize-ensurer.reset-size9.size3,.katex .sizing.reset-size9.size3{font-size:.40509259em}.katex .fontsize-ensurer.reset-size9.size4,.katex .sizing.reset-size9.size4{font-size:.46296296em}.katex .fontsize-ensurer.reset-size9.size5,.katex .sizing.reset-size9.size5{font-size:.52083333em}.katex .fontsize-ensurer.reset-size9.size6,.katex .sizing.reset-size9.size6{font-size:.5787037em}.katex .fontsize-ensurer.reset-size9.size7,.katex .sizing.reset-size9.size7{font-size:.69444444em}.katex .fontsize-ensurer.reset-size9.size8,.katex .sizing.reset-size9.size8{font-size:.83333333em}.katex .fontsize-ensurer.reset-size9.size9,.katex .sizing.reset-size9.size9{font-size:1em}.katex .fontsize-ensurer.reset-size9.size10,.katex .sizing.reset-size9.size10{font-size:1.20023148em}.katex .fontsize-ensurer.reset-size9.size11,.katex .sizing.reset-size9.size11{font-size:1.43981481em}.katex .fontsize-ensurer.reset-size10.size1,.katex .sizing.reset-size10.size1{font-size:.24108004em}.katex .fontsize-ensurer.reset-size10.size2,.katex .sizing.reset-size10.size2{font-size:.28929605em}.katex .fontsize-ensurer.reset-size10.size3,.katex .sizing.reset-size10.size3{font-size:.33751205em}.katex .fontsize-ensurer.reset-size10.size4,.katex .sizing.reset-size10.size4{font-size:.38572806em}.katex .fontsize-ensurer.reset-size10.size5,.katex .sizing.reset-size10.size5{font-size:.43394407em}.katex .fontsize-ensurer.reset-size10.size6,.katex .sizing.reset-size10.size6{font-size:.48216008em}.katex .fontsize-ensurer.reset-size10.size7,.katex .sizing.reset-size10.size7{font-size:.57859209em}.katex .fontsize-ensurer.reset-size10.size8,.katex .sizing.reset-size10.size8{font-size:.69431051em}.katex .fontsize-ensurer.reset-size10.size9,.katex .sizing.reset-size10.size9{font-size:.83317261em}.katex .fontsize-ensurer.reset-size10.size10,.katex .sizing.reset-size10.size10{font-size:1em}.katex .fontsize-ensurer.reset-size10.size11,.katex .sizing.reset-size10.size11{font-size:1.19961427em}.katex .fontsize-ensurer.reset-size11.size1,.katex .sizing.reset-size11.size1{font-size:.20096463em}.katex .fontsize-ensurer.reset-size11.size2,.katex .sizing.reset-size11.size2{font-size:.24115756em}.katex .fontsize-ensurer.reset-size11.size3,.katex .sizing.reset-size11.size3{font-size:.28135048em}.katex .fontsize-ensurer.reset-size11.size4,.katex .sizing.reset-size11.size4{font-size:.32154341em}.katex .fontsize-ensurer.reset-size11.size5,.katex .sizing.reset-size11.size5{font-size:.36173633em}.katex .fontsize-ensurer.reset-size11.size6,.katex .sizing.reset-size11.size6{font-size:.40192926em}.katex .fontsize-ensurer.reset-size11.size7,.katex .sizing.reset-size11.size7{font-size:.48231511em}.katex .fontsize-ensurer.reset-size11.size8,.katex .sizing.reset-size11.size8{font-size:.57877814em}.katex .fontsize-ensurer.reset-size11.size9,.katex .sizing.reset-size11.size9{font-size:.69453376em}.katex .fontsize-ensurer.reset-size11.size10,.katex .sizing.reset-size11.size10{font-size:.83360129em}.katex .fontsize-ensurer.reset-size11.size11,.katex .sizing.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:.12em}.katex .delimcenter,.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .accent>.vlist-t,.katex .op-limits>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{fill:currentColor;stroke:currentColor;fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;display:block;height:inherit;position:absolute;width:100%}.katex svg path{stroke:none}.katex img{border-style:none;max-height:none;max-width:none;min-height:0;min-width:0}.katex .stretchy{display:block;overflow:hidden;position:relative;width:100%}.katex .stretchy:after,.katex .stretchy:before{content:""}.katex .hide-tail{overflow:hidden;position:relative;width:100%}.katex .halfarrow-left{left:0;overflow:hidden;position:absolute;width:50.2%}.katex .halfarrow-right{overflow:hidden;position:absolute;right:0;width:50.2%}.katex .brace-left{left:0;overflow:hidden;position:absolute;width:25.1%}.katex .brace-center{left:25%;overflow:hidden;position:absolute;width:50%}.katex .brace-right{overflow:hidden;position:absolute;right:0;width:25.1%}.katex .x-arrow-pad{padding:0 .5em}.katex .cd-arrow-pad{padding:0 .55556em 0 .27778em}.katex .mover,.katex .munder,.katex .x-arrow{text-align:center}.katex .boxpad{padding:0 .3em}.katex .fbox,.katex .fcolorbox{border:.04em solid;box-sizing:border-box}.katex .cancel-pad{padding:0 .2em}.katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:.08em}.katex .angl{border-right:.049em solid;border-top:.049em solid;box-sizing:border-box;margin-right:.03889em}.katex .anglpad{padding:0 .03889em}.katex .eqn-num:before{content:"(" counter(katexEqnNo) ")";counter-increment:katexEqnNo}.katex .mml-eqn-num:before{content:"(" counter(mmlEqnNo) ")";counter-increment:mmlEqnNo}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + .3em);text-align:left}.katex .cd-label-right{display:inline-block;left:calc(50% + .3em);position:absolute;text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{padding-left:2em;text-align:left}body{counter-reset:katexEqnNo mmlEqnNo}
+</style></head>
+<body>
+<div class="page">
+
+<h1>Section 3 — コマンド一覧チートシート</h1>
+<p class="subtitle">解説なし・コマンドだけ・コピペ用</p>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- 3.1 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">
+    <span class="badge badge-1">3.1</span>
+    <h2>EEM × GuestShell × Python — R23</h2>
+  </div>
+
+  <div class="step-label">① IOS-XE コンフィグ</div>
+<pre>configure terminal
+
+logging console
+
+interface Loopback10
+ ip address 192.168.1.1 255.255.255.0
+
+interface VirtualPortGroup0
+ ip address 192.168.0.1 255.255.255.0
+
+router ospf 1
+ network 192.168.0.0 0.0.0.255 area 0
+ passive-interface VirtualPortGroup0
+
+track 1 interface Loopback10 line-protocol
+
+event manager applet RCA
+ event track 1 state down ratelimit 5
+ action 1.0 cli command "enable"
+ action 2.0 cli command "guestshell run python3 eem_script.py loop10"
+ action 3.0 syslog priority notifications msg "RCA Data Capture Complete"
+ exit
+
+iox
+
+app-hosting appid guestshell
+ app-vnic gateway0 virtualportgroup 0 guest-interface 0
+  guest-ipaddress 192.168.0.2 netmask 255.255.255.0
+  exit
+ app-default-gateway 192.168.0.1 guest-interface 0
+end</pre>
+
+  <div class="step-label">② GuestShell 起動 &amp; 確認</div>
+<pre>guestshell enable
+show iox-service</pre>
+
+  <div class="step-label">③ Python スクリプト（eem_script.py）</div>
+  <div class="script-block"><span class="comment">#!/usr/bin/env python3</span>
+<span class="kw">import</span> cli
+<span class="kw">import</span> sys
+
+cmds = [
+    <span class="str">"show ip interface brief"</span>,
+    <span class="str">"show ip ospf neighbor"</span>,
+    <span class="str">"show ip route"</span>,
+    <span class="kw">f</span><span class="str">"show interface {sys.argv[1]}"</span>,
+    <span class="str">"show log"</span>
+]
+
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"/bootflash/guest-share/RCA_Capture.txt"</span>, <span class="str">"a+"</span>) <span class="kw">as</span> f:
+    <span class="kw">for</span> cmd <span class="kw">in</span> cmds:
+        output = cli.<span class="fn">execute</span>(cmd)
+        f.write(output)</div>
+
+  <div class="step-label">④ テスト手順</div>
+<pre>configure terminal
+interface Loopback10
+ shutdown
+end
+
+<span class="comment">! → EEM発火 → syslog "RCA Data Capture Complete" を確認</span>
+more bootflash:guest-share/RCA_Capture.txt</pre>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- 3.2 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">
+    <span class="badge badge-2">3.2</span>
+    <h2>RESTCONF Python スクリプト修正 — R30 (10.3.11.1)</h2>
+  </div>
+
+  <div class="note">Linux Host 31 にログイン → <code>vi /home/cisco/scripts/ccie_restconf.py</code> で編集 → <code>python3</code> で実行</div>
+
+  <div class="step-label">修正箇所 4つ</div>
+<pre><span class="comment"># Bug 1: import requests が無い</span>
+                                   <span class="warn">→ import requests を追加</span>
+
+<span class="comment"># Bug 2: host が空文字</span>
+host = ""                          <span class="warn">→ host = "10.3.11.1"</span>
+
+<span class="comment"># Bug 3: GET に不要な data=payload（payload未定義でNameError）</span>
+data=payload,                      <span class="warn">→ 行ごと削除</span>
+
+<span class="comment"># Bug 4: .json はメソッド呼び出しが必要</span>
+jsondata = response.json           <span class="warn">→ jsondata = response.json()</span></pre>
+
+  <div class="step-label">修正済み完全スクリプト</div>
+  <div class="script-block"><span class="kw">import</span> json
+<span class="kw">import</span> requests
+<span class="kw">import</span> urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+host = <span class="str">"10.3.11.1"</span>
+port = <span class="str">"443"</span>
+url = <span class="kw">f</span><span class="str">"https://{host}:{port}/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/interface"</span>
+
+headers = {
+    <span class="str">"Accept"</span>: <span class="str">"application/yang-data+json"</span>,
+    <span class="str">"Content-Type"</span>: <span class="str">"application/yang-data+json"</span>
+}
+
+response = requests.<span class="fn">request</span>(
+    <span class="str">'get'</span>,
+    url,
+    auth=(<span class="str">"netadmin"</span>, <span class="str">"CCIEinfra"</span>),
+    headers=headers,
+    verify=<span class="kw">False</span>
+)
+
+jsondata = response.<span class="fn">json</span>()
+
+<span class="fn">print</span>(<span class="str">"-"</span> * 100)
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">"{'Interface':&lt;45} {'Ingress Octets':&lt;30} {'Egress Octets':&lt;30}"</span>)
+<span class="fn">print</span>(<span class="str">"-"</span> * 100)
+
+<span class="kw">for</span> interface <span class="kw">in</span> jsondata[<span class="str">"Cisco-IOS-XE-interfaces-oper:interface"</span>]:
+    <span class="kw">if</span> (interface[<span class="str">'oper-status'</span>] == <span class="str">'if-oper-state-ready'</span> <span class="kw">and</span>
+        interface[<span class="str">'interface-type'</span>] == <span class="str">'iana-iftype-ethernet-csmacd'</span>):
+        switchport = interface[<span class="str">"name"</span>]
+        ingressoctets = interface[<span class="str">"statistics"</span>][<span class="str">"in-octets"</span>]
+        egressoctets = interface[<span class="str">"statistics"</span>][<span class="str">"out-octets"</span>]
+        <span class="fn">print</span>(<span class="kw">f</span><span class="str">"{switchport:&lt;45} {ingressoctets:&lt;30} {egressoctets:&lt;30}"</span>)</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- 3.3 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">
+    <span class="badge badge-3">3.3</span>
+    <h2>DNA Center API エンドポイント特定</h2>
+  </div>
+
+  <div class="note">JSONレスポンスを見て、どのAPIエンドポイントから返されたものか特定する推論問題</div>
+
+<pre><span class="highlight">正解: /dna/intent/api/v1/device-details</span>
+
+<span class="comment">決め手となるフィールド:</span>
+  memoryScore    ← device-details 固有
+  cpuScore       ← device-details 固有
+  timestamp      ← device-details 固有
+  overallHealth  ← device-details / device-enrichment-details
+
+<span class="comment">除外理由:</span>
+  /network-device              → health系フィールドが無い
+  /device-enrichment-details   → memoryScore, cpuScore, timestamp が無い
+                                  レスポンス構造がネスト型で異なる</pre>
+</div>
+
+</div>
+<script>
+(function(){
+  function setFontScale(p){document.documentElement.style.fontSize=p+'%'}
+  function setTheme(t){
+    if(t==='dark') document.documentElement.setAttribute('data-theme','dark');
+    else if(t==='light') document.documentElement.removeAttribute('data-theme');
+    else {
+      if(window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme','dark');
+      else document.documentElement.removeAttribute('data-theme');
+    }
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||!e.data.type)return;
+    if(e.data.type==='setFontScale')setFontScale(e.data.value);
+    if(e.data.type==='setTheme')setTheme(e.data.value);
+  });
+  if(window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme','dark');
+})();
+</script>
+<a id="hub-back" href="https://delicate-pine-6fa3.yxnatakeuchi.workers.dev/index.html" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:#1e293b;color:#f1f5f9;border:1px solid #475569;border-radius:99px;padding:10px 18px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.4);display:flex;align-items:center;gap:6px;-webkit-tap-highlight-color:transparent;">🏠 Hub</a>
+
+<div><div style="display: none; position: fixed; top: 30px; width: auto; max-width: 100%; text-align: center; left: 50%; transform: translateX(-50%); z-index: 99999999;"><div style="display: inline-block; font-size: 14px; font-weight: bold; border: 1px solid rgb(240, 195, 109); background-color: rgb(249, 237, 190); padding: 0px 10px; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;"></div></div></div></body><scispace-div id="scispace-extension-root"><template shadowrootmode="open"><style>
+    :host {
+      all: initial;
+      font-size: initial ;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="chrome-extension://cipccbpjpemcnijhjcdjmkjhmhniiick/static/styles/styles-a715a14bc093c98f0230.css"><div class="container"><div id="scispace-extension-app-root"><div class="box-border h-full w-full"><div class="Toastify"></div><div data-plugin-state="COLLAPSED" data-plugin-context-id="e1525b0c-8d64-49ad-bf98-6e98f8e24031"></div><div class="relative"></div></div></div></div></template></scispace-div></html>
