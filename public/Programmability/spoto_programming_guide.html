@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)/Programmability/spoto_programming_guide.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCIE Automation Section 3 — 完全回答集</title>
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --surface-alt: #f1f5f9;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --heading: #0f172a;
+    --accent-1: #2563eb;
+    --accent-2: #7c3aed;
+    --accent-3: #059669;
+    --accent-4: #d97706;
+    --code-bg: #f1f5f9;
+    --code-border: #e2e8f0;
+    --tag-bg: rgba(37, 99, 235, 0.08);
+    --tag-border: rgba(37, 99, 235, 0.2);
+    --red: #dc2626;
+    --red-soft: #b91c1c;
+    --green-soft: #047857;
+    --callout-bg: #f8fafc;
+    --callout-red-bg: #fef2f2;
+    --callout-purple-bg: #faf5ff;
+    --callout-green-bg: #f0fdf4;
+    --answer-bg: linear-gradient(135deg, rgba(37,99,235,.04), rgba(124,58,237,.04));
+    --answer-border: rgba(37,99,235,.15);
+    --answer-green-bg: linear-gradient(135deg, rgba(5,150,105,.04), rgba(37,99,235,.04));
+    --answer-green-border: rgba(5,150,105,.15);
+    --json-bg: #f8fafc;
+    --json-key: #2563eb;
+    --json-str: #059669;
+    --json-num: #d97706;
+    --json-comment: #94a3b8;
+    --bugfix-before-bg: #fef2f2;
+    --bugfix-before-border: rgba(220,38,38,.2);
+    --bugfix-before-color: #b91c1c;
+    --bugfix-after-bg: #f0fdf4;
+    --bugfix-after-border: rgba(5,150,105,.2);
+    --bugfix-after-color: #047857;
+    --highlight-row-bg: rgba(37,99,235,.04);
+    --check-color: #059669;
+    --cross-color: #dc2626;
+    --pre-color: #334155;
+    --flow-line: #e2e8f0;
+  }
+  :root[data-theme="dark"] {
+      --bg: #0c0f14;
+      --surface: #151921;
+      --surface-alt: #1a1f2b;
+      --border: #2a3040;
+      --text: #c8cdd8;
+      --text-muted: #6b7280;
+      --heading: #e8ecf2;
+      --accent-1: #38bdf8;
+      --accent-2: #a78bfa;
+      --accent-3: #34d399;
+      --accent-4: #fb923c;
+      --code-bg: #1e2330;
+      --code-border: #2d3548;
+      --tag-bg: rgba(56, 189, 248, 0.1);
+      --tag-border: rgba(56, 189, 248, 0.25);
+      --red: #ef4444;
+      --red-soft: #fca5a5;
+      --green-soft: #6ee7b7;
+      --callout-bg: #1a1f2b;
+      --callout-red-bg: rgba(239,68,68,.06);
+      --callout-purple-bg: rgba(167,139,250,.06);
+      --callout-green-bg: rgba(52,211,153,.06);
+      --answer-bg: linear-gradient(135deg, rgba(56,189,248,.06), rgba(167,139,250,.06));
+      --answer-border: rgba(56,189,248,.2);
+      --answer-green-bg: linear-gradient(135deg, rgba(52,211,153,.06), rgba(56,189,248,.06));
+      --answer-green-border: rgba(52,211,153,.2);
+      --json-bg: #1a1e2a;
+      --json-key: #38bdf8;
+      --json-str: #34d399;
+      --json-num: #fb923c;
+      --json-comment: #555e70;
+      --bugfix-before-bg: rgba(239,68,68,.06);
+      --bugfix-before-border: rgba(239,68,68,.2);
+      --bugfix-before-color: #fca5a5;
+      --bugfix-after-bg: rgba(52,211,153,.06);
+      --bugfix-after-border: rgba(52,211,153,.2);
+      --bugfix-after-color: #6ee7b7;
+      --highlight-row-bg: rgba(56,189,248,.04);
+      --check-color: #34d399;
+      --cross-color: #ef4444;
+      --pre-color: #b0bbd0;
+      --flow-line: #2a3040;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  .page { max-width: 980px; margin: 0 auto; padding: 56px 32px 120px; }
+
+  /* Hero */
+  .hero { text-align: center; margin-bottom: 72px; padding: 48px 0; position: relative; }
+  .hero::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:140px; height:2px; background:linear-gradient(90deg,var(--accent-1),var(--accent-2),var(--accent-3)); border-radius:1px; }
+  .hero-label { font-family:'SF Mono','Fira Code','Consolas',monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--accent-1); margin-bottom:14px; }
+  .hero h1 { font-size:36px; color:var(--heading); line-height:1.25; margin-bottom:14px; font-weight:700; }
+  .hero p { color:var(--text-muted); font-size:15px; max-width:620px; margin:0 auto; }
+
+  /* Section */
+  .section { margin-bottom: 72px; }
+  .section-header { display:flex; align-items:center; gap:16px; margin-bottom:28px; padding-bottom:14px; border-bottom:1px solid var(--border); }
+  .section-num { font-family:'SF Mono','Fira Code','Consolas',monospace; font-size:12px; font-weight:700; padding:6px 14px; border-radius:6px; flex-shrink:0; }
+  .section-num.s1 { background:rgba(37,99,235,.1); color:var(--accent-1); }
+  .section-num.s2 { background:rgba(124,58,237,.1); color:var(--accent-2); }
+  .section-num.s3 { background:rgba(5,150,105,.1); color:var(--accent-3); }
+  .section-header h2 { font-size:22px; font-weight:700; color:var(--heading); }
+
+  /* Card */
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:28px 32px; margin-bottom:20px; }
+  .card h3 { font-size:16px; font-weight:700; color:var(--heading); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+  .card h3 .icon { font-size:18px; flex-shrink:0; }
+  .card h4 { font-size:14px; font-weight:700; color:var(--heading); margin:20px 0 8px; }
+
+  /* Code */
+  pre { background:var(--code-bg); border:1px solid var(--code-border); border-radius:8px; padding:20px 24px; overflow-x:auto; margin:14px 0; font-family:'SF Mono','Fira Code','Consolas',monospace; font-size:13px; line-height:1.7; color:var(--pre-color); }
+  code { font-family:'SF Mono','Fira Code','Consolas',monospace; font-size:13px; background:var(--code-bg); padding:2px 6px; border-radius:4px; color:var(--accent-1); }
+  .code-title { font-family:'SF Mono','Fira Code','Consolas',monospace; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px; display:block; }
+
+  /* Callout */
+  .callout { background:var(--callout-bg); border-left:3px solid var(--accent-1); padding:16px 20px; border-radius:0 8px 8px 0; margin:16px 0; font-size:14px; }
+  .callout.purple { border-left-color:var(--accent-2); background:var(--callout-purple-bg); }
+  .callout.green { border-left-color:var(--accent-3); background:var(--callout-green-bg); }
+  .callout.orange { border-left-color:var(--accent-4); }
+  .callout.red { border-left-color:var(--red); background:var(--callout-red-bg); }
+  .callout strong { color:var(--heading); }
+
+  /* Answer Box */
+  .answer-box { background:var(--answer-bg); border:1px solid var(--answer-border); border-radius:12px; padding:24px 28px; margin:20px 0; }
+  .answer-box.green { background:var(--answer-green-bg); border-color:var(--answer-green-border); }
+  .answer-box .answer-label { font-family:'SF Mono','Fira Code','Consolas',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--accent-3); margin-bottom:10px; display:block; }
+  .answer-box h4 { margin-top:0; color:var(--heading); font-size:15px; }
+
+  /* Table */
+  .table-wrap { overflow-x:auto; margin:14px 0; border-radius:8px; border:1px solid var(--border); }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  thead { background:var(--surface-alt); }
+  th { text-align:left; padding:12px 16px; font-weight:700; color:var(--heading); white-space:nowrap; border-bottom:1px solid var(--border); }
+  td { padding:10px 16px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  .check { color:var(--check-color); font-weight:700; }
+  .cross { color:var(--cross-color); font-weight:700; }
+  .highlight-row { background:var(--highlight-row-bg); }
+
+  /* Tag */
+  .tag { display:inline-block; font-family:'SF Mono','Fira Code','Consolas',monospace; font-size:11px; padding:3px 10px; border-radius:4px; background:var(--tag-bg); border:1px solid var(--tag-border); color:var(--accent-1); }
+  .tag.purple { background:rgba(124,58,237,.08); border-color:rgba(124,58,237,.2); color:var(--accent-2); }
+  .tag.green { background:rgba(5,150,105,.08); border-color:rgba(5,150,105,.2); color:var(--accent-3); }
+  .tag.orange { background:rgba(217,119,6,.08); border-color:rgba(217,119,6,.2); color:var(--accent-4); }
+
+  /* Flow */
+  .flow { display:flex; flex-direction:column; margin:16px 0; }
+  .flow-step { display:flex; align-items:flex-start; gap:16px; }
+  .flow-track { display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:32px; }
+  .flow-dot { width:12px; height:12px; border-radius:50%; background:var(--accent-1); flex-shrink:0; margin-top:6px; }
+  .flow-line { width:2px; flex:1; min-height:20px; background:var(--flow-line); }
+  .flow-content { padding-bottom:18px; }
+  .flow-content strong { color:var(--heading); font-size:14px; }
+  .flow-content span { display:block; font-size:13px; color:var(--text-muted); margin-top:2px; }
+
+  /* Bug Fix */
+  .bugfix { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:10px 0 4px; }
+  .bugfix-before, .bugfix-after { border-radius:8px; padding:14px 18px; font-family:'SF Mono','Fira Code','Consolas',monospace; font-size:12.5px; line-height:1.6; white-space:pre-wrap; }
+  .bugfix-before { background:var(--bugfix-before-bg); border:1px solid var(--bugfix-before-border); color:var(--bugfix-before-color); }
+  .bugfix-after { background:var(--bugfix-after-bg); border:1px solid var(--bugfix-after-border); color:var(--bugfix-after-color); }
+  .bugfix-label { font-size:10px; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px; display:block; }
+  .bugfix-before .bugfix-label { color:var(--red); }
+  .bugfix-after .bugfix-label { color:var(--accent-3); }
+
+  /* Separator */
+  .sep { height:1px; background:var(--border); margin:12px 0; }
+
+  /* Step Label */
+  .step-label { display:inline-block; font-family:'SF Mono','Fira Code','Consolas',monospace; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-bottom:6px; }
+  .step-label.blue { background:rgba(37,99,235,.1); color:var(--accent-1); }
+  .step-label.purple { background:rgba(124,58,237,.1); color:var(--accent-2); }
+  .step-label.green { background:rgba(5,150,105,.1); color:var(--accent-3); }
+
+  /* JSON Block */
+  .json-block { background:var(--json-bg); border:1px solid var(--code-border); border-radius:8px; padding:20px 24px; margin:14px 0; font-family:'SF Mono','Fira Code','Consolas',monospace; font-size:12.5px; line-height:1.65; color:var(--text-muted); overflow-x:auto; white-space:pre; }
+  .json-block .key { color:var(--json-key); }
+  .json-block .str { color:var(--json-str); }
+  .json-block .num { color:var(--json-num); }
+  .json-block .comment { color:var(--json-comment); font-style:italic; }
+
+  /* Mobile */
+  @media (max-width:640px) {
+    .page { padding:28px 14px 60px; }
+    .hero { margin-bottom:40px; padding:24px 0; }
+    .hero h1 { font-size:24px; }
+    .hero p { font-size:13px; }
+    .section { margin-bottom:40px; }
+    .section-header { flex-direction:column; align-items:flex-start; gap:8px; margin-bottom:18px; }
+    .section-header h2 { font-size:18px; }
+    .card { padding:18px 16px; border-radius:10px; }
+    .card h3 { font-size:15px; }
+    pre { padding:14px 12px; font-size:11.5px; }
+    code { font-size:11.5px; }
+    .bugfix { grid-template-columns:1fr; }
+    .bugfix-before, .bugfix-after { font-size:11.5px; padding:10px 12px; }
+    table { font-size:12px; }
+    th, td { padding:8px 10px; }
+    .callout { padding:12px 14px; font-size:13px; }
+    .answer-box { padding:16px 18px; }
+    .flow-content strong { font-size:13px; }
+    .flow-content span { font-size:12px; }
+    .json-block { font-size:11px; padding:14px 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- HERO -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="hero">
+    <div class="hero-label">CCIE Enterprise Infrastructure — Automation</div>
+    <h1>Section 3 完全回答集</h1>
+    <p>EEM / GuestShell / RESTCONF / DNA Center API — 全設定コマンド・スクリプト・JSON・判定根拠を網羅した解答リファレンス</p>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- SECTION 3.1 -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num s1">3.1</span>
+      <h2>EEM × GuestShell × Python 自動診断</h2>
+    </div>
+
+    <!-- 目的 -->
+    <div class="card">
+      <h3><span class="icon">🎯</span> タスク概要</h3>
+      <p>ルーター R23 上に Loopback10 を作成し、EEM アプレットと GuestShell を連携させて、Loopback10 のダウン検知時に自動で RCA（Root Cause Analysis）診断データを収集・ファイル保存する仕組みを構築する。</p>
+      <div class="callout">
+        <strong>解決する課題：</strong><br>
+        ・障害発生時にエンジニアが手動でコマンドを叩く必要がある → 自動化<br>
+        ・証跡データの収集漏れを防ぐ → ファイル保存<br>
+        ・復旧後に原因調査できるようにする → RCA データの蓄積
+      </div>
+    </div>
+
+    <!-- 動作フロー -->
+    <div class="card">
+      <h3><span class="icon">⛓️</span> 動作フロー</h3>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-track"><div class="flow-dot"></div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <strong>① Loopback10 がダウン</strong>
+            <span>障害のシミュレーション対象。<code>shutdown</code> で意図的に発生させる。</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-track"><div class="flow-dot" style="background:var(--accent-2)"></div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <strong>② Object Track 1 が状態変化を検知</strong>
+            <span><code>track 1 interface Loopback10 line-protocol</code> — プロトコル状態を常時監視し、down を検出する。</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-track"><div class="flow-dot" style="background:var(--accent-3)"></div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <strong>③ EEM アプレット "RCA" が起動</strong>
+            <span><code>event track 1 state down ratelimit 5</code> — Track 1 が down になった時に発火。ratelimit 5 でチャタリング防止（5秒に1回のみ実行）。</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-track"><div class="flow-dot" style="background:var(--accent-4)"></div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <strong>④ GuestShell 経由で Python スクリプトを実行</strong>
+            <span><code>action 2.0 cli command "guestshell run python3 eem_script.py loop10"</code> — IOS-XE CLI を Python から呼び出し、結果を収集する。</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-track"><div class="flow-dot" style="background:#f472b6"></div></div>
+          <div class="flow-content">
+            <strong>⑤ 診断データをファイルに保存 &amp; syslog 記録</strong>
+            <span>4つの show コマンド出力を <code>bootflash:/guest-share/RCA_Capture.txt</code> に追記。syslog に完了メッセージを出力。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- Config Group 1: OSPF and Loopback10 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="card">
+      <h3><span class="icon">①</span> Configure OSPF and Loopback10</h3>
+      <p style="margin-bottom:16px">まず <code>configure terminal</code> に入り、ロギングを設定したうえで、監視対象インターフェース（Loopback10）、GuestShell 接続用インターフェース（VPG0）、OSPF、Object Tracking を構成する。</p>
+
+      <span class="code-title">完全コンフィグ</span>
+<pre>configure terminal
+logging console
+
+! ── Loopback10（監視対象）──
+interface Loopback10
+ ip address 192.168.1.1 255.255.255.0
+
+! ── VirtualPortGroup0（GuestShell との L3 接続）──
+interface VirtualPortGroup0
+ ip address 192.168.0.1 255.255.255.0
+
+! ── OSPF ──
+router ospf 1
+ network 192.168.0.0 0.0.0.255 area 0
+ passive-interface VirtualPortGroup0
+
+! ── Object Tracking ──
+track 1 interface Loopback10 line-protocol</pre>
+
+      <h4>コンフィグ行ごとの解説</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:40%">コマンド</th><th>解説</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>configure terminal</code></td>
+              <td>グローバルコンフィグモードに移行。以降のすべての設定はこのモード内で実行する。</td>
+            </tr>
+            <tr>
+              <td><code>logging console</code></td>
+              <td>コンソールへの syslog 出力を有効化。EEM の action 3.0 で送信される syslog メッセージ（"RCA Data Capture Complete"）をリアルタイムで確認できるようにする。</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><code>interface Loopback10</code></td>
+              <td>RCA 診断のトリガーとなる監視対象インターフェースを作成。Loopback は物理的に存在しないため、<code>shutdown</code> で意図的に障害をシミュレーションできる。</td>
+            </tr>
+            <tr>
+              <td><code>ip address 192.168.1.1 255.255.255.0</code></td>
+              <td>Loopback10 に IP アドレスを付与。これにより line-protocol が up になり、Object Track の初期状態が確立される。</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><code>interface VirtualPortGroup0</code></td>
+              <td>GuestShell コンテナとルーター間の仮想 L3 インターフェース。GuestShell が外部と通信するための唯一の経路。</td>
+            </tr>
+            <tr>
+              <td><code>ip address 192.168.0.1 255.255.255.0</code></td>
+              <td>ルーター側の IP。この IP が GuestShell のデフォルトゲートウェイになる（192.168.0.1 → 192.168.0.2 の通信パス）。</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><code>router ospf 1</code></td>
+              <td>OSPF プロセス 1 を起動。GuestShell サブネットを他のルーターに広告するために使用。</td>
+            </tr>
+            <tr>
+              <td><code>network 192.168.0.0 0.0.0.255 area 0</code></td>
+              <td>VPG0 のサブネット（192.168.0.0/24）を OSPF area 0 に広告。GuestShell が外部ネットワークと通信可能になる。</td>
+            </tr>
+            <tr>
+              <td><code>passive-interface VirtualPortGroup0</code></td>
+              <td>VPG0 で OSPF Hello パケットの送受信を抑止。GuestShell は OSPF ルーターではないため、ネゴシエーションは不要。ネットワーク広告だけを行う。</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><code>track 1 interface Loopback10 line-protocol</code></td>
+              <td>Loopback10 の line-protocol 状態（up/down）を常時監視するオブジェクトを作成。この Track オブジェクトが EEM のトリガー条件になる。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- Config Group 2: EEM -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="card">
+      <h3><span class="icon">②</span> Configure EEM</h3>
+      <p style="margin-bottom:16px">Object Track 1 が down を検知した時に自動実行される EEM アプレットを定義する。</p>
+
+      <span class="code-title">完全コンフィグ</span>
+<pre>event manager applet RCA
+ event track 1 state down ratelimit 5
+ action 1.0 cli command "enable"
+ action 2.0 cli command "guestshell run python3 eem_script.py loop10"
+ action 3.0 syslog priority notifications msg "RCA Data Capture Complete"</pre>
+
+      <h4>各行の解説</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:45%">コマンド</th><th>解説</th></tr></thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td><code>event manager applet RCA</code></td>
+              <td>EEM アプレット "RCA" を定義。アプレットはイベント駆動型の自動化スクリプトで、指定条件が満たされた時に一連の action を順次実行する。</td>
+            </tr>
+            <tr>
+              <td><code>event track 1 state down ratelimit 5</code></td>
+              <td><strong>トリガー条件：</strong>Track 1（= Loopback10 の line-protocol）が <code>down</code> 状態になった時にアプレットを起動する。<br><br><strong><code>ratelimit 5</code></strong> → 最低5秒の間隔を空けないと再実行されない。インターフェースが頻繁にフラップ（up/down 繰り返し）した場合のチャタリング対策。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>action 解説（実行順序）</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:15%">Action</th><th style="width:40%">コマンド</th><th>解説</th></tr></thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td><code>1.0</code></td>
+              <td><code>cli command "enable"</code></td>
+              <td><strong>特権 EXEC モードに移行。</strong>EEM アプレットはデフォルトで User EXEC モードで実行される。後続の <code>guestshell run</code> コマンドには特権が必要なため、最初に enable する必要がある。</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><code>2.0</code></td>
+              <td><code>cli command "guestshell run python3 eem_script.py loop10"</code></td>
+              <td><strong>GuestShell 内で Python スクリプトを実行。</strong><br>
+                ・<code>guestshell run</code> → IOS-XE CLI から GuestShell 内のコマンドを呼び出すプレフィックス<br>
+                ・<code>python3 eem_script.py</code> → GuestShell 内の Python3 インタプリタでスクリプトを実行<br>
+                ・<code>loop10</code> → スクリプトに渡される引数（<code>sys.argv[1]</code> で受け取り、<code>"show interface loop10"</code> として使用される）
+              </td>
+            </tr>
+            <tr class="highlight-row">
+              <td><code>3.0</code></td>
+              <td><code>syslog priority notifications msg "RCA Data Capture Complete"</code></td>
+              <td><strong>syslog にメッセージを記録。</strong><br>
+                ・<code>priority notifications</code> → syslog severity level 5（通知レベル）<br>
+                ・データ収集完了の証跡として記録。<code>logging console</code> が有効なら、コンソールにもリアルタイム表示される。<br>
+                ・NMS（ネットワーク管理システム）やSIEM で RCA 実行の監査ログとしても活用可能。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <strong>action 番号の意味：</strong><br>
+        <code>1.0</code>, <code>2.0</code>, <code>3.0</code> は実行順序を決定する。EEM は番号の小さい順に action を実行する。小数を使うことで、後から間に action を挿入可能（例: <code>1.5</code> を追加して 1.0 と 2.0 の間に処理を挟める）。
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- Config Group 3: GuestShell Gateway -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="card">
+      <h3><span class="icon">③</span> Configure GuestShell Gateway</h3>
+      <p style="margin-bottom:16px">IOx フレームワークを有効化し、GuestShell コンテナの NIC とゲートウェイを設定する。</p>
+
+      <span class="code-title">完全コンフィグ</span>
+<pre>iox
+
+app-hosting appid guestshell
+ app-vnic gateway0 virtualportgroup 0 guest-interface 0
+  guest-ipaddress 192.168.0.2 netmask 255.255.255.0
+  exit
+ app-default-gateway 192.168.0.1 guest-interface 0</pre>
+
+      <h4>各行の解説</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:50%">コマンド</th><th>解説</th></tr></thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td><code>iox</code></td>
+              <td><strong>IOx フレームワークの有効化。</strong>GuestShell を含むすべてのアプリケーションホスティング機能の前提条件。これを入れないと GuestShell は起動できない。IOx は IOS-XE 上のコンテナ実行基盤。</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><code>app-hosting appid guestshell</code></td>
+              <td><strong>GuestShell アプリケーションの定義。</strong><code>appid guestshell</code> は Cisco が事前定義した Linux コンテナ環境の識別子。このサブモードで NIC やゲートウェイの設定を行う。</td>
+            </tr>
+            <tr>
+              <td><code>app-vnic gateway0 virtualportgroup 0 guest-interface 0</code></td>
+              <td><strong>GuestShell の仮想 NIC を VPG0 にマッピング。</strong><br>
+                ・<code>gateway0</code> → GuestShell 側のゲートウェイインターフェース番号<br>
+                ・<code>virtualportgroup 0</code> → ルーター側の VPG0 に接続<br>
+                ・<code>guest-interface 0</code> → GuestShell 内の eth0 に相当<br>
+                これにより GuestShell の仮想 NIC がルーターの VPG0 と L3 で接続される。
+              </td>
+            </tr>
+            <tr>
+              <td><code>guest-ipaddress 192.168.0.2 netmask 255.255.255.0</code></td>
+              <td><strong>GuestShell 側の IP アドレスを設定。</strong>ルーター側の VPG0（192.168.0.1）と同一サブネット内に配置。これが GuestShell のネットワークアイデンティティになる。</td>
+            </tr>
+            <tr>
+              <td><code>exit</code></td>
+              <td><strong><code>app-vnic</code> サブモードから抜ける。</strong><code>app-default-gateway</code> は <code>app-vnic</code> の外（<code>app-hosting</code> 直下）で設定する。</td>
+            </tr>
+            <tr>
+              <td><code>app-default-gateway 192.168.0.1 guest-interface 0</code></td>
+              <td><strong>GuestShell のデフォルトゲートウェイを設定。</strong>192.168.0.1（= ルーターの VPG0）を指定。<code>app-hosting appid guestshell</code> 直下のサブコマンド。GuestShell からの全通信はこのゲートウェイ経由でルーターを通過する。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <strong>GuestShell ネットワーク構成の全体像：</strong><br><br>
+        <code style="color:var(--accent-1)">GuestShell (192.168.0.2)</code> ←→ <code style="color:var(--accent-2)">VPG0 (192.168.0.1)</code> ←→ <code style="color:var(--accent-3)">ルーター → OSPF → 外部ネットワーク</code><br><br>
+        ・GuestShell は隔離された Linux コンテナ。VPG0 が唯一の外部通信パス。<br>
+        ・<code>cli</code> モジュール経由の IOS-XE CLI 実行はこのネットワークパスとは別の内部チャネルを使用。<br>
+        ・OSPF で 192.168.0.0/24 を広告しているため、他のルーターから GuestShell に到達可能。
+      </div>
+    </div>
+
+    <!-- ===== Solution: Python スクリプト全文 ===== -->
+    <div class="card">
+      <h3><span class="icon">🐍</span> Solution — Python スクリプト（eem_script.py）完全版</h3>
+<pre>#!/usr/bin/env python3
+import cli
+import sys
+
+cmds = [
+    "show ip interface brief",
+    "show ip ospf neighbor",
+    "show ip route",
+    f"show interface {sys.argv[1]}",
+    "show log"
+]
+
+with open("/bootflash/guest-share/RCA_Capture.txt", "a+") as f:
+    for cmd in cmds:
+        output = cli.execute(cmd)
+        f.write(output)</pre>
+
+      <div class="callout">
+        <strong>スクリプト各行の解説：</strong><br><br>
+        <code>import cli</code> → Cisco IOS-XE 専用モジュール。GuestShell 内から IOS-XE CLI コマンドを実行可能にする。<br><br>
+        <code>import sys</code> → コマンドライン引数を受け取るための標準モジュール。<br><br>
+        <code>sys.argv[1]</code> → EEM の action 2.0 から渡される引数。ここでは <code>"loop10"</code> が渡され、<code>"show interface loop10"</code> として展開される。<br><br>
+        <code>open(..., "a+")</code> → <strong>追記モード</strong>。既存の診断データを消さずに末尾に追記する。障害が複数回発生しても履歴が蓄積される。<br><br>
+        <code>cli.execute(cmd)</code> → IOS-XE CLI を実行し、結果を文字列で返す。<code>cli.cli()</code> と異なりヘッダー行を含まないクリーンな出力を返す。<br><br>
+        <strong>保存先：</strong><code>/bootflash/guest-share/RCA_Capture.txt</code><br>
+        → <code>guest-share</code> ディレクトリは GuestShell と IOS-XE の共有領域。
+      </div>
+
+      <h4>収集する5つのコマンドとその目的</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>コマンド</th><th>収集目的</th></tr></thead>
+          <tbody>
+            <tr><td><code>show ip interface brief</code></td><td>全インターフェースの IP アドレスと up/down 状態を概観。障害時にどのインターフェースが影響を受けたか一目で確認。</td></tr>
+            <tr><td><code>show ip ospf neighbor</code></td><td>OSPF 隣接関係（ネイバー）の状態を確認。障害がルーティングプロトコルに波及しているかを診断。</td></tr>
+            <tr><td><code>show ip route</code></td><td>ルーティングテーブルのスナップショット。障害前後でルートがどう変化したかを後から比較可能。</td></tr>
+            <tr><td><code>show interface Loopback10</code></td><td>障害対象インターフェースの詳細統計（パケットカウンタ、エラー、リセット回数など）。根本原因の手がかりになる。</td></tr>
+            <tr><td><code>show log</code></td><td>syslog バッファの内容を収集。障害発生前後のイベントログ・エラーメッセージを時系列で確認可能。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 構成要素マップ -->
+    <div class="card">
+      <h3><span class="icon">🧩</span> 構成要素と役割の整理</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>構成要素</th><th>役割</th><th>技術的ポイント</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag">Loopback10</span></td>
+              <td>監視対象インターフェース</td>
+              <td><code>shutdown</code> で障害シミュレーション。IP: 192.168.1.1/24</td>
+            </tr>
+            <tr>
+              <td><span class="tag purple">VirtualPortGroup0</span></td>
+              <td>GuestShell との L3 接続</td>
+              <td>ルーター側 192.168.0.1 が GuestShell のデフォルト GW</td>
+            </tr>
+            <tr>
+              <td><span class="tag green">OSPF</span></td>
+              <td>GuestShell ネットワーク広告</td>
+              <td>192.168.0.0/24 を area 0 に広告。VPG0 は passive-interface</td>
+            </tr>
+            <tr>
+              <td><span class="tag orange">Object Track 1</span></td>
+              <td>インターフェース状態監視</td>
+              <td>line-protocol の up/down を追跡し EEM トリガー条件に</td>
+            </tr>
+            <tr>
+              <td><span class="tag">EEM アプレット "RCA"</span></td>
+              <td>イベント駆動の自動化</td>
+              <td>Track 1 down → enable → Python 実行 → syslog 記録</td>
+            </tr>
+            <tr>
+              <td><span class="tag purple">GuestShell (IOx)</span></td>
+              <td>Linux コンテナ環境</td>
+              <td><code>iox</code> で有効化。Python3 実行環境を提供。</td>
+            </tr>
+            <tr>
+              <td><span class="tag green">eem_script.py</span></td>
+              <td>診断コマンド実行・記録</td>
+              <td><code>cli</code> モジュールで CLI 実行、結果をファイルに追記</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- SECTION 3.2 -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num s2">3.2</span>
+      <h2>RESTCONF × Python デバッグ</h2>
+    </div>
+
+    <!-- 目的 -->
+    <div class="card s2">
+      <h3><span class="icon">🎯</span> タスク概要</h3>
+      <p>ルーター R30 に対して RESTCONF を使い、物理インターフェースの帯域使用データ（in/out オクテット数）をプログラム的に取得する Python スクリプトのデバッグと修正を行う。</p>
+      <div class="callout purple">
+        <strong>解決する課題：</strong><br>
+        ・SNMP より柔軟・モダンなデータ取得方法（YANG ベースの REST API）<br>
+        ・特定インターフェースの in/out オクテット数を自動収集・可視化<br><br>
+        <strong>タスクの本質：</strong>与えられたスクリプトに含まれる 4 つのバグを特定し、修正すること。
+      </div>
+    </div>
+
+    <!-- 3つのバグ修正 -->
+    <div class="card s2">
+      <h3><span class="icon">🐛</span> Solution — 4つのバグと修正</h3>
+
+      <!-- Bug 1 -->
+      <span class="step-label purple">BUG #1</span>
+      <h4>import requests が欠落</h4>
+      <div class="bugfix">
+        <div class="bugfix-before"><span class="bugfix-label">修正前（誤）</span>import json
+import urllib3
+...</div>
+        <div class="bugfix-after"><span class="bugfix-label">修正後（正）</span>import json
+import requests
+import urllib3
+...</div>
+      </div>
+      <div class="callout red" style="margin-top:8px">
+        <strong>問題：</strong><code>requests</code> モジュールが import されていないため、<code>requests.request()</code> 呼び出しで <code>NameError</code> になる。<br>
+        <strong>修正：</strong><code>import requests</code> を追加する。
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- Bug 2 -->
+      <span class="step-label purple">BUG #2</span>
+      <h4>接続先ホスト IP が未設定</h4>
+      <div class="bugfix">
+        <div class="bugfix-before"><span class="bugfix-label">修正前（誤）</span>host = ""</div>
+        <div class="bugfix-after"><span class="bugfix-label">修正後（正）</span>host = "10.3.11.1"</div>
+      </div>
+      <div class="callout red" style="margin-top:8px">
+        <strong>問題：</strong>空文字のため、API リクエスト URL が <code>https://:443/restconf/...</code> となり接続先が不明。<br>
+        <strong>修正：</strong>ルーター R30 の管理 IP アドレス <code>10.3.11.1</code> を設定する。
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- Bug 3 -->
+      <span class="step-label purple">BUG #3</span>
+      <h4>不要な data=payload パラメータ</h4>
+      <div class="bugfix">
+        <div class="bugfix-before"><span class="bugfix-label">修正前（誤）</span>requests.request('get', url,
+  auth=(...),
+  data=payload,
+  headers=headers,
+  verify=False)</div>
+        <div class="bugfix-after"><span class="bugfix-label">修正後（正）</span>requests.request('get', url,
+  auth=(...),
+  headers=headers,
+  verify=False)</div>
+      </div>
+      <div class="callout red" style="margin-top:8px">
+        <strong>問題：</strong><code>data=payload</code> が渡されているが、<code>payload</code> 変数は未定義（NameError）。そもそも GET リクエストに request body は不要。<br>
+        <strong>修正：</strong><code>data=payload</code> の行を完全に削除する。
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- Bug 4 -->
+      <span class="step-label purple">BUG #4</span>
+      <h4>response.json に括弧 () が欠落</h4>
+      <div class="bugfix">
+        <div class="bugfix-before"><span class="bugfix-label">修正前（誤）</span>jsondata = response.json</div>
+        <div class="bugfix-after"><span class="bugfix-label">修正後（正）</span>jsondata = response.json()</div>
+      </div>
+      <div class="callout red" style="margin-top:8px">
+        <strong>問題：</strong><code>response.json</code> はメソッドオブジェクトへの参照に過ぎない。<code>()</code> を付けないと JSON パースが実行されず、<code>jsondata</code> にはメソッド自体が代入される。後続のキーアクセスで <code>TypeError</code> になる。<br>
+        <strong>修正：</strong><code>response.json()</code> と括弧を付けてメソッドを呼び出す。
+      </div>
+    </div>
+
+    <!-- 修正済み完全スクリプト -->
+    <div class="card s2">
+      <h3><span class="icon">✅</span> Solution — 修正済み完全スクリプト</h3>
+<pre><span style="color:#555e70"># ============================================</span>
+<span style="color:#555e70"># RESTCONF Interface Statistics Collector</span>
+<span style="color:#555e70"># Target: Router R30 (10.3.11.1)</span>
+<span style="color:#555e70"># ============================================</span>
+
+import json
+import requests                             <span style="color:var(--accent-3)"># ← Bug #1 修正: import requests を追加</span>
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+host = "10.3.11.1"                          <span style="color:var(--accent-3)"># ← Bug #2 修正: IP アドレスを設定</span>
+port = "443"
+url = f"https://{host}:{port}/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/interface"
+
+headers = {
+    "Accept": "application/yang-data+json",
+    "Content-Type": "application/yang-data+json"
+}
+
+response = requests.request(
+    'get',
+    url,
+    auth=("netadmin", "CCIEinfra"),
+                                            <span style="color:var(--accent-3)"># ← Bug #3 修正: data=payload を削除</span>
+    headers=headers,
+    verify=False
+)
+
+jsondata = response.json()                  <span style="color:var(--accent-3)"># ← Bug #4 修正: () を追加</span>
+
+print("-" * 100)
+print(f"{'Interface':&lt;45} {'Ingress Octets':&lt;30} {'Egress Octets':&lt;30}")
+print("-" * 100)
+
+for interface in jsondata["Cisco-IOS-XE-interfaces-oper:interface"]:
+    if (interface['oper-status'] == 'if-oper-state-ready' and
+        interface['interface-type'] == 'iana-iftype-ethernet-csmacd'):
+
+        switchport = interface["name"]
+        ingressoctets = interface["statistics"]["in-octets"]
+        egressoctets = interface["statistics"]["out-octets"]
+        print(f"{switchport:&lt;45} {ingressoctets:&lt;30} {egressoctets:&lt;30}")</pre>
+    </div>
+
+    <!-- RESTCONF構造 -->
+    <div class="card s2">
+      <h3><span class="icon">📡</span> RESTCONF リクエスト構造の解説</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>要素</th><th>値</th><th>解説</th></tr></thead>
+          <tbody>
+            <tr><td>プロトコル</td><td><code>HTTPS (443)</code></td><td>RESTCONF は HTTPS 上で動作する（HTTP 非対応）</td></tr>
+            <tr><td>YANG モデルパス</td><td><code>Cisco-IOS-XE-interfaces-oper:interfaces/interface</code></td><td>Cisco 独自の operational YANG モデル。全インターフェースのリストを返す</td></tr>
+            <tr><td>Accept ヘッダー</td><td><code>application/yang-data+json</code></td><td>レスポンス形式を JSON で要求（XML も可能だがここでは JSON）</td></tr>
+            <tr><td>Content-Type</td><td><code>application/yang-data+json</code></td><td>リクエストボディの形式を宣言（GET では実質不使用だがヘッダーとして設定）</td></tr>
+            <tr><td>認証</td><td><code>Basic Auth (netadmin / CCIEinfra)</code></td><td>HTTP Basic 認証でルーターにログイン</td></tr>
+            <tr><td>verify</td><td><code>False</code></td><td>自己署名証明書の検証をスキップ（ラボ環境向け）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- フィルタロジック -->
+    <div class="card s2">
+      <h3><span class="icon">🔍</span> レスポンスのフィルタロジック</h3>
+      <p style="margin-bottom:12px">取得した全インターフェースのうち、以下の <strong>2条件を同時に満たす</strong> ものだけを出力する：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>フィルタ条件</th><th>YANG フィールド値</th><th>目的</th></tr></thead>
+          <tbody>
+            <tr><td><code>oper-status</code></td><td><code>if-oper-state-ready</code></td><td>アクティブ（operationally Up）なインターフェースのみ対象にする</td></tr>
+            <tr><td><code>interface-type</code></td><td><code>iana-iftype-ethernet-csmacd</code></td><td>物理 Ethernet ポートのみ対象にする（Loopback、Tunnel、VLAN 等を除外）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:12px">条件を通過したインターフェースから以下の 3 フィールドを抽出して表示する：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>出力フィールド</th><th>YANG パス</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td>Interface 名</td><td><code>interface["name"]</code></td><td>インターフェース識別名（例: GigabitEthernet1）</td></tr>
+            <tr><td>Ingress Octets</td><td><code>interface["statistics"]["in-octets"]</code></td><td>受信バイト数（累積値）</td></tr>
+            <tr><td>Egress Octets</td><td><code>interface["statistics"]["out-octets"]</code></td><td>送信バイト数（累積値）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- SECTION 3.3 -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num s3">3.3</span>
+      <h2>DNA Center API エンドポイント特定</h2>
+    </div>
+
+    <!-- 目的 -->
+    <div class="card s3">
+      <h3><span class="icon">🎯</span> タスク概要</h3>
+      <p>提示された JSON レスポンスを分析し、それがどの DNA Center（DNAC）API エンドポイントから返されたものかを論理的に特定する推論問題。</p>
+    </div>
+
+    <!-- 提示されたJSON -->
+    <div class="card s3">
+      <h3><span class="icon">📄</span> 提示された JSON レスポンス</h3>
+      <div class="json-block">{
+  <span class="key">"response"</span>: {
+    <span class="key">"managementIpAddr"</span>: <span class="str">"10.4.255.400"</span>,
+    <span class="key">"haStatus"</span>: <span class="str">"Non-redundant"</span>,
+    <span class="key">"serialNumber"</span>: <span class="str">"..."</span>,
+    <span class="key">"reachabilityStatus"</span>: <span class="str">"UNREACHABLE"</span>,
+    <span class="key">"hostname"</span>: <span class="str">"sw400.ccie.cisco.com"</span>,
+    <span class="key">"platformId"</span>: <span class="str">"c9300-24T"</span>,
+    <span class="key">"nwDeviceid"</span>: <span class="str">"..."</span>,
+    <span class="key">"deviceRole"</span>: <span class="str">"ACCESS"</span>,
+    <span class="key">"deviceFamily"</span>: <span class="str">"Switches and Hubs"</span>,
+    <span class="key">"macAddress"</span>: <span class="str">"..."</span>,
+    <span class="key">"collectionStatus"</span>: <span class="str">""</span>,
+    <span class="key">"deviceSeries"</span>: <span class="str">"Cisco Catalyst 9300 Series Switches"</span>,
+    <span class="key">"overallHealth"</span>: <span class="num">-2</span>,              <span class="comment">// ← 決定的フィールド</span>
+    <span class="key">"memoryScore"</span>: <span class="num">-1</span>,                <span class="comment">// ← 決定的フィールド</span>
+    <span class="key">"cpuScore"</span>: <span class="num">-1</span>,                   <span class="comment">// ← 決定的フィールド</span>
+    <span class="key">"location"</span>: <span class="str">"Global/Branch1-Bldg1"</span>,
+    <span class="key">"timestamp"</span>: <span class="num">1675353000000</span>         <span class="comment">// ← 決定的フィールド</span>
+  }
+}</div>
+    </div>
+
+    <!-- 判定プロセス -->
+    <div class="card s3">
+      <h3><span class="icon">🧠</span> Solution — 論理的な判定プロセス</h3>
+
+      <span class="step-label green">STEP 1</span>
+      <h4>決定的なフィールドを特定する</h4>
+      <p style="margin-bottom:16px">JSON 内に <code>overallHealth</code>、<code>memoryScore</code>、<code>cpuScore</code>、<code>timestamp</code> が含まれている。これらは全てのエンドポイントで返されるわけではなく、候補の絞り込みに使える。</p>
+
+      <span class="step-label green">STEP 2</span>
+      <h4>各エンドポイントとフィールドの照合</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>JSON フィールド</th>
+              <th><code>/network-device</code></th>
+              <th><code>/device-enrichment-details</code></th>
+              <th><code>/device-details</code></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>managementIpAddr</code></td>
+              <td class="check">✔</td><td class="check">✔</td><td class="check">✔</td>
+            </tr>
+            <tr>
+              <td><code>serialNumber</code></td>
+              <td class="check">✔</td><td class="check">✔</td><td class="check">✔</td>
+            </tr>
+            <tr>
+              <td><code>reachabilityStatus</code></td>
+              <td class="check">✔</td><td class="check">✔</td><td class="check">✔</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><code>overallHealth</code></td>
+              <td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td>
+            </tr>
+            <tr class="highlight-row" style="background:rgba(56,189,248,.08)">
+              <td><strong><code>memoryScore</code></strong></td>
+              <td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td>
+            </tr>
+            <tr class="highlight-row" style="background:rgba(56,189,248,.08)">
+              <td><strong><code>cpuScore</code></strong></td>
+              <td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td>
+            </tr>
+            <tr>
+              <td><code>location</code></td>
+              <td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td>
+            </tr>
+            <tr class="highlight-row" style="background:rgba(56,189,248,.08)">
+              <td><strong><code>timestamp</code></strong></td>
+              <td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:12px;font-size:13px;color:var(--text-muted)">ハイライトされた行が決定的なフィールド。<code>memoryScore</code>, <code>cpuScore</code>, <code>timestamp</code> の3つが揃うエンドポイントは <code>/device-details</code> のみ。</p>
+
+      <div class="sep"></div>
+
+      <span class="step-label green">STEP 3</span>
+      <h4>消去法による各候補の除外理由</h4>
+
+      <div class="callout red" style="margin-top:12px">
+        <strong><code>/dna/intent/api/v1/network-device</code> ではない理由：</strong><br>
+        ・<code>overallHealth</code>, <code>memoryScore</code>, <code>cpuScore</code>, <code>location</code>, <code>timestamp</code> がいずれも含まれない<br>
+        ・このエンドポイントはデバイスの基本情報（hostname, serialNumber, reachabilityStatus 等）のみを返す
+      </div>
+
+      <div class="callout red">
+        <strong><code>/dna/intent/api/v1/device-enrichment-details</code> ではない理由：</strong><br>
+        ・<code>memoryScore</code>, <code>cpuScore</code>, <code>timestamp</code> が含まれない<br>
+        ・リクエスト形式が異なる：ヘッダーに MAC アドレスや IP を渡す方式<br>
+        ・レスポンス構造が異なる：<code>deviceDetails</code> / <code>issueDetails</code> のネスト構造であり、提示された JSON のようなフラット構造ではない
+      </div>
+
+      <!-- 正解 -->
+      <div class="answer-box green">
+        <span class="answer-label">正解</span>
+        <h4 style="font-size:18px;margin-bottom:12px"><code>/dna/intent/api/v1/device-details</code></h4>
+        <p style="font-size:14px">
+          <strong>根拠①：</strong><code>memoryScore</code> と <code>cpuScore</code> は <code>device-details</code> エンドポイント固有のフィールド。他のエンドポイントでは返されない。<br><br>
+          <strong>根拠②：</strong><code>timestamp</code>（エポックミリ秒）の存在は、特定時点のスナップショットデータであることを示す。<code>device-details</code> の特徴。<br><br>
+          <strong>根拠③：</strong><code>overallHealth</code>（健全性スコア）も含まれている。健全性情報を含む詳細エンドポイントの特徴。<br><br>
+          <strong>根拠④：</strong>レスポンスがフラットな JSON 構造。<code>device-enrichment-details</code> のようなネスト構造ではない。
+        </p>
+      </div>
+    </div>
+
+    <!-- DNAC API 全体整理 -->
+    <div class="card s3">
+      <h3><span class="icon">📋</span> DNAC API エンドポイント整理表</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>エンドポイント</th><th>主な用途</th><th>特徴的なフィールド</th><th>リクエスト形式</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>/dna/intent/api/v1/<br>network-device</code></td>
+              <td>デバイス基本情報一覧</td>
+              <td><code>hostname</code>, <code>serialNumber</code>, <code>reachabilityStatus</code></td>
+              <td>GET（クエリパラメータで絞り込み可）</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><code>/dna/intent/api/v1/<br>device-details</code></td>
+              <td><strong>デバイス詳細＋健全性</strong></td>
+              <td><code>overallHealth</code>, <code>memoryScore</code>, <code>cpuScore</code>, <code>timestamp</code></td>
+              <td>GET（クエリパラメータに searchBy, identifier を指定）</td>
+            </tr>
+            <tr>
+              <td><code>/dna/intent/api/v1/<br>device-enrichment-details</code></td>
+              <td>ヘッダーベースのデバイス情報取得</td>
+              <td>ネスト構造（<code>deviceDetails</code> / <code>issueDetails</code>）</td>
+              <td>GET（ヘッダーに <code>entity_type</code>, <code>entity_value</code> を指定）</td>
+            </tr>
+            <tr>
+              <td><code>/dna/intent/api/v1/<br>business/sda/device</code></td>
+              <td>SDA 専用デバイス情報</td>
+              <td><code>fabricSite</code>, <code>transitNetwork</code> 等 SDA 固有</td>
+              <td>GET（SDA ファブリック内デバイスのみ対象）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+(function(){
+  function setFontScale(p){document.documentElement.style.fontSize=p+'%'}
+  function setTheme(t){
+    if(t==='dark') document.documentElement.setAttribute('data-theme','dark');
+    else if(t==='light') document.documentElement.removeAttribute('data-theme');
+    else {
+      if(window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme','dark');
+      else document.documentElement.removeAttribute('data-theme');
+    }
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||!e.data.type)return;
+    if(e.data.type==='setFontScale')setFontScale(e.data.value);
+    if(e.data.type==='setTheme')setTheme(e.data.value);
+  });
+  // Auto-detect on standalone load
+  if(window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme','dark');
+})();
+</script>
+<a id="hub-back" href="/index.html" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:#1e293b;color:#f1f5f9;border:1px solid #475569;border-radius:99px;padding:10px 18px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.4);display:flex;align-items:center;gap:6px;-webkit-tap-highlight-color:transparent;">🏠 Hub</a>
+
+</body></html>

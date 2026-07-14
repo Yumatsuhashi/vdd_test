@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<!-- saved from url=(0109)/sdn/SDN%20S2%201.1%20-%20%E7%A9%B4%E5%9F%8B%E3%82%81.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCIE EI Lab SDN S2 1.1 - 全問一覧</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:#fff;color:#222;line-height:1.65;font-size:14px}
+.hdr{border-bottom:1px solid #ddd;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;background:#fafafa;position:sticky;top:0;z-index:200;flex-wrap:wrap;gap:8px}
+.hdr-l{display:flex;align-items:center;gap:12px}
+.hdr h1{font-size:15px;font-weight:600;color:#333}
+.bdg{background:#e8f0fe;color:#1a5dc7;font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px}
+.stats{display:flex;gap:14px;font-size:12px;color:#555;align-items:center;flex-wrap:wrap}
+.si{display:flex;align-items:center;gap:3px}
+.sv{font-weight:600;color:#222}
+.sc{color:#1e8e3e!important}
+.sw{color:#d93025!important}
+.pbar{height:3px;background:#eee;position:sticky;top:49px;z-index:199}
+.pfill{height:100%;background:#1a5dc7;transition:width .3s}
+.btn{padding:6px 14px;border:1px solid #ddd;border-radius:4px;font-size:12px;font-weight:500;cursor:pointer;background:#fff;color:#333;transition:all .15s;white-space:nowrap}
+.btn:hover{background:#f5f5f5}
+.bp{background:#1a5dc7;color:#fff;border-color:#1a5dc7}
+.bp:hover{background:#1550b0}
+.bs{padding:5px 12px;font-size:11px}
+.bd{background:#d93025;color:#fff;border-color:#d93025}
+.bd:hover{background:#b8271f}
+.ctn{max-width:880px;margin:0 auto;padding:20px 24px 80px}
+.toc{position:fixed;right:10px;top:58px;background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:6px 3px;z-index:150;max-height:calc(100vh - 76px);overflow-y:auto;width:40px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.tb{display:block;width:30px;height:22px;margin:1px auto;border:none;background:transparent;font-size:10px;font-weight:500;cursor:pointer;color:#666;border-radius:3px;line-height:22px;text-align:center;transition:all .12s}
+.tb:hover{background:#e8f0fe;color:#1a5dc7}
+.tb.tok{background:#e6f4ea;color:#1e8e3e}
+.tb.tng{background:#fce8e6;color:#d93025}
+.qc{border:1px solid #ddd;border-radius:6px;margin-bottom:20px;overflow:hidden;scroll-margin-top:58px}
+.qc.rok{border-color:#b7e1cd}
+.qc.rng{border-color:#f5c6c2}
+.qh{background:#f5f5f5;padding:10px 14px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center}
+.qc.rok .qh{background:#f0faf3}
+.qc.rng .qh{background:#fdf2f1}
+.qn{font-weight:600;font-size:13px;color:#333}
+.qt{font-size:10px;padding:2px 7px;border-radius:3px;font-weight:600}
+.ts{background:#e8f0fe;color:#1a5dc7}
+.tm{background:#fef7e0;color:#b06000}
+.to{background:#f3e8fd;color:#7627bb}
+.td{background:#e6f4ea;color:#1e8e3e}
+.tx{background:#fce8e6;color:#c5221f}
+.tf{background:#fff3e0;color:#e65100}
+.qb{padding:14px}
+.scn{background:#f9f9f9;border-left:3px solid #1a5dc7;padding:12px 14px;margin-bottom:14px;font-size:13px;color:#444;white-space:pre-wrap;line-height:1.7}
+.scn summary{cursor:pointer;font-weight:600;font-size:13px;color:#333;margin-bottom:4px}
+.scn p{margin-top:6px}
+.qtx{font-weight:500;margin-bottom:12px;color:#111;font-size:14px}
+.ops{list-style:none}
+.op{border:1px solid #ddd;border-radius:4px;padding:8px 12px;margin-bottom:5px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;font-size:13px;transition:all .12s}
+.op:hover{background:#f5f8ff;border-color:#a8c7fa}
+.op.sel{background:#e8f0fe;border-color:#1a5dc7}
+.op.cok{background:#e6f4ea;border-color:#1e8e3e}
+.op.cng{background:#fce8e6;border-color:#d93025}
+.op.cms{background:#e6f4ea;border-color:#1e8e3e;border-style:dashed}
+.op.lk{pointer-events:none}
+.mk{width:18px;height:18px;border:2px solid #aaa;border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;margin-top:1px}
+.mkr{border-radius:50%}
+.op.sel .mk{border-color:#1a5dc7;background:#1a5dc7;color:#fff}
+.op.cok .mk{border-color:#1e8e3e;background:#1e8e3e;color:#fff}
+.op.cng .mk{border-color:#d93025;background:#d93025;color:#fff}
+.op.cms .mk{border-color:#1e8e3e;color:#1e8e3e}
+/* Order: pool + slots */
+.ord-pool{border:1px dashed #ccc;border-radius:4px;padding:6px;min-height:40px;display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;background:#fafafa}
+.ord-pool-label{font-size:11px;font-weight:600;color:#888;margin-bottom:4px}
+.ord-slots{list-style:none}
+.ord-slot{border:2px dashed #ddd;border-radius:4px;padding:6px 10px;margin-bottom:4px;min-height:38px;display:flex;align-items:center;gap:8px;transition:all .12s}
+.ord-slot.dragover{border-color:#1a5dc7;background:#f5f8ff}
+.ord-slot .sn{width:22px;height:22px;background:#eee;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#555;flex-shrink:0}
+.ord-slot.sok .sn{background:#1e8e3e;color:#fff}
+.ord-slot.sng .sn{background:#d93025;color:#fff}
+.chip{background:#e8f0fe;color:#1a5dc7;padding:5px 10px;border-radius:4px;font-size:12px;cursor:grab;user-select:none;border:1px solid #a8c7fa;display:inline-block}
+.chip:active{cursor:grabbing}
+.chip.cok{background:#e6f4ea;color:#1e8e3e;border-color:#1e8e3e}
+.chip.cng{background:#fce8e6;color:#d93025;border-color:#d93025}
+.chip.cghost{background:#fff;color:#1e8e3e;border-color:#1e8e3e;border-style:dashed}
+.exp{margin-top:10px;padding:8px 12px;border-radius:4px;font-size:12px}
+.eok{background:#e6f4ea;border:1px solid #b7e1cd;color:#137333}
+.eng{background:#fce8e6;border:1px solid #f5c6c2;color:#c5221f}
+/* Fill-in */
+.fi-tbl{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:10px}
+.fi-tbl th,.fi-tbl td{border:1px solid #ddd;padding:7px 10px;text-align:left}
+.fi-tbl th{background:#f5f5f5;font-weight:600;font-size:12px}
+.fi-tbl td:first-child{font-size:12px;color:#444}
+.fi-tbl input{width:100%;padding:5px 8px;border:1px solid #ccc;border-radius:3px;font-size:13px;font-family:inherit}
+.fi-tbl input:focus{outline:none;border-color:#1a5dc7;box-shadow:0 0 0 2px rgba(26,93,199,.15)}
+.fi-tbl input[readonly]{background:#f0f0f0;color:#888;cursor:default}
+.fi-tbl input.fi-ok{background:#e6f4ea;border-color:#1e8e3e;color:#137333}
+.fi-tbl input.fi-ng{background:#fce8e6;border-color:#d93025;color:#c5221f}
+.fi-ans{font-size:11px;color:#1e8e3e;margin-top:2px;display:none}
+.fi-ans.show{display:block}
+.qa{margin-top:10px}
+.qb{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:640px){
+.fi-tbl{font-size:11px}
+.fi-tbl th,.fi-tbl td{padding:5px 6px}
+.fi-tbl td:first-child{font-size:11px;word-break:break-word;min-width:140px}
+.fi-tbl input{font-size:12px;padding:6px 8px}
+}
+@media(max-width:420px){
+.fi-tbl{display:block}
+.fi-tbl thead{display:none}
+.fi-tbl tbody,.fi-tbl tr,.fi-tbl td{display:block;width:100%}
+.fi-tbl tr{margin-bottom:8px;border:1px solid #ddd;border-radius:6px;overflow:hidden}
+.fi-tbl td:first-child{background:#f5f5f5;font-weight:600;font-size:11px;border-bottom:1px solid #eee;padding:6px 10px}
+.fi-tbl td:last-child{padding:6px 10px;border:none}
+.fi-tbl input{font-size:14px;padding:8px 10px}
+}
+.bbar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:10px;z-index:200;flex-wrap:wrap}
+@media(max-width:960px){.toc{display:none}}
+@media(max-width:640px){.ctn{padding:14px 12px 60px}.hdr{padding:8px 12px}.stats{gap:8px;font-size:11px}}
+</style>
+</head>
+<body>
+<div class="hdr" id="hdr">
+  <div class="hdr-l">
+    <h1>CCIE EI Lab SDN S2 1.1</h1>
+    <span class="bdg">全問一覧</span>
+  </div>
+  <div class="stats">
+    <div class="si">回答: <span class="sv" id="sp">0/4</span></div>
+    <div class="si">正解: <span class="sv sc" id="so">0</span></div>
+    <div class="si">不正解: <span class="sv sw" id="sn">0</span></div>
+    <div class="si">正答率: <span class="sv" id="sr">--%</span></div>
+  </div>
+</div>
+<div class="pbar"><div class="pfill" id="pb" style="width: 0%;"></div></div>
+<div class="toc" id="toc"><button class="tb" onclick="document.getElementById(&#39;q0&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">1</button><button class="tb" onclick="document.getElementById(&#39;q1&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">2</button><button class="tb" onclick="document.getElementById(&#39;q2&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">3</button><button class="tb" onclick="document.getElementById(&#39;q3&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">4</button></div>
+<div class="ctn" id="ctn"><div class="qc" id="q0"><div class="qh"><span class="qn">#1 Q2.2 — Inter-Domain Routing</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>One of Xander's engineers needs to establish connectivity between users on the Employees virtual network at the Cisco Software-Defined Access (SDA-Access) branches with users at the Dynamic Multipoint VPN (DMVPN) branches.</p></details><div class="qtx">Which two actions must be performed by the engineer to accomplish this task? (Choose two)</div><ul class="ops"><li class="op" onclick="tog(0,0)"><span class="mk"></span><span>Create a new Cisco vManage OSPF feature template.</span></li><li class="op" onclick="tog(0,1)"><span class="mk"></span><span>Reconfigure the Cisco vManage OSPF feature template named DC_OSPF_VPN999.</span></li><li class="op" onclick="tog(0,2)"><span class="mk"></span><span>Reconfigure the Cisco vManage VPN feature template named VPN999.</span></li><li class="op" onclick="tog(0,3)"><span class="mk"></span><span>Create a new Cisco vManage VPN feature template by using the non-default Advertise OMP settings and default Advertise OMP settings.</span></li><li class="op" onclick="tog(0,4)"><span class="mk"></span><span>Configure redistribution on the SDA Fabric Borders.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(0)">解答を確認</button></div></div></div><div class="qc" id="q1"><div class="qh"><span class="qn">#2 Q2.3 — Guest DIA</span><span class="qt to">Order</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>At Branch #1 a VPN that uses the default route to the centralized corporate office has been created. However, guest and corporate traffic is presently using the same VPN due to a misconfiguration.<br><br>Apply a policy in Cisco vManage to optimize bandwidth usage and prevent guests from accessing certain internet-based applications, such as Netflix. Note that not all options are used.</p></details><div class="qtx">Drag and drop the steps in the left to the correct order on the right. Not all options are used.</div><div class="ord-pool-label">選択肢プール（スロットにドラッグ）</div><div class="ord-pool" id="opool-1"><span class="chip" draggable="true" data-val="Verify that Branch #1 is configured and enable NAT on the transport interface for the internet">Verify that Branch #1 is configured and enable NAT on the transport interface for the internet</span><span class="chip" draggable="true" data-val="From Configuration in vManage, deploy a device template to the device that will be used">From Configuration in vManage, deploy a device template to the device that will be used</span><span class="chip" draggable="true" data-val="Create a new traffic data policy named TRAFFIC_DATA_POLICY to match the employee traffic and route the traffic from VPN 3 to VPN 0">Create a new traffic data policy named TRAFFIC_DATA_POLICY to match the employee traffic and route the traffic from VPN 3 to VPN 0</span><span class="chip" draggable="true" data-val="Set the default route to the corporate office by using vManage and separate the guest Wi-Fi from the corporate traffic">Set the default route to the corporate office by using vManage and separate the guest Wi-Fi from the corporate traffic</span><span class="chip" draggable="true" data-val="Modify VPN 0 to allow the VPN of the guest Wi-Fi for Branch #1">Modify VPN 0 to allow the VPN of the guest Wi-Fi for Branch #1</span><span class="chip" draggable="true" data-val="Force traffic to match on the VPN of the guest WiFi through a locally defined NAT in the transport interface">Force traffic to match on the VPN of the guest WiFi through a locally defined NAT in the transport interface</span></div><ul class="ord-slots" id="oslots-1"><li class="ord-slot" data-slot="0"><span class="sn">1</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="1"><span class="sn">2</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="2"><span class="sn">3</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="3"><span class="sn">4</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(1)">解答を確認</button></div></div></div><div class="qc" id="q2"><div class="qh"><span class="qn">#3 Q2.4 — Branch #1 Device Template</span><span class="qt tf">Fill-in</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>Branch #1 の SD-WAN Device Template (cEdge40) の Variable List を正しく埋めてください。</p></details><div class="qtx">Branch #1 Device Template: Variable List — 空欄を埋めてください。（Hostname は固定値です）</div><table class="fi-tbl"><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>Hostname</td><td><input type="text" value="cEdge40" readonly=""></td></tr><tr><td>Interface Name (vpn999_if_name)</td><td><input type="text" class="" value="" oninput="fiUpd(2,1,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (vpn999_if_ipv4_address)</td><td><input type="text" class="" value="" oninput="fiUpd(2,2,this.value)"></td></tr><tr><td>IP MTU (vpn999_if_ip_mtu)</td><td><input type="text" class="" value="" oninput="fiUpd(2,3,this.value)"></td></tr><tr><td>Interface Name (vpn999_if_name_parent)</td><td><input type="text" class="" value="" oninput="fiUpd(2,4,this.value)"></td></tr><tr><td>Interface Name (ospf_name_int)</td><td><input type="text" class="" value="" oninput="fiUpd(2,5,this.value)"></td></tr><tr><td>Address (vpn0_next_hop_ip_address_0)</td><td><input type="text" class="" value="" oninput="fiUpd(2,6,this.value)"></td></tr><tr><td>Interface Name (vpn0_if_name)</td><td><input type="text" class="" value="" oninput="fiUpd(2,7,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (vpn0_if_ipv4_address)</td><td><input type="text" class="" value="" oninput="fiUpd(2,8,this.value)"></td></tr><tr><td>Color (vpn_if_tunnel_color_value)</td><td><input type="text" class="" value="" oninput="fiUpd(2,9,this.value)"></td></tr><tr><td>Hostname (system_host_name)</td><td><input type="text" class="" value="" oninput="fiUpd(2,10,this.value)"></td></tr><tr><td>System IP (system_system_ip)</td><td><input type="text" class="" value="" oninput="fiUpd(2,11,this.value)"></td></tr><tr><td>Site ID (system_site_id)</td><td><input type="text" class="" value="" oninput="fiUpd(2,12,this.value)"></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(2)">解答を確認</button></div></div></div><div class="qc" id="q3"><div class="qh"><span class="qn">#4 Q2.5 — vSmart in vManage mode</span><span class="qt tf">Fill-in</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>vSmart Device Template の Variable List を正しく埋めてください。</p></details><div class="qtx">vSmart Device Template: Variable List — 空欄を埋めてください。（readonly の項目は固定値です）</div><table class="fi-tbl"><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>Status</td><td><input type="text" value="in_complete" readonly=""></td></tr><tr><td>Chassis Number</td><td><input type="text" value="9c05cf9a-3045-4847-a9fc-685e7c70456a" readonly=""></td></tr><tr><td>System IP</td><td><input type="text" value="1.1.1.3" readonly=""></td></tr><tr><td>Hostname</td><td><input type="text" value="vsmart" readonly=""></td></tr><tr><td>Address (vpn512_next_hop_ip_address)</td><td><input type="text" class="" value="" oninput="fiUpd(3,4,this.value)"></td></tr><tr><td>IPv4 Address (vpn512_if_ip_address)</td><td><input type="text" class="" value="" oninput="fiUpd(3,5,this.value)"></td></tr><tr><td>Address (vpn_next_hop_ip_address_0)</td><td><input type="text" class="" value="" oninput="fiUpd(3,6,this.value)"></td></tr><tr><td>IPv4 Address (vpn_if_ip_address)</td><td><input type="text" class="" value="" oninput="fiUpd(3,7,this.value)"></td></tr><tr><td>Hostname (system_host_name)</td><td><input type="text" class="" value="" oninput="fiUpd(3,8,this.value)"></td></tr><tr><td>System IP (system_system_ip)</td><td><input type="text" class="" value="" oninput="fiUpd(3,9,this.value)"></td></tr><tr><td>Site ID (system_site_id)</td><td><input type="text" class="" value="" oninput="fiUpd(3,10,this.value)"></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(3)">解答を確認</button></div></div></div></div>
+<div class="bbar">
+  <button class="btn bp bs" onclick="checkAll()">全問一括で解答確認</button>
+  <button class="btn bs" onclick="scrollUn()">未回答にジャンプ</button>
+  <button class="btn bd bs" onclick="if(confirm(&#39;全データをリセットしますか？&#39;))resetAll()">データリセット</button>
+</div>
+
+<script>
+// ========== FULL QUESTION DATA ==========
+const Q=[
+// 0: Q2.2 — Inter-Domain Routing
+{id:"Q2.2",num:"Q2.2",sub:"Inter-Domain Routing",tp:"multi",
+sc:`One of Xander's engineers needs to establish connectivity between users on the Employees virtual network at the Cisco Software-Defined Access (SDA-Access) branches with users at the Dynamic Multipoint VPN (DMVPN) branches.`,
+tx:"Which two actions must be performed by the engineer to accomplish this task? (Choose two)",
+opts:["Create a new Cisco vManage OSPF feature template.","Reconfigure the Cisco vManage OSPF feature template named DC_OSPF_VPN999.","Reconfigure the Cisco vManage VPN feature template named VPN999.","Create a new Cisco vManage VPN feature template by using the non-default Advertise OMP settings and default Advertise OMP settings.","Configure redistribution on the SDA Fabric Borders."],ans:[0,3]},
+
+// 1: Q2.3 — Guest DIA (Ordering)
+{id:"Q2.3",num:"Q2.3",sub:"Guest DIA",tp:"order",
+sc:`At Branch #1 a VPN that uses the default route to the centralized corporate office has been created. However, guest and corporate traffic is presently using the same VPN due to a misconfiguration.
+
+Apply a policy in Cisco vManage to optimize bandwidth usage and prevent guests from accessing certain internet-based applications, such as Netflix. Note that not all options are used.`,
+tx:"Drag and drop the steps in the left to the correct order on the right. Not all options are used.",
+allOpts:["Set the default route to the corporate office by using vManage and separate the guest Wi-Fi from the corporate traffic","From Configuration in vManage, deploy a device template to the device that will be used","Force traffic to match on the VPN of the guest WiFi through a locally defined NAT in the transport interface","Create a new traffic data policy named TRAFFIC_DATA_POLICY to match the employee traffic and route the traffic from VPN 3 to VPN 0","Verify that Branch #1 is configured and enable NAT on the transport interface for the internet","Modify VPN 0 to allow the VPN of the guest Wi-Fi for Branch #1"],
+ac:["From Configuration in vManage, deploy a device template to the device that will be used","Verify that Branch #1 is configured and enable NAT on the transport interface for the internet","Set the default route to the corporate office by using vManage and separate the guest Wi-Fi from the corporate traffic","Create a new traffic data policy named TRAFFIC_DATA_POLICY to match the employee traffic and route the traffic from VPN 3 to VPN 0"],
+slotCount:4},
+
+// 2: Q2.4 — Branch #1 Device Template
+{id:"Q2.4",num:"Q2.4",sub:"Branch #1 Device Template",tp:"fillin",
+sc:`Branch #1 の SD-WAN Device Template (cEdge40) の Variable List を正しく埋めてください。`,
+tx:"Branch #1 Device Template: Variable List — 空欄を埋めてください。（Hostname は固定値です）",
+fields:[
+{label:"Hostname",fixed:"cEdge40"},
+{label:"Interface Name (vpn999_if_name)",ans:"GigabitEthernet4.3999"},
+{label:"IPv4 Address/prefix-length (vpn999_if_ipv4_address)",ans:"10.4.1.1/30"},
+{label:"IP MTU (vpn999_if_ip_mtu)",ans:"1496"},
+{label:"Interface Name (vpn999_if_name_parent)",ans:"GigabitEthernet4"},
+{label:"Interface Name (ospf_name_int)",ans:"GigabitEthernet4.3999"},
+{label:"Address (vpn0_next_hop_ip_address_0)",ans:"101.40.0.1"},
+{label:"Interface Name (vpn0_if_name)",ans:"GigabitEthernet3"},
+{label:"IPv4 Address/prefix-length (vpn0_if_ipv4_address)",ans:"101.40.0.2/30"},
+{label:"Color (vpn_if_tunnel_color_value)",ans:"default"},
+{label:"Hostname (system_host_name)",ans:"cEdge40"},
+{label:"System IP (system_system_ip)",ans:"1.1.4.1"},
+{label:"Site ID (system_site_id)",ans:"65004"}
+]},
+
+// 3: Q2.5 — vSmart Device Template
+{id:"Q2.5",num:"Q2.5",sub:"vSmart in vManage mode",tp:"fillin",
+sc:`vSmart Device Template の Variable List を正しく埋めてください。`,
+tx:"vSmart Device Template: Variable List — 空欄を埋めてください。（readonly の項目は固定値です）",
+fields:[
+{label:"Status",fixed:"in_complete"},
+{label:"Chassis Number",fixed:"9c05cf9a-3045-4847-a9fc-685e7c70456a"},
+{label:"System IP",fixed:"1.1.1.3"},
+{label:"Hostname",fixed:"vsmart"},
+{label:"Address (vpn512_next_hop_ip_address)",ans:"203.0.113.1"},
+{label:"IPv4 Address (vpn512_if_ip_address)",ans:"203.0.113.23/24"},
+{label:"Address (vpn_next_hop_ip_address_0)",ans:"10.2.251.1"},
+{label:"IPv4 Address (vpn_if_ip_address)",ans:"10.2.251.11/24"},
+{label:"Hostname (system_host_name)",ans:"vsmart"},
+{label:"System IP (system_system_ip)",ans:"1.1.1.3"},
+{label:"Site ID (system_site_id)",ans:"3"}
+]}
+];
+
+const N=Q.length;
+const S=new Array(N).fill(null).map(()=>({sel:null,rev:false,ok:null}));
+
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+
+function init(i){
+  const q=Q[i];if(S[i].sel!==null)return;
+  if(q.tp==='single'||q.tp==='multi')S[i].sel=[];
+  else if(q.tp==='matrix')S[i].sel={};
+  else if(q.tp==='order'){
+    const uniq=[...new Set(q.allOpts)];
+    S[i].sel={pool:shuffle([...uniq]),slots:new Array(q.slotCount).fill(null)};
+  }
+  else if(q.tp==='drag'){
+    const uniq=[...new Set(q.allItems)];
+    S[i].sel={pool:shuffle([...uniq]),placed:{}};
+  }
+  else if(q.tp==='fillin'){
+    S[i].sel=new Array(q.fields.length).fill('');
+  }
+}
+
+// ========== RENDER ==========
+function renderAll(){
+  const c=document.getElementById('ctn');let h='';
+  Q.forEach((_,i)=>{init(i);h+=renderQ(i)});
+  c.innerHTML=h;
+  toc();stats();
+  Q.forEach((_,i)=>{
+    if(Q[i].tp==='order'&&!S[i].rev)attachOrd(i);
+    if(Q[i].tp==='drag'&&!S[i].rev)attachDrg(i);
+  });
+}
+
+function renderQ(i){
+  const q=Q[i],s=S[i];
+  let cc='qc';if(s.rev)cc+=s.ok?' rok':' rng';
+  let h=`<div class="${cc}" id="q${i}">`;
+  h+=`<div class="qh"><span class="qn">#${i+1} ${q.num}${q.sub?' — '+q.sub:''}</span><span class="qt ${tcls(q.tp)}">${tlbl(q.tp)}</span></div>`;
+  h+=`<div class="qb">`;
+  if(q.sc)h+=`<details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>${esc(q.sc)}</p></details>`;
+  h+=`<div class="qtx">${q.tx}</div>`;
+  if(q.tp==='single'||q.tp==='multi')h+=rOpts(q,i,s);
+  else if(q.tp==='matrix')h+=rMtx(q,i,s);
+  else if(q.tp==='order')h+=rOrd(q,i,s);
+  else if(q.tp==='drag')h+=rDrg(q,i,s);
+  else if(q.tp==='fillin')h+=rFill(q,i,s);
+  if(s.rev){h+=`<div class="exp ${s.ok?'eok':'eng'}">${s.ok?'✓ Correct!':'✗ Incorrect — 正解がハイライトされています。'}</div>`;}
+  if(!s.rev)h+=`<div class="qa"><button class="btn bp bs" onclick="chk(${i})">解答を確認</button></div>`;
+  if(s.rev)h+=`<div class="qa" style="margin-top:6px"><button class="btn bs" onclick="retry(${i})">🔄 解き直す</button></div>`;
+  h+=`</div></div>`;
+  return h;
+}
+function tcls(t){return{single:'ts',multi:'tm',order:'to',drag:'td',matrix:'tx',fillin:'tf'}[t]}
+function tlbl(t){return{single:'Single',multi:'Multiple',order:'Order',drag:'Drag & Drop',matrix:'Matrix',fillin:'Fill-in'}[t]}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')}
+
+// ========== SINGLE/MULTI ==========
+function rOpts(q,i,s){
+  const isSingle=q.tp==='single';
+  let h='<ul class="ops">';
+  q.opts.forEach((o,oi)=>{
+    let c='op';
+    if(s.rev){c+=' lk';const ic=q.ans.includes(oi),is=s.sel.includes(oi);
+      if(is&&ic)c+=' cok';else if(is&&!ic)c+=' cng';else if(!is&&ic)c+=' cms';
+    }else if(s.sel.includes(oi))c+=' sel';
+    const mc=isSingle?'mk mkr':'mk';
+    const mm=s.rev?(q.ans.includes(oi)?'✓':(s.sel.includes(oi)?'✗':'')):(s.sel.includes(oi)?'✓':'');
+    h+=`<li class="${c}" onclick="tog(${i},${oi})"><span class="${mc}">${mm}</span><span>${o}</span></li>`;
+  });
+  return h+'</ul>';
+}
+function tog(i,oi){
+  if(S[i].rev)return;init(i);
+  const q=Q[i];
+  if(q.tp==='single')S[i].sel=[oi];
+  else{const x=S[i].sel.indexOf(oi);if(x>-1)S[i].sel.splice(x,1);else S[i].sel.push(oi)}
+  reQ(i);
+}
+
+// ========== MATRIX ==========
+function rMtx(q,i,s){
+  let h='<table class="mtx"><thead><tr><th></th>';
+  q.mh.forEach(x=>h+=`<th>${x}</th>`);
+  h+='</tr></thead><tbody>';
+  q.mr.forEach((r,ri)=>{
+    h+=`<tr><td>${r}</td>`;
+    q.mh.forEach((_,ci)=>{
+      const k=`${ri}-${ci}`,ck=s.sel[k],ic=q.mc[k];
+      let c='cb';
+      if(s.rev){c+=' lk';if(ck&&ic)c+=' mok';else if(ck&&!ic)c+=' mng';else if(!ck&&ic)c+=' mms';}
+      else if(ck)c+=' ck';
+      const mm=s.rev?(ic?'✓':(ck?'✗':'')):(ck?'✓':'');
+      h+=`<td><button class="${c}" onclick="togM(${i},'${k}')">${mm}</button></td>`;
+    });
+    h+='</tr>';
+  });
+  return h+'</tbody></table>';
+}
+function togM(i,k){
+  if(S[i].rev)return;init(i);
+  S[i].sel[k]=!S[i].sel[k];if(!S[i].sel[k])delete S[i].sel[k];
+  reQ(i);
+}
+
+// ========== ORDER (pool + slots) ==========
+function rOrd(q,i,s){
+  const {pool,slots}=s.sel;
+  let h=`<div class="ord-pool-label">選択肢プール（スロットにドラッグ）</div>`;
+  h+=`<div class="ord-pool" id="opool-${i}">`;
+  pool.forEach(item=>{
+    let c='chip';
+    h+=`<span class="${c}" draggable="true" data-val="${esc(item)}">${item}</span>`;
+  });
+  h+=`</div>`;
+  h+=`<ul class="ord-slots" id="oslots-${i}">`;
+  slots.forEach((item,idx)=>{
+    let c='ord-slot';
+    if(s.rev&&item!=null){c+=q.ac[idx]===item?' sok':' sng';}
+    const content=item?`<span class="chip" draggable="${!s.rev}" data-val="${esc(item)}">${item}</span>`:'<span style="color:#bbb;font-size:12px">ここにドロップ</span>';
+    let ghost='';
+    if(s.rev&&item!==q.ac[idx]&&q.ac[idx]){
+      ghost=`<span class="chip cghost">${q.ac[idx]}</span>`;
+    }
+    h+=`<li class="${c}" data-slot="${idx}"><span class="sn">${idx+1}</span>${content}${ghost}</li>`;
+  });
+  h+=`</ul>`;
+  return h;
+}
+function attachOrd(i){
+  const card=document.getElementById(`q${i}`);if(!card)return;
+  card.querySelectorAll('.chip').forEach(c=>{
+    c.addEventListener('dragstart',e=>{
+      const slot=c.closest('.ord-slot');
+      const from=slot?slot.dataset.slot:'pool';
+      e.dataTransfer.setData('text/plain',JSON.stringify({val:c.dataset.val,from:from}));
+      e.dataTransfer.effectAllowed='move';
+    });
+  });
+  card.querySelectorAll('.ord-slot').forEach(sl=>{
+    sl.addEventListener('dragover',e=>{e.preventDefault();sl.classList.add('dragover')});
+    sl.addEventListener('dragleave',()=>sl.classList.remove('dragover'));
+    sl.addEventListener('drop',e=>{
+      e.preventDefault();sl.classList.remove('dragover');
+      let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'));}catch(_){return;}
+      const dv=d.val,dfrom=d.from;
+      const ti=parseInt(sl.dataset.slot);
+      const s=S[i].sel;
+      if(dfrom==='pool'){const pi=s.pool.indexOf(dv);if(pi>-1)s.pool.splice(pi,1);}
+      else{const fi=parseInt(dfrom);if(!isNaN(fi))s.slots[fi]=null;}
+      if(s.slots[ti]!=null&&s.slots[ti]!==dv)s.pool.push(s.slots[ti]);
+      s.slots[ti]=dv;
+      reQ(i);
+    });
+  });
+  const pool=card.querySelector('.ord-pool');
+  if(pool){
+    pool.addEventListener('dragover',e=>{e.preventDefault();pool.classList.add('dragover')});
+    pool.addEventListener('dragleave',()=>pool.classList.remove('dragover'));
+    pool.addEventListener('drop',e=>{
+      e.preventDefault();pool.classList.remove('dragover');
+      let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'));}catch(_){return;}
+      const dv=d.val,dfrom=d.from;
+      const s=S[i].sel;
+      if(dfrom==='pool')return;
+      const fi=parseInt(dfrom);if(!isNaN(fi))s.slots[fi]=null;
+      if(!s.pool.includes(dv))s.pool.push(dv);
+      reQ(i);
+    });
+  }
+}
+
+// ========== DRAG & DROP (pool + zones) ==========
+function rDrg(q,i,s){
+  const {pool,placed}=s.sel;
+  let h=`<div class="dz-w"><div class="dz-l">選択肢プール（ゾーンにドラッグ）</div><div class="dz" id="dpool-${i}">`;
+  pool.forEach(item=>{
+    let c='chip';
+    h+=`<span class="${c}" draggable="true" data-val="${esc(item)}">${item}</span>`;
+  });
+  h+=`</div></div>`;
+  q.zones.forEach(z=>{
+    const pi=placed[z]||null;
+    let ch='';
+    if(pi){
+      let c='chip';
+      if(s.rev)c+=q.dc[z]===pi?' cok':' cng';
+      ch=`<span class="${c}" draggable="${!s.rev}" data-val="${esc(pi)}">${pi}</span>`;
+    }
+    if(s.rev&&q.dc[z]&&q.dc[z]!==pi){
+      ch+=`<span class="chip cghost">${q.dc[z]}</span>`;
+    }
+    h+=`<div class="dz-w"><div class="dz-l">${z}</div><div class="dz" data-zone="${z}">${ch}</div></div>`;
+  });
+  return h;
+}
+function attachDrg(i){
+  const card=document.getElementById(`q${i}`);if(!card)return;
+  card.querySelectorAll('.chip').forEach(c=>{
+    c.addEventListener('dragstart',e=>{
+      const dz=c.closest('.dz');
+      const from=dz?(dz.dataset.zone||'pool'):'pool';
+      e.dataTransfer.setData('text/plain',JSON.stringify({val:c.dataset.val,from:from}));
+      e.dataTransfer.effectAllowed='move';
+    });
+  });
+  card.querySelectorAll('.dz').forEach(z=>{
+    z.addEventListener('dragover',e=>{e.preventDefault();z.classList.add('dragover')});
+    z.addEventListener('dragleave',()=>z.classList.remove('dragover'));
+    z.addEventListener('drop',e=>{
+      e.preventDefault();z.classList.remove('dragover');
+      let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'));}catch(_){return;}
+      const dv=d.val,dfrom=d.from;
+      const tz=z.dataset.zone;
+      const s=S[i].sel;
+      if(dfrom==='pool'){const pi=s.pool.indexOf(dv);if(pi>-1)s.pool.splice(pi,1);}
+      else if(dfrom){delete s.placed[dfrom];}
+      if(!tz||tz===''){
+        if(!s.pool.includes(dv))s.pool.push(dv);
+      } else {
+        if(s.placed[tz]&&s.placed[tz]!==dv){s.pool.push(s.placed[tz]);}
+        s.placed[tz]=dv;
+      }
+      reQ(i);
+    });
+  });
+}
+
+// ========== FILL-IN ==========
+function rFill(q,i,s){
+  let h='<table class="fi-tbl"><thead><tr><th>項目</th><th>値</th></tr></thead><tbody>';
+  q.fields.forEach((f,fi)=>{
+    h+='<tr><td>'+f.label+'</td><td>';
+    if(f.fixed!=null){
+      h+=`<input type="text" value="${f.fixed}" readonly>`;
+    }else{
+      let cls='',val=s.sel[fi]||'';
+      if(s.rev){
+        cls=val.trim()===f.ans?' fi-ok':' fi-ng';
+      }
+      h+=`<input type="text" class="${cls}" value="${esc(val)}" ${s.rev?'readonly':''} oninput="fiUpd(${i},${fi},this.value)">`;
+      if(s.rev&&val.trim()!==f.ans){
+        h+=`<div class="fi-ans show">正解: ${f.ans}</div>`;
+      }
+    }
+    h+='</td></tr>';
+  });
+  h+='</tbody></table>';
+  return h;
+}
+function fiUpd(i,fi,v){
+  if(S[i].rev)return;init(i);
+  S[i].sel[fi]=v;
+}
+
+// ========== RE-RENDER SINGLE Q ==========
+function reQ(i){
+  const el=document.getElementById(`q${i}`);
+  const tmp=document.createElement('div');
+  tmp.innerHTML=renderQ(i);
+  el.replaceWith(tmp.firstElementChild);
+  if(Q[i].tp==='order'&&!S[i].rev)setTimeout(()=>attachOrd(i),0);
+  if(Q[i].tp==='drag'&&!S[i].rev)setTimeout(()=>attachDrg(i),0);
+}
+
+// ========== CHECK ==========
+function chk(i){
+  const q=Q[i],s=S[i];init(i);
+  let ok=false;
+  if(q.tp==='single'||q.tp==='multi'){
+    const sel=[...(s.sel||[])].sort(),cor=[...q.ans].sort();
+    ok=sel.length===cor.length&&sel.every((v,j)=>v===cor[j]);
+  }else if(q.tp==='matrix'){
+    const sel=s.sel||{},cor=q.mc;
+    const keys=new Set([...Object.keys(sel),...Object.keys(cor)]);
+    ok=true;for(const k of keys){if(!!sel[k]!==!!cor[k]){ok=false;break;}}
+  }else if(q.tp==='order'){
+    const slots=s.sel.slots||[];
+    ok=slots.length===q.ac.length&&slots.every((v,j)=>v===q.ac[j]);
+  }else if(q.tp==='drag'){
+    const pl=s.sel.placed||{},cor=q.dc;
+    ok=Object.keys(cor).every(z=>pl[z]===cor[z]);
+  }else if(q.tp==='fillin'){
+    ok=true;
+    q.fields.forEach((f,fi)=>{
+      if(f.fixed!=null)return;
+      if((s.sel[fi]||'').trim()!==f.ans)ok=false;
+    });
+  }
+  s.rev=true;s.ok=ok;
+  reQ(i);toc();stats();
+}
+function checkAll(){Q.forEach((_,i)=>{if(!S[i].rev)chk(i)})}
+function resetAll(){
+  Q.forEach((_,i)=>{S[i]={sel:null,rev:false,ok:null}});
+  renderAll();window.scrollTo({top:0});
+}
+function retry(i){
+  S[i]={sel:null,rev:false,ok:null};
+  init(i);
+  reQ(i);toc();stats();
+  document.getElementById(`q${i}`).scrollIntoView({behavior:'smooth',block:'start'});
+}
+function scrollUn(){
+  for(let i=0;i<N;i++){if(!S[i].rev){document.getElementById(`q${i}`).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+  alert('全問回答済みです！');
+}
+
+// ========== TOC ==========
+function toc(){
+  const t=document.getElementById('toc');let h='';
+  Q.forEach((_,i)=>{
+    let c='tb';if(S[i].rev)c+=S[i].ok?' tok':' tng';
+    h+=`<button class="${c}" onclick="document.getElementById('q${i}').scrollIntoView({behavior:'smooth',block:'start'})">${i+1}</button>`;
+  });
+  t.innerHTML=h;
+}
+
+// ========== STATS ==========
+function stats(){
+  let a=0,o=0,n=0;
+  S.forEach(s=>{if(s.rev){a++;if(s.ok)o++;else n++;}});
+  document.getElementById('sp').textContent=`${a}/${N}`;
+  document.getElementById('so').textContent=o;
+  document.getElementById('sn').textContent=n;
+  document.getElementById('sr').textContent=a>0?Math.round(o/a*100)+'%':'--%';
+  document.getElementById('pb').style.width=(a/N*100)+'%';
+}
+
+renderAll();
+</script>
+<script>
+(function(){
+  var darkCSS=null;
+  function setFontScale(p){document.documentElement.style.fontSize=p+'%'}
+  function getDarkStyle(){
+    if(!darkCSS){
+      darkCSS=document.createElement('style');darkCSS.id='hub-dark';
+      darkCSS.textContent=
+        'body{background:#0f172a!important;color:#e2e8f0!important}'+
+        'a{color:#93c5fd!important}'+
+        '.hdr{background:#1e293b!important;border-color:#334155!important}'+
+        '.hdr h1{color:#e2e8f0!important}'+
+        '.bdg{background:rgba(59,130,246,.2)!important;color:#93c5fd!important}'+
+        '.stats,.si{color:#94a3b8!important}.sv{color:#e2e8f0!important}'+
+        '.pbar{background:#334155!important}'+
+        '.btn{background:#1e293b!important;color:#e2e8f0!important;border-color:#475569!important}'+
+        '.btn:hover{background:#334155!important}'+
+        '.bp{background:#2563eb!important;color:#fff!important;border-color:#2563eb!important}'+
+        '.toc{background:#1e293b!important;border-color:#334155!important;box-shadow:0 2px 8px rgba(0,0,0,.3)!important}'+
+        '.tb{color:#94a3b8!important}.tb:hover{background:rgba(59,130,246,.2)!important;color:#93c5fd!important}'+
+        '.tb.tok{background:rgba(16,185,129,.2)!important;color:#6ee7b7!important}'+
+        '.tb.tng{background:rgba(239,68,68,.2)!important;color:#fca5a5!important}'+
+        '.qc{border-color:#334155!important}.qc.rok{border-color:#065f46!important}.qc.rng{border-color:#991b1b!important}'+
+        '.qh{background:#1e293b!important;border-color:#334155!important}'+
+        '.qc.rok .qh{background:#064e3b!important}.qc.rng .qh{background:#7f1d1d!important}'+
+        '.qn{color:#e2e8f0!important}'+
+        '.ts{background:rgba(59,130,246,.2)!important;color:#93c5fd!important}'+
+        '.tm{background:rgba(245,158,11,.2)!important;color:#fcd34d!important}'+
+        '.to{background:rgba(168,85,247,.2)!important;color:#d8b4fe!important}'+
+        '.td{background:rgba(16,185,129,.2)!important;color:#6ee7b7!important}'+
+        '.tx{background:rgba(239,68,68,.2)!important;color:#fca5a5!important}'+
+        '.tf{background:rgba(249,115,22,.2)!important;color:#fdba74!important}'+
+        '.scn{background:#1e293b!important;color:#cbd5e1!important;border-color:#3b82f6!important}'+
+        '.scn summary{color:#e2e8f0!important}.qtx{color:#f1f5f9!important}'+
+        '.op{border-color:#475569!important;color:#e2e8f0!important}'+
+        '.op:hover{background:#1e293b!important;border-color:#60a5fa!important}'+
+        '.op.sel{background:rgba(59,130,246,.15)!important;border-color:#3b82f6!important}'+
+        '.op.cok{background:rgba(16,185,129,.15)!important;border-color:#10b981!important}'+
+        '.op.cng{background:rgba(239,68,68,.15)!important;border-color:#ef4444!important}'+
+        '.op.cms{background:rgba(16,185,129,.1)!important;border-color:#10b981!important}'+
+        '.mk{border-color:#64748b!important}'+
+        '.mtx th,.mtx td{border-color:#334155!important}'+
+        '.mtx th{background:#1e293b!important;color:#e2e8f0!important}.mtx td{color:#e2e8f0!important}'+
+        '.cb{background:#1e293b!important;border-color:#64748b!important;color:#e2e8f0!important}'+
+        '.ord-pool{background:#1e293b!important;border-color:#475569!important}'+
+        '.ord-pool-label{color:#94a3b8!important}'+
+        '.ord-slot{border-color:#475569!important}.ord-slot .sn{background:#334155!important;color:#94a3b8!important}'+
+        '.chip{background:rgba(59,130,246,.15)!important;color:#93c5fd!important;border-color:#3b82f6!important}'+
+        '.chip.cok{background:rgba(16,185,129,.15)!important;color:#6ee7b7!important;border-color:#10b981!important}'+
+        '.chip.cng{background:rgba(239,68,68,.15)!important;color:#fca5a5!important;border-color:#ef4444!important}'+
+        '.chip.cghost{background:#0f172a!important;color:#6ee7b7!important;border-color:#10b981!important}'+
+        '.dz{border-color:#475569!important}.dz-l{color:#94a3b8!important}'+
+        '.exp,.eok{background:rgba(16,185,129,.1)!important;border-color:#065f46!important;color:#6ee7b7!important}'+
+        '.eng{background:rgba(239,68,68,.1)!important;border-color:#991b1b!important;color:#fca5a5!important}'+
+        '.expl{background:#1e293b!important;border-color:#334155!important;color:#cbd5e1!important}'+
+        '.expl h4{color:#93c5fd!important}.expl .ek{color:#6ee7b7!important}.expl .ew{color:#fcd34d!important}.expl .ed{color:#94a3b8!important}'+
+        '.expl hr{border-color:#334155!important}'+
+        '.bbar{background:#1e293b!important;border-color:#334155!important}'+
+        /* Fill-in tables */
+        '.fi-tbl th,.fi-tbl td{border-color:#334155!important}'+
+        '.fi-tbl th{background:#1e293b!important;color:#e2e8f0!important}'+
+        '.fi-tbl td{color:#cbd5e1!important}'+
+        '.fi-tbl td:first-child{color:#94a3b8!important;background:#1e293b!important}'+
+        '.fi-tbl input{background:#0f172a!important;color:#e2e8f0!important;border-color:#475569!important}'+
+        '.fi-tbl input:focus{border-color:#3b82f6!important;box-shadow:0 0 0 2px rgba(59,130,246,.25)!important}'+
+        '.fi-tbl input[readonly]{background:#1e293b!important;color:#64748b!important}'+
+        '.fi-tbl input.fi-ok{background:rgba(16,185,129,.1)!important;border-color:#10b981!important;color:#6ee7b7!important}'+
+        '.fi-tbl input.fi-ng{background:rgba(239,68,68,.1)!important;border-color:#ef4444!important;color:#fca5a5!important}'+
+        '.fi-ans{color:#6ee7b7!important}'+
+        'input,select,textarea{background:#0f172a!important;color:#e2e8f0!important;border-color:#475569!important}'+
+        'code,pre{background:#1e293b!important;color:#e2e8f0!important}'+
+        'img,svg{opacity:.92}';
+      document.head.appendChild(darkCSS);
+    }
+    return darkCSS;
+  }
+  function setTheme(t){
+    var s=getDarkStyle();
+    if(t==='dark')s.disabled=false;
+    else if(t==='light')s.disabled=true;
+    else s.disabled=!window.matchMedia('(prefers-color-scheme:dark)').matches;
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||!e.data.type)return;
+    if(e.data.type==='setFontScale')setFontScale(e.data.value);
+    if(e.data.type==='setTheme')setTheme(e.data.value);
+  });
+})();
+</script>
+
+
+<a id="hub-back" href="/index.html" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:#1e293b;color:#f1f5f9;border:1px solid #475569;border-radius:99px;padding:10px 18px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.4);display:flex;align-items:center;gap:6px;-webkit-tap-highlight-color:transparent;">🏠 Hub</a>
+</body></html>

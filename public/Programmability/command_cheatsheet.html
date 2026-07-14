@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)/Programmability/command_cheatsheet.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 3 — コマンド一覧チートシート</title>
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #334155;
+    --heading: #0f172a;
+    --muted: #64748b;
+    --accent-1: #2563eb;
+    --accent-2: #7c3aed;
+    --accent-3: #059669;
+    --accent-4: #d97706;
+    --code-bg: #f1f5f9;
+    --code-border: #e2e8f0;
+    --red: #dc2626;
+    --pre-color: #334155;
+    --script-bg: #f8fafc;
+    --script-color: #475569;
+    --script-kw: #7c3aed;
+    --script-fn: #2563eb;
+    --script-str: #059669;
+    --script-comment: #94a3b8;
+    --note-bg: rgba(0,0,0,.02);
+  }
+  :root[data-theme="dark"] {
+      --bg: #0c0f14;
+      --surface: #151921;
+      --border: #2a3040;
+      --text: #c8cdd8;
+      --heading: #e8ecf2;
+      --muted: #6b7280;
+      --accent-1: #38bdf8;
+      --accent-2: #a78bfa;
+      --accent-3: #34d399;
+      --accent-4: #fb923c;
+      --code-bg: #1e2330;
+      --code-border: #2d3548;
+      --red: #ef4444;
+      --pre-color: #b0bbd0;
+      --script-bg: #1a1e2a;
+      --script-color: #9ca3af;
+      --script-kw: #a78bfa;
+      --script-fn: #38bdf8;
+      --script-str: #34d399;
+      --script-comment: #555e70;
+      --note-bg: rgba(255,255,255,.02);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'SF Mono','Fira Code','Consolas',monospace; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 13px; padding: 24px; }
+  .page { max-width: 860px; margin: 0 auto; }
+  h1 { color: var(--heading); font-size: 20px; text-align: center; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: var(--muted); font-size: 11px; margin-bottom: 32px; }
+  .section { margin-bottom: 36px; }
+  .section-title { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .section-title .badge { font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 5px; flex-shrink: 0; }
+  .badge-1 { background: rgba(37,99,235,.1); color: var(--accent-1); }
+  .badge-2 { background: rgba(124,58,237,.1); color: var(--accent-2); }
+  .badge-3 { background: rgba(5,150,105,.1); color: var(--accent-3); }
+  .section-title h2 { font-size: 15px; color: var(--heading); }
+  .device { margin-bottom: 16px; }
+  .device-name { font-size: 12px; font-weight: 700; color: var(--accent-4); margin-bottom: 4px; letter-spacing: 1px; }
+  .step-label { font-size: 11px; color: var(--accent-2); margin: 10px 0 2px; font-weight: 700; }
+  pre { background: var(--code-bg); border: 1px solid var(--code-border); border-radius: 6px; padding: 14px 18px; overflow-x: auto; margin-bottom: 8px; font-size: 12.5px; line-height: 1.65; color: var(--pre-color); }
+  pre .comment { color: var(--script-comment); font-style: italic; }
+  pre .highlight { color: var(--accent-3); }
+  pre .warn { color: var(--accent-4); }
+  .note { font-size: 11px; color: var(--muted); padding: 6px 10px; background: var(--note-bg); border-radius: 4px; margin-bottom: 8px; border-left: 2px solid var(--border); }
+  .divider { height: 1px; background: var(--border); margin: 12px 0; }
+  .script-block { background: var(--script-bg); border: 1px solid var(--code-border); border-radius: 6px; padding: 14px 18px; overflow-x: auto; margin-bottom: 8px; font-size: 12px; line-height: 1.65; color: var(--script-color); white-space: pre; }
+  .script-block .kw { color: var(--script-kw); }
+  .script-block .fn { color: var(--script-fn); }
+  .script-block .str { color: var(--script-str); }
+  .script-block .comment { color: var(--script-comment); font-style: italic; }
+  .bug-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 3px; background: rgba(220,38,38,.1); color: var(--red); margin-right: 4px; vertical-align: middle; }
+  .fix-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 3px; background: rgba(5,150,105,.1); color: var(--accent-3); margin-right: 4px; vertical-align: middle; }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    body { padding: 14px 10px; font-size: 12px; }
+    h1 { font-size: 17px; }
+    .section-title { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .section-title h2 { font-size: 14px; }
+    pre { padding: 10px 12px; font-size: 11px; }
+    .script-block { padding: 10px 12px; font-size: 11px; }
+    .note { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>Section 3 — コマンド一覧チートシート</h1>
+<p class="subtitle">解説なし・コマンドだけ・コピペ用</p>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- 3.1 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">
+    <span class="badge badge-1">3.1</span>
+    <h2>EEM × GuestShell × Python — R23</h2>
+  </div>
+
+  <div class="step-label">① IOS-XE コンフィグ</div>
+<pre>configure terminal
+
+logging console
+
+interface Loopback10
+ ip address 192.168.1.1 255.255.255.0
+
+interface VirtualPortGroup0
+ ip address 192.168.0.1 255.255.255.0
+
+router ospf 1
+ network 192.168.0.0 0.0.0.255 area 0
+ passive-interface VirtualPortGroup0
+
+track 1 interface Loopback10 line-protocol
+
+event manager applet RCA
+ event track 1 state down ratelimit 5
+ action 1.0 cli command "enable"
+ action 2.0 cli command "guestshell run python3 eem_script.py loop10"
+ action 3.0 syslog priority notifications msg "RCA Data Capture Complete"
+ exit
+
+iox
+
+app-hosting appid guestshell
+ app-vnic gateway0 virtualportgroup 0 guest-interface 0
+  guest-ipaddress 192.168.0.2 netmask 255.255.255.0
+  exit
+ app-default-gateway 192.168.0.1 guest-interface 0
+end</pre>
+
+  <div class="step-label">② GuestShell 起動 &amp; 確認</div>
+<pre>guestshell enable
+show iox-service</pre>
+
+  <div class="step-label">③ Python スクリプト（eem_script.py）</div>
+  <div class="script-block"><span class="comment">#!/usr/bin/env python3</span>
+<span class="kw">import</span> cli
+<span class="kw">import</span> sys
+
+cmds = [
+    <span class="str">"show ip interface brief"</span>,
+    <span class="str">"show ip ospf neighbor"</span>,
+    <span class="str">"show ip route"</span>,
+    <span class="kw">f</span><span class="str">"show interface {sys.argv[1]}"</span>,
+    <span class="str">"show log"</span>
+]
+
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"/bootflash/guest-share/RCA_Capture.txt"</span>, <span class="str">"a+"</span>) <span class="kw">as</span> f:
+    <span class="kw">for</span> cmd <span class="kw">in</span> cmds:
+        output = cli.<span class="fn">execute</span>(cmd)
+        f.write(output)</div>
+
+  <div class="step-label">④ テスト手順</div>
+<pre>configure terminal
+interface Loopback10
+ shutdown
+end
+
+<span class="comment">! → EEM発火 → syslog "RCA Data Capture Complete" を確認</span>
+more bootflash:guest-share/RCA_Capture.txt</pre>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- 3.2 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">
+    <span class="badge badge-2">3.2</span>
+    <h2>RESTCONF Python スクリプト修正 — R30 (10.3.11.1)</h2>
+  </div>
+
+  <div class="note">Linux Host 31 にログイン → <code>vi /home/cisco/scripts/ccie_restconf.py</code> で編集 → <code>python3</code> で実行</div>
+
+  <div class="step-label">修正箇所 4つ</div>
+<pre><span class="comment"># Bug 1: import requests が無い</span>
+                                   <span class="warn">→ import requests を追加</span>
+
+<span class="comment"># Bug 2: host が空文字</span>
+host = ""                          <span class="warn">→ host = "10.3.11.1"</span>
+
+<span class="comment"># Bug 3: GET に不要な data=payload（payload未定義でNameError）</span>
+data=payload,                      <span class="warn">→ 行ごと削除</span>
+
+<span class="comment"># Bug 4: .json はメソッド呼び出しが必要</span>
+jsondata = response.json           <span class="warn">→ jsondata = response.json()</span></pre>
+
+  <div class="step-label">修正済み完全スクリプト</div>
+  <div class="script-block"><span class="kw">import</span> json
+<span class="kw">import</span> requests
+<span class="kw">import</span> urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+host = <span class="str">"10.3.11.1"</span>
+port = <span class="str">"443"</span>
+url = <span class="kw">f</span><span class="str">"https://{host}:{port}/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/interface"</span>
+
+headers = {
+    <span class="str">"Accept"</span>: <span class="str">"application/yang-data+json"</span>,
+    <span class="str">"Content-Type"</span>: <span class="str">"application/yang-data+json"</span>
+}
+
+response = requests.<span class="fn">request</span>(
+    <span class="str">'get'</span>,
+    url,
+    auth=(<span class="str">"netadmin"</span>, <span class="str">"CCIEinfra"</span>),
+    headers=headers,
+    verify=<span class="kw">False</span>
+)
+
+jsondata = response.<span class="fn">json</span>()
+
+<span class="fn">print</span>(<span class="str">"-"</span> * 100)
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">"{'Interface':&lt;45} {'Ingress Octets':&lt;30} {'Egress Octets':&lt;30}"</span>)
+<span class="fn">print</span>(<span class="str">"-"</span> * 100)
+
+<span class="kw">for</span> interface <span class="kw">in</span> jsondata[<span class="str">"Cisco-IOS-XE-interfaces-oper:interface"</span>]:
+    <span class="kw">if</span> (interface[<span class="str">'oper-status'</span>] == <span class="str">'if-oper-state-ready'</span> <span class="kw">and</span>
+        interface[<span class="str">'interface-type'</span>] == <span class="str">'iana-iftype-ethernet-csmacd'</span>):
+        switchport = interface[<span class="str">"name"</span>]
+        ingressoctets = interface[<span class="str">"statistics"</span>][<span class="str">"in-octets"</span>]
+        egressoctets = interface[<span class="str">"statistics"</span>][<span class="str">"out-octets"</span>]
+        <span class="fn">print</span>(<span class="kw">f</span><span class="str">"{switchport:&lt;45} {ingressoctets:&lt;30} {egressoctets:&lt;30}"</span>)</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- 3.3 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">
+    <span class="badge badge-3">3.3</span>
+    <h2>DNA Center API エンドポイント特定</h2>
+  </div>
+
+  <div class="note">JSONレスポンスを見て、どのAPIエンドポイントから返されたものか特定する推論問題</div>
+
+<pre><span class="highlight">正解: /dna/intent/api/v1/device-details</span>
+
+<span class="comment">決め手となるフィールド:</span>
+  memoryScore    ← device-details 固有
+  cpuScore       ← device-details 固有
+  timestamp      ← device-details 固有
+  overallHealth  ← device-details / device-enrichment-details
+
+<span class="comment">除外理由:</span>
+  /network-device              → health系フィールドが無い
+  /device-enrichment-details   → memoryScore, cpuScore, timestamp が無い
+                                  レスポンス構造がネスト型で異なる</pre>
+</div>
+
+</div>
+<script>
+(function(){
+  function setFontScale(p){document.documentElement.style.fontSize=p+'%'}
+  function setTheme(t){
+    if(t==='dark') document.documentElement.setAttribute('data-theme','dark');
+    else if(t==='light') document.documentElement.removeAttribute('data-theme');
+    else {
+      if(window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme','dark');
+      else document.documentElement.removeAttribute('data-theme');
+    }
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||!e.data.type)return;
+    if(e.data.type==='setFontScale')setFontScale(e.data.value);
+    if(e.data.type==='setTheme')setTheme(e.data.value);
+  });
+  if(window.matchMedia('(prefers-color-scheme:dark)').matches) document.documentElement.setAttribute('data-theme','dark');
+})();
+</script>
+<a id="hub-back" href="/index.html" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:#1e293b;color:#f1f5f9;border:1px solid #475569;border-radius:99px;padding:10px 18px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.4);display:flex;align-items:center;gap:6px;-webkit-tap-highlight-color:transparent;">🏠 Hub</a>
+
+</body></html>

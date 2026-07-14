@@ -1,0 +1,20 @@
+{
+  "name": "CCIE Study Hub",
+  "short_name": "CCIE Hub",
+  "description": "CCIE EI Lab 学習ハブ（Design / SDN / RS / Programmability）",
+  "lang": "ja",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

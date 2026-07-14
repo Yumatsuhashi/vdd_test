@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<!-- saved from url=(0109)/sdn/SDN%20S2%201.3%20-%20%E7%A9%B4%E5%9F%8B%E3%82%81.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCIE EI Lab SDN S2 1.3 - 全問一覧</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:#fff;color:#222;line-height:1.65;font-size:14px}
+.hdr{border-bottom:1px solid #ddd;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;background:#fafafa;position:sticky;top:0;z-index:200;flex-wrap:wrap;gap:8px}
+.hdr-l{display:flex;align-items:center;gap:12px}
+.hdr h1{font-size:15px;font-weight:600;color:#333}
+.bdg{background:#e8f0fe;color:#1a5dc7;font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px}
+.stats{display:flex;gap:14px;font-size:12px;color:#555;align-items:center;flex-wrap:wrap}
+.si{display:flex;align-items:center;gap:3px}
+.sv{font-weight:600;color:#222}
+.sc{color:#1e8e3e!important}
+.sw{color:#d93025!important}
+.pbar{height:3px;background:#eee;position:sticky;top:49px;z-index:199}
+.pfill{height:100%;background:#1a5dc7;transition:width .3s}
+.btn{padding:6px 14px;border:1px solid #ddd;border-radius:4px;font-size:12px;font-weight:500;cursor:pointer;background:#fff;color:#333;transition:all .15s;white-space:nowrap}
+.btn:hover{background:#f5f5f5}
+.bp{background:#1a5dc7;color:#fff;border-color:#1a5dc7}
+.bp:hover{background:#1550b0}
+.bs{padding:5px 12px;font-size:11px}
+.bd{background:#d93025;color:#fff;border-color:#d93025}
+.bd:hover{background:#b8271f}
+.ctn{max-width:880px;margin:0 auto;padding:20px 24px 80px}
+.toc{position:fixed;right:10px;top:58px;background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:6px 3px;z-index:150;max-height:calc(100vh - 76px);overflow-y:auto;width:40px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.tb{display:block;width:30px;height:22px;margin:1px auto;border:none;background:transparent;font-size:10px;font-weight:500;cursor:pointer;color:#666;border-radius:3px;line-height:22px;text-align:center;transition:all .12s}
+.tb:hover{background:#e8f0fe;color:#1a5dc7}
+.tb.tok{background:#e6f4ea;color:#1e8e3e}
+.tb.tng{background:#fce8e6;color:#d93025}
+.qc{border:1px solid #ddd;border-radius:6px;margin-bottom:20px;overflow:hidden;scroll-margin-top:58px}
+.qc.rok{border-color:#b7e1cd}
+.qc.rng{border-color:#f5c6c2}
+.qh{background:#f5f5f5;padding:10px 14px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center}
+.qc.rok .qh{background:#f0faf3}
+.qc.rng .qh{background:#fdf2f1}
+.qn{font-weight:600;font-size:13px;color:#333}
+.qt{font-size:10px;padding:2px 7px;border-radius:3px;font-weight:600}
+.ts{background:#e8f0fe;color:#1a5dc7}
+.tm{background:#fef7e0;color:#b06000}
+.to{background:#f3e8fd;color:#7627bb}
+.td{background:#e6f4ea;color:#1e8e3e}
+.tx{background:#fce8e6;color:#c5221f}
+.tf{background:#fff3e0;color:#e65100}
+.qb{padding:14px}
+.scn{background:#f9f9f9;border-left:3px solid #1a5dc7;padding:12px 14px;margin-bottom:14px;font-size:13px;color:#444;white-space:pre-wrap;line-height:1.7}
+.scn summary{cursor:pointer;font-weight:600;font-size:13px;color:#333;margin-bottom:4px}
+.scn p{margin-top:6px}
+.qtx{font-weight:500;margin-bottom:12px;color:#111;font-size:14px}
+.exp{margin-top:10px;padding:8px 12px;border-radius:4px;font-size:12px}
+.eok{background:#e6f4ea;border:1px solid #b7e1cd;color:#137333}
+.eng{background:#fce8e6;border:1px solid #f5c6c2;color:#c5221f}
+/* Fill-in */
+.fi-tbl{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:10px}
+.fi-tbl th,.fi-tbl td{border:1px solid #ddd;padding:7px 10px;text-align:left}
+.fi-tbl th{background:#f5f5f5;font-weight:600;font-size:12px}
+.fi-tbl td:first-child{font-size:12px;color:#444}
+.fi-tbl input{width:100%;padding:5px 8px;border:1px solid #ccc;border-radius:3px;font-size:13px;font-family:inherit}
+.fi-tbl input:focus{outline:none;border-color:#1a5dc7;box-shadow:0 0 0 2px rgba(26,93,199,.15)}
+.fi-tbl input[readonly]{background:#f0f0f0;color:#888;cursor:default}
+.fi-tbl input.fi-ok{background:#e6f4ea;border-color:#1e8e3e;color:#137333}
+.fi-tbl input.fi-ng{background:#fce8e6;border-color:#d93025;color:#c5221f}
+.fi-ans{font-size:11px;color:#1e8e3e;margin-top:2px;display:none}
+.fi-ans.show{display:block}
+.qa{margin-top:10px}
+.qb{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:640px){
+.fi-tbl{font-size:11px}
+.fi-tbl th,.fi-tbl td{padding:5px 6px}
+.fi-tbl td:first-child{font-size:11px;word-break:break-word;min-width:140px}
+.fi-tbl input{font-size:12px;padding:6px 8px}
+}
+@media(max-width:420px){
+.fi-tbl{display:block}
+.fi-tbl thead{display:none}
+.fi-tbl tbody,.fi-tbl tr,.fi-tbl td{display:block;width:100%}
+.fi-tbl tr{margin-bottom:8px;border:1px solid #ddd;border-radius:6px;overflow:hidden}
+.fi-tbl td:first-child{background:#f5f5f5;font-weight:600;font-size:11px;border-bottom:1px solid #eee;padding:6px 10px}
+.fi-tbl td:last-child{padding:6px 10px;border:none}
+.fi-tbl input{font-size:14px;padding:8px 10px}
+}
+.bbar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:10px;z-index:200;flex-wrap:wrap}
+@media(max-width:960px){.toc{display:none}}
+@media(max-width:640px){.ctn{padding:14px 12px 60px}.hdr{padding:8px 12px}.stats{gap:8px;font-size:11px}}
+</style>
+</head>
+<body>
+<div class="hdr" id="hdr">
+  <div class="hdr-l">
+    <h1>CCIE EI Lab SDN S2 1.3</h1>
+    <span class="bdg">全問一覧</span>
+  </div>
+  <div class="stats">
+    <div class="si">回答: <span class="sv" id="sp">0/5</span></div>
+    <div class="si">正解: <span class="sv sc" id="so">0</span></div>
+    <div class="si">不正解: <span class="sv sw" id="sn">0</span></div>
+    <div class="si">正答率: <span class="sv" id="sr">--%</span></div>
+  </div>
+</div>
+<div class="pbar"><div class="pfill" id="pb" style="width: 0%;"></div></div>
+<div class="toc" id="toc"><button class="tb" onclick="document.getElementById(&#39;q0&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">1</button><button class="tb" onclick="document.getElementById(&#39;q1&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">2</button><button class="tb" onclick="document.getElementById(&#39;q2&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">3</button><button class="tb" onclick="document.getElementById(&#39;q3&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">4</button><button class="tb" onclick="document.getElementById(&#39;q4&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">5</button></div>
+<div class="ctn" id="ctn"><div class="qc" id="q0"><div class="qh"><span class="qn">#1 Q2.1 — DC-cEdge21/22 Variable List</span><span class="qt tf">Fill-in</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>DC-cEdge21/DC-cEdge22 の SD-WAN Device Template の Variable List を正しく埋めてください。<br>[]で囲まれた項目のみ穴埋めです。</p></details><div class="qtx">DC-cEdge21/22 Device Template: Variable List — 空欄を埋めてください。（readonly の項目は固定値です）</div><table class="fi-tbl"><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>Status</td><td><input type="text" value="in_complete" readonly=""></td></tr><tr><td>Chassis Number</td><td><input type="text" value="C8K-" readonly=""></td></tr><tr><td>System IP</td><td><input type="text" value="1.1.2.1" readonly=""></td></tr><tr><td>Hostname</td><td><input type="text" value="cEdge21" readonly=""></td></tr><tr><td>Interface Name (vpn999_if_name_if2)</td><td><input type="text" value="GigabitEthernet3.3999" readonly=""></td></tr><tr><td>IPv4 Address/prefix-length (vpn999_if_ipv4_address_inf2)</td><td><input type="text" value="10.2.202.9/29" readonly=""></td></tr><tr><td>IP MTU (vpn_if_ip_mtu) [VPN999 inf2]</td><td><input type="text" class="" value="" oninput="fiUpd(0,6,this.value)"></td></tr><tr><td>Interface Name (vpn999_if_name)</td><td><input type="text" value="GigabitEthernet2.3999" readonly=""></td></tr><tr><td>IPv4 Address/prefix-length (vpn999_if_ipv4_address)</td><td><input type="text" value="10.2.201.9/29" readonly=""></td></tr><tr><td>IP MTU (vpn_if_ip_mtu) [VPN999]</td><td><input type="text" class="" value="" oninput="fiUpd(0,9,this.value)"></td></tr><tr><td>Router ID (ospf_router_id)</td><td><input type="text" value="1.99.2.1" readonly=""></td></tr><tr><td>Interface Name (ospf_name)</td><td><input type="text" value="GigabitEthernet2.3999" readonly=""></td></tr><tr><td>Interface Name (ospf_name_inf2)</td><td><input type="text" value="GigabitEthernet3.3999" readonly=""></td></tr><tr><td>Prefix (vpn_ipv4_ip_prefix)</td><td><input type="text" value="10.2.0.0/16" readonly=""></td></tr><tr><td>Address (vpn_next_hop_ip_address_vpn0)</td><td><input type="text" value="10.2.201.3" readonly=""></td></tr><tr><td>Address (vpn0_next_hop_ip_address_2)</td><td><input type="text" value="10.2.202.3" readonly=""></td></tr><tr><td>Interface Name (vpn0_inf2_phyic)</td><td><input type="text" value="GigabitEthernet3" readonly=""></td></tr><tr><td>IPv4 Address/prefix-length (vpn0_inf2_ipv4_address)</td><td><input type="text" value="10.2.202.1/29" readonly=""></td></tr><tr><td>Color (vpn_if_tunnel_color_value_int2)</td><td><input type="text" value="private2" readonly=""></td></tr><tr><td>Interface Name (vpn0_if_name_phyic)</td><td><input type="text" value="GigabitEthernet2" readonly=""></td></tr><tr><td>IPv4 Address/prefix-length (vpn0_if_ipv4_address)</td><td><input type="text" value="10.2.201.1/29" readonly=""></td></tr><tr><td>Color (vpn_if_tunnel_color_value)</td><td><input type="text" value="private1" readonly=""></td></tr><tr><td>Interface Name (ospf_name_inf1)</td><td><input type="text" class="" value="" oninput="fiUpd(0,22,this.value)"></td></tr><tr><td>Interface Name (ospf_name_inf2)</td><td><input type="text" class="" value="" oninput="fiUpd(0,23,this.value)"></td></tr><tr><td>Hostname (system_host_name)</td><td><input type="text" value="cEdge21" readonly=""></td></tr><tr><td>System IP (system_system_ip)</td><td><input type="text" value="1.1.2.1" readonly=""></td></tr><tr><td>Site ID (system_site_id)</td><td><input type="text" value="65002" readonly=""></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(0)">解答を確認</button></div></div></div><div class="qc" id="q1"><div class="qh"><span class="qn">#2 Q2.2 — BR1-cEdge40 Variable List</span><span class="qt tf">Fill-in</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>BR1-cEdge40 の SD-WAN Device Template の Variable List を正しく埋めてください。<br>全て穴埋めです。</p></details><div class="qtx">BR1-cEdge40 Device Template: Variable List — 全ての空欄を埋めてください。</div><table class="fi-tbl"><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>Prefix (vpn_omp_aggregate_aggregate_prefix)</td><td><input type="text" class="" value="" oninput="fiUpd(1,0,this.value)"></td></tr><tr><td>Interface Name (vpn999_if_name)</td><td><input type="text" class="" value="" oninput="fiUpd(1,1,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (vpn999_if_ipv4_address)</td><td><input type="text" class="" value="" oninput="fiUpd(1,2,this.value)"></td></tr><tr><td>IP MTU (vpn_if_ip_mtu)</td><td><input type="text" class="" value="" oninput="fiUpd(1,3,this.value)"></td></tr><tr><td>Interface Name (ospf_name_int)</td><td><input type="text" class="" value="" oninput="fiUpd(1,4,this.value)"></td></tr><tr><td>Prefix (vpn0_route2)</td><td><input type="text" class="" value="" oninput="fiUpd(1,5,this.value)"></td></tr><tr><td>Address (vpn0_rt_nh1)</td><td><input type="text" class="" value="" oninput="fiUpd(1,6,this.value)"></td></tr><tr><td>Address (vpn0_rt_nh2)</td><td><input type="text" class="" value="" oninput="fiUpd(1,7,this.value)"></td></tr><tr><td>Interface Name (vpn0_intf1_phys)</td><td><input type="text" class="" value="" oninput="fiUpd(1,8,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (vpn0_intf1_ipv4_addr)</td><td><input type="text" class="" value="" oninput="fiUpd(1,9,this.value)"></td></tr><tr><td>Color (vpn0_intf1_color)</td><td><input type="text" class="" value="" oninput="fiUpd(1,10,this.value)"></td></tr><tr><td>Hostname (system_host_name)</td><td><input type="text" class="" value="" oninput="fiUpd(1,11,this.value)"></td></tr><tr><td>System IP (system_system_ip)</td><td><input type="text" class="" value="" oninput="fiUpd(1,12,this.value)"></td></tr><tr><td>Site ID (system_site_id)</td><td><input type="text" class="" value="" oninput="fiUpd(1,13,this.value)"></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(1)">解答を確認</button></div></div></div><div class="qc" id="q2"><div class="qh"><span class="qn">#3 Q2.3 — vSmart Variable List</span><span class="qt tf">Fill-in</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>vSmart Device Template の Variable List を正しく埋めてください。<br>System IP: 1.1.1.3、Hostname: vsmart は固定値です。それ以外は穴埋めです。</p></details><div class="qtx">vSmart Device Template: Variable List — 空欄を埋めてください。（readonly の項目は固定値です）</div><table class="fi-tbl"><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>System IP</td><td><input type="text" value="1.1.1.3" readonly=""></td></tr><tr><td>Hostname</td><td><input type="text" value="vsmart" readonly=""></td></tr><tr><td>Address (vpn_next_hop_ip_address_vpn512)</td><td><input type="text" class="" value="" oninput="fiUpd(2,2,this.value)"></td></tr><tr><td>IPv4 Address (vpn_if_ip_address_vpn512)</td><td><input type="text" class="" value="" oninput="fiUpd(2,3,this.value)"></td></tr><tr><td>Address (vpn_next_hop_ip_address_vpn0)</td><td><input type="text" class="" value="" oninput="fiUpd(2,4,this.value)"></td></tr><tr><td>IPv4 Address (vpn_if_ip_address_vpn0)</td><td><input type="text" class="" value="" oninput="fiUpd(2,5,this.value)"></td></tr><tr><td>Hostname (system_host_name)</td><td><input type="text" class="" value="" oninput="fiUpd(2,6,this.value)"></td></tr><tr><td>System IP (system_system_ip)</td><td><input type="text" class="" value="" oninput="fiUpd(2,7,this.value)"></td></tr><tr><td>Site ID (system_site_id)</td><td><input type="text" class="" value="" oninput="fiUpd(2,8,this.value)"></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(2)">解答を確認</button></div></div></div><div class="qc" id="q3"><div class="qh"><span class="qn">#4 Q2.5a — BR2-cEdge51 Variable List</span><span class="qt tf">Fill-in</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>BR2-cEdge51 の SD-WAN Device Template の Variable List を正しく埋めてください。<br>Hostname: cEdge51 は固定値です。それ以外は穴埋めです。</p></details><div class="qtx">BR2-cEdge51 Device Template: Variable List — 空欄を埋めてください。（readonly の項目は固定値です）</div><table class="fi-tbl"><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>Hostname</td><td><input type="text" value="cEdge51" readonly=""></td></tr><tr><td>Interface Name (vpn999_if_name)</td><td><input type="text" class="" value="" oninput="fiUpd(3,1,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (vpn999_if_ipv4_address)</td><td><input type="text" class="" value="" oninput="fiUpd(3,2,this.value)"></td></tr><tr><td>IP MTU (vpn_if_ip_mtu)</td><td><input type="text" class="" value="" oninput="fiUpd(3,3,this.value)"></td></tr><tr><td>Interface Name (ospf_name_int)</td><td><input type="text" class="" value="" oninput="fiUpd(3,4,this.value)"></td></tr><tr><td>Address (vpn0_next_hop_ip_address_1)</td><td><input type="text" class="" value="" oninput="fiUpd(3,5,this.value)"></td></tr><tr><td>Address (vpn0_next_hop_ip_address_2)</td><td><input type="text" class="" value="" oninput="fiUpd(3,6,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (Ge3.3512_ip_addr)</td><td><input type="text" class="" value="" oninput="fiUpd(3,7,this.value)"></td></tr><tr><td>Interface Name (TE_if_name)</td><td><input type="text" class="" value="" oninput="fiUpd(3,8,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (TE_if_ipv4_address)</td><td><input type="text" class="" value="" oninput="fiUpd(3,9,this.value)"></td></tr><tr><td>Groups (TE_if_tunnel_group)</td><td><input type="text" class="" value="" oninput="fiUpd(3,10,this.value)"></td></tr><tr><td>Color (TE_if_tunnel_color_value)</td><td><input type="text" class="" value="" oninput="fiUpd(3,11,this.value)"></td></tr><tr><td>Maximum Control Connections (TE_if_tunnel_max_control_connections)</td><td><input type="text" class="" value="" oninput="fiUpd(3,12,this.value)"></td></tr><tr><td>Interface Name (vpn0_if_name)</td><td><input type="text" class="" value="" oninput="fiUpd(3,13,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (vpn0_if_ipv4_address)</td><td><input type="text" class="" value="" oninput="fiUpd(3,14,this.value)"></td></tr><tr><td>Color (vpn0_if_tunnel_color_value)</td><td><input type="text" class="" value="" oninput="fiUpd(3,15,this.value)"></td></tr><tr><td>Maximum Control Connections (vpn0_if_tunnel_max_control_connections)</td><td><input type="text" class="" value="" oninput="fiUpd(3,16,this.value)"></td></tr><tr><td>AS Number (bgp_as_num)</td><td><input type="text" class="" value="" oninput="fiUpd(3,17,this.value)"></td></tr><tr><td>Network Prefix (bgp_network_network_address_prefix)</td><td><input type="text" class="" value="" oninput="fiUpd(3,18,this.value)"></td></tr><tr><td>Address (bgp_neighbor_address)</td><td><input type="text" class="" value="" oninput="fiUpd(3,19,this.value)"></td></tr><tr><td>Remote AS (bgp_neighbor_remote_as)</td><td><input type="text" class="" value="" oninput="fiUpd(3,20,this.value)"></td></tr><tr><td>Hostname (system_host_name)</td><td><input type="text" class="" value="" oninput="fiUpd(3,21,this.value)"></td></tr><tr><td>System IP (system_system_ip)</td><td><input type="text" class="" value="" oninput="fiUpd(3,22,this.value)"></td></tr><tr><td>Site ID (system_site_id)</td><td><input type="text" class="" value="" oninput="fiUpd(3,23,this.value)"></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(3)">解答を確認</button></div></div></div><div class="qc" id="q4"><div class="qh"><span class="qn">#5 Q2.5b — BR2-cEdge52 Variable List</span><span class="qt tf">Fill-in</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>BR2-cEdge52 の SD-WAN Device Template の Variable List を正しく埋めてください。<br>Hostname: cEdge52 は固定値です。それ以外は穴埋めです。</p></details><div class="qtx">BR2-cEdge52 Device Template: Variable List — 空欄を埋めてください。（readonly の項目は固定値です）</div><table class="fi-tbl"><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>Hostname</td><td><input type="text" value="cEdge52" readonly=""></td></tr><tr><td>Interface Name (vpn999_if_name)</td><td><input type="text" class="" value="" oninput="fiUpd(4,1,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (vpn999_if_ipv4_address)</td><td><input type="text" class="" value="" oninput="fiUpd(4,2,this.value)"></td></tr><tr><td>IP MTU (vpn_if_ip_mtu)</td><td><input type="text" class="" value="" oninput="fiUpd(4,3,this.value)"></td></tr><tr><td>Interface Name (ospf_name_int)</td><td><input type="text" class="" value="" oninput="fiUpd(4,4,this.value)"></td></tr><tr><td>Address (vpn0_next_hop_ip_address_1)</td><td><input type="text" class="" value="" oninput="fiUpd(4,5,this.value)"></td></tr><tr><td>Address (vpn0_next_hop_ip_address_2)</td><td><input type="text" class="" value="" oninput="fiUpd(4,6,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (Ge3.3521_ip_addr)</td><td><input type="text" class="" value="" oninput="fiUpd(4,7,this.value)"></td></tr><tr><td>Interface Name (TE_if_name)</td><td><input type="text" class="" value="" oninput="fiUpd(4,8,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (TE_if_ipv4_address)</td><td><input type="text" class="" value="" oninput="fiUpd(4,9,this.value)"></td></tr><tr><td>Groups (TE_if_tunnel_group)</td><td><input type="text" class="" value="" oninput="fiUpd(4,10,this.value)"></td></tr><tr><td>Color (TE_if_tunnel_color_value)</td><td><input type="text" class="" value="" oninput="fiUpd(4,11,this.value)"></td></tr><tr><td>Maximum Control Connections (TE_if_tunnel_max_control_connections)</td><td><input type="text" class="" value="" oninput="fiUpd(4,12,this.value)"></td></tr><tr><td>Interface Name (vpn0_if_name)</td><td><input type="text" class="" value="" oninput="fiUpd(4,13,this.value)"></td></tr><tr><td>IPv4 Address/prefix-length (vpn0_if_ipv4_address)</td><td><input type="text" class="" value="" oninput="fiUpd(4,14,this.value)"></td></tr><tr><td>Color (vpn0_if_tunnel_color_value)</td><td><input type="text" class="" value="" oninput="fiUpd(4,15,this.value)"></td></tr><tr><td>Maximum Control Connections (vpn0_if_tunnel_max_control_connections)</td><td><input type="text" class="" value="" oninput="fiUpd(4,16,this.value)"></td></tr><tr><td>AS Number (bgp_as_num)</td><td><input type="text" class="" value="" oninput="fiUpd(4,17,this.value)"></td></tr><tr><td>Network Prefix (bgp_network_network_address_prefix)</td><td><input type="text" class="" value="" oninput="fiUpd(4,18,this.value)"></td></tr><tr><td>Address (bgp_neighbor_address)</td><td><input type="text" class="" value="" oninput="fiUpd(4,19,this.value)"></td></tr><tr><td>Remote AS (bgp_neighbor_remote_as)</td><td><input type="text" class="" value="" oninput="fiUpd(4,20,this.value)"></td></tr><tr><td>Hostname (system_host_name)</td><td><input type="text" class="" value="" oninput="fiUpd(4,21,this.value)"></td></tr><tr><td>System IP (system_system_ip)</td><td><input type="text" class="" value="" oninput="fiUpd(4,22,this.value)"></td></tr><tr><td>Site ID (system_site_id)</td><td><input type="text" class="" value="" oninput="fiUpd(4,23,this.value)"></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(4)">解答を確認</button></div></div></div></div>
+<div class="bbar">
+  <button class="btn bp bs" onclick="checkAll()">全問一括で解答確認</button>
+  <button class="btn bs" onclick="scrollUn()">未回答にジャンプ</button>
+  <button class="btn bd bs" onclick="if(confirm(&#39;全データをリセットしますか？&#39;))resetAll()">データリセット</button>
+</div>
+
+<script>
+// ========== FULL QUESTION DATA ==========
+const Q=[
+
+// 0: Q2.1 — DC-cEdge21/22 Variable List
+{id:"Q2.1",num:"Q2.1",sub:"DC-cEdge21/22 Variable List",tp:"fillin",
+sc:`DC-cEdge21/DC-cEdge22 の SD-WAN Device Template の Variable List を正しく埋めてください。
+[]で囲まれた項目のみ穴埋めです。`,
+tx:"DC-cEdge21/22 Device Template: Variable List — 空欄を埋めてください。（readonly の項目は固定値です）",
+fields:[
+{label:"Status",fixed:"in_complete"},
+{label:"Chassis Number",fixed:"C8K-"},
+{label:"System IP",fixed:"1.1.2.1"},
+{label:"Hostname",fixed:"cEdge21"},
+{label:"Interface Name (vpn999_if_name_if2)",fixed:"GigabitEthernet3.3999"},
+{label:"IPv4 Address/prefix-length (vpn999_if_ipv4_address_inf2)",fixed:"10.2.202.9/29"},
+{label:"IP MTU (vpn_if_ip_mtu) [VPN999 inf2]",ans:"1496"},
+{label:"Interface Name (vpn999_if_name)",fixed:"GigabitEthernet2.3999"},
+{label:"IPv4 Address/prefix-length (vpn999_if_ipv4_address)",fixed:"10.2.201.9/29"},
+{label:"IP MTU (vpn_if_ip_mtu) [VPN999]",ans:"1496"},
+{label:"Router ID (ospf_router_id)",fixed:"1.99.2.1"},
+{label:"Interface Name (ospf_name)",fixed:"GigabitEthernet2.3999"},
+{label:"Interface Name (ospf_name_inf2)",fixed:"GigabitEthernet3.3999"},
+{label:"Prefix (vpn_ipv4_ip_prefix)",fixed:"10.2.0.0/16"},
+{label:"Address (vpn_next_hop_ip_address_vpn0)",fixed:"10.2.201.3"},
+{label:"Address (vpn0_next_hop_ip_address_2)",fixed:"10.2.202.3"},
+{label:"Interface Name (vpn0_inf2_phyic)",fixed:"GigabitEthernet3"},
+{label:"IPv4 Address/prefix-length (vpn0_inf2_ipv4_address)",fixed:"10.2.202.1/29"},
+{label:"Color (vpn_if_tunnel_color_value_int2)",fixed:"private2"},
+{label:"Interface Name (vpn0_if_name_phyic)",fixed:"GigabitEthernet2"},
+{label:"IPv4 Address/prefix-length (vpn0_if_ipv4_address)",fixed:"10.2.201.1/29"},
+{label:"Color (vpn_if_tunnel_color_value)",fixed:"private1"},
+{label:"Interface Name (ospf_name_inf1)",ans:"GigabitEthernet2"},
+{label:"Interface Name (ospf_name_inf2)",ans:"GigabitEthernet3"},
+{label:"Hostname (system_host_name)",fixed:"cEdge21"},
+{label:"System IP (system_system_ip)",fixed:"1.1.2.1"},
+{label:"Site ID (system_site_id)",fixed:"65002"}
+]},
+
+// 1: Q2.2 — BR1-cEdge40 Variable List
+{id:"Q2.2",num:"Q2.2",sub:"BR1-cEdge40 Variable List",tp:"fillin",
+sc:`BR1-cEdge40 の SD-WAN Device Template の Variable List を正しく埋めてください。
+全て穴埋めです。`,
+tx:"BR1-cEdge40 Device Template: Variable List — 全ての空欄を埋めてください。",
+fields:[
+{label:"Prefix (vpn_omp_aggregate_aggregate_prefix)",ans:"10.4.0.0/16"},
+{label:"Interface Name (vpn999_if_name)",ans:"GigabitEthernet4.3999"},
+{label:"IPv4 Address/prefix-length (vpn999_if_ipv4_address)",ans:"10.4.1.1/30"},
+{label:"IP MTU (vpn_if_ip_mtu)",ans:"1496"},
+{label:"Interface Name (ospf_name_int)",ans:"GigabitEthernet4.3999"},
+{label:"Prefix (vpn0_route2)",ans:"0.0.0.0/0"},
+{label:"Address (vpn0_rt_nh1)",ans:"101.40.0.1"},
+{label:"Address (vpn0_rt_nh2)",ans:"101.40.0.1"},
+{label:"Interface Name (vpn0_intf1_phys)",ans:"GigabitEthernet3"},
+{label:"IPv4 Address/prefix-length (vpn0_intf1_ipv4_addr)",ans:"101.40.0.2/30"},
+{label:"Color (vpn0_intf1_color)",ans:"private1"},
+{label:"Hostname (system_host_name)",ans:"cEdge40"},
+{label:"System IP (system_system_ip)",ans:"1.1.4.1"},
+{label:"Site ID (system_site_id)",ans:"65004"}
+]},
+
+// 2: Q2.3 — vSmart Variable List
+{id:"Q2.3",num:"Q2.3",sub:"vSmart Variable List",tp:"fillin",
+sc:`vSmart Device Template の Variable List を正しく埋めてください。
+System IP: 1.1.1.3、Hostname: vsmart は固定値です。それ以外は穴埋めです。`,
+tx:"vSmart Device Template: Variable List — 空欄を埋めてください。（readonly の項目は固定値です）",
+fields:[
+{label:"System IP",fixed:"1.1.1.3"},
+{label:"Hostname",fixed:"vsmart"},
+{label:"Address (vpn_next_hop_ip_address_vpn512)",ans:"203.0.113.1"},
+{label:"IPv4 Address (vpn_if_ip_address_vpn512)",ans:"203.0.113.23/24"},
+{label:"Address (vpn_next_hop_ip_address_vpn0)",ans:"10.2.251.1"},
+{label:"IPv4 Address (vpn_if_ip_address_vpn0)",ans:"10.2.251.11/24"},
+{label:"Hostname (system_host_name)",ans:"vsmart"},
+{label:"System IP (system_system_ip)",ans:"1.1.1.3"},
+{label:"Site ID (system_site_id)",ans:"3"}
+]},
+
+// 3: Q2.5a — BR2-cEdge51 Variable List
+{id:"Q2.5a",num:"Q2.5a",sub:"BR2-cEdge51 Variable List",tp:"fillin",
+sc:`BR2-cEdge51 の SD-WAN Device Template の Variable List を正しく埋めてください。
+Hostname: cEdge51 は固定値です。それ以外は穴埋めです。`,
+tx:"BR2-cEdge51 Device Template: Variable List — 空欄を埋めてください。（readonly の項目は固定値です）",
+fields:[
+{label:"Hostname",fixed:"cEdge51"},
+{label:"Interface Name (vpn999_if_name)",ans:"GigabitEthernet4.3999"},
+{label:"IPv4 Address/prefix-length (vpn999_if_ipv4_address)",ans:"10.5.51.1/30"},
+{label:"IP MTU (vpn_if_ip_mtu)",ans:"1496"},
+{label:"Interface Name (ospf_name_int)",ans:"GigabitEthernet4.3999"},
+{label:"Address (vpn0_next_hop_ip_address_1)",ans:"101.51.0.1"},
+{label:"Address (vpn0_next_hop_ip_address_2)",ans:"10.5.51.6"},
+{label:"IPv4 Address/prefix-length (Ge3.3512_ip_addr)",ans:"10.5.51.9/30"},
+{label:"Interface Name (TE_if_name)",ans:"GigabitEthernet3.3521"},
+{label:"IPv4 Address/prefix-length (TE_if_ipv4_address)",ans:"10.5.51.5/30"},
+{label:"Groups (TE_if_tunnel_group)",ans:"100"},
+{label:"Color (TE_if_tunnel_color_value)",ans:"private2"},
+{label:"Maximum Control Connections (TE_if_tunnel_max_control_connections)",ans:"1"},
+{label:"Interface Name (vpn0_if_name)",ans:"GigabitEthernet2"},
+{label:"IPv4 Address/prefix-length (vpn0_if_ipv4_address)",ans:"101.51.0.2/30"},
+{label:"Color (vpn0_if_tunnel_color_value)",ans:"private1"},
+{label:"Maximum Control Connections (vpn0_if_tunnel_max_control_connections)",ans:"1"},
+{label:"AS Number (bgp_as_num)",ans:"65005"},
+{label:"Network Prefix (bgp_network_network_address_prefix)",ans:"10.5.51.8/30"},
+{label:"Address (bgp_neighbor_address)",ans:"101.51.0.1"},
+{label:"Remote AS (bgp_neighbor_remote_as)",ans:"10001"},
+{label:"Hostname (system_host_name)",ans:"cEdge51"},
+{label:"System IP (system_system_ip)",ans:"1.1.5.1"},
+{label:"Site ID (system_site_id)",ans:"65005"}
+]},
+
+// 4: Q2.5b — BR2-cEdge52 Variable List
+{id:"Q2.5b",num:"Q2.5b",sub:"BR2-cEdge52 Variable List",tp:"fillin",
+sc:`BR2-cEdge52 の SD-WAN Device Template の Variable List を正しく埋めてください。
+Hostname: cEdge52 は固定値です。それ以外は穴埋めです。`,
+tx:"BR2-cEdge52 Device Template: Variable List — 空欄を埋めてください。（readonly の項目は固定値です）",
+fields:[
+{label:"Hostname",fixed:"cEdge52"},
+{label:"Interface Name (vpn999_if_name)",ans:"GigabitEthernet4.3999"},
+{label:"IPv4 Address/prefix-length (vpn999_if_ipv4_address)",ans:"10.5.52.1/30"},
+{label:"IP MTU (vpn_if_ip_mtu)",ans:"1496"},
+{label:"Interface Name (ospf_name_int)",ans:"GigabitEthernet4.3999"},
+{label:"Address (vpn0_next_hop_ip_address_1)",ans:"101.52.0.1"},
+{label:"Address (vpn0_next_hop_ip_address_2)",ans:"10.5.51.9"},
+{label:"IPv4 Address/prefix-length (Ge3.3521_ip_addr)",ans:"10.5.51.6/30"},
+{label:"Interface Name (TE_if_name)",ans:"GigabitEthernet3.3512"},
+{label:"IPv4 Address/prefix-length (TE_if_ipv4_address)",ans:"10.5.51.10/30"},
+{label:"Groups (TE_if_tunnel_group)",ans:"200"},
+{label:"Color (TE_if_tunnel_color_value)",ans:"private2"},
+{label:"Maximum Control Connections (TE_if_tunnel_max_control_connections)",ans:"1"},
+{label:"Interface Name (vpn0_if_name)",ans:"GigabitEthernet2"},
+{label:"IPv4 Address/prefix-length (vpn0_if_ipv4_address)",ans:"101.52.0.2/30"},
+{label:"Color (vpn0_if_tunnel_color_value)",ans:"private1"},
+{label:"Maximum Control Connections (vpn0_if_tunnel_max_control_connections)",ans:"1"},
+{label:"AS Number (bgp_as_num)",ans:"65005"},
+{label:"Network Prefix (bgp_network_network_address_prefix)",ans:"10.5.51.4/30"},
+{label:"Address (bgp_neighbor_address)",ans:"101.52.0.1"},
+{label:"Remote AS (bgp_neighbor_remote_as)",ans:"10001"},
+{label:"Hostname (system_host_name)",ans:"cEdge52"},
+{label:"System IP (system_system_ip)",ans:"1.1.5.2"},
+{label:"Site ID (system_site_id)",ans:"65005"}
+]}
+
+];
+
+const N=Q.length;
+const S=new Array(N).fill(null).map(()=>({sel:null,rev:false,ok:null}));
+
+function init(i){
+  const q=Q[i];if(S[i].sel!==null)return;
+  if(q.tp==='fillin'){
+    S[i].sel=new Array(q.fields.length).fill('');
+  }
+}
+
+// ========== RENDER ==========
+function renderAll(){
+  const c=document.getElementById('ctn');let h='';
+  Q.forEach((_,i)=>{init(i);h+=renderQ(i)});
+  c.innerHTML=h;
+  toc();stats();
+}
+
+function renderQ(i){
+  const q=Q[i],s=S[i];
+  let cc='qc';if(s.rev)cc+=s.ok?' rok':' rng';
+  let h=`<div class="${cc}" id="q${i}">`;
+  h+=`<div class="qh"><span class="qn">#${i+1} ${q.num}${q.sub?' — '+q.sub:''}</span><span class="qt ${tcls(q.tp)}">${tlbl(q.tp)}</span></div>`;
+  h+=`<div class="qb">`;
+  if(q.sc)h+=`<details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>${esc(q.sc)}</p></details>`;
+  h+=`<div class="qtx">${q.tx}</div>`;
+  if(q.tp==='fillin')h+=rFill(q,i,s);
+  if(s.rev){h+=`<div class="exp ${s.ok?'eok':'eng'}">${s.ok?'✓ Correct!':'✗ Incorrect — 正解がハイライトされています。'}</div>`;}
+  if(!s.rev)h+=`<div class="qa"><button class="btn bp bs" onclick="chk(${i})">解答を確認</button></div>`;
+  if(s.rev)h+=`<div class="qa" style="margin-top:6px"><button class="btn bs" onclick="retry(${i})">🔄 解き直す</button></div>`;
+  h+=`</div></div>`;
+  return h;
+}
+function tcls(t){return{single:'ts',multi:'tm',order:'to',drag:'td',matrix:'tx',fillin:'tf'}[t]}
+function tlbl(t){return{single:'Single',multi:'Multiple',order:'Order',drag:'Drag & Drop',matrix:'Matrix',fillin:'Fill-in'}[t]}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')}
+
+// ========== FILL-IN ==========
+function rFill(q,i,s){
+  let h='<table class="fi-tbl"><thead><tr><th>項目</th><th>値</th></tr></thead><tbody>';
+  q.fields.forEach((f,fi)=>{
+    h+='<tr><td>'+f.label+'</td><td>';
+    if(f.fixed!=null){
+      h+=`<input type="text" value="${f.fixed}" readonly>`;
+    }else{
+      let cls='',val=s.sel[fi]||'';
+      if(s.rev){
+        cls=val.trim()===f.ans?' fi-ok':' fi-ng';
+      }
+      h+=`<input type="text" class="${cls}" value="${esc(val)}" ${s.rev?'readonly':''} oninput="fiUpd(${i},${fi},this.value)">`;
+      if(s.rev&&val.trim()!==f.ans){
+        h+=`<div class="fi-ans show">正解: ${f.ans}</div>`;
+      }
+    }
+    h+='</td></tr>';
+  });
+  h+='</tbody></table>';
+  return h;
+}
+function fiUpd(i,fi,v){
+  if(S[i].rev)return;init(i);
+  S[i].sel[fi]=v;
+}
+
+// ========== RE-RENDER SINGLE Q ==========
+function reQ(i){
+  const el=document.getElementById(`q${i}`);
+  const tmp=document.createElement('div');
+  tmp.innerHTML=renderQ(i);
+  el.replaceWith(tmp.firstElementChild);
+}
+
+// ========== CHECK ==========
+function chk(i){
+  const q=Q[i],s=S[i];init(i);
+  let ok=false;
+  if(q.tp==='fillin'){
+    ok=true;
+    q.fields.forEach((f,fi)=>{
+      if(f.fixed!=null)return;
+      if((s.sel[fi]||'').trim()!==f.ans)ok=false;
+    });
+  }
+  s.rev=true;s.ok=ok;
+  reQ(i);toc();stats();
+}
+function checkAll(){Q.forEach((_,i)=>{if(!S[i].rev)chk(i)})}
+function resetAll(){
+  Q.forEach((_,i)=>{S[i]={sel:null,rev:false,ok:null}});
+  renderAll();window.scrollTo({top:0});
+}
+function retry(i){
+  S[i]={sel:null,rev:false,ok:null};
+  init(i);
+  reQ(i);toc();stats();
+  document.getElementById(`q${i}`).scrollIntoView({behavior:'smooth',block:'start'});
+}
+function scrollUn(){
+  for(let i=0;i<N;i++){if(!S[i].rev){document.getElementById(`q${i}`).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+  alert('全問回答済みです！');
+}
+
+// ========== TOC ==========
+function toc(){
+  const t=document.getElementById('toc');let h='';
+  Q.forEach((_,i)=>{
+    let c='tb';if(S[i].rev)c+=S[i].ok?' tok':' tng';
+    h+=`<button class="${c}" onclick="document.getElementById('q${i}').scrollIntoView({behavior:'smooth',block:'start'})">${i+1}</button>`;
+  });
+  t.innerHTML=h;
+}
+
+// ========== STATS ==========
+function stats(){
+  let a=0,o=0,n=0;
+  S.forEach(s=>{if(s.rev){a++;if(s.ok)o++;else n++;}});
+  document.getElementById('sp').textContent=`${a}/${N}`;
+  document.getElementById('so').textContent=o;
+  document.getElementById('sn').textContent=n;
+  document.getElementById('sr').textContent=a>0?Math.round(o/a*100)+'%':'--%';
+  document.getElementById('pb').style.width=(a/N*100)+'%';
+}
+
+renderAll();
+</script>
+<script>
+(function(){
+  var darkCSS=null;
+  function setFontScale(p){document.documentElement.style.fontSize=p+'%'}
+  function getDarkStyle(){
+    if(!darkCSS){
+      darkCSS=document.createElement('style');darkCSS.id='hub-dark';
+      darkCSS.textContent=
+        'body{background:#0f172a!important;color:#e2e8f0!important}'+
+        'a{color:#93c5fd!important}'+
+        '.hdr{background:#1e293b!important;border-color:#334155!important}'+
+        '.hdr h1{color:#e2e8f0!important}'+
+        '.bdg{background:rgba(59,130,246,.2)!important;color:#93c5fd!important}'+
+        '.stats,.si{color:#94a3b8!important}.sv{color:#e2e8f0!important}'+
+        '.pbar{background:#334155!important}'+
+        '.btn{background:#1e293b!important;color:#e2e8f0!important;border-color:#475569!important}'+
+        '.btn:hover{background:#334155!important}'+
+        '.bp{background:#2563eb!important;color:#fff!important;border-color:#2563eb!important}'+
+        '.toc{background:#1e293b!important;border-color:#334155!important;box-shadow:0 2px 8px rgba(0,0,0,.3)!important}'+
+        '.tb{color:#94a3b8!important}.tb:hover{background:rgba(59,130,246,.2)!important;color:#93c5fd!important}'+
+        '.tb.tok{background:rgba(16,185,129,.2)!important;color:#6ee7b7!important}'+
+        '.tb.tng{background:rgba(239,68,68,.2)!important;color:#fca5a5!important}'+
+        '.qc{border-color:#334155!important}.qc.rok{border-color:#065f46!important}.qc.rng{border-color:#991b1b!important}'+
+        '.qh{background:#1e293b!important;border-color:#334155!important}'+
+        '.qc.rok .qh{background:#064e3b!important}.qc.rng .qh{background:#7f1d1d!important}'+
+        '.qn{color:#e2e8f0!important}'+
+        '.ts{background:rgba(59,130,246,.2)!important;color:#93c5fd!important}'+
+        '.tm{background:rgba(245,158,11,.2)!important;color:#fcd34d!important}'+
+        '.to{background:rgba(168,85,247,.2)!important;color:#d8b4fe!important}'+
+        '.td{background:rgba(16,185,129,.2)!important;color:#6ee7b7!important}'+
+        '.tx{background:rgba(239,68,68,.2)!important;color:#fca5a5!important}'+
+        '.tf{background:rgba(249,115,22,.2)!important;color:#fdba74!important}'+
+        '.scn{background:#1e293b!important;color:#cbd5e1!important;border-color:#3b82f6!important}'+
+        '.scn summary{color:#e2e8f0!important}.qtx{color:#f1f5f9!important}'+
+        '.op{border-color:#475569!important;color:#e2e8f0!important}'+
+        '.op:hover{background:#1e293b!important;border-color:#60a5fa!important}'+
+        '.op.sel{background:rgba(59,130,246,.15)!important;border-color:#3b82f6!important}'+
+        '.op.cok{background:rgba(16,185,129,.15)!important;border-color:#10b981!important}'+
+        '.op.cng{background:rgba(239,68,68,.15)!important;border-color:#ef4444!important}'+
+        '.op.cms{background:rgba(16,185,129,.1)!important;border-color:#10b981!important}'+
+        '.mk{border-color:#64748b!important}'+
+        '.mtx th,.mtx td{border-color:#334155!important}'+
+        '.mtx th{background:#1e293b!important;color:#e2e8f0!important}.mtx td{color:#e2e8f0!important}'+
+        '.cb{background:#1e293b!important;border-color:#64748b!important;color:#e2e8f0!important}'+
+        '.ord-pool{background:#1e293b!important;border-color:#475569!important}'+
+        '.ord-pool-label{color:#94a3b8!important}'+
+        '.ord-slot{border-color:#475569!important}.ord-slot .sn{background:#334155!important;color:#94a3b8!important}'+
+        '.chip{background:rgba(59,130,246,.15)!important;color:#93c5fd!important;border-color:#3b82f6!important}'+
+        '.chip.cok{background:rgba(16,185,129,.15)!important;color:#6ee7b7!important;border-color:#10b981!important}'+
+        '.chip.cng{background:rgba(239,68,68,.15)!important;color:#fca5a5!important;border-color:#ef4444!important}'+
+        '.chip.cghost{background:#0f172a!important;color:#6ee7b7!important;border-color:#10b981!important}'+
+        '.dz{border-color:#475569!important}.dz-l{color:#94a3b8!important}'+
+        '.exp,.eok{background:rgba(16,185,129,.1)!important;border-color:#065f46!important;color:#6ee7b7!important}'+
+        '.eng{background:rgba(239,68,68,.1)!important;border-color:#991b1b!important;color:#fca5a5!important}'+
+        '.expl{background:#1e293b!important;border-color:#334155!important;color:#cbd5e1!important}'+
+        '.expl h4{color:#93c5fd!important}.expl .ek{color:#6ee7b7!important}.expl .ew{color:#fcd34d!important}.expl .ed{color:#94a3b8!important}'+
+        '.expl hr{border-color:#334155!important}'+
+        '.bbar{background:#1e293b!important;border-color:#334155!important}'+
+        /* Fill-in tables */
+        '.fi-tbl th,.fi-tbl td{border-color:#334155!important}'+
+        '.fi-tbl th{background:#1e293b!important;color:#e2e8f0!important}'+
+        '.fi-tbl td{color:#cbd5e1!important}'+
+        '.fi-tbl td:first-child{color:#94a3b8!important;background:#1e293b!important}'+
+        '.fi-tbl input{background:#0f172a!important;color:#e2e8f0!important;border-color:#475569!important}'+
+        '.fi-tbl input:focus{border-color:#3b82f6!important;box-shadow:0 0 0 2px rgba(59,130,246,.25)!important}'+
+        '.fi-tbl input[readonly]{background:#1e293b!important;color:#64748b!important}'+
+        '.fi-tbl input.fi-ok{background:rgba(16,185,129,.1)!important;border-color:#10b981!important;color:#6ee7b7!important}'+
+        '.fi-tbl input.fi-ng{background:rgba(239,68,68,.1)!important;border-color:#ef4444!important;color:#fca5a5!important}'+
+        '.fi-ans{color:#6ee7b7!important}'+
+        'input,select,textarea{background:#0f172a!important;color:#e2e8f0!important;border-color:#475569!important}'+
+        'code,pre{background:#1e293b!important;color:#e2e8f0!important}'+
+        'img,svg{opacity:.92}';
+      document.head.appendChild(darkCSS);
+    }
+    return darkCSS;
+  }
+  function setTheme(t){
+    var s=getDarkStyle();
+    if(t==='dark')s.disabled=false;
+    else if(t==='light')s.disabled=true;
+    else s.disabled=!window.matchMedia('(prefers-color-scheme:dark)').matches;
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||!e.data.type)return;
+    if(e.data.type==='setFontScale')setFontScale(e.data.value);
+    if(e.data.type==='setTheme')setTheme(e.data.value);
+  });
+})();
+</script>
+
+
+<a id="hub-back" href="/index.html" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:#1e293b;color:#f1f5f9;border:1px solid #475569;border-radius:99px;padding:10px 18px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.4);display:flex;align-items:center;gap:6px;-webkit-tap-highlight-color:transparent;">🏠 Hub</a>
+</body></html>

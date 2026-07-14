@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)/design/Design_S2++.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPOTO CCIE EI Lab S2++ Design v1.5 - 全問一覧</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:#fff;color:#222;line-height:1.65;font-size:14px}
+.hdr{border-bottom:1px solid #ddd;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;background:#fafafa;position:sticky;top:0;z-index:200;flex-wrap:wrap;gap:8px}
+.hdr-l{display:flex;align-items:center;gap:12px}
+.hdr h1{font-size:15px;font-weight:600;color:#333}
+.bdg{background:#e8f0fe;color:#1a5dc7;font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px}
+.stats{display:flex;gap:14px;font-size:12px;color:#555;align-items:center;flex-wrap:wrap}
+.si{display:flex;align-items:center;gap:3px}
+.sv{font-weight:600;color:#222}
+.sc{color:#1e8e3e!important}
+.sw{color:#d93025!important}
+.pbar{height:3px;background:#eee;position:sticky;top:49px;z-index:199}
+.pfill{height:100%;background:#1a5dc7;transition:width .3s}
+.btn{padding:6px 14px;border:1px solid #ddd;border-radius:4px;font-size:12px;font-weight:500;cursor:pointer;background:#fff;color:#333;transition:all .15s;white-space:nowrap}
+.btn:hover{background:#f5f5f5}
+.bp{background:#1a5dc7;color:#fff;border-color:#1a5dc7}
+.bp:hover{background:#1550b0}
+.bs{padding:5px 12px;font-size:11px}
+.bd{background:#d93025;color:#fff;border-color:#d93025}
+.bd:hover{background:#b8271f}
+.ctn{max-width:880px;margin:0 auto;padding:20px 24px 80px}
+.toc{position:fixed;right:10px;top:58px;background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:6px 3px;z-index:150;max-height:calc(100vh - 76px);overflow-y:auto;width:40px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.tb{display:block;width:30px;height:22px;margin:1px auto;border:none;background:transparent;font-size:10px;font-weight:500;cursor:pointer;color:#666;border-radius:3px;line-height:22px;text-align:center;transition:all .12s}
+.tb:hover{background:#e8f0fe;color:#1a5dc7}
+.tb.tok{background:#e6f4ea;color:#1e8e3e}
+.tb.tng{background:#fce8e6;color:#d93025}
+.qc{border:1px solid #ddd;border-radius:6px;margin-bottom:20px;overflow:hidden;scroll-margin-top:58px}
+.qc.rok{border-color:#b7e1cd}
+.qc.rng{border-color:#f5c6c2}
+.qh{background:#f5f5f5;padding:10px 14px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center}
+.qc.rok .qh{background:#f0faf3}
+.qc.rng .qh{background:#fdf2f1}
+.qn{font-weight:600;font-size:13px;color:#333}
+.qt{font-size:10px;padding:2px 7px;border-radius:3px;font-weight:600}
+.ts{background:#e8f0fe;color:#1a5dc7}
+.tm{background:#fef7e0;color:#b06000}
+.to{background:#f3e8fd;color:#7627bb}
+.td{background:#e6f4ea;color:#1e8e3e}
+.tx{background:#fce8e6;color:#c5221f}
+.qb{padding:14px}
+.scn{background:#f9f9f9;border-left:3px solid #1a5dc7;padding:12px 14px;margin-bottom:14px;font-size:13px;color:#444;white-space:pre-wrap;line-height:1.7}
+.scn summary{cursor:pointer;font-weight:600;font-size:13px;color:#333;margin-bottom:4px}
+.scn p{margin-top:6px}
+.qtx{font-weight:500;margin-bottom:12px;color:#111;font-size:14px}
+.ops{list-style:none}
+.op{border:1px solid #ddd;border-radius:4px;padding:8px 12px;margin-bottom:5px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;font-size:13px;transition:all .12s}
+.op:hover{background:#f5f8ff;border-color:#a8c7fa}
+.op.sel{background:#e8f0fe;border-color:#1a5dc7}
+.op.cok{background:#e6f4ea;border-color:#1e8e3e}
+.op.cng{background:#fce8e6;border-color:#d93025}
+.op.cms{background:#e6f4ea;border-color:#1e8e3e;border-style:dashed}
+.op.lk{pointer-events:none}
+.mk{width:18px;height:18px;border:2px solid #aaa;border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;margin-top:1px}
+.mkr{border-radius:50%}
+.op.sel .mk{border-color:#1a5dc7;background:#1a5dc7;color:#fff}
+.op.cok .mk{border-color:#1e8e3e;background:#1e8e3e;color:#fff}
+.op.cng .mk{border-color:#d93025;background:#d93025;color:#fff}
+.op.cms .mk{border-color:#1e8e3e;color:#1e8e3e}
+.mtx{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:10px}
+.mtx th,.mtx td{border:1px solid #ddd;padding:6px 8px;text-align:center}
+.mtx th{background:#f5f5f5;font-weight:600;font-size:11px}
+.mtx td:first-child{text-align:left;font-size:12px}
+.cb{width:24px;height:24px;border:2px solid #ccc;border-radius:3px;background:#fff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:12px;transition:all .12s}
+.cb:hover{border-color:#1a5dc7}
+.cb.ck{background:#1a5dc7;border-color:#1a5dc7;color:#fff}
+.cb.mok{background:#1e8e3e;border-color:#1e8e3e;color:#fff}
+.cb.mng{background:#d93025;border-color:#d93025;color:#fff}
+.cb.mms{border-color:#1e8e3e;color:#1e8e3e;border-style:dashed}
+.cb.lk{pointer-events:none}
+.ord-pool{border:1px dashed #ccc;border-radius:4px;padding:6px;min-height:40px;display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;background:#fafafa}
+.ord-pool-label{font-size:11px;font-weight:600;color:#888;margin-bottom:4px}
+.ord-slots{list-style:none}
+.ord-slot{border:2px dashed #ddd;border-radius:4px;padding:6px 10px;margin-bottom:4px;min-height:38px;display:flex;align-items:center;gap:8px;transition:all .12s}
+.ord-slot.dragover{border-color:#1a5dc7;background:#f5f8ff}
+.ord-slot .sn{width:22px;height:22px;background:#eee;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#555;flex-shrink:0}
+.ord-slot.sok .sn{background:#1e8e3e;color:#fff}
+.ord-slot.sng .sn{background:#d93025;color:#fff}
+.chip{background:#e8f0fe;color:#1a5dc7;padding:5px 10px;border-radius:4px;font-size:12px;cursor:grab;user-select:none;border:1px solid #a8c7fa;display:inline-block}
+.chip:active{cursor:grabbing}
+.chip.cok{background:#e6f4ea;color:#1e8e3e;border-color:#1e8e3e}
+.chip.cng{background:#fce8e6;color:#d93025;border-color:#d93025}
+.chip.cghost{background:#fff;color:#1e8e3e;border-color:#1e8e3e;border-style:dashed}
+.dz-w{margin-bottom:8px}
+.dz-l{font-size:12px;font-weight:600;color:#555;margin-bottom:4px}
+.dz{min-height:38px;border:2px dashed #ccc;border-radius:4px;padding:5px;display:flex;flex-wrap:wrap;gap:4px;transition:all .12s}
+.dz.dragover{border-color:#1a5dc7;background:#f5f8ff}
+.exp{margin-top:10px;padding:8px 12px;border-radius:4px;font-size:12px}
+.eok{background:#e6f4ea;border:1px solid #b7e1cd;color:#137333}
+.eng{background:#fce8e6;border:1px solid #f5c6c2;color:#c5221f}
+.qa{margin-top:10px}
+.bbar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:10px;z-index:200;flex-wrap:wrap}
+.note{background:#fff8e1;border:1px solid #ffe082;border-radius:4px;padding:8px 12px;margin-top:8px;font-size:12px;color:#6d4c00;line-height:1.5}
+.note strong{color:#e65100}
+.expl{margin-top:12px;padding:14px 16px;border-radius:6px;font-size:13px;line-height:1.8;background:#f8f9ff;border:1px solid #c8d6f0;color:#333}
+.expl h4{font-size:13px;font-weight:700;color:#1a5dc7;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.expl h4::before{content:'📖'}
+.expl ul{margin:6px 0 6px 18px;list-style:disc}
+.expl li{margin-bottom:3px}
+.expl .ek{font-weight:600;color:#137333}
+.expl .ew{color:#b06000;font-weight:500}
+@media(max-width:960px){.toc{display:none}}
+@media(max-width:640px){.ctn{padding:14px 12px 60px}.hdr{padding:8px 12px}.stats{gap:8px;font-size:11px}}
+</style>
+</head>
+<body>
+<div class="hdr" id="hdr">
+  <div class="hdr-l">
+    <h1>SPOTO CCIE EI Lab S2++ Design v1.5</h1>
+    <span class="bdg">全問一覧</span>
+  </div>
+  <div class="stats">
+    <div class="si">回答: <span class="sv" id="sp">0/39</span></div>
+    <div class="si">正解: <span class="sv sc" id="so">0</span></div>
+    <div class="si">不正解: <span class="sv sw" id="sn">0</span></div>
+    <div class="si">正答率: <span class="sv" id="sr">--%</span></div>
+  </div>
+</div>
+<div class="pbar"><div class="pfill" id="pb" style="width: 0%;"></div></div>
+<div class="toc" id="toc"><button class="tb" onclick="document.getElementById(&#39;q0&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">1</button><button class="tb" onclick="document.getElementById(&#39;q1&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">2</button><button class="tb" onclick="document.getElementById(&#39;q2&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">3</button><button class="tb" onclick="document.getElementById(&#39;q3&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">4</button><button class="tb" onclick="document.getElementById(&#39;q4&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">5</button><button class="tb" onclick="document.getElementById(&#39;q5&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">6</button><button class="tb" onclick="document.getElementById(&#39;q6&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">7</button><button class="tb" onclick="document.getElementById(&#39;q7&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">8</button><button class="tb" onclick="document.getElementById(&#39;q8&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">9</button><button class="tb" onclick="document.getElementById(&#39;q9&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">10</button><button class="tb" onclick="document.getElementById(&#39;q10&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">11</button><button class="tb" onclick="document.getElementById(&#39;q11&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">12</button><button class="tb" onclick="document.getElementById(&#39;q12&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">13</button><button class="tb" onclick="document.getElementById(&#39;q13&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">14</button><button class="tb" onclick="document.getElementById(&#39;q14&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">15</button><button class="tb" onclick="document.getElementById(&#39;q15&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">16</button><button class="tb" onclick="document.getElementById(&#39;q16&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">17</button><button class="tb" onclick="document.getElementById(&#39;q17&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">18</button><button class="tb" onclick="document.getElementById(&#39;q18&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">19</button><button class="tb" onclick="document.getElementById(&#39;q19&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">20</button><button class="tb" onclick="document.getElementById(&#39;q20&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">21</button><button class="tb" onclick="document.getElementById(&#39;q21&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">22</button><button class="tb" onclick="document.getElementById(&#39;q22&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">23</button><button class="tb" onclick="document.getElementById(&#39;q23&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">24</button><button class="tb" onclick="document.getElementById(&#39;q24&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">25</button><button class="tb" onclick="document.getElementById(&#39;q25&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">26</button><button class="tb" onclick="document.getElementById(&#39;q26&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">27</button><button class="tb" onclick="document.getElementById(&#39;q27&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">28</button><button class="tb" onclick="document.getElementById(&#39;q28&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">29</button><button class="tb" onclick="document.getElementById(&#39;q29&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">30</button><button class="tb" onclick="document.getElementById(&#39;q30&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">31</button><button class="tb" onclick="document.getElementById(&#39;q31&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">32</button><button class="tb" onclick="document.getElementById(&#39;q32&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">33</button><button class="tb" onclick="document.getElementById(&#39;q33&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">34</button><button class="tb" onclick="document.getElementById(&#39;q34&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">35</button><button class="tb" onclick="document.getElementById(&#39;q35&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">36</button><button class="tb" onclick="document.getElementById(&#39;q36&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">37</button><button class="tb" onclick="document.getElementById(&#39;q37&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">38</button><button class="tb" onclick="document.getElementById(&#39;q38&#39;).scrollIntoView({behavior:&#39;smooth&#39;,block:&#39;start&#39;})">39</button></div>
+<div class="ctn" id="ctn"><div class="qc" id="q0"><div class="qh"><span class="qn">#1 Q2</span><span class="qt tx">Matrix</span></div><div class="qb"><div class="qtx">Which features must be implemented on which switches to meet the Layer 2 requirements? (Select all that apply)</div><table class="mtx"><thead><tr><th></th><th>SW101</th><th>SW201</th><th>SW110</th><th>SW211</th></tr></thead><tbody><tr><td>BPDU Guard on nonuplink ports</td><td><button class="cb" onclick="togM(0,&#39;0-2&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;0-3&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;0-0&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;0-1&#39;)"></button></td></tr><tr><td>PortFast on access ports</td><td><button class="cb" onclick="togM(0,&#39;5-2&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;5-3&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;5-0&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;5-1&#39;)"></button></td></tr><tr><td>VLAN pruning</td><td><button class="cb" onclick="togM(0,&#39;1-2&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;1-3&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;1-0&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;1-1&#39;)"></button></td></tr><tr><td>Loop guard</td><td><button class="cb" onclick="togM(0,&#39;3-2&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;3-3&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;3-0&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;3-1&#39;)"></button></td></tr><tr><td>CDP</td><td><button class="cb" onclick="togM(0,&#39;2-2&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;2-3&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;2-0&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;2-1&#39;)"></button></td></tr><tr><td>Layer 2 MTU jumbo frames</td><td><button class="cb" onclick="togM(0,&#39;4-2&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;4-3&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;4-0&#39;)"></button></td><td><button class="cb" onclick="togM(0,&#39;4-1&#39;)"></button></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(0)">解答を確認</button></div></div></div><div class="qc" id="q1"><div class="qh"><span class="qn">#2 Q3</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>Email: Layer 2 Spanning Tree<br>From: "Charlie Brown" cbrown@xander.co.uk<br>To: "James Wilmore" james@ccie2b.com<br>Subject: Layer 2 Spanning Tree<br><br>Hello James,<br><br>I would like to evaluate our spanning tree control plane in the data center. The environment is still set to its defaults, and I want to make a few changes.<br><br>I would like a collapsed core architecture with SW201 as the spanning tree root bridge and SW202 as the secondary. SW211 and SW212 are the access layer switches where the endpoints will connect. I would like a link failure between the switches to be detected as quickly as possible to ensure all STP paths to neighboring devices are fault free. We also have a high number of VLANs configured in the data center, and we are concerned about one switch becoming oversubscribed with traffic. How can we ensure that neither core switch becomes too oversubscribed without significant disruption to our current deployment?<br><br>Could you detail how this might be achieved?<br><br>Charlie Brown<br>Network Architect<br>Xander<br><br>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which two spanning tree configurations meet the requirements of Charlie Brown? (Choose two.)</div><ul class="ops"><li class="op" onclick="tog(1,5)"><span class="mk"></span><span>Make SW201 the root for the even VLANs and make SW202 the root for the odd VLANs.</span></li><li class="op" onclick="tog(1,0)"><span class="mk"></span><span>Make SW201 the root for all the VLANs and make SW202 the secondary.</span></li><li class="op" onclick="tog(1,3)"><span class="mk"></span><span>Reduce the max age of the spanning tree.</span></li><li class="op" onclick="tog(1,4)"><span class="mk"></span><span>Reduce the hello timer of the spanning tree.</span></li><li class="op" onclick="tog(1,1)"><span class="mk"></span><span>Reduce the forward time of the spanning tree.</span></li><li class="op" onclick="tog(1,2)"><span class="mk"></span><span>Implement MSTP.</span></li></ul><div class="note">⚠️ 注意: 背景情報に「I would like a link failure between the switches to be detected as quickly as possible …」とある場合はこの回答。そうでない場合は次の S2+++ 版を参照。</div><div class="qa"><button class="btn bp bs" onclick="chk(1)">解答を確認</button></div></div></div><div class="qc" id="q2"><div class="qh"><span class="qn">#3 Q3 — S2+++ ver.</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>【S2+++ 版】背景情報に「link failure … detected as quickly as possible」の記述がない場合はこちらの回答。<br><br>Email: Layer 2 Spanning Tree<br>From: "Charlie Brown" cbrown@xander.co.uk<br>To: "James Wilmore" james@ccie2b.com<br>Subject: Layer 2 Spanning Tree<br><br>Hello James,<br><br>I would like to evaluate our spanning tree control plane in the data center. The environment is still set to its defaults, and I want to make a few changes.<br><br>I would like a collapsed core architecture with SW201 as the spanning tree root bridge and SW202 as the secondary. SW211 and SW212 are the access layer switches where the endpoints will connect. We also have a high number of VLANs configured in the data center, and we are concerned about one switch becoming oversubscribed with traffic. How can we ensure that neither core switch becomes too oversubscribed without significant disruption to our current deployment?<br><br>Could you detail how this might be achieved?<br><br>Charlie Brown<br>Network Architect<br>Xander<br><br>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which two spanning tree configurations meet the requirements of Charlie Brown? (Choose two.)</div><ul class="ops"><li class="op" onclick="tog(2,4)"><span class="mk"></span><span>Reduce the hello timer of the spanning tree.</span></li><li class="op" onclick="tog(2,3)"><span class="mk"></span><span>Reduce the max age of the spanning tree.</span></li><li class="op" onclick="tog(2,1)"><span class="mk"></span><span>Reduce the forward time of the spanning tree.</span></li><li class="op" onclick="tog(2,2)"><span class="mk"></span><span>Implement MSTP.</span></li><li class="op" onclick="tog(2,5)"><span class="mk"></span><span>Make SW201 the root for the even VLANs and make SW202 the root for the odd VLANs.</span></li><li class="op" onclick="tog(2,0)"><span class="mk"></span><span>Make SW201 the root for all the VLANs and make SW202 the secondary.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(2)">解答を確認</button></div></div></div><div class="qc" id="q3"><div class="qh"><span class="qn">#4 Q4</span><span class="qt tm">Multiple</span></div><div class="qb"><div class="qtx">Which four design recommendations for SW201 and SW202 meet the core layer capacity requirements? (Choose four)</div><ul class="ops"><li class="op" onclick="tog(3,5)"><span class="mk"></span><span>Set the port channel to active mode for new connections.</span></li><li class="op" onclick="tog(3,4)"><span class="mk"></span><span>Use load balancing of type vlan-src-ip.</span></li><li class="op" onclick="tog(3,6)"><span class="mk"></span><span>Enable the PAgP standard for both switches.</span></li><li class="op" onclick="tog(3,0)"><span class="mk"></span><span>Use trunk and VLAN pruning on the members of SW201.</span></li><li class="op" onclick="tog(3,1)"><span class="mk"></span><span>Deploy a Layer 3 port channel.</span></li><li class="op" onclick="tog(3,8)"><span class="mk"></span><span>Use trunk and VLAN pruning on the port channel interfaces of both switches.</span></li><li class="op" onclick="tog(3,7)"><span class="mk"></span><span>Disable the IEEE 802.3ad standard for both switches.</span></li><li class="op" onclick="tog(3,3)"><span class="mk"></span><span>Use load balancing of type vlan-src-dst-mixed-ip-port.</span></li><li class="op" onclick="tog(3,2)"><span class="mk"></span><span>Enable the LACP feature.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(3)">解答を確認</button></div></div></div><div class="qc" id="q4"><div class="qh"><span class="qn">#5 Q5</span><span class="qt tm">Multiple</span></div><div class="qb"><div class="qtx">Which three recommendations will improve security and scale at Branch #3? (Choose three)</div><ul class="ops"><li class="op" onclick="tog(4,7)"><span class="mk"></span><span>Implement a stub configuration on all the routing devices at Branch #3 that do not have summary routes.</span></li><li class="op" onclick="tog(4,3)"><span class="mk"></span><span>Implement SHA-256 authentication between all neighbors by using different keys on R24, R61, R62, SW601, and SW602.</span></li><li class="op" onclick="tog(4,1)"><span class="mk"></span><span>Implement a stub configuration on all the routing devices at Branch #3 and apply summary routes on SW601 and SW602.</span></li><li class="op" onclick="tog(4,0)"><span class="mk"></span><span>Enable the passive interface default feature and disable passive interfaces toward the downstream switches.</span></li><li class="op" onclick="tog(4,5)"><span class="mk"></span><span>Implement SHA-256 authentication between all neighbors by using the same key on R24, R61, R62, SW601, and SW602.</span></li><li class="op" onclick="tog(4,6)"><span class="mk"></span><span>Enable the passive interface default feature and disable passive interfaces toward R24 and on downstream switches.</span></li><li class="op" onclick="tog(4,2)"><span class="mk"></span><span>Implement MD5 authentication between all neighbors by using same key on R24, R61, and R62. Use different keys on SW601 and SW602.</span></li><li class="op" onclick="tog(4,4)"><span class="mk"></span><span>Implement a stub configuration on all the routing devices at Branch #3 and apply summary routes on R61 and R62.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(4)">解答を確認</button></div></div></div><div class="qc" id="q5"><div class="qh"><span class="qn">#6 Q6 — Part 1</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.<br>This item consists of multiple questions. You may need to scroll down to be able to see all questions.</p></details><div class="qtx">Which two recommendations for the OSPF deployment meet the requirements of Charlie Brown? (Choose two.)</div><ul class="ops"><li class="op" onclick="tog(5,3)"><span class="mk"></span><span>Use OSPF broadcast on the hub and broadcast on all the spokes.</span></li><li class="op" onclick="tog(5,0)"><span class="mk"></span><span>Set the priority of each spoke tunnel to 0 to mitigate the DR/BDR election.</span></li><li class="op" onclick="tog(5,2)"><span class="mk"></span><span>Place the hub in area 0, and place each spoke in a separate area.</span></li><li class="op" onclick="tog(5,1)"><span class="mk"></span><span>Place all the routers in the same area.</span></li><li class="op" onclick="tog(5,4)"><span class="mk"></span><span>Use OSPF point-to-multipoint on all the spokes and point-to-multipoint on the hub.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(5)">解答を確認</button></div></div></div><div class="qc" id="q6"><div class="qh"><span class="qn">#7 Q6 — Part 2</span><span class="qt ts">Single</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>(Same scenario as Q6 Part 1)</p></details><div class="qtx">Based on your recommendations for the OSPF deployment, how will OSPF operate differently than the current environment?</div><ul class="ops"><li class="op" onclick="tog(6,3)"><span class="mk mkr"></span><span>The hub will have a different copy of the link-state database than the spokes, and OSPF will offer load sharing based on cost.</span></li><li class="op" onclick="tog(6,1)"><span class="mk mkr"></span><span>All the routers will share an identical copy of the link-state database, and routing changes on the spokes cannot trigger an SPF recalculation on all the DMVPN routers.</span></li><li class="op" onclick="tog(6,5)"><span class="mk mkr"></span><span>All the routers will have different copies of the link-state database, and routing changes on the spokes can trigger an SPF recalculation on all the DMVPN routers.</span></li><li class="op" onclick="tog(6,4)"><span class="mk mkr"></span><span>All the routers will share an identical copy of the link-state database, and routing changes on the spokes can trigger an SPF recalculation on all the DMVPN routers.</span></li><li class="op" onclick="tog(6,0)"><span class="mk mkr"></span><span>The hub will have a different copy of the link-state database than the spokes, and routing changes on the spokes can trigger an SPF recalculation on all the DMVPN routers.</span></li><li class="op" onclick="tog(6,2)"><span class="mk mkr"></span><span>The hub will have a different copy of the link-state database than the spokes, and OSPF will offer load sharing based on delay.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(6)">解答を確認</button></div></div></div><div class="qc" id="q7"><div class="qh"><span class="qn">#8 Q7</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>Email: Transition Branch #3 to OSPF<br>From: "Charlie Brown" cbrown@xander.co.uk<br>To: "James Wilmore" james@ccie2b.com; "Rachel Vikram" rvikram@xander.co.uk<br>Subject: Transition Branch #3 to OSPF<br><br>Hi Rachel and James,<br><br>We should look at the requirements to transition Branch #3 to OSPF to simplify our design.<br>All classless subnets should be in the IGP RIB and should not have metrics increased as they traverse the environment.<br><br>Metric values for routes from other routing protocols should be set to 20 so that we can identify them easily. Please use default features where possible.<br><br>Many thanks,<br>Charlie Brown<br>Network Architect<br>Xander</p></details><div class="qtx">Which two recommendations achieve the goal of transitioning Branch #3 to OSPF? (Choose two.)</div><ul class="ops"><li class="op" onclick="tog(7,1)"><span class="mk"></span><span>Redistribute BGP into OSPF with a metric of Type 2 on R61 and R62.</span></li><li class="op" onclick="tog(7,4)"><span class="mk"></span><span>Redistribute BGP into OSPF with the subnets feature enabled and without a metric type specified on R61 and R62.</span></li><li class="op" onclick="tog(7,3)"><span class="mk"></span><span>Redistribute BGP into OSPF with a metric of Type 1 and subnets features enabled on R61 and R62.</span></li><li class="op" onclick="tog(7,2)"><span class="mk"></span><span>Use the default metric as the metric value.</span></li><li class="op" onclick="tog(7,0)"><span class="mk"></span><span>Use the metric feature to specify a metric value.</span></li></ul><div class="note">⚠️ 注意: 背景情報に「should not have metrics increased as they traverse the environment.」とある場合はこの回答。そうでない場合は次の S2+++ 版を参照。</div><div class="qa"><button class="btn bp bs" onclick="chk(7)">解答を確認</button></div></div></div><div class="qc" id="q8"><div class="qh"><span class="qn">#9 Q7 — S2+++ ver.</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>【S2+++ 版】背景情報に「should not have metrics increased as they traverse the environment.」の記述がない場合はこちらの回答。</p></details><div class="qtx">Which two recommendations achieve the goal of transitioning Branch #3 to OSPF? (Choose two.)</div><ul class="ops"><li class="op" onclick="tog(8,2)"><span class="mk"></span><span>Use the default metric as the metric value.</span></li><li class="op" onclick="tog(8,4)"><span class="mk"></span><span>Redistribute BGP into OSPF with the subnets feature enabled and without a metric type specified on R61 and R62.</span></li><li class="op" onclick="tog(8,3)"><span class="mk"></span><span>Redistribute BGP into OSPF with a metric of Type 1 and subnets features enabled on R61 and R62.</span></li><li class="op" onclick="tog(8,1)"><span class="mk"></span><span>Redistribute BGP into OSPF with a metric of Type 2 on R61 and R62.</span></li><li class="op" onclick="tog(8,0)"><span class="mk"></span><span>Use the metric feature to specify a metric value.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(8)">解答を確認</button></div></div></div><div class="qc" id="q9"><div class="qh"><span class="qn">#10 Q8</span><span class="qt tx">Matrix</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">What must be deployed to R1, R3, R21, and R61 to take advantage of the service provider BGP offerings? (Select all that apply)</div><table class="mtx"><thead><tr><th></th><th>R21</th><th>R3</th><th>R61</th><th>R1</th></tr></thead><tbody><tr><td>Route map</td><td><button class="cb" onclick="togM(9,&#39;3-0&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;3-1&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;3-2&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;3-3&#39;)"></button></td></tr><tr><td>Origin</td><td><button class="cb" onclick="togM(9,&#39;5-0&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;5-1&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;5-2&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;5-3&#39;)"></button></td></tr><tr><td>MP-BGP VPNv4</td><td><button class="cb" onclick="togM(9,&#39;4-0&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;4-1&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;4-2&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;4-3&#39;)"></button></td></tr><tr><td>Communities</td><td><button class="cb" onclick="togM(9,&#39;0-0&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;0-1&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;0-2&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;0-3&#39;)"></button></td></tr><tr><td>Peer group</td><td><button class="cb" onclick="togM(9,&#39;1-0&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;1-1&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;1-2&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;1-3&#39;)"></button></td></tr><tr><td>IBGP</td><td><button class="cb" onclick="togM(9,&#39;2-0&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;2-1&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;2-2&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;2-3&#39;)"></button></td></tr><tr><td>Authentication</td><td><button class="cb" onclick="togM(9,&#39;6-0&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;6-1&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;6-2&#39;)"></button></td><td><button class="cb" onclick="togM(9,&#39;6-3&#39;)"></button></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(9)">解答を確認</button></div></div></div><div class="qc" id="q10"><div class="qh"><span class="qn">#11 Q9</span><span class="qt ts">Single</span></div><div class="qb"><div class="qtx">Which recommendation meets the requirements of Peter Jones for the test environment?</div><ul class="ops"><li class="op" onclick="tog(10,2)"><span class="mk mkr"></span><span>Use the No-Export Community on R61 and R62.</span></li><li class="op" onclick="tog(10,1)"><span class="mk mkr"></span><span>Use the No-Advertise Community on R61 and R62.</span></li><li class="op" onclick="tog(10,4)"><span class="mk mkr"></span><span>Use the Local-AS Community on R61 and R62.</span></li><li class="op" onclick="tog(10,0)"><span class="mk mkr"></span><span>Use the No-Export Community on R61 and use the No-Advertise Community on R62.</span></li><li class="op" onclick="tog(10,3)"><span class="mk mkr"></span><span>Use the No-Advertise Community on R61 the No-Export Community on R62.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(10)">解答を確認</button></div></div></div><div class="qc" id="q11"><div class="qh"><span class="qn">#12 Q10</span><span class="qt ts">Single</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which recommendation provides the required connectivity for the external team?</div><ul class="ops"><li class="op" onclick="tog(11,0)"><span class="mk mkr"></span><span>Use a new VLAN and an unused subnet at Branch #3. Implement a GRE tunnel between R62 and R24 with a static default route pointing to the tunnel on R62 and a return route pointing to the tunnel on R24. Use a dynamic overload NAT to the WAN interface for the new subnet on R24 that has RFC 1918 blocking ACLs for the new subnet.</span></li><li class="op" onclick="tog(11,1)"><span class="mk mkr"></span><span>Use a new VLAN and an unused subnet at Branch #3 that has RFC 1918 blocking the gateway. Implement a GRE tunnel between R62 and R24 that has static default route pointing to the tunnel on R62 and a return route pointing to the tunnel on R24. Use a dynamic overload NAT to the WAN interface for the new subnet on R24.</span></li><li class="op" onclick="tog(11,2)"><span class="mk mkr"></span><span>Use a new VLAN and an unused subnet at Branch #3 on a new VRF that uses VRF-Lite. Request that the ISP deliver a new VRF to Branch #3 for WAN traffic to the datacenter. Use VRF-Lite on R21 and R24 in the datacenter. Use dynamic routing to achieve connectivity. Use a dynamic overload NAT to the WAN interface for the new subnet on R24 that leaks to the global RIB.</span></li><li class="op" onclick="tog(11,3)"><span class="mk mkr"></span><span>Use the existing corporate VLAN subnet at Branch #3. Implement a GRE tunnel between R62 and R24 that has a static default route pointing to the tunnel on R62 and a return route pointing to the tunnel on R24. Use dynamic overload NAT to the WAN interface for the subnet on R24.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(11)">解答を確認</button></div></div></div><div class="qc" id="q12"><div class="qh"><span class="qn">#13 Q11</span><span class="qt tx">Matrix</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Identify the features each router must use to meet the requirements of the service provider change request. (Select all that apply)</div><table class="mtx"><thead><tr><th></th><th>R1</th><th>R62</th><th>R6</th><th>R4</th></tr></thead><tbody><tr><td>Loopback address</td><td><button class="cb" onclick="togM(12,&#39;7-2&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;7-3&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;7-1&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;7-0&#39;)"></button></td></tr><tr><td>Route target export</td><td><button class="cb" onclick="togM(12,&#39;1-2&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;1-3&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;1-1&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;1-0&#39;)"></button></td></tr><tr><td>Route distinguisher</td><td><button class="cb" onclick="togM(12,&#39;3-2&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;3-3&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;3-1&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;3-0&#39;)"></button></td></tr><tr><td>Route target import</td><td><button class="cb" onclick="togM(12,&#39;4-2&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;4-3&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;4-1&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;4-0&#39;)"></button></td></tr><tr><td>MP-BGP</td><td><button class="cb" onclick="togM(12,&#39;5-2&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;5-3&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;5-1&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;5-0&#39;)"></button></td></tr><tr><td>OSPF</td><td><button class="cb" onclick="togM(12,&#39;6-2&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;6-3&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;6-1&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;6-0&#39;)"></button></td></tr><tr><td>VRF-Lite</td><td><button class="cb" onclick="togM(12,&#39;2-2&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;2-3&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;2-1&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;2-0&#39;)"></button></td></tr><tr><td>LDP</td><td><button class="cb" onclick="togM(12,&#39;0-2&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;0-3&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;0-1&#39;)"></button></td><td><button class="cb" onclick="togM(12,&#39;0-0&#39;)"></button></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(12)">解答を確認</button></div></div></div><div class="qc" id="q13"><div class="qh"><span class="qn">#14 Q12</span><span class="qt tm">Multiple</span></div><div class="qb"><div class="qtx">Which two recommendations provide the desired outcome for Charlie Brown? (Choose two.)</div><ul class="ops"><li class="op" onclick="tog(13,5)"><span class="mk"></span><span>prefix list filtering inbound on PE routers</span></li><li class="op" onclick="tog(13,2)"><span class="mk"></span><span>AS-Override feature on the CE routers</span></li><li class="op" onclick="tog(13,1)"><span class="mk"></span><span>AllowAS-In feature on the CE routers</span></li><li class="op" onclick="tog(13,4)"><span class="mk"></span><span>Local-AS feature on the CE routers</span></li><li class="op" onclick="tog(13,3)"><span class="mk"></span><span>prefix list filtering outbound on CE routers</span></li><li class="op" onclick="tog(13,0)"><span class="mk"></span><span>prefix list filtering for Branch #3 originated routes inbound on the CE routers from the PE routers</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(13)">解答を確認</button></div></div></div><div class="qc" id="q14"><div class="qh"><span class="qn">#15 Q13</span><span class="qt ts">Single</span></div><div class="qb"><div class="qtx">Which recommendation meets the peering requirement of Peter Jones?</div><ul class="ops"><li class="op" onclick="tog(14,4)"><span class="mk mkr"></span><span>new AS number for the BGP instance</span></li><li class="op" onclick="tog(14,0)"><span class="mk mkr"></span><span>Replace-AS feature on the branch router</span></li><li class="op" onclick="tog(14,1)"><span class="mk mkr"></span><span>AS-Override feature on the branch router</span></li><li class="op" onclick="tog(14,2)"><span class="mk mkr"></span><span>Allow AS-In feature on the branch router</span></li><li class="op" onclick="tog(14,3)"><span class="mk mkr"></span><span>Local-AS feature on the branch router</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(14)">解答を確認</button></div></div></div><div class="qc" id="q15"><div class="qh"><span class="qn">#16 Q14</span><span class="qt tx">Matrix</span></div><div class="qb"><div class="qtx">Select all the features that must be present on each router to meet the resiliency requirements for DMVPN. (Select all that apply)</div><table class="mtx"><thead><tr><th></th><th>R23</th><th>R61</th><th>R24</th></tr></thead><tbody><tr><td>NHRP Next Hop Server</td><td><button class="cb" onclick="togM(15,&#39;4-2&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;4-0&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;4-1&#39;)"></button></td></tr><tr><td>NHRP redirect</td><td><button class="cb" onclick="togM(15,&#39;0-2&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;0-0&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;0-1&#39;)"></button></td></tr><tr><td>Disabled split horizon and next-hop self</td><td><button class="cb" onclick="togM(15,&#39;1-2&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;1-0&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;1-1&#39;)"></button></td></tr><tr><td>NHRP authentication</td><td><button class="cb" onclick="togM(15,&#39;5-2&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;5-0&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;5-1&#39;)"></button></td></tr><tr><td>Summary rfc1918 address on tunnel</td><td><button class="cb" onclick="togM(15,&#39;6-2&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;6-0&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;6-1&#39;)"></button></td></tr><tr><td>Stub</td><td><button class="cb" onclick="togM(15,&#39;2-2&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;2-0&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;2-1&#39;)"></button></td></tr><tr><td>NHRP shortcut</td><td><button class="cb" onclick="togM(15,&#39;3-2&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;3-0&#39;)"></button></td><td><button class="cb" onclick="togM(15,&#39;3-1&#39;)"></button></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(15)">解答を確認</button></div></div></div><div class="qc" id="q16"><div class="qh"><span class="qn">#17 Q15</span><span class="qt tx">Matrix</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">On which routers will the operations teams troubleshoot DMVPN issues? (Select all that apply.)</div><table class="mtx"><thead><tr><th></th><th>R6</th><th>R23</th><th>R24</th><th>R21</th></tr></thead><tbody><tr><td>Link down</td><td><button class="cb" onclick="togM(16,&#39;6-1&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;6-3&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;6-2&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;6-0&#39;)"></button></td></tr><tr><td>Routing adjacency</td><td><button class="cb" onclick="togM(16,&#39;4-1&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;4-3&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;4-2&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;4-0&#39;)"></button></td></tr><tr><td>Physical interface MTU</td><td><button class="cb" onclick="togM(16,&#39;0-1&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;0-3&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;0-2&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;0-0&#39;)"></button></td></tr><tr><td>Encryption method</td><td><button class="cb" onclick="togM(16,&#39;5-1&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;5-3&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;5-2&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;5-0&#39;)"></button></td></tr><tr><td>Tunnel interface MTU</td><td><button class="cb" onclick="togM(16,&#39;1-1&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;1-3&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;1-2&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;1-0&#39;)"></button></td></tr><tr><td>NHRP</td><td><button class="cb" onclick="togM(16,&#39;3-1&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;3-3&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;3-2&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;3-0&#39;)"></button></td></tr><tr><td>IPsec keys</td><td><button class="cb" onclick="togM(16,&#39;2-1&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;2-3&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;2-2&#39;)"></button></td><td><button class="cb" onclick="togM(16,&#39;2-0&#39;)"></button></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(16)">解答を確認</button></div></div></div><div class="qc" id="q17"><div class="qh"><span class="qn">#18 Q16</span><span class="qt ts">Single</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which solution meets the requirements for a standardized time source?</div><ul class="ops"><li class="op" onclick="tog(17,4)"><span class="mk mkr"></span><span>Point all the network systems at both NTP servers by using authentication and enabling the preferred server setting.</span></li><li class="op" onclick="tog(17,2)"><span class="mk mkr"></span><span>Point all the network systems at both NTP servers. Apply access group controls to the peers and SSL encryption.</span></li><li class="op" onclick="tog(17,3)"><span class="mk mkr"></span><span>Point all the network systems at one NTP server by using authentication and enabling the preferred server setting.</span></li><li class="op" onclick="tog(17,0)"><span class="mk mkr"></span><span>Point all the network systems at both NTP servers. Apply access group controls to the peers and authentication.</span></li><li class="op" onclick="tog(17,1)"><span class="mk mkr"></span><span>Point all the network systems at both NTP servers by enabling the preferred server setting. Apply access group controls to the peers and SSL encryption.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(17)">解答を確認</button></div></div></div><div class="qc" id="q18"><div class="qh"><span class="qn">#19 Q17 — — Drag &amp; Drop</span><span class="qt td">Drag &amp; Drop</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">For Branch #4, drag and drop the actions from the left onto the corresponding QoS design options on the right. Not all options are used.</div><div class="dz-w"><div class="dz-l">選択肢プール（ゾーンにドラッグ）</div><div class="dz" id="dpool-18"><span class="chip" draggable="true" data-val="Implement a shaper on R70">Implement a shaper on R70</span><span class="chip" draggable="true" data-val="Mark with DSCP EF on SW700">Mark with DSCP EF on SW700</span><span class="chip" draggable="true" data-val="Implement a policer on R70">Implement a policer on R70</span><span class="chip" draggable="true" data-val="Implement LLQ on SW700">Implement LLQ on SW700</span><span class="chip" draggable="true" data-val="Mark with DSCP AF31 on R70">Mark with DSCP AF31 on R70</span><span class="chip" draggable="true" data-val="Implement WRED on R70">Implement WRED on R70</span><span class="chip" draggable="true" data-val="Mark with DSCP EF on R70">Mark with DSCP EF on R70</span><span class="chip" draggable="true" data-val="Mark with DSCP AF41 on SW700">Mark with DSCP AF41 on SW700</span><span class="chip" draggable="true" data-val="Mark with DSCP AF21 on SW700">Mark with DSCP AF21 on SW700</span><span class="chip" draggable="true" data-val="Mark with DSCP AF43 on SW700">Mark with DSCP AF43 on SW700</span><span class="chip" draggable="true" data-val="Implement LLQ on R70">Implement LLQ on R70</span><span class="chip" draggable="true" data-val="Implement FIFO on R70">Implement FIFO on R70</span></div></div><div class="dz-w"><div class="dz-l">Voice traffic marking</div><div class="dz" data-zone="Voice traffic marking"></div></div><div class="dz-w"><div class="dz-l">Video traffic marking</div><div class="dz" data-zone="Video traffic marking"></div></div><div class="dz-w"><div class="dz-l">Congestion management</div><div class="dz" data-zone="Congestion management"></div></div><div class="dz-w"><div class="dz-l">Guest traffic handling</div><div class="dz" data-zone="Guest traffic handling"></div></div><div class="dz-w"><div class="dz-l">Voice traffic handling (WAN)</div><div class="dz" data-zone="Voice traffic handling (WAN)"></div></div><div class="qa"><button class="btn bp bs" onclick="chk(18)">解答を確認</button></div></div></div><div class="qc" id="q19"><div class="qh"><span class="qn">#20 Q18</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which two recommendations provide connectivity for the IP cameras to the internet as quickly as possible? (Choose two.)</div><ul class="ops"><li class="op" onclick="tog(19,2)"><span class="mk"></span><span>static NAT on the WAN interface of the data center routers for every IP camera</span></li><li class="op" onclick="tog(19,5)"><span class="mk"></span><span>NAT overload on the WAN interface of the data center routers</span></li><li class="op" onclick="tog(19,1)"><span class="mk"></span><span>NAT overload on the WAN interface of the data center routers from the branch LAN addresses to non-RFC1918 addresses</span></li><li class="op" onclick="tog(19,3)"><span class="mk"></span><span>NAT overload on the WAN interface of the data center routers from the branch WAN addresses to non-RFC1918 addresses</span></li><li class="op" onclick="tog(19,4)"><span class="mk"></span><span>Policy-based routing from the data center to route return traffic back to the correct site</span></li><li class="op" onclick="tog(19,0)"><span class="mk"></span><span>NAT overload on the WAN interface of the branch routers for traffic from the LAN to non-RFC1918 addresses</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(19)">解答を確認</button></div></div></div><div class="qc" id="q20"><div class="qh"><span class="qn">#21 Q19</span><span class="qt ts">Single</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which recommendation provides management connectivity for the IP cameras from the site-to-site VPN?</div><ul class="ops"><li class="op" onclick="tog(20,1)"><span class="mk mkr"></span><span>static NAT on the WAN interface address of the branch routers for every IP camera</span></li><li class="op" onclick="tog(20,0)"><span class="mk mkr"></span><span>static NAT with port forwarding on the WAN interface address of the data center routers for every IP camera</span></li><li class="op" onclick="tog(20,3)"><span class="mk mkr"></span><span>static NAT with port forwarding on the WAN interface address of the branch routers for every IP camera</span></li><li class="op" onclick="tog(20,2)"><span class="mk mkr"></span><span>dynamic NAT on the LAN interface address of the branch routers for every IP camera</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(20)">解答を確認</button></div></div></div><div class="qc" id="q21"><div class="qh"><span class="qn">#22 Q20</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>Email: Penetration Test Results<br>From: Sam Smith (Cyber Security Manager)<br>To: "James Wilmore" james@ccie2b.com<br>Subject: Penetration Test Results<br><br>Hello James,<br><br>Last week, penetration tests were conducted at headquarters and I now have the results.<br><br>The results were mostly positive, however, there was one element of note on the network side.<br>There was a recommendation to improve the security of the data being sent to our network management solution (NMS).<br>The testers were made aware that we use that platform for ingesting the data and monitoring only.<br><br>The report states that this data should be considered confidential, so appropriate measures must be taken to protect it.<br><br>Is there anything that you can recommend to improve our environment and meet the recommendation in the penetration test results.<br><br>Many thanks,<br>Sam Smith<br>Cyber Security Manager<br>Xander</p></details><div class="qtx">Which two recommendations secure the data sent to the NMS? (Choose two.)</div><ul class="ops"><li class="op" onclick="tog(21,1)"><span class="mk"></span><span>complex community strings of 16-plus characters</span></li><li class="op" onclick="tog(21,3)"><span class="mk"></span><span>read-only privileges</span></li><li class="op" onclick="tog(21,4)"><span class="mk"></span><span>read and write privileges</span></li><li class="op" onclick="tog(21,0)"><span class="mk"></span><span>unique community string</span></li><li class="op" onclick="tog(21,5)"><span class="mk"></span><span>ACLs associated to a community string</span></li><li class="op" onclick="tog(21,2)"><span class="mk"></span><span>SNMP user group associated to a security level</span></li></ul><div class="note">⚠️ 注意: 背景情報に「ingesting the data and monitoring only」とある場合はこの回答。そうでない場合は次の S2+++ 版を参照。</div><div class="qa"><button class="btn bp bs" onclick="chk(21)">解答を確認</button></div></div></div><div class="qc" id="q22"><div class="qh"><span class="qn">#23 Q20 — S2+++ ver.</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>【S2+++ 版】背景情報に「ingesting the data and monitoring only」の記述がない場合はこちらの回答。</p></details><div class="qtx">Which two recommendations secure the data sent to the NMS? (Choose two.)</div><ul class="ops"><li class="op" onclick="tog(22,4)"><span class="mk"></span><span>read and write privileges</span></li><li class="op" onclick="tog(22,2)"><span class="mk"></span><span>SNMP user group associated to a security level</span></li><li class="op" onclick="tog(22,3)"><span class="mk"></span><span>read-only privileges</span></li><li class="op" onclick="tog(22,1)"><span class="mk"></span><span>complex community strings of 16-plus characters</span></li><li class="op" onclick="tog(22,5)"><span class="mk"></span><span>ACLs associated to a community string</span></li><li class="op" onclick="tog(22,0)"><span class="mk"></span><span>a unique community string</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(22)">解答を確認</button></div></div></div><div class="qc" id="q23"><div class="qh"><span class="qn">#24 Q21 — — Ordering</span><span class="qt to">Order</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (2)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Drag and drop the steps into order to show the SD-Access flow when Host51 communicates with Host52 for the first time on the same subnet. Not all options are used.</div><div class="ord-pool-label">選択肢プール（スロットにドラッグ）</div><div class="ord-pool" id="opool-23"><span class="chip" draggable="true" data-val="SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and forwards the ARP request to the locally connected endpoint by using the CAM table.">SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and forwards the ARP request to the locally connected endpoint by using the CAM table.</span><span class="chip" draggable="true" data-val="In the initial response, the control plane node responds with MAC, IP, and RLOC information of Host52.">In the initial response, the control plane node responds with MAC, IP, and RLOC information of Host52.</span><span class="chip" draggable="true" data-val="SW510 replaces the broadcast MAC address from the ARP request with the MAC address of the remote endpoint, encapsulates the ARP to the VXLAN, and forwards to the Loopback0 address of the SW511 sourced from the VTEP IP address of SW510.">SW510 replaces the broadcast MAC address from the ARP request with the MAC address of the remote endpoint, encapsulates the ARP to the VXLAN, and forwards to the Loopback0 address of the SW511 sourced from the VTEP IP address of SW510.</span><span class="chip" draggable="true" data-val="The control plane node responds with the MAC and IP information of Host52. SW510 then queries for an RLOC, which is provided by the control plane node.">The control plane node responds with the MAC and IP information of Host52. SW510 then queries for an RLOC, which is provided by the control plane node.</span><span class="chip" draggable="true" data-val="SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and requests the location of the MAC address from the control plane node. The control plane node responds, and SW511 forwards the packet to the connected endpoint.">SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and requests the location of the MAC address from the control plane node. The control plane node responds, and SW511 forwards the packet to the connected endpoint.</span><span class="chip" draggable="true" data-val="SW510 sends the query to the control plane node.">SW510 sends the query to the control plane node.</span><span class="chip" draggable="true" data-val="SW510 uses its local cache to look up the RLOC information.">SW510 uses its local cache to look up the RLOC information.</span><span class="chip" draggable="true" data-val="Host51 sends an ARP request to find the MAC address of Host52.">Host51 sends an ARP request to find the MAC address of Host52.</span></div><ul class="ord-slots" id="oslots-23"><li class="ord-slot" data-slot="0"><span class="sn">1</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="1"><span class="sn">2</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="2"><span class="sn">3</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="3"><span class="sn">4</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="4"><span class="sn">5</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(23)">解答を確認</button></div></div></div><div class="qc" id="q24"><div class="qh"><span class="qn">#25 Q21 — 別バージョン — Ordering</span><span class="qt to">Order</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>別バージョン: 選択肢に「SW510 flood the ARP to local ports on the same vlan and send the request to control plane」が追加されている場合。</p></details><div class="qtx">[別バージョン] Drag and drop the steps into order to show the SD-Access flow when Host51 communicates with Host52 for the first time on the same subnet. Not all options are used.</div><div class="ord-pool-label">選択肢プール（スロットにドラッグ）</div><div class="ord-pool" id="opool-24"><span class="chip" draggable="true" data-val="SW510 sends the query to the control plane node.">SW510 sends the query to the control plane node.</span><span class="chip" draggable="true" data-val="In the initial response, the control plane node responds with MAC, IP, and RLOC information of Host52.">In the initial response, the control plane node responds with MAC, IP, and RLOC information of Host52.</span><span class="chip" draggable="true" data-val="SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and requests the location of the MAC address from the control plane node. The control plane node responds, and SW511 forwards the packet to the connected endpoint.">SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and requests the location of the MAC address from the control plane node. The control plane node responds, and SW511 forwards the packet to the connected endpoint.</span><span class="chip" draggable="true" data-val="SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and forwards the ARP request to the locally connected endpoint by using the CAM table.">SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and forwards the ARP request to the locally connected endpoint by using the CAM table.</span><span class="chip" draggable="true" data-val="SW510 replaces the broadcast MAC address from the ARP request with the MAC address of the remote endpoint, encapsulates the ARP to the VXLAN, and forwards to the Loopback0 address of the SW511 sourced from the VTEP IP address of SW510.">SW510 replaces the broadcast MAC address from the ARP request with the MAC address of the remote endpoint, encapsulates the ARP to the VXLAN, and forwards to the Loopback0 address of the SW511 sourced from the VTEP IP address of SW510.</span><span class="chip" draggable="true" data-val="SW510 flood the ARP to local ports on the same vlan and send the request to control plane">SW510 flood the ARP to local ports on the same vlan and send the request to control plane</span><span class="chip" draggable="true" data-val="The control plane node responds with the MAC and IP information of Host52. SW510 then queries for an RLOC, which is provided by the control plane node.">The control plane node responds with the MAC and IP information of Host52. SW510 then queries for an RLOC, which is provided by the control plane node.</span><span class="chip" draggable="true" data-val="SW510 uses its local cache to look up the RLOC information.">SW510 uses its local cache to look up the RLOC information.</span><span class="chip" draggable="true" data-val="Host51 sends an ARP request to find the MAC address of Host52.">Host51 sends an ARP request to find the MAC address of Host52.</span></div><ul class="ord-slots" id="oslots-24"><li class="ord-slot" data-slot="0"><span class="sn">1</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="1"><span class="sn">2</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="2"><span class="sn">3</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="3"><span class="sn">4</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="4"><span class="sn">5</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(24)">解答を確認</button></div></div></div><div class="qc" id="q25"><div class="qh"><span class="qn">#26 Q22</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which three recommendations explicitly meet the requirements of the security team? (Choose three.)</div><ul class="ops"><li class="op" onclick="tog(25,2)"><span class="mk"></span><span>Use a Closed mode authentication template.</span></li><li class="op" onclick="tog(25,3)"><span class="mk"></span><span>Use dedicated virtual networks for Corporate, Guest, IoT, and Research environments. Use SGACLs and TrustSec enforcement in the IoT, Guest, and Corporate environments.</span></li><li class="op" onclick="tog(25,1)"><span class="mk"></span><span>Use 802.1X EAP-TLS where possible and use MAB authentication with profiling groups for the remaining endpoints.</span></li><li class="op" onclick="tog(25,4)"><span class="mk"></span><span>Use a Low impact mode authentication template.</span></li><li class="op" onclick="tog(25,5)"><span class="mk"></span><span>Use dedicated virtual networks for Corporate, Guest, IoT, and Research environments. Use SGACLs and TrustSec enforcement in the IoT, Guest, Research, and Corporate environments.</span></li><li class="op" onclick="tog(25,0)"><span class="mk"></span><span>Use 802.1X PEAP (MSCHAPv2) where possible and use MAB authentication with profiling groups for the remaining endpoints.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(25)">解答を確認</button></div></div></div><div class="qc" id="q26"><div class="qh"><span class="qn">#27 Q23</span><span class="qt tx">Matrix</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">What feature recommendations are necessary to enable communications for the application at Branch #2? (Select all that apply)</div><table class="mtx"><thead><tr><th></th><th>Layer2 flooding</th><th>Multicast</th><th>IP directed broadcast</th></tr></thead><tbody><tr><td>VLAN where the application resides</td><td><button class="cb" onclick="togM(26,&#39;1-1&#39;)"></button></td><td><button class="cb" onclick="togM(26,&#39;1-2&#39;)"></button></td><td><button class="cb" onclick="togM(26,&#39;1-0&#39;)"></button></td></tr><tr><td>Virtual network where the application resides</td><td><button class="cb" onclick="togM(26,&#39;2-1&#39;)"></button></td><td><button class="cb" onclick="togM(26,&#39;2-2&#39;)"></button></td><td><button class="cb" onclick="togM(26,&#39;2-0&#39;)"></button></td></tr><tr><td>Underlay</td><td><button class="cb" onclick="togM(26,&#39;0-1&#39;)"></button></td><td><button class="cb" onclick="togM(26,&#39;0-2&#39;)"></button></td><td><button class="cb" onclick="togM(26,&#39;0-0&#39;)"></button></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(26)">解答を確認</button></div></div></div><div class="qc" id="q27"><div class="qh"><span class="qn">#28 Q24 — Part 1</span><span class="qt tx">Matrix</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">To help make the recommendation, which node features are available on each type of switch? (Select all that apply)</div><table class="mtx"><thead><tr><th></th><th>Extended node</th><th>Policy extended node</th><th>Fabric edge node</th></tr></thead><tbody><tr><td>Dynamic VLAN assignment</td><td><button class="cb" onclick="togM(27,&#39;1-1&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;1-0&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;1-2&#39;)"></button></td></tr><tr><td>802.1X support</td><td><button class="cb" onclick="togM(27,&#39;6-1&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;6-0&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;6-2&#39;)"></button></td></tr><tr><td>VXLAN tunneling support</td><td><button class="cb" onclick="togM(27,&#39;2-1&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;2-0&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;2-2&#39;)"></button></td></tr><tr><td>Security Group access control list</td><td><button class="cb" onclick="togM(27,&#39;4-1&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;4-0&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;4-2&#39;)"></button></td></tr><tr><td>SGT tagging</td><td><button class="cb" onclick="togM(27,&#39;0-1&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;0-0&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;0-2&#39;)"></button></td></tr><tr><td>Layer 2 node</td><td><button class="cb" onclick="togM(27,&#39;5-1&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;5-0&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;5-2&#39;)"></button></td></tr><tr><td>Layer 3 node</td><td><button class="cb" onclick="togM(27,&#39;3-1&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;3-0&#39;)"></button></td><td><button class="cb" onclick="togM(27,&#39;3-2&#39;)"></button></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(27)">解答を確認</button></div></div></div><div class="qc" id="q28"><div class="qh"><span class="qn">#29 Q24 — Part 2</span><span class="qt tx">Matrix</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>(Same scenario as Q24 Part 1)</p></details><div class="qtx">Based on the available features and the requirements, which node types are recommended at each location? (Select all that apply)</div><table class="mtx"><thead><tr><th></th><th>Branch #2</th><th>Branch #1</th></tr></thead><tbody><tr><td>Policy Extended Node</td><td><button class="cb" onclick="togM(28,&#39;1-1&#39;)"></button></td><td><button class="cb" onclick="togM(28,&#39;1-0&#39;)"></button></td></tr><tr><td>Extended Node</td><td><button class="cb" onclick="togM(28,&#39;0-1&#39;)"></button></td><td><button class="cb" onclick="togM(28,&#39;0-0&#39;)"></button></td></tr><tr><td>Fabric Edge Node</td><td><button class="cb" onclick="togM(28,&#39;2-1&#39;)"></button></td><td><button class="cb" onclick="togM(28,&#39;2-0&#39;)"></button></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(28)">解答を確認</button></div></div></div><div class="qc" id="q29"><div class="qh"><span class="qn">#30 Q25</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which three recommendations meet the scale and redundancy requirements of Charlie Brown? (Choose three.)</div><ul class="ops"><li class="op" onclick="tog(29,6)"><span class="mk"></span><span>Implement a hub-and-spoke topology that uses the data center and headquarters as hubs.</span></li><li class="op" onclick="tog(29,3)"><span class="mk"></span><span>Adjust the send path limit to 8.</span></li><li class="op" onclick="tog(29,7)"><span class="mk"></span><span>Adjust the send path limit to 16.</span></li><li class="op" onclick="tog(29,8)"><span class="mk"></span><span>Set the OMP preference to 100 for the data center subnets from the routers at headquarters.</span></li><li class="op" onclick="tog(29,1)"><span class="mk"></span><span>Adjust the send path limit to 32.</span></li><li class="op" onclick="tog(29,5)"><span class="mk"></span><span>Implement a hub-and-spoke topology that uses the data center as the hub</span></li><li class="op" onclick="tog(29,0)"><span class="mk"></span><span>Set the OMP preference to 1 for the data center subnets from the data center routers.</span></li><li class="op" onclick="tog(29,2)"><span class="mk"></span><span>Set the OMP preference to 200 for the data center subnets from the routers at headquarters.</span></li><li class="op" onclick="tog(29,4)"><span class="mk"></span><span>Set the OMP preference to 100 for the data center subnets from the data center routers.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(29)">解答を確認</button></div></div></div><div class="qc" id="q30"><div class="qh"><span class="qn">#31 Q26</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which three recommendations for the SD-WAN PoC meet the requirements of James Rick? (Choose three.)</div><ul class="ops"><li class="op" onclick="tog(30,6)"><span class="mk"></span><span>Use the existing service-side cabling. Use VRRP and select the same color to that of the physically connected circuit.</span></li><li class="op" onclick="tog(30,0)"><span class="mk"></span><span>Use p2p connections over the TLOC extensions and ensure that the p2p ranges are advertised to Global SP #2 from the originating router.</span></li><li class="op" onclick="tog(30,4)"><span class="mk"></span><span>Use TLOC extensions over the direct link with subinterfaces and select a different color to that of the physically connected circuit.</span></li><li class="op" onclick="tog(30,2)"><span class="mk"></span><span>Use a centralized policy to send a traffic load that has a ratio of 5:1 over the faster circuit.</span></li><li class="op" onclick="tog(30,3)"><span class="mk"></span><span>Use TLOC extensions over the direct link with subinterfaces and select the same color to that of the physically connected circuit.</span></li><li class="op" onclick="tog(30,5)"><span class="mk"></span><span>Use p2p connections over the TLOC extensions and ensure that the p2p ranges are not advertised to Global SP #2 from the originating router.</span></li><li class="op" onclick="tog(30,1)"><span class="mk"></span><span>Use a localized policy to send a traffic load that has a ratio of 5:1 over the faster circuit.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(30)">解答を確認</button></div></div></div><div class="qc" id="q31"><div class="qh"><span class="qn">#32 Q27</span><span class="qt tx">Matrix</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (0)<br>Refer to the new resource(s) available.</p></details><div class="qtx">What is the operational impact of each failure type? (Select all that apply)</div><table class="mtx"><thead><tr><th></th><th>Operational impact to users</th><th>Operational impact to SD-WAN management plane</th><th>Operational impact to SD-WAN data plane</th></tr></thead><tbody><tr><td>Restart of vManage</td><td><button class="cb" onclick="togM(31,&#39;0-1&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;0-0&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;0-2&#39;)"></button></td></tr><tr><td>Failure of SW400</td><td><button class="cb" onclick="togM(31,&#39;2-1&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;2-0&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;2-2&#39;)"></button></td></tr><tr><td>Failure of cEdge</td><td><button class="cb" onclick="togM(31,&#39;1-1&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;1-0&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;1-2&#39;)"></button></td></tr><tr><td>Failure of SW212</td><td><button class="cb" onclick="togM(31,&#39;3-1&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;3-0&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;3-2&#39;)"></button></td></tr><tr><td>Restart of a vSmart node</td><td><button class="cb" onclick="togM(31,&#39;5-1&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;5-0&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;5-2&#39;)"></button></td></tr><tr><td>Failure of SW211</td><td><button class="cb" onclick="togM(31,&#39;4-1&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;4-0&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;4-2&#39;)"></button></td></tr><tr><td>Restart of a vBond node</td><td><button class="cb" onclick="togM(31,&#39;6-1&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;6-0&#39;)"></button></td><td><button class="cb" onclick="togM(31,&#39;6-2&#39;)"></button></td></tr></tbody></table><div class="qa"><button class="btn bp bs" onclick="chk(31)">解答を確認</button></div></div></div><div class="qc" id="q32"><div class="qh"><span class="qn">#33 Q28 — — Choose two ver.</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (0)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Based on the information provided by Peter Jones, which two recommendations meet the design requirement for scaling? (Choose two.)</div><ul class="ops"><li class="op" onclick="tog(32,6)"><span class="mk"></span><span>OMP route aggregation feature on VPNs for 10.4.0.0/16 and 10.5.0.0/16</span></li><li class="op" onclick="tog(32,7)"><span class="mk"></span><span>BGP route aggregation feature on all the virtual networks for 10.4.0.0/16 and 10.5.0.0/16</span></li><li class="op" onclick="tog(32,5)"><span class="mk"></span><span>summary-only flag disabled</span></li><li class="op" onclick="tog(32,3)"><span class="mk"></span><span>aggregate-only flag disabled</span></li><li class="op" onclick="tog(32,1)"><span class="mk"></span><span>BGP route aggregation feature on the corporate virtual network for 10.5.0.0/16</span></li><li class="op" onclick="tog(32,4)"><span class="mk"></span><span>aggregate-only flag enabled</span></li><li class="op" onclick="tog(32,0)"><span class="mk"></span><span>OMP route aggregation feature on all the VPNs for 10.5.0.0/16</span></li><li class="op" onclick="tog(32,2)"><span class="mk"></span><span>summary-only flag enabled</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(32)">解答を確認</button></div></div></div><div class="qc" id="q33"><div class="qh"><span class="qn">#34 Q28 — — Choose four ver.</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>別バージョン: 回答数が4つの場合。<br><br>New Resources (0)<br>Refer to the new resource(s) available.</p></details><div class="qtx">[別バージョン] Based on the information provided by Peter Jones, which four recommendations meet the design requirement for scaling? (Choose four.)</div><ul class="ops"><li class="op" onclick="tog(33,7)"><span class="mk"></span><span>BGP route aggregation feature on all the virtual networks for 10.4.0.0/16</span></li><li class="op" onclick="tog(33,4)"><span class="mk"></span><span>summary-only flag disabled</span></li><li class="op" onclick="tog(33,6)"><span class="mk"></span><span>OMP route aggregation feature on VPNs for 10.4.0.0/16</span></li><li class="op" onclick="tog(33,2)"><span class="mk"></span><span>summary-only flag enabled</span></li><li class="op" onclick="tog(33,3)"><span class="mk"></span><span>aggregate-only flag disabled</span></li><li class="op" onclick="tog(33,1)"><span class="mk"></span><span>BGP route aggregation feature on the corporate virtual network for 10.5.0.0/16</span></li><li class="op" onclick="tog(33,0)"><span class="mk"></span><span>OMP route aggregation feature on all the VPNs for 10.5.0.0/16</span></li><li class="op" onclick="tog(33,5)"><span class="mk"></span><span>aggregate-only flag enabled</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(33)">解答を確認</button></div></div></div><div class="qc" id="q34"><div class="qh"><span class="qn">#35 Q29</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (0)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which four actions must be taken to implement an EEM script on SW700 to mitigate the wireless bridge issue? (Choose four.)</div><ul class="ops"><li class="op" onclick="tog(34,7)"><span class="mk"></span><span>Shut down and bring up the interface when it has a fault.</span></li><li class="op" onclick="tog(34,0)"><span class="mk"></span><span>Send an email to the support desk.</span></li><li class="op" onclick="tog(34,5)"><span class="mk"></span><span>Log a syslog event.</span></li><li class="op" onclick="tog(34,2)"><span class="mk"></span><span>Reload the switch.</span></li><li class="op" onclick="tog(34,6)"><span class="mk"></span><span>Enable the HTTP server.</span></li><li class="op" onclick="tog(34,4)"><span class="mk"></span><span>Create an IPSLA probe and track the interface facing the wireless link.</span></li><li class="op" onclick="tog(34,1)"><span class="mk"></span><span>Shut down and bring up all the interfaces when IPSLA fails.</span></li><li class="op" onclick="tog(34,3)"><span class="mk"></span><span>Send a Cisco Webex Teams message to the support desk.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(34)">解答を確認</button></div></div></div><div class="qc" id="q35"><div class="qh"><span class="qn">#36 Q30</span><span class="qt ts">Single</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (1)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which option would you recommend to integrate the SD-Access environment with ServiceNow?</div><ul class="ops"><li class="op" onclick="tog(35,0)"><span class="mk mkr"></span><span>Use Guestshell on Cisco IOS XE with the Python CLI module. Use IPSLA to track the events and trigger an application execution when the device state changes. Use SSH to find the device hostname, and then use the REST API to obtain the device location from Cisco DNA Center. Create a ServiceNow ticket by using the REST API.</span></li><li class="op" onclick="tog(35,2)"><span class="mk mkr"></span><span>Use Guestshell on Cisco IOS XE with the Python CLI module. Use EEM to track the events and trigger an application execution when the device state changes. Use RESTCONF to find the device hostname, and then use the REST API to obtain the device location from Cisco DNA Center. Create a ServiceNow ticket by using the REST API.</span></li><li class="op" onclick="tog(35,3)"><span class="mk mkr"></span><span>Use Guestshell on Cisco IOS with the Python CLI module. Use IP Service Level Agreement (IP SLA) to track the events and trigger an application execution when the device state changes. Use RESTCONF to find the device hostname, and then use the REST API to obtain the device location from Cisco DNA Center. Create a ServiceNow ticket by using the REST API.</span></li><li class="op" onclick="tog(35,1)"><span class="mk mkr"></span><span>Recommend using the EEM applet in Cisco IOS XE. Recommend using EEM to track the events and trigger an email alert to ServiceNow when the device state changes. Include the device and location information in the email heading.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(35)">解答を確認</button></div></div></div><div class="qc" id="q36"><div class="qh"><span class="qn">#37 Q31</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (0)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which three recommendations meet the requirements of Rachel Vikram for the deployment of iPerf3 on routers running Cisco IOS XE? (Choose three.)</div><ul class="ops"><li class="op" onclick="tog(36,4)"><span class="mk"></span><span>Deploy the application to a Guestshell container on IOS XE without enabling IoX.</span></li><li class="op" onclick="tog(36,1)"><span class="mk"></span><span>Configure a VirtualPortGroup interface for IOS XE and set network settings for the container within app-hosting appid guestshell.</span></li><li class="op" onclick="tog(36,3)"><span class="mk"></span><span>Deploy the application to a Guestshell container on IOS XE and enable IoX.</span></li><li class="op" onclick="tog(36,5)"><span class="mk"></span><span>Configure an application-hosting profile for IOS XE and set network settings for the container within app-hosting appid guestshell.</span></li><li class="op" onclick="tog(36,2)"><span class="mk"></span><span>Set a NAT within the configuration for reachability.</span></li><li class="op" onclick="tog(36,0)"><span class="mk"></span><span>Configure routing for reachability.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(36)">解答を確認</button></div></div></div><div class="qc" id="q37"><div class="qh"><span class="qn">#38 Q32 — — Ordering</span><span class="qt to">Order</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (0)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Drag and drop the steps from the left into order on the right to retrieve the data for Rachel using Postman. Not all options are used.</div><div class="ord-pool-label">選択肢プール（スロットにドラッグ）</div><div class="ord-pool" id="opool-37"><span class="chip" draggable="true" data-val="Authenticate against vManage to get a token by using a POST request.">Authenticate against vManage to get a token by using a POST request.</span><span class="chip" draggable="true" data-val="Authenticate against vManage to get a token by using a GET request.">Authenticate against vManage to get a token by using a GET request.</span><span class="chip" draggable="true" data-val="Make an API call to each controller to check its health.">Make an API call to each controller to check its health.</span><span class="chip" draggable="true" data-val="Record controller health in a database.">Record controller health in a database.</span><span class="chip" draggable="true" data-val="Use the token in a POST request to get the health of each controller.">Use the token in a POST request to get the health of each controller.</span><span class="chip" draggable="true" data-val="Use a GET request to get the health of each controller.">Use a GET request to get the health of each controller.</span><span class="chip" draggable="true" data-val="Use a GET request to list the devices.">Use a GET request to list the devices.</span></div><ul class="ord-slots" id="oslots-37"><li class="ord-slot" data-slot="0"><span class="sn">1</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="1"><span class="sn">2</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="2"><span class="sn">3</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li><li class="ord-slot" data-slot="3"><span class="sn">4</span><span style="color:#bbb;font-size:12px">ここにドロップ</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(37)">解答を確認</button></div></div></div><div class="qc" id="q38"><div class="qh"><span class="qn">#39 Q33</span><span class="qt tm">Multiple</span></div><div class="qb"><details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>New Resources (0)<br>Refer to the new resource(s) available.</p></details><div class="qtx">Which three recommendations meet the data collection requirements of Rachel Vikram? (Choose three.)</div><ul class="ops"><li class="op" onclick="tog(38,2)"><span class="mk"></span><span>Record the data to a time series data structure.</span></li><li class="op" onclick="tog(38,0)"><span class="mk"></span><span>Extract the data from the Cisco DNA Center API and record the data in a single object in a database.</span></li><li class="op" onclick="tog(38,3)"><span class="mk"></span><span>Use Python to send a GET request to the /dna/intent/api/v1/client-health Cisco DNA Center method that is scheduled to run hourly.</span></li><li class="op" onclick="tog(38,1)"><span class="mk"></span><span>Support logging in to Cisco DNA Center every hour and record the data from the Assurance tab.</span></li><li class="op" onclick="tog(38,6)"><span class="mk"></span><span>Extract the data from the Cisco DNA Center API and record the client health metric.</span></li><li class="op" onclick="tog(38,4)"><span class="mk"></span><span>Use a script to log in to all the switches and the WLCs via SSH. Extract the MAC address data hourly.</span></li><li class="op" onclick="tog(38,5)"><span class="mk"></span><span>Use Python to send a POST request to the /dna/intent/api/v1/client-health Cisco DNA Center method that is scheduled to run hourly.</span></li></ul><div class="qa"><button class="btn bp bs" onclick="chk(38)">解答を確認</button></div></div></div></div>
+<div class="bbar">
+  <button class="btn bp bs" onclick="checkAll()">全問一括で解答確認</button>
+  <button class="btn bs" onclick="scrollUn()">未回答にジャンプ</button>
+  <button class="btn bd bs" onclick="if(confirm(&#39;全データをリセットしますか？&#39;))resetAll()">データリセット</button>
+</div>
+
+<script>
+const Q=[
+// 0: Q2
+{id:"Q2",num:"Q2",sub:"",tp:"matrix",
+sc:"",
+tx:"Which features must be implemented on which switches to meet the Layer 2 requirements? (Select all that apply)",
+mh:["SW110","SW211","SW101","SW201"],
+mr:["BPDU Guard on nonuplink ports","VLAN pruning","CDP","Loop guard","Layer 2 MTU jumbo frames","PortFast on access ports"],
+mc:{"0-0":1,"0-1":1,"1-0":1,"1-1":1,"2-0":1,"3-0":1,"3-1":1,"4-1":1,"5-0":1,"5-1":1}},
+
+// 1: Q3
+{id:"Q3",num:"Q3",sub:"",tp:"multi",
+sc:`Email: Layer 2 Spanning Tree\nFrom: "Charlie Brown" cbrown@xander.co.uk\nTo: "James Wilmore" james@ccie2b.com\nSubject: Layer 2 Spanning Tree\n\nHello James,\n\nI would like to evaluate our spanning tree control plane in the data center. The environment is still set to its defaults, and I want to make a few changes.\n\nI would like a collapsed core architecture with SW201 as the spanning tree root bridge and SW202 as the secondary. SW211 and SW212 are the access layer switches where the endpoints will connect. I would like a link failure between the switches to be detected as quickly as possible to ensure all STP paths to neighboring devices are fault free. We also have a high number of VLANs configured in the data center, and we are concerned about one switch becoming oversubscribed with traffic. How can we ensure that neither core switch becomes too oversubscribed without significant disruption to our current deployment?\n\nCould you detail how this might be achieved?\n\nCharlie Brown\nNetwork Architect\nXander\n\nNew Resources (1)\nRefer to the new resource(s) available.`,
+tx:"Which two spanning tree configurations meet the requirements of Charlie Brown? (Choose two.)",
+opts:["Make SW201 the root for all the VLANs and make SW202 the secondary.","Reduce the forward time of the spanning tree.","Implement MSTP.","Reduce the max age of the spanning tree.","Reduce the hello timer of the spanning tree.","Make SW201 the root for the even VLANs and make SW202 the root for the odd VLANs."],ans:[4,5],
+note:"⚠️ 注意: 背景情報に「I would like a link failure between the switches to be detected as quickly as possible …」とある場合はこの回答。そうでない場合は次の S2+++ 版を参照。"},
+
+// 1b: Q3 S2+++ ver.
+{id:"Q3-s2ppp",num:"Q3",sub:"S2+++ ver.",tp:"multi",
+sc:`【S2+++ 版】背景情報に「link failure … detected as quickly as possible」の記述がない場合はこちらの回答。\n\nEmail: Layer 2 Spanning Tree\nFrom: "Charlie Brown" cbrown@xander.co.uk\nTo: "James Wilmore" james@ccie2b.com\nSubject: Layer 2 Spanning Tree\n\nHello James,\n\nI would like to evaluate our spanning tree control plane in the data center. The environment is still set to its defaults, and I want to make a few changes.\n\nI would like a collapsed core architecture with SW201 as the spanning tree root bridge and SW202 as the secondary. SW211 and SW212 are the access layer switches where the endpoints will connect. We also have a high number of VLANs configured in the data center, and we are concerned about one switch becoming oversubscribed with traffic. How can we ensure that neither core switch becomes too oversubscribed without significant disruption to our current deployment?\n\nCould you detail how this might be achieved?\n\nCharlie Brown\nNetwork Architect\nXander\n\nNew Resources (1)\nRefer to the new resource(s) available.`,
+tx:"Which two spanning tree configurations meet the requirements of Charlie Brown? (Choose two.)",
+opts:["Make SW201 the root for all the VLANs and make SW202 the secondary.","Reduce the forward time of the spanning tree.","Implement MSTP.","Reduce the max age of the spanning tree.","Reduce the hello timer of the spanning tree.","Make SW201 the root for the even VLANs and make SW202 the root for the odd VLANs."],ans:[3,5]},
+
+// 2: Q4
+{id:"Q4",num:"Q4",sub:"",tp:"multi",
+sc:"",
+tx:"Which four design recommendations for SW201 and SW202 meet the core layer capacity requirements? (Choose four)",
+opts:["Use trunk and VLAN pruning on the members of SW201.","Deploy a Layer 3 port channel.","Enable the LACP feature.","Use load balancing of type vlan-src-dst-mixed-ip-port.","Use load balancing of type vlan-src-ip.","Set the port channel to active mode for new connections.","Enable the PAgP standard for both switches.","Disable the IEEE 802.3ad standard for both switches.","Use trunk and VLAN pruning on the port channel interfaces of both switches."],ans:[2,3,5,8]},
+
+// 3: Q5
+{id:"Q5",num:"Q5",sub:"",tp:"multi",
+sc:"",
+tx:"Which three recommendations will improve security and scale at Branch #3? (Choose three)",
+opts:["Enable the passive interface default feature and disable passive interfaces toward the downstream switches.","Implement a stub configuration on all the routing devices at Branch #3 and apply summary routes on SW601 and SW602.","Implement MD5 authentication between all neighbors by using same key on R24, R61, and R62. Use different keys on SW601 and SW602.","Implement SHA-256 authentication between all neighbors by using different keys on R24, R61, R62, SW601, and SW602.","Implement a stub configuration on all the routing devices at Branch #3 and apply summary routes on R61 and R62.","Implement SHA-256 authentication between all neighbors by using the same key on R24, R61, R62, SW601, and SW602.","Enable the passive interface default feature and disable passive interfaces toward R24 and on downstream switches.","Implement a stub configuration on all the routing devices at Branch #3 that do not have summary routes."],ans:[4,5,6]},
+
+// 4: Q6-1
+{id:"Q6-1",num:"Q6",sub:"Part 1",tp:"multi",
+sc:`New Resources (1)\nRefer to the new resource(s) available.\nThis item consists of multiple questions. You may need to scroll down to be able to see all questions.`,
+tx:"Which two recommendations for the OSPF deployment meet the requirements of Charlie Brown? (Choose two.)",
+opts:["Set the priority of each spoke tunnel to 0 to mitigate the DR/BDR election.","Place all the routers in the same area.","Place the hub in area 0, and place each spoke in a separate area.","Use OSPF broadcast on the hub and broadcast on all the spokes.","Use OSPF point-to-multipoint on all the spokes and point-to-multipoint on the hub."],ans:[1,4]},
+
+// 5: Q6-2
+{id:"Q6-2",num:"Q6",sub:"Part 2",tp:"single",
+sc:"(Same scenario as Q6 Part 1)",
+tx:"Based on your recommendations for the OSPF deployment, how will OSPF operate differently than the current environment?",
+opts:["The hub will have a different copy of the link-state database than the spokes, and routing changes on the spokes can trigger an SPF recalculation on all the DMVPN routers.","All the routers will share an identical copy of the link-state database, and routing changes on the spokes cannot trigger an SPF recalculation on all the DMVPN routers.","The hub will have a different copy of the link-state database than the spokes, and OSPF will offer load sharing based on delay.","The hub will have a different copy of the link-state database than the spokes, and OSPF will offer load sharing based on cost.","All the routers will share an identical copy of the link-state database, and routing changes on the spokes can trigger an SPF recalculation on all the DMVPN routers.","All the routers will have different copies of the link-state database, and routing changes on the spokes can trigger an SPF recalculation on all the DMVPN routers."],ans:[4]},
+
+// 6: Q7
+{id:"Q7",num:"Q7",sub:"",tp:"multi",
+sc:`Email: Transition Branch #3 to OSPF\nFrom: "Charlie Brown" cbrown@xander.co.uk\nTo: "James Wilmore" james@ccie2b.com; "Rachel Vikram" rvikram@xander.co.uk\nSubject: Transition Branch #3 to OSPF\n\nHi Rachel and James,\n\nWe should look at the requirements to transition Branch #3 to OSPF to simplify our design.\nAll classless subnets should be in the IGP RIB and should not have metrics increased as they traverse the environment.\n\nMetric values for routes from other routing protocols should be set to 20 so that we can identify them easily. Please use default features where possible.\n\nMany thanks,\nCharlie Brown\nNetwork Architect\nXander`,
+tx:"Which two recommendations achieve the goal of transitioning Branch #3 to OSPF? (Choose two.)",
+opts:["Use the metric feature to specify a metric value.","Redistribute BGP into OSPF with a metric of Type 2 on R61 and R62.","Use the default metric as the metric value.","Redistribute BGP into OSPF with a metric of Type 1 and subnets features enabled on R61 and R62.","Redistribute BGP into OSPF with the subnets feature enabled and without a metric type specified on R61 and R62."],ans:[0,4],
+note:"⚠️ 注意: 背景情報に「should not have metrics increased as they traverse the environment.」とある場合はこの回答。そうでない場合は次の S2+++ 版を参照。"},
+
+// 6b: Q7 S2+++ ver.
+{id:"Q7-s2ppp",num:"Q7",sub:"S2+++ ver.",tp:"multi",
+sc:`【S2+++ 版】背景情報に「should not have metrics increased as they traverse the environment.」の記述がない場合はこちらの回答。`,
+tx:"Which two recommendations achieve the goal of transitioning Branch #3 to OSPF? (Choose two.)",
+opts:["Use the metric feature to specify a metric value.","Redistribute BGP into OSPF with a metric of Type 2 on R61 and R62.","Use the default metric as the metric value.","Redistribute BGP into OSPF with a metric of Type 1 and subnets features enabled on R61 and R62.","Redistribute BGP into OSPF with the subnets feature enabled and without a metric type specified on R61 and R62."],ans:[0,3]},
+
+// 7: Q8
+{id:"Q8",num:"Q8",sub:"",tp:"matrix",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"What must be deployed to R1, R3, R21, and R61 to take advantage of the service provider BGP offerings? (Select all that apply)",
+mh:["R21","R3","R61","R1"],
+mr:["Communities","Peer group","IBGP","Route map","MP-BGP VPNv4","Origin","Authentication"],
+mc:{"0-0":1,"0-2":1,"2-0":1,"2-2":1,"3-0":1,"3-2":1,"6-0":1,"6-2":1}},
+
+// 8: Q9
+{id:"Q9",num:"Q9",sub:"",tp:"single",
+sc:"",
+tx:"Which recommendation meets the requirements of Peter Jones for the test environment?",
+opts:["Use the No-Export Community on R61 and use the No-Advertise Community on R62.","Use the No-Advertise Community on R61 and R62.","Use the No-Export Community on R61 and R62.","Use the No-Advertise Community on R61 the No-Export Community on R62.","Use the Local-AS Community on R61 and R62."],ans:[2]},
+
+// 9: Q10
+{id:"Q10",num:"Q10",sub:"",tp:"single",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"Which recommendation provides the required connectivity for the external team?",
+opts:["Use a new VLAN and an unused subnet at Branch #3. Implement a GRE tunnel between R62 and R24 with a static default route pointing to the tunnel on R62 and a return route pointing to the tunnel on R24. Use a dynamic overload NAT to the WAN interface for the new subnet on R24 that has RFC 1918 blocking ACLs for the new subnet.","Use a new VLAN and an unused subnet at Branch #3 that has RFC 1918 blocking the gateway. Implement a GRE tunnel between R62 and R24 that has static default route pointing to the tunnel on R62 and a return route pointing to the tunnel on R24. Use a dynamic overload NAT to the WAN interface for the new subnet on R24.","Use a new VLAN and an unused subnet at Branch #3 on a new VRF that uses VRF-Lite. Request that the ISP deliver a new VRF to Branch #3 for WAN traffic to the datacenter. Use VRF-Lite on R21 and R24 in the datacenter. Use dynamic routing to achieve connectivity. Use a dynamic overload NAT to the WAN interface for the new subnet on R24 that leaks to the global RIB.","Use the existing corporate VLAN subnet at Branch #3. Implement a GRE tunnel between R62 and R24 that has a static default route pointing to the tunnel on R62 and a return route pointing to the tunnel on R24. Use dynamic overload NAT to the WAN interface for the subnet on R24."],ans:[1]},
+
+// 10: Q11
+{id:"Q11",num:"Q11",sub:"",tp:"matrix",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"Identify the features each router must use to meet the requirements of the service provider change request. (Select all that apply)",
+mh:["R4","R6","R1","R62"],
+mr:["LDP","Route target export","VRF-Lite","Route distinguisher","Route target import","MP-BGP","OSPF","Loopback address"],
+mc:{"0-1":1,"1-1":1,"2-1":1,"2-3":1,"3-1":1,"3-3":1,"4-1":1,"5-1":1,"5-3":1,"6-1":1,"7-1":1}},
+
+// 11: Q12
+{id:"Q12",num:"Q12",sub:"",tp:"multi",
+sc:"",
+tx:"Which two recommendations provide the desired outcome for Charlie Brown? (Choose two.)",
+opts:["prefix list filtering for Branch #3 originated routes inbound on the CE routers from the PE routers","AllowAS-In feature on the CE routers","AS-Override feature on the CE routers","prefix list filtering outbound on CE routers","Local-AS feature on the CE routers","prefix list filtering inbound on PE routers"],ans:[0,1]},
+
+// 12: Q13
+{id:"Q13",num:"Q13",sub:"",tp:"single",
+sc:"",
+tx:"Which recommendation meets the peering requirement of Peter Jones?",
+opts:["Replace-AS feature on the branch router","AS-Override feature on the branch router","Allow AS-In feature on the branch router","Local-AS feature on the branch router","new AS number for the BGP instance"],ans:[3]},
+
+// 13: Q14
+{id:"Q14",num:"Q14",sub:"",tp:"matrix",
+sc:"",
+tx:"Select all the features that must be present on each router to meet the resiliency requirements for DMVPN. (Select all that apply)",
+mh:["R61","R24","R23"],
+mr:["NHRP redirect","Disabled split horizon and next-hop self","Stub","NHRP shortcut","NHRP Next Hop Server","NHRP authentication","Summary rfc1918 address on tunnel"],
+mc:{"0-1":1,"0-2":1,"1-1":1,"1-2":1,"2-0":1,"3-0":1,"4-1":1,"4-2":1,"5-0":1,"5-1":1,"5-2":1,"6-2":1}},
+
+// 14: Q15
+{id:"Q15",num:"Q15",sub:"",tp:"matrix",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"On which routers will the operations teams troubleshoot DMVPN issues? (Select all that apply.)",
+mh:["R21","R6","R24","R23"],
+mr:["Physical interface MTU","Tunnel interface MTU","IPsec keys","NHRP","Routing adjacency","Encryption method","Link down"],
+mc:{"0-0":1,"0-1":1,"0-2":1,"0-3":1,"1-2":1,"1-3":1,"2-2":1,"2-3":1,"3-2":1,"3-3":1,"4-0":1,"4-1":1,"4-2":1,"4-3":1,"5-2":1,"5-3":1,"6-0":1,"6-1":1,"6-2":1,"6-3":1}},
+
+// 15: Q16
+{id:"Q16",num:"Q16",sub:"",tp:"single",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"Which solution meets the requirements for a standardized time source?",
+opts:["Point all the network systems at both NTP servers. Apply access group controls to the peers and authentication.","Point all the network systems at both NTP servers by enabling the preferred server setting. Apply access group controls to the peers and SSL encryption.","Point all the network systems at both NTP servers. Apply access group controls to the peers and SSL encryption.","Point all the network systems at one NTP server by using authentication and enabling the preferred server setting.","Point all the network systems at both NTP servers by using authentication and enabling the preferred server setting."],ans:[0]},
+
+// 16: Q17
+{id:"Q17",num:"Q17",sub:"— Drag & Drop",tp:"drag",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"For Branch #4, drag and drop the actions from the left onto the corresponding QoS design options on the right. Not all options are used.",
+allItems:["Mark with DSCP EF on SW700","Mark with DSCP AF41 on SW700","Implement WRED on R70","Implement a shaper on R70","Implement LLQ on R70","Mark with DSCP AF21 on SW700","Implement LLQ on SW700","Mark with DSCP AF43 on SW700","Mark with DSCP AF31 on R70","Implement a policer on R70","Implement FIFO on R70","Mark with DSCP EF on R70"],
+zones:["Voice traffic marking","Video traffic marking","Congestion management","Guest traffic handling","Voice traffic handling (WAN)"],
+dc:{"Voice traffic marking":"Mark with DSCP EF on SW700","Video traffic marking":"Mark with DSCP AF41 on SW700","Congestion management":"Implement WRED on R70","Guest traffic handling":"Implement a shaper on R70","Voice traffic handling (WAN)":"Implement LLQ on R70"}},
+
+// 17: Q18
+{id:"Q18",num:"Q18",sub:"",tp:"multi",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"Which two recommendations provide connectivity for the IP cameras to the internet as quickly as possible? (Choose two.)",
+opts:["NAT overload on the WAN interface of the branch routers for traffic from the LAN to non-RFC1918 addresses","NAT overload on the WAN interface of the data center routers from the branch LAN addresses to non-RFC1918 addresses","static NAT on the WAN interface of the data center routers for every IP camera","NAT overload on the WAN interface of the data center routers from the branch WAN addresses to non-RFC1918 addresses","Policy-based routing from the data center to route return traffic back to the correct site","NAT overload on the WAN interface of the data center routers"],ans:[0,3]},
+
+// 18: Q19
+{id:"Q19",num:"Q19",sub:"",tp:"single",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"Which recommendation provides management connectivity for the IP cameras from the site-to-site VPN?",
+opts:["static NAT with port forwarding on the WAN interface address of the data center routers for every IP camera","static NAT on the WAN interface address of the branch routers for every IP camera","dynamic NAT on the LAN interface address of the branch routers for every IP camera","static NAT with port forwarding on the WAN interface address of the branch routers for every IP camera"],ans:[3]},
+
+// 19: Q20
+{id:"Q20",num:"Q20",sub:"",tp:"multi",
+sc:`Email: Penetration Test Results\nFrom: Sam Smith (Cyber Security Manager)\nTo: "James Wilmore" james@ccie2b.com\nSubject: Penetration Test Results\n\nHello James,\n\nLast week, penetration tests were conducted at headquarters and I now have the results.\n\nThe results were mostly positive, however, there was one element of note on the network side.\nThere was a recommendation to improve the security of the data being sent to our network management solution (NMS).\nThe testers were made aware that we use that platform for ingesting the data and monitoring only.\n\nThe report states that this data should be considered confidential, so appropriate measures must be taken to protect it.\n\nIs there anything that you can recommend to improve our environment and meet the recommendation in the penetration test results.\n\nMany thanks,\nSam Smith\nCyber Security Manager\nXander`,
+tx:"Which two recommendations secure the data sent to the NMS? (Choose two.)",
+opts:["unique community string","complex community strings of 16-plus characters","SNMP user group associated to a security level","read-only privileges","read and write privileges","ACLs associated to a community string"],ans:[2,3],
+note:"⚠️ 注意: 背景情報に「ingesting the data and monitoring only」とある場合はこの回答。そうでない場合は次の S2+++ 版を参照。"},
+
+// 19b: Q20 S2+++ ver.
+{id:"Q20-s2ppp",num:"Q20",sub:"S2+++ ver.",tp:"multi",
+sc:`【S2+++ 版】背景情報に「ingesting the data and monitoring only」の記述がない場合はこちらの回答。`,
+tx:"Which two recommendations secure the data sent to the NMS? (Choose two.)",
+opts:["a unique community string","complex community strings of 16-plus characters","SNMP user group associated to a security level","read-only privileges","read and write privileges","ACLs associated to a community string"],ans:[2,4]},
+
+// 20: Q21
+{id:"Q21",num:"Q21",sub:"— Ordering",tp:"order",
+sc:`New Resources (2)\nRefer to the new resource(s) available.`,
+tx:"Drag and drop the steps into order to show the SD-Access flow when Host51 communicates with Host52 for the first time on the same subnet. Not all options are used.",
+allOpts:["SW510 replaces the broadcast MAC address from the ARP request with the MAC address of the remote endpoint, encapsulates the ARP to the VXLAN, and forwards to the Loopback0 address of the SW511 sourced from the VTEP IP address of SW510.","In the initial response, the control plane node responds with MAC, IP, and RLOC information of Host52.","SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and forwards the ARP request to the locally connected endpoint by using the CAM table.","The control plane node responds with the MAC and IP information of Host52. SW510 then queries for an RLOC, which is provided by the control plane node.","SW510 sends the query to the control plane node.","Host51 sends an ARP request to find the MAC address of Host52.","SW510 uses its local cache to look up the RLOC information.","SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and requests the location of the MAC address from the control plane node. The control plane node responds, and SW511 forwards the packet to the connected endpoint."],
+ac:["Host51 sends an ARP request to find the MAC address of Host52.","SW510 sends the query to the control plane node.","The control plane node responds with the MAC and IP information of Host52. SW510 then queries for an RLOC, which is provided by the control plane node.","SW510 replaces the broadcast MAC address from the ARP request with the MAC address of the remote endpoint, encapsulates the ARP to the VXLAN, and forwards to the Loopback0 address of the SW511 sourced from the VTEP IP address of SW510.","SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and forwards the ARP request to the locally connected endpoint by using the CAM table."],
+slotCount:5},
+
+// 21: Q21 alt
+{id:"Q21-alt",num:"Q21",sub:"別バージョン — Ordering",tp:"order",
+sc:`別バージョン: 選択肢に「SW510 flood the ARP to local ports on the same vlan and send the request to control plane」が追加されている場合。`,
+tx:"[別バージョン] Drag and drop the steps into order to show the SD-Access flow when Host51 communicates with Host52 for the first time on the same subnet. Not all options are used.",
+allOpts:["SW510 replaces the broadcast MAC address from the ARP request with the MAC address of the remote endpoint, encapsulates the ARP to the VXLAN, and forwards to the Loopback0 address of the SW511 sourced from the VTEP IP address of SW510.","In the initial response, the control plane node responds with MAC, IP, and RLOC information of Host52.","SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and forwards the ARP request to the locally connected endpoint by using the CAM table.","The control plane node responds with the MAC and IP information of Host52. SW510 then queries for an RLOC, which is provided by the control plane node.","SW510 sends the query to the control plane node.","Host51 sends an ARP request to find the MAC address of Host52.","SW510 uses its local cache to look up the RLOC information.","SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and requests the location of the MAC address from the control plane node. The control plane node responds, and SW511 forwards the packet to the connected endpoint.","SW510 flood the ARP to local ports on the same vlan and send the request to control plane"],
+ac:["Host51 sends an ARP request to find the MAC address of Host52.","SW510 flood the ARP to local ports on the same vlan and send the request to control plane","The control plane node responds with the MAC and IP information of Host52. SW510 then queries for an RLOC, which is provided by the control plane node.","SW510 replaces the broadcast MAC address from the ARP request with the MAC address of the remote endpoint, encapsulates the ARP to the VXLAN, and forwards to the Loopback0 address of the SW511 sourced from the VTEP IP address of SW510.","SW511 decapsulates the VXLAN packet, enforces any TrustSec policy, and forwards the ARP request to the locally connected endpoint by using the CAM table."],
+slotCount:5},
+
+// 22: Q22
+{id:"Q22",num:"Q22",sub:"",tp:"multi",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"Which three recommendations explicitly meet the requirements of the security team? (Choose three.)",
+opts:["Use 802.1X PEAP (MSCHAPv2) where possible and use MAB authentication with profiling groups for the remaining endpoints.","Use 802.1X EAP-TLS where possible and use MAB authentication with profiling groups for the remaining endpoints.","Use a Closed mode authentication template.","Use dedicated virtual networks for Corporate, Guest, IoT, and Research environments. Use SGACLs and TrustSec enforcement in the IoT, Guest, and Corporate environments.","Use a Low impact mode authentication template.","Use dedicated virtual networks for Corporate, Guest, IoT, and Research environments. Use SGACLs and TrustSec enforcement in the IoT, Guest, Research, and Corporate environments."],ans:[1,3,4]},
+
+// 23: Q23
+{id:"Q23",num:"Q23",sub:"",tp:"matrix",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"What feature recommendations are necessary to enable communications for the application at Branch #2? (Select all that apply)",
+mh:["IP directed broadcast","Layer2 flooding","Multicast"],
+mr:["Underlay","VLAN where the application resides","Virtual network where the application resides"],
+mc:{"0-2":1,"1-1":1}},
+
+// 24: Q24-1
+{id:"Q24-1",num:"Q24",sub:"Part 1",tp:"matrix",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"To help make the recommendation, which node features are available on each type of switch? (Select all that apply)",
+mh:["Policy extended node","Extended node","Fabric edge node"],
+mr:["SGT tagging","Dynamic VLAN assignment","VXLAN tunneling support","Layer 3 node","Security Group access control list","Layer 2 node","802.1X support"],
+mc:{"0-0":1,"0-2":1,"1-0":1,"1-1":1,"1-2":1,"2-2":1,"3-2":1,"4-0":1,"4-2":1,"5-0":1,"5-1":1,"6-0":1,"6-1":1,"6-2":1}},
+
+// 25: Q24-2
+{id:"Q24-2",num:"Q24",sub:"Part 2",tp:"matrix",
+sc:"(Same scenario as Q24 Part 1)",
+tx:"Based on the available features and the requirements, which node types are recommended at each location? (Select all that apply)",
+mh:["Branch #1","Branch #2"],
+mr:["Extended Node","Policy Extended Node","Fabric Edge Node"],
+mc:{"0-0":1,"1-1":1,"2-1":1}},
+
+// 26: Q25
+{id:"Q25",num:"Q25",sub:"",tp:"multi",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"Which three recommendations meet the scale and redundancy requirements of Charlie Brown? (Choose three.)",
+opts:["Set the OMP preference to 1 for the data center subnets from the data center routers.","Adjust the send path limit to 32.","Set the OMP preference to 200 for the data center subnets from the routers at headquarters.","Adjust the send path limit to 8.","Set the OMP preference to 100 for the data center subnets from the data center routers.","Implement a hub-and-spoke topology that uses the data center as the hub","Implement a hub-and-spoke topology that uses the data center and headquarters as hubs.","Adjust the send path limit to 16.","Set the OMP preference to 100 for the data center subnets from the routers at headquarters."],ans:[4,6,7]},
+
+// 27: Q26
+{id:"Q26",num:"Q26",sub:"",tp:"multi",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"Which three recommendations for the SD-WAN PoC meet the requirements of James Rick? (Choose three.)",
+opts:["Use p2p connections over the TLOC extensions and ensure that the p2p ranges are advertised to Global SP #2 from the originating router.","Use a localized policy to send a traffic load that has a ratio of 5:1 over the faster circuit.","Use a centralized policy to send a traffic load that has a ratio of 5:1 over the faster circuit.","Use TLOC extensions over the direct link with subinterfaces and select the same color to that of the physically connected circuit.","Use TLOC extensions over the direct link with subinterfaces and select a different color to that of the physically connected circuit.","Use p2p connections over the TLOC extensions and ensure that the p2p ranges are not advertised to Global SP #2 from the originating router.","Use the existing service-side cabling. Use VRRP and select the same color to that of the physically connected circuit."],ans:[0,2,4]},
+
+// 28: Q27
+{id:"Q27",num:"Q27",sub:"",tp:"matrix",
+sc:`New Resources (0)\nRefer to the new resource(s) available.`,
+tx:"What is the operational impact of each failure type? (Select all that apply)",
+mh:["Operational impact to SD-WAN management plane","Operational impact to users","Operational impact to SD-WAN data plane"],
+mr:["Restart of vManage","Failure of cEdge","Failure of SW400","Failure of SW212","Failure of SW211","Restart of a vSmart node","Restart of a vBond node"],
+mc:{"0-0":1,"1-1":1,"1-2":1,"2-1":1,"3-0":1}},
+
+// 29: Q28 (Choose two)
+{id:"Q28",num:"Q28",sub:"— Choose two ver.",tp:"multi",
+sc:`New Resources (0)\nRefer to the new resource(s) available.`,
+tx:"Based on the information provided by Peter Jones, which two recommendations meet the design requirement for scaling? (Choose two.)",
+opts:["OMP route aggregation feature on all the VPNs for 10.5.0.0/16","BGP route aggregation feature on the corporate virtual network for 10.5.0.0/16","summary-only flag enabled","aggregate-only flag disabled","aggregate-only flag enabled","summary-only flag disabled","OMP route aggregation feature on VPNs for 10.4.0.0/16 and 10.5.0.0/16","BGP route aggregation feature on all the virtual networks for 10.4.0.0/16 and 10.5.0.0/16"],ans:[4,6]},
+
+// 30: Q28 alt (Choose four)
+{id:"Q28-alt",num:"Q28",sub:"— Choose four ver.",tp:"multi",
+sc:`別バージョン: 回答数が4つの場合。\n\nNew Resources (0)\nRefer to the new resource(s) available.`,
+tx:"[別バージョン] Based on the information provided by Peter Jones, which four recommendations meet the design requirement for scaling? (Choose four.)",
+opts:["OMP route aggregation feature on all the VPNs for 10.5.0.0/16","BGP route aggregation feature on the corporate virtual network for 10.5.0.0/16","summary-only flag enabled","aggregate-only flag disabled","summary-only flag disabled","aggregate-only flag enabled","OMP route aggregation feature on VPNs for 10.4.0.0/16","BGP route aggregation feature on all the virtual networks for 10.4.0.0/16"],ans:[1,2,5,6]},
+
+// 31: Q29
+{id:"Q29",num:"Q29",sub:"",tp:"multi",
+sc:`New Resources (0)\nRefer to the new resource(s) available.`,
+tx:"Which four actions must be taken to implement an EEM script on SW700 to mitigate the wireless bridge issue? (Choose four.)",
+opts:["Send an email to the support desk.","Shut down and bring up all the interfaces when IPSLA fails.","Reload the switch.","Send a Cisco Webex Teams message to the support desk.","Create an IPSLA probe and track the interface facing the wireless link.","Log a syslog event.","Enable the HTTP server.","Shut down and bring up the interface when it has a fault."],ans:[0,4,5,7]},
+
+// 32: Q30
+{id:"Q30",num:"Q30",sub:"",tp:"single",
+sc:`New Resources (1)\nRefer to the new resource(s) available.`,
+tx:"Which option would you recommend to integrate the SD-Access environment with ServiceNow?",
+opts:["Use Guestshell on Cisco IOS XE with the Python CLI module. Use IPSLA to track the events and trigger an application execution when the device state changes. Use SSH to find the device hostname, and then use the REST API to obtain the device location from Cisco DNA Center. Create a ServiceNow ticket by using the REST API.","Recommend using the EEM applet in Cisco IOS XE. Recommend using EEM to track the events and trigger an email alert to ServiceNow when the device state changes. Include the device and location information in the email heading.","Use Guestshell on Cisco IOS XE with the Python CLI module. Use EEM to track the events and trigger an application execution when the device state changes. Use RESTCONF to find the device hostname, and then use the REST API to obtain the device location from Cisco DNA Center. Create a ServiceNow ticket by using the REST API.","Use Guestshell on Cisco IOS with the Python CLI module. Use IP Service Level Agreement (IP SLA) to track the events and trigger an application execution when the device state changes. Use RESTCONF to find the device hostname, and then use the REST API to obtain the device location from Cisco DNA Center. Create a ServiceNow ticket by using the REST API."],ans:[2]},
+
+// 33: Q31
+{id:"Q31",num:"Q31",sub:"",tp:"multi",
+sc:`New Resources (0)\nRefer to the new resource(s) available.`,
+tx:"Which three recommendations meet the requirements of Rachel Vikram for the deployment of iPerf3 on routers running Cisco IOS XE? (Choose three.)",
+opts:["Configure routing for reachability.","Configure a VirtualPortGroup interface for IOS XE and set network settings for the container within app-hosting appid guestshell.","Set a NAT within the configuration for reachability.","Deploy the application to a Guestshell container on IOS XE and enable IoX.","Deploy the application to a Guestshell container on IOS XE without enabling IoX.","Configure an application-hosting profile for IOS XE and set network settings for the container within app-hosting appid guestshell."],ans:[1,2,3]},
+
+// 34: Q32 — Ordering
+{id:"Q32",num:"Q32",sub:"— Ordering",tp:"order",
+sc:`New Resources (0)\nRefer to the new resource(s) available.`,
+tx:"Drag and drop the steps from the left into order on the right to retrieve the data for Rachel using Postman. Not all options are used.",
+allOpts:["Use a GET request to list the devices.","Record controller health in a database.","Authenticate against vManage to get a token by using a GET request.","Authenticate against vManage to get a token by using a POST request.","Use the token in a POST request to get the health of each controller.","Use a GET request to get the health of each controller.","Make an API call to each controller to check its health."],
+ac:["Authenticate against vManage to get a token by using a POST request.","Use a GET request to list the devices.","Use a GET request to get the health of each controller.","Record controller health in a database."],
+slotCount:4},
+
+// 35: Q33
+{id:"Q33",num:"Q33",sub:"",tp:"multi",
+sc:`New Resources (0)\nRefer to the new resource(s) available.`,
+tx:"Which three recommendations meet the data collection requirements of Rachel Vikram? (Choose three.)",
+opts:["Extract the data from the Cisco DNA Center API and record the data in a single object in a database.","Support logging in to Cisco DNA Center every hour and record the data from the Assurance tab.","Record the data to a time series data structure.","Use Python to send a GET request to the /dna/intent/api/v1/client-health Cisco DNA Center method that is scheduled to run hourly.","Use a script to log in to all the switches and the WLCs via SSH. Extract the MAC address data hourly.","Use Python to send a POST request to the /dna/intent/api/v1/client-health Cisco DNA Center method that is scheduled to run hourly.","Extract the data from the Cisco DNA Center API and record the client health metric."],ans:[2,3,6]}
+];
+
+// ========== EXPLANATIONS ==========
+const EXPL={
+"Q2":`<p>データセンタースイッチにおけるL2機能の適用先です。</p><ul><li><span class="ek">BPDU Guard（非アップリンクポート）</span>：SW110, SW211のアクセスポートでBPDUを受信したらポートをerr-disabled。</li><li><span class="ek">VLAN pruning</span>：SW110, SW211のトランクリンクで不要VLANトラフィックを削減。</li><li><span class="ek">CDP</span>：SW110でIP電話等のデバイス検出に使用。</li><li><span class="ek">Loop Guard</span>：SW110, SW211のトランクポートでSTPループ検出。</li><li><span class="ek">L2 MTU jumbo frames</span>：SW211でDCサーバ間の大きなフレーム対応。</li><li><span class="ek">PortFast</span>：SW110, SW211のアクセスポートで高速リンクアップ。</li></ul>`,
+"Q3":`<p>STP設計：「リンク障害の迅速検出」＋「oversubscription防止」がキーワードです。</p><ul><li><span class="ek">hello timer削減</span>：「link failure detected as quickly as possible」に対応。helloの送信間隔を短縮し障害検出を高速化。</li><li><span class="ek">偶数/奇数VLANのroot分散</span>：SW201を偶数、SW202を奇数のrootにすることで両スイッチ間でトラフィック負荷分散→oversubscription防止。</li><li>全VLANをSW201rootにすると、SW202がトラフィックを持たず負荷分散にならない。</li></ul>`,
+"Q3-s2ppp":`<p>S2+++版：「リンク障害迅速検出」の記述がない場合です。</p><ul><li><span class="ek">max age削減</span>：障害迅速検出が不要なので、hello timerでなくmax ageを調整。STPの収束を改善。</li><li><span class="ek">偶数/奇数VLANのroot分散</span>：両スイッチ間でトラフィック負荷分散→oversubscription防止。</li></ul>`,
+"Q4":`<p>SW201/SW202のコア層Port Channel設計です。</p><ul><li><span class="ek">LACPを有効化</span>：IEEE 802.3ad準拠のEtherChannel。</li><li><span class="ek">vlan-src-dst-mixed-ip-port LB</span>：VLAN＋IP＋ポートのハッシュで最適な分散。</li><li><span class="ek">activeモード</span>：LACPのネゴシエーションをactiveに。</li><li><span class="ek">トランク＋VLANプルーニング</span>：両スイッチのPC IFで不要VLANカット。</li><li>PAgPはCisco独自。L3 PCではなくL2トランクPC。802.3ad無効化は逆効果。</li></ul>`,
+"Q5":`<p>Branch #3のEIGRPセキュリティとスケーラビリティです。</p><ul><li><span class="ek">Stub＋R61/R62でsummary route</span>：stub configで不要ルート削減。集約ルートはCEルータ（R61/R62）で適用。</li><li><span class="ek">SHA-256認証（同一キー）</span>：EIGRP隣接の全デバイスで同一キーのSHA-256認証（MD5より安全）。</li><li><span class="ek">passive interface default＋R24/downstream解除</span>：既定でpassiveにし、R24方向と下流スイッチのみactiveに。</li></ul>`,
+"Q6-1":`<p>DMVPN上のOSPF展開の推奨設計です。</p><ul><li><span class="ek">全ルータを同一エリアに配置</span>：OSPF point-to-multipointではエリア分割不要でシンプルな設計。</li><li><span class="ek">point-to-multipoint</span>：DMVPN環境で推奨。DR/BDR選出が不要で、スポーク間でのフラッディング問題を回避。</li><li>Broadcastタイプだとスポーク間でDR/BDR選出が発生し問題。エリア分割は管理が複雑。</li></ul>`,
+"Q6-2":`<p>OSPF P2MPの動作特性です。</p><ul><li><span class="ek">全ルータが同一LSDB</span>：同一エリアなので全ルータが同じlink-state databaseを共有。</li><li><span class="ek">SPF再計算がトリガーされる</span>：同一エリア内のルーティング変更はSPF再計算を全ルータでトリガー（これはP2MPの特性）。</li><li>別エリアにすればSPF再計算を分離できるが、本問の推奨はsingle area + P2MP。</li></ul>`,
+"Q7":`<p>Branch #3のOSPF移行設計（メトリック増加なし版）です。</p><ul><li><span class="ek">metricキーワード指定</span>：metric値20を明示的に設定（default-metricではなく個別指定）。</li><li><span class="ek">subnets＋メトリックタイプ指定なし</span>：デフォルトはType 2（メトリック不変）。「should not have metrics increased as they traverse」→Type 2が適切。subnetsで classless subnet を IGP RIBに含める。</li></ul>`,
+"Q7-s2ppp":`<p>S2+++版：「metrics increased」の記述がない場合です。</p><ul><li><span class="ek">metricキーワード指定</span>：metric値20を明示的に設定。</li><li><span class="ek">Type 1＋subnets</span>：Type 1（メトリック累積）がデフォルトではないが、メトリック増加制限がないのでType 1を明示指定。</li></ul>`,
+"Q8":`<p>SP BGPオファリングのための各ルータ設計です。</p><ul><li><span class="ek">R21, R61</span>：Communities、IBGP、Route map、Authentication→CEルータとしてSPとのBGPピアリングにフル機能が必要。</li><li>R3, R1はSP側（PE）であり、CommunityやRoute mapの設定はCE側の責任。</li><li>MP-BGP VPNv4はPEルータの機能でCEには不要。Peer groupはスケーリング用だが本問の直接要件ではない。</li></ul>`,
+"Q9":`<p><span class="ek">No-Export Community</span>をR61/R62両方で使用します。</p><ul><li>No-Exportは受信したルートをeBGPピアに再広告しない→テスト環境のルートがAS外部に漏れない。</li><li>No-Advertiseは全ピア（iBGP含む）に再広告しない→内部でもルートが見えなくなる。Local-ASはconfederation内の話。</li></ul>`,
+"Q10":`<p>外部チームのBranch #3からの接続設計です。</p><ul><li><span class="ek">新VLAN＋新サブネット＋RFC 1918ブロッキング＋GREトンネル＋NAT overload</span></li><li>Gateway上でRFC 1918をブロックしつつ、GREトンネルでR62→R24へ接続。R24でNAT overloadでインターネットアクセス提供。</li><li>既存企業VLANを使うとセキュリティリスク。VRF-Liteは複雑すぎる。</li></ul>`,
+"Q11":`<p>SP変更要求に対する各ルータの機能要件です。</p><ul><li><span class="ek">R6</span>：MPLS L3VPN関連の全機能（VRF-Lite、RD、RT、MP-BGP、LDP、OSPF、Loopback）→PEルータとして。</li><li><span class="ek">R62</span>：VRF-Lite、RD、RT、MP-BGP→CEルータにVRFを拡張。</li><li>R1、R4はこのシナリオでは限定的な機能のみ。</li></ul>`,
+"Q12":`<p>BGPのAS-path loopとルートフィルタリングの設計です。</p><ul><li><span class="ek">AllowAS-In</span>：CEルータで自AS番号がAS-pathに含まれるルートを受け入れ可能に→同一AS番号を使うマルチサイト間で必要。</li><li><span class="ek">prefix list filtering inbound on CE</span>：Branch #3発のルートをPEから受信時にフィルタリング→ルーティングループ防止。</li></ul>`,
+"Q13":`<p><span class="ek">Local-AS</span>はブランチルータで使用し、実際のAS番号を隠して別のAS番号でピアリングします。</p><ul><li>Peter Jonesのピアリング要件に対し、既存AS構成を変更せずにローカルAS番号を提示。</li><li>Replace-ASはLocal-ASのオプション。AS-OverrideはPE側の機能。AllowAS-InはCE側のループ回避。新AS番号は構成変更が大きい。</li></ul>`,
+"Q14":`<p>DMVPN冗長性のための各ルータ機能です。</p><ul><li><span class="ek">R24/R23（ハブ）</span>：NHRP redirect、split horizon無効＋next-hop-self、NHRP NHS、NHRP認証。</li><li><span class="ek">R61（スポーク）</span>：NHRP shortcut、stub、NHRP認証。</li><li><span class="ek">R23のみ</span>：summary rfc1918 address→セカンダリハブとしてトンネルに集約ルートを広告。</li></ul>`,
+"Q15":`<p>DMVPNトラブルシューティングの対象ルータ別分野です。</p><ul><li><span class="ek">全ルータ</span>：Physical MTU、Routing adjacency、Link down。</li><li><span class="ek">R24/R23のみ</span>：Tunnel MTU、IPsec keys、NHRP、Encryption method→ハブはDMVPN固有の全機能をチェック。</li><li>R21/R6はDMVPNに直接参加しないが、物理接続とルーティングの問題は影響。</li></ul>`,
+"Q16":`<p>NTP標準化です。</p><ul><li><span class="ek">両NTPサーバへポイント＋access group制御＋認証</span>：冗長性（2台）＋アクセス制御＋NTP認証（MD5）。</li><li>NTPはSSLを使わず、独自の認証機能を使用。1台のみだと冗長性不足。preferred設定はオプションだが本問の要件にはaccess group＋認証が必須。</li></ul>`,
+"Q17":`<p>Branch #4のQoS設計です。</p><ul><li><span class="ek">Voice marking</span>：DSCP EF on SW700（アクセス層で信頼境界マーキング）</li><li><span class="ek">Video marking</span>：DSCP AF41 on SW700</li><li><span class="ek">Congestion management</span>：WRED on R70（WANルータで輻輳管理）</li><li><span class="ek">Guest traffic</span>：Shaper on R70（ゲストトラフィックを帯域制限）</li><li><span class="ek">Voice handling (WAN)</span>：LLQ on R70（音声にWANでの優先キュー）</li></ul>`,
+"Q18":`<p>IPカメラのインターネット接続です。</p><ul><li><span class="ek">ブランチルータのWAN IFでNAT overload</span>：LANから非RFC1918宛のトラフィックをブランチで直接NATし最速接続。</li><li><span class="ek">DCルータのWAN IFでブランチWANアドレスからNAT overload</span>：DCルータ経由でNATしインターネットアクセス提供（冗長パス）。</li></ul>`,
+"Q19":`<p><span class="ek">スタティックNAT＋ポートフォワーディング on ブランチルータWAN IF</span>でカメラへのリモート管理を提供。</p><ul><li>VPN経由の管理にはブランチルータで各カメラのスタティックNATが必要。DCルータでは戻りトラフィックの正確なルーティングが困難。</li></ul>`,
+"Q20":`<p>NMSのSNMPセキュリティ（monitoring only版）です。</p><ul><li><span class="ek">SNMPv3 user group＋security level</span>：authPrivで暗号化→機密保護。</li><li><span class="ek">Read-only</span>：「ingesting and monitoring only」→読み取り専用で十分。</li></ul>`,
+"Q20-s2ppp":`<p>NMSのSNMPセキュリティ（full access版）です。</p><ul><li><span class="ek">SNMPv3 user group＋security level</span>：authPrivで暗号化→機密保護。</li><li><span class="ek">Read-write</span>：監視だけでなく管理も必要→RW権限。</li></ul>`,
+"Q21":`<p>SD-Access ARP解決フロー（Host51→Host52、同一サブネット、初回通信）です。</p><ol><li>Host51がARP要求送信</li><li>SW510がcontrol plane nodeにクエリ送信</li><li>CPNがHost52のMAC/IP情報を応答→SW510がRLOCを問い合わせ→CPNが応答</li><li>SW510がARPのブロードキャストMACをHost52のMACに置換し、VXLANカプセル化してSW511のLoopback0へ転送</li><li>SW511がVXLAN復号→TrustSecポリシー適用→CAMテーブルでHost52へ転送</li></ol>`,
+"Q21-alt":`<p>別バージョン：「SW510がローカルポートにflood＋CPNに送信」が選択肢にある場合です。</p><ol><li>Host51がARP要求送信</li><li>SW510がローカルVLANのポートにflood＋CPNにリクエスト送信</li><li>CPNがHost52のMAC/IP応答→RLOC取得</li><li>SW510がVXLANカプセル化しSW511へ転送</li><li>SW511がVXLAN復号→TrustSec→CAMテーブルでHost52へ転送</li></ol>`,
+"Q22":`<p>SD-Accessセキュリティ要件の具体的実装です。</p><ul><li><span class="ek">802.1X EAP-TLS＋MABプロファイリング</span>：証明書ベースの認証が最強。MABはEAP-TLS不可デバイス用。</li><li><span class="ek">VN分離＋SGACL（IoT/Guest/Corporate）</span>：仮想ネットワークで分離しSGACLで通信制御。</li><li><span class="ek">Low impact mode</span>：認証前に限定的なネットワークアクセスを許可（完全ブロックのClosedより運用しやすい）。</li></ul>`,
+"Q23":`<p>Branch #2のアプリケーション通信要件です。</p><ul><li><span class="ek">Underlay</span>：マルチキャスト→アンダーレイでPIM等のマルチキャスト機能が必要。</li><li><span class="ek">VLAN</span>：L2 flooding→アプリケーションがL2ブロードキャスト/フラッディングに依存。</li><li>VN層やIP directed broadcastは本アプリケーションの要件には不要。</li></ul>`,
+"Q24-1":`<p>SD-Accessノードタイプの機能比較です。</p><ul><li><span class="ek">Policy Extended Node</span>：SGT tagging、Dynamic VLAN、SGACL、L2 node、802.1X。</li><li><span class="ek">Extended Node</span>：Dynamic VLAN、L2 node、802.1X。</li><li><span class="ek">Fabric Edge Node</span>：SGT、Dynamic VLAN、VXLAN、L3、SGACL、802.1X→全機能。</li></ul>`,
+"Q24-2":`<p>各拠点の推奨ノードタイプです。</p><ul><li><span class="ek">Branch #1</span>：Extended Node→基本接続のみ。</li><li><span class="ek">Branch #2</span>：Policy Extended Node＋Fabric Edge Node→SGACLポリシー適用が必要。</li></ul>`,
+"Q25":`<p>SD-WANのスケールと冗長性です。</p><ul><li><span class="ek">OMP preference 100（DC routers）</span>：DCサブネットをDCルータから高優先度で広告。</li><li><span class="ek">Hub-and-spoke（DC＋HQ）</span>：DCとHQをハブにして制御された通信パス。</li><li><span class="ek">Send path limit 16</span>：大規模環境でのOMP最適化。</li></ul>`,
+"Q26":`<p>SD-WAN PoCの設計です。</p><ul><li><span class="ek">P2P接続＋TLOC extension＋SP#2への広告</span>：p2p rangeをSPに広告してルーティング確保。</li><li><span class="ek">集中ポリシーで5:1比率</span>：faster circuitに重み付けしたトラフィック分散。</li><li><span class="ek">TLOC extension＋別カラー</span>：物理回線と異なるカラーで独立したTLOC。</li></ul>`,
+"Q27":`<p>SD-WAN障害の運用影響分析です。</p><ul><li><span class="ek">vManage再起動</span>：管理プレーンのみ影響（データプレーン維持）。</li><li><span class="ek">cEdge障害</span>：ユーザ＋データプレーン影響。</li><li><span class="ek">SW400障害</span>：ユーザ影響。</li><li><span class="ek">SW212障害</span>：管理プレーン影響（コントローラホスト）。</li><li>vSmart/vBond再起動：grace period中はデータプレーン維持。</li></ul>`,
+"Q28":`<p>OMP/BGPルート集約でのスケーリング設計（Choose two版）です。</p><ul><li><span class="ek">aggregate-only flag</span>：OMPで集約ルートのみ広告（個別ルート抑制）。</li><li><span class="ek">OMP route aggregation for 10.4.0.0/16 and 10.5.0.0/16</span>：両方のアドレスブロックを集約。</li></ul>`,
+"Q28-alt":`<p>Choose four版のルート集約設計です。</p><ul><li><span class="ek">BGP aggregation for 10.5.0.0/16（corporate VN）</span>：BGP側での集約。</li><li><span class="ek">summary-only flag enabled</span>：BGPで集約のみ広告。</li><li><span class="ek">aggregate-only flag enabled</span>：OMP側で集約のみ広告。</li><li><span class="ek">OMP aggregation for 10.4.0.0/16</span>：OMP側での追加集約。</li></ul>`,
+"Q29":`<p>SW700のEEMスクリプトによる無線ブリッジ障害対応です。</p><ul><li><span class="ek">サポートデスクにメール送信</span>：アラート通知。</li><li><span class="ek">IPSLA probe＋wireless IFトラック</span>：障害の自動検出。</li><li><span class="ek">syslogイベント記録</span>：障害ログ。</li><li><span class="ek">障害IFのshut/no shut</span>：自動リカバリ（全IFではなく障害IFのみ）。</li></ul>`,
+"Q30":`<p><span class="ek">Guestshell＋Python CLI＋EEM＋RESTCONF＋DNA Center REST API＋ServiceNow REST API</span>の組み合わせです。</p><ul><li>EEMでデバイス状態変化を検出→Guestshellでアプリ実行→RESTCONFでホスト名取得→DNA Center APIでロケーション取得→ServiceNow APIでチケット作成。</li><li>IOS XE（not IOS）が正しい。IP SLAではなくEEM。SSHではなくRESTCONF。</li></ul>`,
+"Q31":`<p>IOS XEでのiPerf3デプロイ手順です。</p><ul><li><span class="ek">VirtualPortGroup IF設定</span>：コンテナのネットワーク接続用。</li><li><span class="ek">NAT設定</span>：コンテナからの到達性確保。</li><li><span class="ek">Guestshell＋IoX有効化</span>：コンテナ実行環境としてIoXが必要。</li></ul>`,
+"Q32":`<p>Postmanを使ったvManage APIデータ取得手順です。</p><ol><li>vManageにPOSTリクエストで認証→トークン取得</li><li>GETリクエストでデバイス一覧取得</li><li>GETリクエストで各コントローラのヘルス取得</li><li>コントローラヘルスをDBに記録</li></ol>`,
+"Q33":`<p>DNA Center APIからのデータ収集要件です。</p><ul><li><span class="ek">Time series DB</span>：時系列データ構造で記録→トレンド分析可能。</li><li><span class="ek">Python GET request</span>：/dna/intent/api/v1/client-healthをGETで毎時取得（POSTではない）。</li><li><span class="ek">Client health metric</span>：DNA Center APIからclient health指標を抽出・記録。</li></ul>`
+};
+
+const N=Q.length;
+const S=new Array(N).fill(null).map(()=>({sel:null,rev:false,ok:null}));
+
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+
+// Shuffled display order for single/multi options and matrix rows/cols
+const optOrder=new Array(N).fill(null);
+const mtxRowOrder=new Array(N).fill(null);
+const mtxColOrder=new Array(N).fill(null);
+
+function initOptOrder(i){
+  if(optOrder[i])return;
+  const q=Q[i];
+  if(q.tp==='single'||q.tp==='multi'){
+    const idx=q.opts.map((_,j)=>j);
+    optOrder[i]=shuffle([...idx]);
+  }
+}
+
+function initMtxOrder(i){
+  if(mtxRowOrder[i])return;
+  const q=Q[i];
+  if(q.tp==='matrix'){
+    const ridx=q.mr.map((_,j)=>j);
+    mtxRowOrder[i]=shuffle([...ridx]);
+    const cidx=q.mh.map((_,j)=>j);
+    mtxColOrder[i]=shuffle([...cidx]);
+  }
+}
+
+function init(i){
+  const q=Q[i];if(S[i].sel!==null)return;
+  if(q.tp==='single'||q.tp==='multi'){S[i].sel=[];initOptOrder(i);}
+  else if(q.tp==='matrix'){S[i].sel={};initMtxOrder(i);}
+  else if(q.tp==='order'){
+    const uniq=[...new Set(q.allOpts)];
+    S[i].sel={pool:shuffle([...uniq]),slots:new Array(q.slotCount).fill(null)};
+  }
+  else if(q.tp==='drag'){
+    const uniq=[...new Set(q.allItems)];
+    S[i].sel={pool:shuffle([...uniq]),placed:{}};
+  }
+}
+
+function renderAll(){
+  const c=document.getElementById('ctn');let h='';
+  Q.forEach((_,i)=>{init(i);h+=renderQ(i)});
+  c.innerHTML=h;
+  toc();stats();
+  Q.forEach((_,i)=>{
+    if(Q[i].tp==='order'&&!S[i].rev)attachOrd(i);
+    if(Q[i].tp==='drag'&&!S[i].rev)attachDrg(i);
+  });
+}
+
+function renderQ(i){
+  const q=Q[i],s=S[i];
+  let cc='qc';if(s.rev)cc+=s.ok?' rok':' rng';
+  let h=`<div class="${cc}" id="q${i}">`;
+  h+=`<div class="qh"><span class="qn">#${i+1} ${q.num}${q.sub?' — '+q.sub:''}</span><span class="qt ${tcls(q.tp)}">${tlbl(q.tp)}</span></div>`;
+  h+=`<div class="qb">`;
+  if(q.sc)h+=`<details class="scn"><summary>📧 Scenario / Email（クリックで展開）</summary><p>${esc(q.sc)}</p></details>`;
+  h+=`<div class="qtx">${q.tx}</div>`;
+  if(q.tp==='single'||q.tp==='multi')h+=rOpts(q,i,s);
+  else if(q.tp==='matrix')h+=rMtx(q,i,s);
+  else if(q.tp==='order')h+=rOrd(q,i,s);
+  else if(q.tp==='drag')h+=rDrg(q,i,s);
+  if(q.note)h+=`<div class="note">${q.note}</div>`;
+  if(s.rev){h+=`<div class="exp ${s.ok?'eok':'eng'}">${s.ok?'✓ Correct!':'✗ Incorrect — 正解がハイライトされています。'}</div>`;}
+  if(s.rev&&EXPL[q.id])h+=`<div class="expl"><h4>解説</h4>${EXPL[q.id]}</div>`;
+  if(!s.rev)h+=`<div class="qa"><button class="btn bp bs" onclick="chk(${i})">解答を確認</button></div>`;
+  if(s.rev)h+=`<div class="qa" style="margin-top:6px"><button class="btn bs" onclick="retry(${i})">🔄 解き直す</button></div>`;
+  h+=`</div></div>`;
+  return h;
+}
+function tcls(t){return{single:'ts',multi:'tm',order:'to',drag:'td',matrix:'tx'}[t]}
+function tlbl(t){return{single:'Single',multi:'Multiple',order:'Order',drag:'Drag & Drop',matrix:'Matrix'}[t]}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')}
+
+function rOpts(q,i,s){
+  const isSingle=q.tp==='single';
+  initOptOrder(i);
+  const order=optOrder[i]||q.opts.map((_,j)=>j);
+  let h='<ul class="ops">';
+  order.forEach((oi)=>{
+    const o=q.opts[oi];
+    let c='op';
+    if(s.rev){c+=' lk';const ic=q.ans.includes(oi),is=s.sel.includes(oi);
+      if(is&&ic)c+=' cok';else if(is&&!ic)c+=' cng';else if(!is&&ic)c+=' cms';
+    }else if(s.sel.includes(oi))c+=' sel';
+    const mc=isSingle?'mk mkr':'mk';
+    const mm=s.rev?(q.ans.includes(oi)?'✓':(s.sel.includes(oi)?'✗':'')):(s.sel.includes(oi)?'✓':'');
+    h+=`<li class="${c}" onclick="tog(${i},${oi})"><span class="${mc}">${mm}</span><span>${o}</span></li>`;
+  });
+  return h+'</ul>';
+}
+function tog(i,oi){
+  if(S[i].rev)return;init(i);
+  const q=Q[i];
+  if(q.tp==='single')S[i].sel=[oi];
+  else{const x=S[i].sel.indexOf(oi);if(x>-1)S[i].sel.splice(x,1);else S[i].sel.push(oi)}
+  reQ(i);
+}
+
+function rMtx(q,i,s){
+  initMtxOrder(i);
+  const rowOrd=mtxRowOrder[i]||q.mr.map((_,j)=>j);
+  const colOrd=mtxColOrder[i]||q.mh.map((_,j)=>j);
+  let h='<table class="mtx"><thead><tr><th></th>';
+  colOrd.forEach(ci=>h+=`<th>${q.mh[ci]}</th>`);
+  h+='</tr></thead><tbody>';
+  rowOrd.forEach((ri)=>{
+    const r=q.mr[ri];
+    h+=`<tr><td>${r}</td>`;
+    colOrd.forEach((ci)=>{
+      const k=`${ri}-${ci}`,ck=s.sel[k],ic=q.mc[k];
+      let c='cb';
+      if(s.rev){c+=' lk';if(ck&&ic)c+=' mok';else if(ck&&!ic)c+=' mng';else if(!ck&&ic)c+=' mms';}
+      else if(ck)c+=' ck';
+      const mm=s.rev?(ic?'✓':(ck?'✗':'')):(ck?'✓':'');
+      h+=`<td><button class="${c}" onclick="togM(${i},'${k}')">${mm}</button></td>`;
+    });
+    h+='</tr>';
+  });
+  return h+'</tbody></table>';
+}
+function togM(i,k){
+  if(S[i].rev)return;init(i);
+  S[i].sel[k]=!S[i].sel[k];if(!S[i].sel[k])delete S[i].sel[k];
+  reQ(i);
+}
+
+function rOrd(q,i,s){
+  const {pool,slots}=s.sel;
+  let h=`<div class="ord-pool-label">選択肢プール（スロットにドラッグ）</div>`;
+  h+=`<div class="ord-pool" id="opool-${i}">`;
+  pool.forEach(item=>{
+    let c='chip';
+    h+=`<span class="${c}" draggable="true" data-val="${esc(item)}">${item}</span>`;
+  });
+  h+=`</div>`;
+  h+=`<ul class="ord-slots" id="oslots-${i}">`;
+  slots.forEach((item,idx)=>{
+    let c='ord-slot';
+    if(s.rev&&item!=null){c+=q.ac[idx]===item?' sok':' sng';}
+    const content=item?`<span class="chip" draggable="${!s.rev}" data-val="${esc(item)}">${item}</span>`:'<span style="color:#bbb;font-size:12px">ここにドロップ</span>';
+    let ghost='';
+    if(s.rev&&item!==q.ac[idx]&&q.ac[idx]){
+      ghost=`<span class="chip cghost">${q.ac[idx]}</span>`;
+    }
+    h+=`<li class="${c}" data-slot="${idx}"><span class="sn">${idx+1}</span>${content}${ghost}</li>`;
+  });
+  h+=`</ul>`;
+  return h;
+}
+function attachOrd(i){
+  const card=document.getElementById(`q${i}`);if(!card)return;
+  card.querySelectorAll('.chip').forEach(c=>{
+    c.addEventListener('dragstart',e=>{
+      const slot=c.closest('.ord-slot');
+      const from=slot?slot.dataset.slot:'pool';
+      e.dataTransfer.setData('text/plain',JSON.stringify({val:c.dataset.val,from:from}));
+      e.dataTransfer.effectAllowed='move';
+    });
+  });
+  card.querySelectorAll('.ord-slot').forEach(sl=>{
+    sl.addEventListener('dragover',e=>{e.preventDefault();sl.classList.add('dragover')});
+    sl.addEventListener('dragleave',()=>sl.classList.remove('dragover'));
+    sl.addEventListener('drop',e=>{
+      e.preventDefault();sl.classList.remove('dragover');
+      let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'));}catch(_){return;}
+      const dv=d.val,dfrom=d.from;
+      const ti=parseInt(sl.dataset.slot);
+      const s=S[i].sel;
+      if(dfrom==='pool'){const pi=s.pool.indexOf(dv);if(pi>-1)s.pool.splice(pi,1);}
+      else{const fi=parseInt(dfrom);if(!isNaN(fi))s.slots[fi]=null;}
+      if(s.slots[ti]!=null&&s.slots[ti]!==dv)s.pool.push(s.slots[ti]);
+      s.slots[ti]=dv;
+      reQ(i);
+    });
+  });
+  const pool=card.querySelector('.ord-pool');
+  if(pool){
+    pool.addEventListener('dragover',e=>{e.preventDefault();pool.classList.add('dragover')});
+    pool.addEventListener('dragleave',()=>pool.classList.remove('dragover'));
+    pool.addEventListener('drop',e=>{
+      e.preventDefault();pool.classList.remove('dragover');
+      let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'));}catch(_){return;}
+      const dv=d.val,dfrom=d.from;
+      const s=S[i].sel;
+      if(dfrom==='pool')return;
+      const fi=parseInt(dfrom);if(!isNaN(fi))s.slots[fi]=null;
+      if(!s.pool.includes(dv))s.pool.push(dv);
+      reQ(i);
+    });
+  }
+}
+
+function rDrg(q,i,s){
+  const {pool,placed}=s.sel;
+  let h=`<div class="dz-w"><div class="dz-l">選択肢プール（ゾーンにドラッグ）</div><div class="dz" id="dpool-${i}">`;
+  pool.forEach(item=>{
+    let c='chip';
+    h+=`<span class="${c}" draggable="true" data-val="${esc(item)}">${item}</span>`;
+  });
+  h+=`</div></div>`;
+  q.zones.forEach(z=>{
+    const pi=placed[z]||null;
+    let ch='';
+    if(pi){
+      let c='chip';
+      if(s.rev)c+=q.dc[z]===pi?' cok':' cng';
+      ch=`<span class="${c}" draggable="${!s.rev}" data-val="${esc(pi)}">${pi}</span>`;
+    }
+    if(s.rev&&q.dc[z]&&q.dc[z]!==pi){
+      ch+=`<span class="chip cghost">${q.dc[z]}</span>`;
+    }
+    h+=`<div class="dz-w"><div class="dz-l">${z}</div><div class="dz" data-zone="${z}">${ch}</div></div>`;
+  });
+  return h;
+}
+function attachDrg(i){
+  const card=document.getElementById(`q${i}`);if(!card)return;
+  card.querySelectorAll('.chip').forEach(c=>{
+    c.addEventListener('dragstart',e=>{
+      const dz=c.closest('.dz');
+      const from=dz?(dz.dataset.zone||'pool'):'pool';
+      e.dataTransfer.setData('text/plain',JSON.stringify({val:c.dataset.val,from:from}));
+      e.dataTransfer.effectAllowed='move';
+    });
+  });
+  card.querySelectorAll('.dz').forEach(z=>{
+    z.addEventListener('dragover',e=>{e.preventDefault();z.classList.add('dragover')});
+    z.addEventListener('dragleave',()=>z.classList.remove('dragover'));
+    z.addEventListener('drop',e=>{
+      e.preventDefault();z.classList.remove('dragover');
+      let d;try{d=JSON.parse(e.dataTransfer.getData('text/plain'));}catch(_){return;}
+      const dv=d.val,dfrom=d.from;
+      const tz=z.dataset.zone;
+      const s=S[i].sel;
+      if(dfrom==='pool'){const pi=s.pool.indexOf(dv);if(pi>-1)s.pool.splice(pi,1);}
+      else if(dfrom){delete s.placed[dfrom];}
+      if(!tz||tz===''){
+        if(!s.pool.includes(dv))s.pool.push(dv);
+      } else {
+        if(s.placed[tz]&&s.placed[tz]!==dv){s.pool.push(s.placed[tz]);}
+        s.placed[tz]=dv;
+      }
+      reQ(i);
+    });
+  });
+}
+
+function reQ(i){
+  const el=document.getElementById(`q${i}`);
+  const tmp=document.createElement('div');
+  tmp.innerHTML=renderQ(i);
+  el.replaceWith(tmp.firstElementChild);
+  if(Q[i].tp==='order'&&!S[i].rev)setTimeout(()=>attachOrd(i),0);
+  if(Q[i].tp==='drag'&&!S[i].rev)setTimeout(()=>attachDrg(i),0);
+}
+
+function chk(i){
+  const q=Q[i],s=S[i];init(i);
+  let ok=false;
+  if(q.tp==='single'||q.tp==='multi'){
+    const sel=[...(s.sel||[])].sort(),cor=[...q.ans].sort();
+    ok=sel.length===cor.length&&sel.every((v,j)=>v===cor[j]);
+  }else if(q.tp==='matrix'){
+    const sel=s.sel||{},cor=q.mc;
+    const keys=new Set([...Object.keys(sel),...Object.keys(cor)]);
+    ok=true;for(const k of keys){if(!!sel[k]!==!!cor[k]){ok=false;break;}}
+  }else if(q.tp==='order'){
+    const slots=s.sel.slots||[];
+    ok=slots.length===q.ac.length&&slots.every((v,j)=>v===q.ac[j]);
+  }else if(q.tp==='drag'){
+    const pl=s.sel.placed||{},cor=q.dc;
+    ok=Object.keys(cor).every(z=>pl[z]===cor[z]);
+  }
+  s.rev=true;s.ok=ok;
+  reQ(i);toc();stats();
+}
+function checkAll(){Q.forEach((_,i)=>{if(!S[i].rev)chk(i)})}
+function resetAll(){
+  Q.forEach((_,i)=>{S[i]={sel:null,rev:false,ok:null};optOrder[i]=null;mtxRowOrder[i]=null;mtxColOrder[i]=null;});
+  renderAll();window.scrollTo({top:0});
+}
+function retry(i){
+  S[i]={sel:null,rev:false,ok:null};
+  optOrder[i]=null;
+  mtxRowOrder[i]=null;
+  mtxColOrder[i]=null;
+  init(i);
+  reQ(i);toc();stats();
+  document.getElementById(`q${i}`).scrollIntoView({behavior:'smooth',block:'start'});
+}
+function scrollUn(){
+  for(let i=0;i<N;i++){if(!S[i].rev){document.getElementById(`q${i}`).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+  alert('全問回答済みです！');
+}
+
+function toc(){
+  const t=document.getElementById('toc');let h='';
+  Q.forEach((_,i)=>{
+    let c='tb';if(S[i].rev)c+=S[i].ok?' tok':' tng';
+    h+=`<button class="${c}" onclick="document.getElementById('q${i}').scrollIntoView({behavior:'smooth',block:'start'})">${i+1}</button>`;
+  });
+  t.innerHTML=h;
+}
+
+function stats(){
+  let a=0,o=0,n=0;
+  S.forEach(s=>{if(s.rev){a++;if(s.ok)o++;else n++;}});
+  document.getElementById('sp').textContent=`${a}/${N}`;
+  document.getElementById('so').textContent=o;
+  document.getElementById('sn').textContent=n;
+  document.getElementById('sr').textContent=a>0?Math.round(o/a*100)+'%':'--%';
+  document.getElementById('pb').style.width=(a/N*100)+'%';
+}
+
+renderAll();
+</script>
+<script>
+(function(){
+  var darkCSS=null;
+  function setFontScale(p){document.documentElement.style.fontSize=p+'%'}
+  function getDarkStyle(){
+    if(!darkCSS){
+      darkCSS=document.createElement('style');darkCSS.id='hub-dark';
+      darkCSS.textContent=
+        'body{background:#0f172a!important;color:#e2e8f0!important}'+
+        'a{color:#93c5fd!important}'+
+        '.hdr{background:#1e293b!important;border-color:#334155!important}'+
+        '.hdr h1{color:#e2e8f0!important}'+
+        '.bdg{background:rgba(59,130,246,.2)!important;color:#93c5fd!important}'+
+        '.stats,.si{color:#94a3b8!important}.sv{color:#e2e8f0!important}'+
+        '.pbar{background:#334155!important}'+
+        '.btn{background:#1e293b!important;color:#e2e8f0!important;border-color:#475569!important}'+
+        '.btn:hover{background:#334155!important}'+
+        '.bp{background:#2563eb!important;color:#fff!important;border-color:#2563eb!important}'+
+        '.toc{background:#1e293b!important;border-color:#334155!important;box-shadow:0 2px 8px rgba(0,0,0,.3)!important}'+
+        '.tb{color:#94a3b8!important}.tb:hover{background:rgba(59,130,246,.2)!important;color:#93c5fd!important}'+
+        '.tb.tok{background:rgba(16,185,129,.2)!important;color:#6ee7b7!important}'+
+        '.tb.tng{background:rgba(239,68,68,.2)!important;color:#fca5a5!important}'+
+        '.qc{border-color:#334155!important}.qc.rok{border-color:#065f46!important}.qc.rng{border-color:#991b1b!important}'+
+        '.qh{background:#1e293b!important;border-color:#334155!important}'+
+        '.qc.rok .qh{background:#064e3b!important}.qc.rng .qh{background:#7f1d1d!important}'+
+        '.qn{color:#e2e8f0!important}'+
+        '.ts{background:rgba(59,130,246,.2)!important;color:#93c5fd!important}'+
+        '.tm{background:rgba(245,158,11,.2)!important;color:#fcd34d!important}'+
+        '.to{background:rgba(168,85,247,.2)!important;color:#d8b4fe!important}'+
+        '.td{background:rgba(16,185,129,.2)!important;color:#6ee7b7!important}'+
+        '.tx{background:rgba(239,68,68,.2)!important;color:#fca5a5!important}'+
+        '.tf{background:rgba(249,115,22,.2)!important;color:#fdba74!important}'+
+        '.scn{background:#1e293b!important;color:#cbd5e1!important;border-color:#3b82f6!important}'+
+        '.scn summary{color:#e2e8f0!important}.qtx{color:#f1f5f9!important}'+
+        '.op{border-color:#475569!important;color:#e2e8f0!important}'+
+        '.op:hover{background:#1e293b!important;border-color:#60a5fa!important}'+
+        '.op.sel{background:rgba(59,130,246,.15)!important;border-color:#3b82f6!important}'+
+        '.op.cok{background:rgba(16,185,129,.15)!important;border-color:#10b981!important}'+
+        '.op.cng{background:rgba(239,68,68,.15)!important;border-color:#ef4444!important}'+
+        '.op.cms{background:rgba(16,185,129,.1)!important;border-color:#10b981!important}'+
+        '.mk{border-color:#64748b!important}'+
+        '.mtx th,.mtx td{border-color:#334155!important}'+
+        '.mtx th{background:#1e293b!important;color:#e2e8f0!important}.mtx td{color:#e2e8f0!important}'+
+        '.cb{background:#1e293b!important;border-color:#64748b!important;color:#e2e8f0!important}'+
+        '.cb:hover{border-color:#3b82f6!important}'+
+        '.ord-pool{background:#1e293b!important;border-color:#475569!important}'+
+        '.ord-pool-label{color:#94a3b8!important}'+
+        '.ord-slot{border-color:#475569!important}.ord-slot .sn{background:#334155!important;color:#94a3b8!important}'+
+        '.chip{background:rgba(59,130,246,.15)!important;color:#93c5fd!important;border-color:#3b82f6!important}'+
+        '.chip.cok{background:rgba(16,185,129,.15)!important;color:#6ee7b7!important;border-color:#10b981!important}'+
+        '.chip.cng{background:rgba(239,68,68,.15)!important;color:#fca5a5!important;border-color:#ef4444!important}'+
+        '.chip.cghost{background:#0f172a!important;color:#6ee7b7!important;border-color:#10b981!important}'+
+        '.dz{border-color:#475569!important}.dz-l{color:#94a3b8!important}'+
+        '.exp,.eok{background:rgba(16,185,129,.1)!important;border-color:#065f46!important;color:#6ee7b7!important}'+
+        '.eng{background:rgba(239,68,68,.1)!important;border-color:#991b1b!important;color:#fca5a5!important}'+
+        '.expl{background:#1e293b!important;border-color:#334155!important;color:#cbd5e1!important}'+
+        '.expl h4{color:#93c5fd!important}.expl .ek{color:#6ee7b7!important}.expl .ew{color:#fcd34d!important}.expl .ed{color:#94a3b8!important}'+
+        '.expl hr{border-color:#334155!important}'+
+        '.bbar{background:#1e293b!important;border-color:#334155!important}'+
+        'input,select,textarea{background:#0f172a!important;color:#e2e8f0!important;border-color:#475569!important}'+
+        'input:focus{border-color:#3b82f6!important;box-shadow:0 0 0 2px rgba(59,130,246,.25)!important}'+
+        'code,pre{background:#1e293b!important;color:#e2e8f0!important}'+
+        'img,svg{opacity:.92}';
+      document.head.appendChild(darkCSS);
+    }
+    return darkCSS;
+  }
+  function setTheme(t){
+    var s=getDarkStyle();
+    if(t==='dark')s.disabled=false;
+    else if(t==='light')s.disabled=true;
+    else s.disabled=!window.matchMedia('(prefers-color-scheme:dark)').matches;
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||!e.data.type)return;
+    if(e.data.type==='setFontScale')setFontScale(e.data.value);
+    if(e.data.type==='setTheme')setTheme(e.data.value);
+  });
+})();
+</script>
+
+
+<a id="hub-back" href="/index.html" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:#1e293b;color:#f1f5f9;border:1px solid #475569;border-radius:99px;padding:10px 18px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.4);display:flex;align-items:center;gap:6px;-webkit-tap-highlight-color:transparent;">🏠 Hub</a>
+</body></html>

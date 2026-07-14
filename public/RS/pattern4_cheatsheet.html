@@ -1,0 +1,2211 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)/RS/pattern4_cheatsheet.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pattern 4 — 予想コマンド＆知識チートシート</title>
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #334155;
+    --heading: #0f172a;
+    --muted: #64748b;
+    --accent-1: #2563eb;
+    --accent-2: #7c3aed;
+    --accent-3: #059669;
+    --accent-4: #d97706;
+    --accent-5: #dc2626;
+    --code-bg: #f1f5f9;
+    --code-border: #e2e8f0;
+    --pre-color: #334155;
+    --script-bg: #f8fafc;
+    --script-color: #475569;
+    --script-kw: #7c3aed;
+    --script-fn: #2563eb;
+    --script-str: #059669;
+    --script-comment: #94a3b8;
+    --note-bg: rgba(0,0,0,.02);
+    --table-stripe: #f8fafc;
+    --table-header: #eef2f7;
+    --warn-bg: rgba(217,119,6,.08);
+    --warn-border: #d97706;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c0f14;
+    --surface: #151921;
+    --border: #2a3040;
+    --text: #c8cdd8;
+    --heading: #e8ecf2;
+    --muted: #6b7280;
+    --accent-1: #38bdf8;
+    --accent-2: #a78bfa;
+    --accent-3: #34d399;
+    --accent-4: #fb923c;
+    --accent-5: #ef4444;
+    --code-bg: #1e2330;
+    --code-border: #2d3548;
+    --pre-color: #b0bbd0;
+    --script-bg: #1a1e2a;
+    --script-color: #9ca3af;
+    --script-kw: #a78bfa;
+    --script-fn: #38bdf8;
+    --script-str: #34d399;
+    --script-comment: #555e70;
+    --note-bg: rgba(255,255,255,.02);
+    --table-stripe: #181c26;
+    --table-header: #1e2330;
+    --warn-bg: rgba(251,146,60,.06);
+    --warn-border: #fb923c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 13px; padding: 24px; }
+  .page { max-width: 900px; margin: 0 auto; }
+  h1 { color: var(--heading); font-size: 20px; text-align: center; margin-bottom: 4px; }
+  .subtitle { text-align: center; color: var(--muted); font-size: 11px; margin-bottom: 32px; }
+
+  /* Section */
+  .domain { margin-bottom: 48px; }
+  .domain-title { font-size: 17px; font-weight: 800; color: var(--heading); text-align: center; padding: 10px 0; margin-bottom: 24px; border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); letter-spacing: 2px; }
+  .section { margin-bottom: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .section-header { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--border); background: var(--table-header); }
+  .section-header .badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 4px; flex-shrink: 0; text-transform: uppercase; letter-spacing: .5px; }
+  .badge-rs { background: rgba(37,99,235,.12); color: var(--accent-1); }
+  .badge-sdn { background: rgba(124,58,237,.12); color: var(--accent-2); }
+  .badge-prog { background: rgba(5,150,105,.12); color: var(--accent-3); }
+  .section-header h2 { font-size: 14px; color: var(--heading); font-weight: 700; }
+  .section-body { padding: 16px; }
+
+  /* Sub-sections */
+  .sub-label { font-size: 11px; font-weight: 700; color: var(--accent-2); margin: 14px 0 4px; text-transform: uppercase; letter-spacing: .5px; }
+  .sub-label:first-child { margin-top: 0; }
+
+  /* Code */
+  pre { font-family: 'SF Mono','Fira Code','Consolas',monospace; background: var(--code-bg); border: 1px solid var(--code-border); border-radius: 6px; padding: 12px 16px; overflow-x: auto; margin-bottom: 10px; font-size: 12px; line-height: 1.65; color: var(--pre-color); }
+  pre .c { color: var(--script-comment); font-style: italic; }
+  pre .h { color: var(--accent-3); font-weight: 600; }
+  pre .w { color: var(--accent-4); }
+
+  /* Script block (Python) */
+  .script { font-family: 'SF Mono','Fira Code','Consolas',monospace; background: var(--script-bg); border: 1px solid var(--code-border); border-radius: 6px; padding: 12px 16px; overflow-x: auto; margin-bottom: 10px; font-size: 12px; line-height: 1.65; color: var(--script-color); white-space: pre; }
+  .script .kw { color: var(--script-kw); }
+  .script .fn { color: var(--script-fn); }
+  .script .str { color: var(--script-str); }
+  .script .c { color: var(--script-comment); font-style: italic; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 10px; }
+  th, td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; }
+  th { background: var(--table-header); font-weight: 700; font-size: 11px; color: var(--heading); }
+  tr:nth-child(even) td { background: var(--table-stripe); }
+  code { font-family: 'SF Mono','Fira Code','Consolas',monospace; background: var(--code-bg); padding: 1px 5px; border-radius: 3px; font-size: 11.5px; }
+
+  /* Note / Warning */
+  .note { font-size: 11px; color: var(--muted); padding: 8px 12px; background: var(--note-bg); border-radius: 4px; margin-bottom: 10px; border-left: 3px solid var(--border); }
+  .warn { font-size: 11px; color: var(--accent-4); padding: 8px 12px; background: var(--warn-bg); border-radius: 4px; margin-bottom: 10px; border-left: 3px solid var(--warn-border); }
+  .warn strong { color: var(--accent-5); }
+
+  /* Exam English wording */
+  .exam-en { font-size: 12px; color: var(--text); padding: 12px 16px; background: rgba(37,99,235,.04); border: 1px solid rgba(37,99,235,.15); border-radius: 6px; margin-bottom: 10px; font-style: italic; line-height: 1.8; }
+  .exam-en strong { color: var(--accent-1); font-style: normal; }
+  .decode { font-size: 11px; padding: 8px 12px; background: rgba(5,150,105,.04); border: 1px solid rgba(5,150,105,.15); border-radius: 4px; margin-bottom: 10px; line-height: 1.8; }
+  .decode strong { color: var(--accent-3); }
+  .decode code { font-size: 11px; }
+
+  /* Verify */
+  .verify { font-size: 12px; padding: 8px 12px; background: rgba(5,150,105,.06); border: 1px solid rgba(5,150,105,.2); border-radius: 4px; margin-bottom: 10px; color: var(--accent-3); font-family: 'SF Mono','Fira Code','Consolas',monospace; }
+
+  /* Divider */
+  hr { border: none; height: 1px; background: var(--border); margin: 16px 0; }
+
+  /* Floating back button */
+  #hub-back { position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #1e293b; color: #f1f5f9; border: 1px solid #475569; border-radius: 99px; padding: 10px 18px; font-size: 14px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,.4); display: flex; align-items: center; gap: 6px; }
+
+  /* TOC */
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 14px 18px; margin-bottom: 28px; }
+  .toc-title { font-size: 12px; font-weight: 700; color: var(--heading); margin-bottom: 6px; }
+  .toc ul { list-style: none; columns: 2; gap: 20px; }
+  .toc li { font-size: 12px; padding: 2px 0; }
+  .toc a { color: var(--accent-1); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    body { padding: 12px 8px; font-size: 12px; }
+    h1 { font-size: 17px; }
+    pre, .script { padding: 10px 10px; font-size: 11px; }
+    .toc ul { columns: 1; }
+    table { font-size: 11px; }
+    th, td { padding: 4px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>Pattern 4 — コマンド＆知識チートシート</h1>
+<p class="subtitle">RS 14問＋選択2問 / SDN / Programmability 3問 — 実情報ベース</p>
+
+<!-- ═══════════════════════════ TOC ═══════════════════════════ -->
+<div class="toc">
+  <div class="toc-title">📑 目次</div>
+  <ul>
+    <li><a href="/RS/pattern4_cheatsheet.html#mst">1. MST（Task 1.3）</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#snooping">2. DAI + DHCP Snooping（Task 1.4）</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#ospf-multi">3. OSPF Multi-Area（Task 1.5）</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#ibgp">4. iBGP R61-R62（Task 1.6）</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#mpls">5. MPLS（Task 1.7）</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#rd-rr">6. VRF RD変更 + RR（Task 1.8）</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#gre">7. GRE Tunnel（Task 1.11）</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#vrrp">8. VRRP（standby削除）</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#netconf">9. NETCONF + YANG / AAA</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#eem">10. EEM / Ping通知スクリプト</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#qos">11. SD-WAN Policy + Site設定</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#vrf">12. SD-WAN VRF / VPN</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#topology">13. P4 確定情報マップ</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#defaults">付録: タイマーデフォルト値一覧</a></li>
+    <li><a href="/RS/pattern4_cheatsheet.html#reading-tips">付録: 英語読み解きガイド</a></li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--                         RS                                -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="domain">
+<div class="domain-title">RS — Routing &amp; Switching</div>
+
+<!-- ──────────── MST ──────────── -->
+<div class="section" id="mst">
+  <div class="section-header">
+    <span class="badge badge-rs">RS</span>
+    <h2>1. MST（Task 1.3）</h2>
+  </div>
+  <div class="section-body">
+    <div class="note"><strong>確定情報（実問題文）:</strong> P4 Task 1.3 は MST によるL2ループ防止 + トラフィックエンジニアリング。PAgP/EtherChannelの記述は <strong>なし</strong>。</div>
+
+    <div class="sub-label">実際の英語問題文</div>
+    <div class="exam-en">"Implement a <strong>scalable Spanning Tree solution</strong> in the HQ site that <strong>minimizes internal switch CPU resources by grouping VLANs</strong>.<br>
+• Use <strong>"CCIE"</strong> as the identification string for the region with a <strong>revision level of 1</strong>.<br>
+• Ensure that traffic for <strong>VLAN 2000</strong> is natively forwarded through <strong>SW101 as the primary path</strong>, while <strong>SW102 acts as the immediate standby</strong>.<br>
+• Inversely, ensure <strong>VLAN 2001</strong> traffic prefers <strong>SW102 as its primary forwarding path</strong>, with <strong>SW101 serving as the backup</strong>.<br>
+• <strong>SW110 must never become the root bridge</strong> for any instance under normal operating conditions."</div>
+    <div class="decode">
+      <strong>読み解き:</strong><br>
+      ・"scalable Spanning Tree" + "minimizes CPU by grouping VLANs" → <strong>MST</strong>（PVST+ はVLAN毎にSTPインスタンス=CPU重い。MSTはグルーピングで軽減）<br>
+      ・"identification string" + "region" → <code>spanning-tree mst configuration</code> → <code>name CCIE</code><br>
+      ・"revision level of 1" → <code>revision 1</code><br>
+      ・"VLAN 2000 → SW101 primary, SW102 standby" → Instance 1 に VLAN 2000 をマッピング、SW101 = root<br>
+      ・"VLAN 2001 → SW102 primary, SW101 backup" → Instance 2 に VLAN 2001 をマッピング、SW102 = root<br>
+      ・"SW110 must never become root" → SW110 は高 priority（明示的に 61440 等に設定）
+    </div>
+
+    <hr>
+    <div class="sub-label">P1-P3 との決定的な差分</div>
+    <table>
+      <tbody><tr><th></th><th>P1-P3</th><th>P4（確定）</th></tr>
+      <tr><td>STPモード</td><td><code>rapid-pvst</code></td><td><strong><code>mst</code></strong></td></tr>
+      <tr><td>Root 制御</td><td><code>spanning-tree vlan X priority Y</code></td><td><code>spanning-tree mst X priority Y</code></td></tr>
+      <tr><td>VLAN→経路</td><td>VLAN番号直接指定</td><td><strong>Instance にグルーピング</strong></td></tr>
+      <tr><td>追加設定</td><td>なし</td><td><code>name</code> + <code>revision</code> + <code>instance vlan</code> 必須</td></tr>
+      <tr><td>SW101</td><td>全VLAN root (priority 0)</td><td><strong>Instance 1 のみ root</strong></td></tr>
+      <tr><td>SW102</td><td>全VLAN secondary (priority 4096)</td><td><strong>Instance 2 のみ root</strong></td></tr>
+      <tr><td>SW110</td><td>設定なし（デフォルト）</td><td><strong>priority 61440（明示的に非Root）</strong></td></tr>
+    </tbody></table>
+
+    <hr>
+    <div class="sub-label">完全解答</div>
+
+<pre><span class="h">全スイッチ共通（SW101, SW102, SW110）</span>
+spanning-tree mode mst
+!
+spanning-tree mst configuration
+ name <span class="w">CCIE</span>
+ revision <span class="w">1</span>
+ instance <span class="w">1</span> vlan <span class="w">2000</span>
+ instance <span class="w">2</span> vlan <span class="w">2001</span>
+ exit                              <span class="c">! ← exit しないと反映されない！</span></pre>
+
+<pre><span class="h">SW101（VLAN 2000 の Root / VLAN 2001 の Backup）</span>
+spanning-tree mst 1 priority <span class="w">0</span>       <span class="c">! Instance 1 (VLAN 2000) の Root Bridge</span>
+spanning-tree mst 2 priority <span class="w">4096</span>   <span class="c">! Instance 2 (VLAN 2001) の Backup（SW102より高い）</span></pre>
+
+<pre><span class="h">SW102（VLAN 2001 の Root / VLAN 2000 の Backup）</span>
+spanning-tree mst 1 priority <span class="w">4096</span>   <span class="c">! Instance 1 (VLAN 2000) の Backup</span>
+spanning-tree mst 2 priority <span class="w">0</span>       <span class="c">! Instance 2 (VLAN 2001) の Root Bridge</span></pre>
+
+<pre><span class="h">SW110（絶対に Root にならない）</span>
+spanning-tree mst 0 priority <span class="w">61440</span>  <span class="c">! Instance 0 (残りVLAN) も Root にならない</span>
+spanning-tree mst 1 priority <span class="w">61440</span>  <span class="c">! Instance 1 も Root にならない</span>
+spanning-tree mst 2 priority <span class="w">61440</span>  <span class="c">! Instance 2 も Root にならない</span>
+<span class="c">! ※ デフォルト32768のままでもSW101/SW102より高いが、</span>
+<span class="c">!   「must never」なので明示的に高くするのが安全</span></pre>
+
+    <div class="sub-label">確認コマンド</div>
+    <div class="verify">show spanning-tree mst configuration
+show spanning-tree mst 1
+show spanning-tree mst 2
+show spanning-tree mst 0</div>
+
+    <hr>
+    <div class="sub-label">Instance マッピング図</div>
+<pre>┌─────────────────────────────────────────────────┐
+│  MST Region "CCIE" (revision 1)                 │
+│                                                 │
+│  Instance 0: 全ての<strong>未マッピング</strong>VLAN (VLAN 1 等)    │
+│    → Root: SW101 or SW102 (どちらか低い方)      │
+│                                                 │
+│  Instance 1: <span class="w">VLAN 2000</span>                          │
+│    → Root: <span class="w">SW101</span> (priority 0)                  │
+│    → Backup: SW102 (priority 4096)             │
+│                                                 │
+│  Instance 2: <span class="w">VLAN 2001</span>                          │
+│    → Root: <span class="w">SW102</span> (priority 0)                  │
+│    → Backup: SW101 (priority 4096)             │
+│                                                 │
+│  SW110: priority 61440（全Instance で非Root）   │
+└─────────────────────────────────────────────────┘
+</pre>
+
+    <hr>
+    <div class="sub-label">⚠ よくある間違い（暗記必須）</div>
+    <table>
+      <tbody><tr><th>間違い</th><th>正解</th><th>理由</th></tr>
+      <tr><td><code>name ccie</code>（小文字）</td><td><code>name CCIE</code></td><td><strong>大文字小文字区別あり</strong>。問題文に "CCIE" とあるなら大文字</td></tr>
+      <tr><td><code>mst configuration</code> で exit しない</td><td><code>exit</code> 必須</td><td>exit するまで設定が反映されない</td></tr>
+      <tr><td><code>instance 1 vlan 2000,2001</code></td><td>Instance 分ける</td><td>VLAN毎に別経路 = 別 Instance に入れる</td></tr>
+      <tr><td><code>priority 1</code></td><td><code>priority 0</code> or <code>4096</code></td><td><strong>4096の倍数のみ</strong>（0, 4096, 8192...61440）</td></tr>
+      <tr><td>SW110 のpriority 設定忘れ</td><td><code>priority 61440</code></td><td>「must never」は明示的に保証すべき</td></tr>
+      <tr><td><code>spanning-tree vlan 2000 priority 0</code></td><td><code>spanning-tree mst 1 priority 0</code></td><td>MSTモードではVLAN指定ではなく<strong>Instance番号</strong>で指定</td></tr>
+      <tr><td>name/revision を SW110 に設定しない</td><td>全台に設定</td><td><strong>3つ全て一致</strong>しないとリージョンが分離する</td></tr>
+    </tbody></table>
+
+    <div class="warn"><strong>MST の核心ルール:</strong>
+・<code>name</code> + <code>revision</code> + <code>instance-vlan mapping</code> の <strong>3つ全て一致</strong>しないと同一リージョンにならない
+・マッピングされなかったVLANは全て <strong>Instance 0 (IST)</strong> に自動的に入る
+・priority は <strong>4096の倍数</strong>のみ有効（0, 4096, 8192, 12288, …, 61440）
+・<code>spanning-tree mst configuration</code> ブロック内で <strong><code>exit</code> 必須</strong>
+・P1-P3 の <code>rapid-pvst</code> コマンドは一切使わない（モードが排他的）
+・"immediate standby" = 2番目に低い priority のスイッチ（Root が落ちたら即座に引き継ぐ）</div>
+
+    <hr>
+    <div class="sub-label">EtherChannel について</div>
+    <div class="note">P4 Task 1.3 の問題文には EtherChannel/PAgP/LACP の記述は<strong>確認されていない</strong>。
+P1-P3 では同じ Task 1.3 内に LACP (mode active) が含まれていたが、P4 では別タスクに移動した可能性がある。
+EtherChannel が出る場合は PAgP（Cisco独自: desirable/auto）の可能性が高い。</div>
+    <table>
+      <tbody><tr><th></th><th>PAgP（予想）</th><th>LACP（P1-P3）</th></tr>
+      <tr><td>標準</td><td>Cisco独自</td><td>IEEE 802.3ad</td></tr>
+      <tr><td>能動モード</td><td><code>desirable</code></td><td><code>active</code></td></tr>
+      <tr><td>受動モード</td><td><code>auto</code></td><td><code>passive</code></td></tr>
+      <tr><td>キーワード</td><td>"proprietary negotiation"</td><td>"industry-standard"</td></tr>
+    </tbody></table>
+
+  </div>
+</div>
+
+<!-- ──────────── NETCONF ──────────── -->
+<div class="section" id="netconf">
+  <div class="section-header">
+    <span class="badge badge-rs">RS</span>
+    <h2>9. NETCONF + YANG / AAA</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="sub-label">予想英語問題文（遠回し表現）</div>
+    <div class="exam-en">"Enable <strong>programmatic access</strong> to R24's <strong>configuration datastore</strong> using the <strong>IETF network configuration protocol</strong> over its <strong>default transport</strong>. Ensure that the device can <strong>authenticate and authorize sessions using locally defined credentials</strong>. The management user 'netadmin' must have <strong>full configuration privileges</strong>."</div>
+    <div class="decode">
+      <strong>読み解き:</strong><br>
+      ・"programmatic access to configuration datastore" → <strong>NETCONF</strong>（RESTCONFではない）<br>
+      ・"IETF network configuration protocol" → NETCONFの正式名<br>
+      ・"default transport" → SSH port <strong>830</strong>（変更不要）<br>
+      ・"locally defined credentials" → <code>aaa authorization exec default local</code>（RADIUSではない）<br>
+      ・"full configuration privileges" → <code>privilege 15</code>
+    </div>
+    <hr>
+
+    <div class="sub-label">IOS-XE 有効化</div>
+<pre>netconf-yang
+netconf ssh                              <span class="c">! デフォルト port 830</span>
+aaa new-model
+aaa authorization exec default local     <span class="c">! NETCONF認証に必要</span>
+username netadmin privilege 15 secret CCIEinfra</pre>
+
+    <div class="sub-label">確認コマンド</div>
+    <div class="verify">show netconf-yang sessions
+show netconf-yang datastores
+show platform software yang-management process</div>
+
+    <div class="sub-label">Python — ncclient GET config</div>
+    <div class="script"><span class="kw">from</span> ncclient <span class="kw">import</span> manager
+
+m = manager.<span class="fn">connect</span>(
+    host=<span class="str">'10.3.11.1'</span>,
+    port=<span class="str">830</span>,                   <span class="c"># デフォルト830（22ではない！）</span>
+    username=<span class="str">'netadmin'</span>,
+    password=<span class="str">'CCIEinfra'</span>,
+    hostkey_verify=<span class="kw">False</span>        <span class="c"># ラボ環境では必須</span>
+)
+
+filter_xml = <span class="str">'''
+&lt;filter&gt;
+  &lt;native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native"/&gt;
+&lt;/filter&gt;
+'''</span>
+result = m.<span class="fn">get_config</span>(source=<span class="str">'running'</span>, filter=filter_xml)
+<span class="fn">print</span>(result)
+m.<span class="fn">close_session</span>()</div>
+
+    <div class="sub-label">Python — ncclient EDIT config（Loopback作成例）</div>
+    <div class="script">config_xml = <span class="str">'''
+&lt;config&gt;
+  &lt;interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces"&gt;
+    &lt;interface&gt;
+      &lt;name&gt;Loopback100&lt;/name&gt;
+      &lt;type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type"&gt;
+        ianaift:softwareLoopback
+      &lt;/type&gt;
+      &lt;enabled&gt;true&lt;/enabled&gt;
+    &lt;/interface&gt;
+  &lt;/interfaces&gt;
+&lt;/config&gt;
+'''</span>
+m.<span class="fn">edit_config</span>(target=<span class="str">'running'</span>, config=config_xml)</div>
+
+    <div class="sub-label">よく出るバグ修正ポイント</div>
+    <table>
+      <tbody><tr><th>バグ</th><th>修正</th></tr>
+      <tr><td><code>port=22</code></td><td>→ <code>port=830</code></td></tr>
+      <tr><td><code>hostkey_verify=True</code></td><td>→ <code>False</code></td></tr>
+      <tr><td><code>source='startup'</code></td><td>→ <code>source='running'</code></td></tr>
+      <tr><td>XML名前空間が間違い</td><td>YANGモジュール名を確認</td></tr>
+      <tr><td><code>m.close()</code></td><td>→ <code>m.close_session()</code></td></tr>
+    </tbody></table>
+
+  </div>
+</div>
+
+<!-- ──────────── VRRP ──────────── -->
+<div class="section" id="vrrp">
+  <div class="section-header">
+    <span class="badge badge-rs">RS</span>
+    <h2>8. VRRP（既存standby削除 → VRRP設定）</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="warn"><strong>確定情報:</strong> P4では<strong>先に既存のHSRP standby設定が入っている</strong>ので、それを削除してからVRRPを設定する。</div>
+
+    <div class="sub-label">予想英語問題文（遠回し表現）</div>
+    <div class="exam-en">"The existing <strong>first-hop redundancy configuration</strong> on VLAN interfaces 2000 and 2001 uses a <strong>Cisco-proprietary protocol</strong>. Replace it with the <strong>IETF-standard equivalent</strong>. R21 should remain the preferred active gateway with a priority <strong>10 higher than the default</strong>. Use the <strong>latest version</strong> of this protocol supported on IOS-XE."</div>
+    <div class="decode">
+      <strong>読み解き:</strong><br>
+      ・"first-hop redundancy" + "Cisco-proprietary" → <strong>HSRP</strong>（削除対象）<br>
+      ・"IETF-standard equivalent" → <strong>VRRP</strong><br>
+      ・"latest version" → <strong>VRRPv3</strong>（<code>fhrp version vrrp v3</code>）<br>
+      ・"priority 10 higher than the default" → default=100 なので <code>priority 110</code><br>
+      ・暗黙の作業: <code>no standby X</code> を先に実行
+    </div>
+    <hr>
+
+    <div class="sub-label">削除手順（既存HSRPを先に消す）</div>
+<pre><span class="c">! 既存のHSRP設定を確認</span>
+show standby brief
+
+<span class="c">! 削除</span>
+interface Vlan2000
+ no standby 210                        <span class="c">! グループごと削除</span>
+interface Vlan2001
+ no standby 220
+
+<span class="c">! 確認（standbyが消えていること）</span>
+show standby brief                     <span class="c">! → 何も表示されないはず</span></pre>
+
+    <div class="sub-label">VRRPv3（IOS-XE推奨 — 新構文）</div>
+<pre>fhrp version vrrp v3
+
+interface Vlan2100
+ vrrp 10 address-family ipv4
+  address 10.21.0.1 primary     <span class="c">! VIP</span>
+  priority 110                   <span class="c">! デフォルト100</span>
+  preempt delay minimum 30
+  timers advertise 100           <span class="c">! ← 注意: ミリ秒単位（100=1秒）</span>
+  track 1 decrement 20
+  exit-vrrp</pre>
+
+    <div class="sub-label">VRRPv2（旧構文）</div>
+<pre>interface Vlan2100
+ vrrp 10 ip 10.21.0.1
+ vrrp 10 priority 110
+ vrrp 10 preempt
+ vrrp 10 authentication text cisco
+ vrrp 10 timers advertise 1       <span class="c">! ← 秒単位</span></pre>
+
+    <div class="sub-label">VRRPv2 vs VRRPv3 比較</div>
+    <table>
+      <tbody><tr><th></th><th>VRRPv2</th><th>VRRPv3</th></tr>
+      <tr><td>構文</td><td><code>vrrp X ip</code></td><td><code>vrrp X address-family ipv4</code></td></tr>
+      <tr><td>タイマー単位</td><td>秒</td><td><strong>ミリ秒</strong>（centiseconds: 100=1秒）</td></tr>
+      <tr><td>IPv6対応</td><td>✕</td><td>○</td></tr>
+      <tr><td>preemptデフォルト</td><td>有効</td><td>有効</td></tr>
+      <tr><td>authentication</td><td><code>authentication text</code></td><td>なし（v3は認証非対応）</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">確認コマンド</div>
+    <div class="verify">show vrrp brief
+show vrrp all</div>
+
+    <div class="sub-label">全FHRP デフォルト値比較</div>
+    <table>
+      <tbody><tr><th>プロトコル</th><th>hello</th><th>hold/dead</th><th>priority</th><th>preemptデフォルト</th></tr>
+      <tr><td>HSRP</td><td>3秒</td><td>10秒</td><td>100</td><td><strong>無効</strong></td></tr>
+      <tr><td>VRRP</td><td>1秒</td><td>3秒（3×hello）</td><td>100</td><td><strong>有効</strong></td></tr>
+      <tr><td>GLBP</td><td>3秒</td><td>10秒</td><td>100</td><td><strong>無効</strong></td></tr>
+    </tbody></table>
+
+  </div>
+</div>
+
+<!-- ──────────── OSPF Multi-Area ──────────── -->
+<div class="section" id="ospf-multi">
+  <div class="section-header">
+    <span class="badge badge-rs">RS</span>
+    <h2>3. OSPF Multi-Area（Task 1.5）</h2>
+  </div>
+  <div class="section-body">
+    <div class="warn"><strong>確定情報:</strong> P4ではOSPF multi-area設定が新要件で出る。</div>
+
+    <div class="sub-label">予想英語問題文（遠回し表現）</div>
+    <div class="exam-en">"The network between R21, R22, and the distribution switches (SW101, SW102) should be <strong>isolated from external routing information</strong> originating outside the autonomous system. These switches <strong>do not require visibility</strong> into routes learned from BGP redistribution — a <strong>default route from the border routers is sufficient</strong> for reaching external destinations.<br><br>Ensure OSPF adjacency is maintained between R21/R22 and the switches while implementing this design change."</div>
+    <div class="decode">
+      <strong>読み解き:</strong><br>
+      ・"isolated from external routing information" → Type 5 LSA ブロック → <strong>Stub Area</strong><br>
+      ・"do not require visibility into routes learned from BGP redistribution" → 外部ルート不要<br>
+      ・"default route from the border routers is sufficient" → ABRがdefault生成 = stubの動作<br>
+      ・"Ensure OSPF adjacency is maintained" → 全台で <code>area X stub</code> を一致させることのヒント<br>
+      → <strong>答え:</strong> SW群のIFを Area 1 に移し、<code>area 1 stub</code> を R21/R22/SW101/SW102 全台に設定
+    </div>
+
+    <div class="sub-label">予想英語問題文（Totally Stubby パターン）</div>
+    <div class="exam-en">"Furthermore, the distribution switches should only maintain a <strong>single default route</strong> for all inter-area and external destinations. <strong>Minimize the LSDB size</strong> on these switches as much as possible."</div>
+    <div class="decode">
+      <strong>読み解き:</strong><br>
+      ・"single default route for all inter-area AND external" → Type 3 も Type 5 も不要 = <strong>Totally Stub</strong><br>
+      ・"Minimize LSDB" → <code>no-summary</code><br>
+      → ABR (R21/R22) のみ: <code>area 1 stub no-summary</code>、SW101/SW102: <code>area 1 stub</code>（no-summaryは付けない）
+    </div>
+    <hr>
+
+    <div class="sub-label">Multi-Area 基本設定</div>
+<pre><span class="c">! Area 0（バックボーン）+ Area 1 の構成例</span>
+router ospf 1
+ router-id 10.2.255.21
+
+<span class="c">! IF単位でエリア指定</span>
+interface GigabitEthernet0/1
+ ip ospf 1 area 0
+
+interface GigabitEthernet0/2
+ ip ospf 1 area 1</pre>
+
+    <div class="sub-label">Area タイプ</div>
+    <table>
+      <tbody><tr><th>タイプ</th><th>コマンド</th><th>許可LSA</th><th>特徴</th></tr>
+      <tr><td>Normal</td><td>（デフォルト）</td><td>全LSA</td><td></td></tr>
+      <tr><td>Stub</td><td><code>area 1 stub</code></td><td>Type 1,2,3 + デフォルト</td><td>Type 5（外部）ブロック</td></tr>
+      <tr><td>Totally Stubby</td><td><code>area 1 stub no-summary</code></td><td>Type 1,2 + デフォルトのみ</td><td>ABRでno-summary</td></tr>
+      <tr><td>NSSA</td><td><code>area 1 nssa</code></td><td>Type 1,2,3,7</td><td>外部→Type 7で持ち込み</td></tr>
+      <tr><td>Totally NSSA</td><td><code>area 1 nssa no-summary</code></td><td>Type 1,2,7 + デフォルト</td><td>ABRでno-summary</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">ABR / Virtual Link</div>
+<pre><span class="c">! Area 0に直接接続できない場合</span>
+router ospf 1
+ area 2 virtual-link 10.2.255.21       <span class="c">! 相手のRID</span>
+
+<span class="c">! OSPF認証（multi-areaでよく出る）</span>
+interface GigabitEthernet0/1
+ ip ospf authentication message-digest
+ ip ospf message-digest-key 1 md5 CCIEinfra</pre>
+
+    <div class="sub-label">確認コマンド</div>
+    <div class="verify">show ip ospf
+show ip ospf neighbor
+show ip ospf database
+show ip ospf interface brief
+show ip ospf border-routers</div>
+
+    <div class="warn"><strong>注意:</strong>
+・ABRは<strong>必ずArea 0に接続</strong>が必要（Virtual Linkで回避可能）
+・<code>stub</code> / <code>nssa</code> はエリア内<strong>全ルーター</strong>で一致させる
+・<code>no-summary</code> は<strong>ABRのみ</strong>に設定</div>
+
+  </div>
+</div>
+
+<!-- ──────────── iBGP ──────────── -->
+<div class="section" id="ibgp">
+  <div class="section-header">
+    <span class="badge badge-rs">RS</span>
+    <h2>4. iBGP R61-R62（Task 1.6）</h2>
+  </div>
+  <div class="section-body">
+    <div class="warn"><strong>確定情報:</strong> P4のTask 1.6はEIGRPではなく<strong>iBGP（R61-R62間）</strong>に変更。</div>
+
+    <div class="sub-label">予想英語問題文（遠回し表現）</div>
+    <div class="exam-en">"R61 and R62 belong to the <strong>same administrative domain</strong>. Establish a routing peering between them using their <strong>Loopback0 addresses</strong>. Ensure that prefixes learned from <strong>external peers can be properly forwarded</strong> between R61 and R62 without requiring a third-party route reflector."</div>
+    <div class="decode">
+      <strong>読み解き:</strong><br>
+      ・"same administrative domain" → 同AS → <strong>iBGP</strong>（<code>remote-as 65006</code>）<br>
+      ・"Loopback0 addresses" → <code>update-source Loopback0</code><br>
+      ・"prefixes learned from external peers can be properly forwarded" → <code>next-hop-self</code> 必須<br>
+      ・"without requiring a third-party route reflector" → 2台だけなのRR不要だがnext-hop-selfは必要
+    </div>
+    <hr>
+
+    <div class="sub-label">iBGP 基本設定</div>
+<pre><span class="h">R61:</span>
+router bgp 65006
+ neighbor 10.6.255.62 remote-as 65006  <span class="c">! iBGP（同じAS）</span>
+ neighbor 10.6.255.62 update-source Loopback0
+ <span class="c">!</span>
+ address-family ipv4 unicast
+  neighbor 10.6.255.62 activate
+  neighbor 10.6.255.62 next-hop-self   <span class="c">! eBGPから学んだルートの転送に必要</span>
+
+<span class="h">R62:</span>
+router bgp 65006
+ neighbor 10.6.255.61 remote-as 65006
+ neighbor 10.6.255.61 update-source Loopback0
+ <span class="c">!</span>
+ address-family ipv4 unicast
+  neighbor 10.6.255.61 activate
+  neighbor 10.6.255.61 next-hop-self</pre>
+
+    <div class="sub-label">iBGP vs eBGP 違い</div>
+    <table>
+      <tbody><tr><th></th><th>iBGP</th><th>eBGP</th></tr>
+      <tr><td>AS番号</td><td>同じ</td><td>異なる</td></tr>
+      <tr><td>AD</td><td>200</td><td>20</td></tr>
+      <tr><td>next-hop</td><td><strong>変更されない</strong>（next-hop-self必要）</td><td>自動変更</td></tr>
+      <tr><td>TTL</td><td>255（変更不要）</td><td>1（multihop必要な場合あり）</td></tr>
+      <tr><td>ループ防止</td><td>iBGP split-horizon（RR/Confed で回避）</td><td>AS-path loop detection</td></tr>
+      <tr><td>update-source</td><td><strong>Loopback推奨</strong></td><td>直接接続IF</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">iBGP Full Mesh問題</div>
+    <div class="note">iBGPはデフォルトで受け取ったルートを他のiBGPピアに転送しない。
+解決策: <strong>Route Reflector</strong> or <strong>Confederation</strong>（Task 1.8のRR参照）</div>
+
+    <div class="sub-label">確認コマンド</div>
+    <div class="verify">show bgp summary
+show bgp ipv4 unicast neighbors 10.6.255.62
+show bgp ipv4 unicast
+show ip bgp</div>
+
+    <div class="warn"><strong>落とし穴:</strong>
+・<code>update-source Loopback0</code> を忘れると、物理IF経路が変わった時にピアリング切れる
+・<code>next-hop-self</code> を忘れるとeBGPルートが転送されない（next-hopが到達不能）
+・<code>activate</code> を忘れるとネイバーが有効化されない</div>
+
+  </div>
+</div>
+
+<!-- ──────────── MPLS ──────────── -->
+<div class="section" id="mpls">
+  <div class="section-header">
+    <span class="badge badge-rs">RS</span>
+    <h2>5. MPLS（Task 1.7）</h2>
+  </div>
+  <div class="section-body">
+    <div class="note"><strong>確定:</strong> P4でMPLS新要件あり。P1-P3の差分から推測。</div>
+
+    <div class="sub-label">予想英語問題文（遠回し表現）</div>
+    <div class="exam-en">"Within the provider backbone (AS 10000), ensure that <strong>label distribution is authenticated</strong> between all participating routers. Only <strong>allocate labels for host routes</strong> (/32) to optimize the label space. The label binding protocol should use the <strong>Loopback0 address as its identifier</strong> on all PE and P routers."</div>
+    <div class="decode">
+      <strong>読み解き:</strong><br>
+      ・"label distribution is authenticated" → LDP password（方式はP4固有）<br>
+      ・"allocate labels for host routes (/32)" → <code>mpls ldp label allocate global host-routes</code><br>
+      ・"Loopback0 address as its identifier" → <code>mpls ldp router-id Loopback0 force</code><br>
+      ・"label binding protocol" = LDP（RSVPではない）
+    </div>
+    <hr>
+
+    <div class="sub-label">MPLS / LDP 基本設定</div>
+<pre><span class="c">! LDP有効化</span>
+mpls ip                                 <span class="c">! グローバル有効化</span>
+
+<span class="c">! Router-ID</span>
+mpls ldp router-id Loopback0 force
+
+<span class="c">! IF単位のMPLS有効化</span>
+interface GigabitEthernet0/1
+ mpls ip
+
+<span class="c">! OSPF連動で自動有効化</span>
+router ospf 1
+ mpls ldp autoconfig</pre>
+
+    <div class="sub-label">MPLS LDP 認証（パターンによって異なる）</div>
+<pre><span class="c">! P1: 認証なし</span>
+<span class="c">! P2: ACL + password option</span>
+access-list 11 permit 100.255.254.0 0.0.0.255
+mpls ldp password option 1 for 11 CC!E!nfr4
+mpls ldp password required for 11
+
+<span class="c">! P3: neighbor password + session protection</span>
+mpls ldp neighbor 100.255.254.1 password CC!E!nfr4
+mpls ldp session protection
+
+<span class="c">! P4新要件候補:</span>
+mpls ldp explicit-null                  <span class="c">! PHP無効化（ラベル保持）</span>
+mpls ldp label allocate global host-routes  <span class="c">! /32のみにラベル割当</span></pre>
+
+    <div class="sub-label">確認コマンド</div>
+    <div class="verify">show mpls interfaces
+show mpls ldp neighbor
+show mpls ldp bindings
+show mpls forwarding-table
+show mpls ldp discovery</div>
+
+    <div class="warn"><strong>落とし穴:</strong>
+・<code>mpls ldp router-id Loopback0 force</code> の <code>force</code> を忘れると再起動まで反映されない
+・LDPネイバーはOSPF等のIGPでLoopbackの到達性が必要
+・<code>mpls ldp autoconfig</code> はOSPFエリア内の全IFに自動適用される</div>
+
+  </div>
+</div>
+
+<!-- ──────────── RD / RR ──────────── -->
+<div class="section" id="rd-rr">
+  <div class="section-header">
+    <span class="badge badge-rs">RS</span>
+    <h2>6. VRF RD変更 + Route Reflector（Task 1.8）</h2>
+  </div>
+  <div class="section-body">
+    <div class="warn"><strong>確定情報:</strong> P4ではPEごとに<strong>異なるRD</strong>を設定し、<strong>R1がRoute Reflector</strong>になる。</div>
+
+    <div class="sub-label">予想英語問題文（遠回し表現）</div>
+    <div class="exam-en">"The MPLS VPN service (VRF 'fabd2') currently uses a <strong>common route distinguisher</strong> across all PE routers. Modify the design so that each PE uses a <strong>unique route distinguisher based on its router number</strong>, while <strong>maintaining full reachability</strong> between all CE sites.<br><br>To eliminate the requirement for a <strong>full-mesh iBGP topology</strong> in the VPNv4 address family, designate R1 as a <strong>central point that reflects routes</strong> to all PE routers."</div>
+    <div class="decode">
+      <strong>読み解き:</strong><br>
+      ・"common route distinguisher" → 現状: 同RD (10000:1)<br>
+      ・"unique route distinguisher based on its router number" → <code>rd 10000:3</code>, <code>rd 10000:4</code> 等<br>
+      ・"maintaining full reachability" → <strong>RTは変えない</strong>（import/export そのまま）<br>
+      ・"central point that reflects routes" → <strong>Route Reflector</strong> = R1<br>
+      ・"full-mesh iBGP topology" → RRでフルメッシュ不要にする<br>
+      ・"reflects routes to all PE routers" → 各PEに <code>route-reflector-client</code>
+    </div>
+    <hr>
+
+    <div class="sub-label">RD（Route Distinguisher）をPE毎に変更</div>
+<pre><span class="c">! P1-P3: 全PEで同じRD（10000:X）</span>
+<span class="c">! P4: PEごとに異なるRD</span>
+
+<span class="h">R3:</span>
+vrf definition fabd2
+ rd <span class="w">10000:3</span>                            <span class="c">! PE毎に異なる</span>
+ route-target export 10000:1
+ route-target import 10000:1
+
+<span class="h">R4:</span>
+vrf definition fabd2
+ rd <span class="w">10000:4</span>
+ route-target export 10000:1
+ route-target import 10000:1
+
+<span class="h">R5:</span>
+vrf definition fabd2
+ rd <span class="w">10000:5</span>
+ route-target export 10000:1
+ route-target import 10000:1
+
+<span class="h">R6:</span>
+vrf definition fabd2
+ rd <span class="w">10000:6</span>
+ route-target export 10000:1
+ route-target import 10000:1</pre>
+
+    <div class="sub-label">RD vs RT の違い</div>
+    <table>
+      <tbody><tr><th></th><th>RD（Route Distinguisher）</th><th>RT（Route Target）</th></tr>
+      <tr><td>目的</td><td>VPNv4ルートの<strong>一意性確保</strong></td><td>VPNルートの<strong>インポート/エクスポート制御</strong></td></tr>
+      <tr><td>一致必要？</td><td><strong>PE毎に異なってOK</strong></td><td>インポート/エクスポートで<strong>一致必要</strong></td></tr>
+      <tr><td>影響</td><td>VPNv4プレフィックス = RD:IPv4</td><td>どのVRFにルートを入れるか</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">Route Reflector（R1）— 新規追加</div>
+    <div class="note">R1 は P1-P3 では <strong>BGP未参加</strong>（純粋なPルーター）。P4 で新規に <code>router bgp 10000</code> を追加する。<strong>VRF は不要</strong>（ルート反射のみ）。</div>
+<pre><span class="h">R1 (Route Reflector) — 新規設定:</span>
+router bgp 10000
+ bgp router-id 100.255.254.1
+ no bgp default ipv4-unicast
+ <span class="c">!</span>
+ <span class="c">! 各PE (R3-R6) をRRクライアントに</span>
+ neighbor 100.255.254.3 remote-as 10000
+ neighbor 100.255.254.3 update-source Loopback0
+ neighbor 100.255.254.3 password CC!E!nfr4
+ neighbor 100.255.254.4 remote-as 10000
+ neighbor 100.255.254.4 update-source Loopback0
+ neighbor 100.255.254.4 password CC!E!nfr4
+ neighbor 100.255.254.5 remote-as 10000
+ neighbor 100.255.254.5 update-source Loopback0
+ neighbor 100.255.254.5 password CC!E!nfr4
+ neighbor 100.255.254.6 remote-as 10000
+ neighbor 100.255.254.6 update-source Loopback0
+ neighbor 100.255.254.6 password CC!E!nfr4
+ <span class="c">!</span>
+ address-family vpnv4
+  neighbor 100.255.254.3 activate
+  neighbor 100.255.254.3 route-reflector-client  <span class="c">! ← RRクライアント指定</span>
+  neighbor 100.255.254.4 activate
+  neighbor 100.255.254.4 route-reflector-client
+  neighbor 100.255.254.5 activate
+  neighbor 100.255.254.5 route-reflector-client
+  neighbor 100.255.254.6 activate
+  neighbor 100.255.254.6 route-reflector-client</pre>
+
+    <hr>
+    <div class="sub-label">PE側の変更（R3-R6 全台）— フルメッシュ→R1のみ</div>
+    <div class="warn"><strong>重要:</strong> PE側は既存のPE間ピアリングを<strong>全削除</strong>し、R1のみに変更する。PE-CE間（<code>address-family ipv4 vrf fabd2</code>）は<strong>変更不要</strong>。</div>
+<pre><span class="h">R3 (PE) — 変更例:</span>
+router bgp 10000
+ <span class="c">! ① 既存PE間ピアを削除</span>
+ <span class="w">no neighbor 100.255.254.4</span>              <span class="c">! R4 削除</span>
+ <span class="w">no neighbor 100.255.254.5</span>              <span class="c">! R5 削除</span>
+ <span class="w">no neighbor 100.255.254.6</span>              <span class="c">! R6 削除</span>
+ <span class="c">!</span>
+ <span class="c">! ② R1(RR)への接続を追加</span>
+ neighbor 100.255.254.1 remote-as 10000
+ neighbor 100.255.254.1 update-source Loopback0
+ neighbor 100.255.254.1 password CC!E!nfr4
+ <span class="c">!</span>
+ address-family vpnv4
+  <span class="w">no neighbor 100.255.254.4 activate</span>
+  <span class="w">no neighbor 100.255.254.5 activate</span>
+  <span class="w">no neighbor 100.255.254.6 activate</span>
+  neighbor 100.255.254.1 activate
+ <span class="c">!</span>
+ <span class="c">! ③ PE-CE設定は変更なし</span>
+ address-family ipv4 vrf fabd2          <span class="c">! ← そのまま</span>
+  neighbor 100.3.11.2 remote-as 65001   <span class="c">! ← そのまま</span>
+  neighbor 100.3.21.2 remote-as 65002   <span class="c">! ← そのまま</span>
+  redistribute connected                <span class="c">! ← そのまま</span></pre>
+
+<pre><span class="h">R4 (PE):</span>  no neighbor R3/R5/R6 → neighbor 100.255.254.1 追加（R3と同じパターン）
+<span class="h">R5 (PE):</span>  no neighbor R3/R4/R6 → neighbor 100.255.254.1 追加
+<span class="h">R6 (PE):</span>  no neighbor R3/R4/R5 → neighbor 100.255.254.1 追加
+<span class="h">R2 (P):</span>   <span class="c">変更なし（Pルーターのまま）</span></pre>
+
+    <hr>
+    <div class="sub-label">全機器 変更一覧</div>
+    <table>
+      <tbody><tr><th>ルーター</th><th>役割</th><th>BGP変更</th><th>VRF変更</th></tr>
+      <tr><td><strong>R1</strong></td><td>P → <strong>P + RR</strong></td><td>新規追加: BGP 10000 + VPNv4 AF + route-reflector-client</td><td>不要（VRFなし）</td></tr>
+      <tr><td><strong>R2</strong></td><td>P</td><td><strong>変更なし</strong></td><td>—</td></tr>
+      <tr><td><strong>R3</strong></td><td>PE (RR client)</td><td>PE間削除 → R1のみに変更</td><td>RD変更: <code>10000:3</code></td></tr>
+      <tr><td><strong>R4</strong></td><td>PE (RR client)</td><td>PE間削除 → R1のみに変更</td><td>RD変更: <code>10000:4</code></td></tr>
+      <tr><td><strong>R5</strong></td><td>PE (RR client)</td><td>PE間削除 → R1のみに変更</td><td>RD変更: <code>10000:5</code></td></tr>
+      <tr><td><strong>R6</strong></td><td>PE (RR client)</td><td>PE間削除 → R1のみに変更</td><td>RD変更: <code>10000:6</code></td></tr>
+    </tbody></table>
+
+    <hr>
+    <div class="sub-label">RR データプレーン解説</div>
+    <div class="note"><strong>核心:</strong> RR = Control Plane のみの機能。データパケットの経路は変わらない。
+<br>・RR は VPNv4 ルートを「反射」するだけ — next-hop は元の PE のまま（R1 の IP にはならない）
+<br>・MPLS ラベルスタック: [LDP label (to PE)] + [VPN label] — IGP (OSPF) + LDP で物理パスが決まる
+<br>・R1 は物理パス上にいるので MPLS 転送には参加するが、それは <strong>RR だからではなく P ルーターだから</strong></div>
+
+<pre><span class="h">通信フロー例: CE(R11/AS65001) → CE(R21/AS65002)</span>
+  <span class="c">Control Plane:</span>
+    R3 → R1(RR) → R4  <span class="c">! VPNv4ルート反射（next-hop=100.255.254.3のまま）</span>
+
+  <span class="c">Data Plane:</span>
+    CE(R11) → R3(PE) → R1(P) → R2(P) → R4(PE) → CE(R21)
+                ↑         ↑        ↑        ↑
+           VPN+LDP    LDP swap  LDP swap  VPN Pop</pre>
+
+    <div class="sub-label">Route Reflector ルール</div>
+    <table>
+      <tbody><tr><th>受信元</th><th>転送先</th><th>動作</th></tr>
+      <tr><td>Client</td><td>Client + Non-client</td><td>全員に転送</td></tr>
+      <tr><td>Non-client</td><td>Client のみ</td><td>Non-clientには転送しない</td></tr>
+      <tr><td>eBGP</td><td>Client + Non-client</td><td>全員に転送</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">確認コマンド</div>
+    <div class="verify">show bgp vpnv4 unicast all summary
+show bgp vpnv4 unicast all
+show bgp vpnv4 unicast rd 10000:3
+<span style="color:var(--muted)">! R1で反射確認:</span>
+show bgp vpnv4 unicast all neighbors 100.255.254.3 routes
+show bgp vpnv4 unicast all neighbors 100.255.254.3 advertised-routes</div>
+
+    <div class="warn"><strong>落とし穴:</strong>
+・<code>route-reflector-client</code> は <strong>RR側（R1）のみ</strong>に設定 — PE側は普通のiBGPネイバー設定
+・R1 に <strong>VRF 設定は不要</strong>（ルート反射のみ。VPN label の意味を理解する必要なし）
+・PE側で <code>no neighbor</code> する前にR1側を先に設定 → 逆だと一時的にルートが消える
+・RDが異なると <code>show bgp vpnv4</code> で別プレフィックスとして表示される
+・RTが一致していればRDが異なっても<strong>VRF間のルート交換は正常動作</strong>
+・R1 の <code>update-source Loopback0</code> と <code>password</code> を忘れない</div>
+
+  </div>
+</div>
+
+<!-- ──────────── GRE ──────────── -->
+<div class="section" id="gre">
+  <div class="section-header">
+    <span class="badge badge-rs">RS</span>
+    <h2>7. GRE Tunnel（Task 1.11）</h2>
+  </div>
+  <div class="section-body">
+    <div class="warn"><strong>確定情報:</strong> P4は<strong>DMVPNなし</strong>。Point-to-Point <strong>GRE</strong> の設定が出る。</div>
+
+    <div class="sub-label">予想英語問題文（遠回し表現）</div>
+    <div class="exam-en">"Establish a <strong>point-to-point encapsulated path</strong> between R24 and R61 using their directly connected WAN interfaces. This tunnel should <strong>carry OSPF routing information</strong> and should <strong>not rely on any multipoint or dynamic endpoint resolution</strong> mechanism. <strong>Adjust the path MTU</strong> appropriately to prevent fragmentation."</div>
+    <div class="decode">
+      <strong>読み解き:</strong><br>
+      ・"point-to-point encapsulated path" → <strong>GRE Tunnel</strong><br>
+      ・"directly connected WAN interfaces" → tunnel source/destination = 物理WAN IF<br>
+      ・"not rely on any multipoint or dynamic endpoint resolution" → <strong>DMVPNではない</strong>（NHRP不要）<br>
+      ・"carry OSPF routing information" → <code>ip ospf 1 area 0</code> on Tunnel IF<br>
+      ・"Adjust path MTU" → <code>ip mtu 1400</code> + <code>ip tcp adjust-mss 1360</code>
+    </div>
+    <hr>
+
+    <div class="sub-label">P1-P3 実際の構成（DMVPN）→ P4 との比較</div>
+    <div class="note">P1-P3 は <strong>mGRE/DMVPN</strong>（NHRP使用）。P4 は <strong>P2P GRE</strong>（tunnel destination 指定）に変更。</div>
+    <table>
+      <tbody><tr><th></th><th>P1-P3（DMVPN）</th><th>P4（Point-to-Point GRE）</th></tr>
+      <tr><td>tunnel mode</td><td><code>gre multipoint</code></td><td><code>gre ip</code>（デフォルト）</td></tr>
+      <tr><td>tunnel destination</td><td>なし（NHRPで動的解決）</td><td><strong>必須</strong>（1対1指定）</td></tr>
+      <tr><td>NHRP</td><td>必須（map/multicast）</td><td><strong>不要</strong></td></tr>
+      <tr><td>Spoke 追加</td><td>Hub側変更なし</td><td>Hub側にも Tunnel IF 追加</td></tr>
+      <tr><td>ルーティング</td><td>EIGRP（split-horizon注意）</td><td>EIGRP（P2Pなので自然）</td></tr>
+      <tr><td>Crypto</td><td>Hub: <code>isakmp key</code> / Spoke: <code>keyring vrf WAN</code></td><td><strong>同じ</strong></td></tr>
+    </tbody></table>
+
+    <hr>
+    <div class="sub-label">P1-P3 実際のDMVPN設定（参考）</div>
+<pre><span class="h">R24 (Hub) — P1-P3:</span>
+crypto isakmp policy 10
+ hash md5
+crypto isakmp key CC!E!nfr4 address 0.0.0.0  <span class="c">! グローバル — Gi1はVRFなし</span>
+!
+interface Tunnel0
+ ip nhrp map multicast dynamic           <span class="c">! Hub: Spoke からの登録を受け付け</span>
+ tunnel protection ipsec profile prof
+ tunnel source GigabitEthernet1           <span class="c">! グローバルIF（VRFなし）</span>
+ <span class="c">! tunnel destination なし → mGRE</span>
+!
+router eigrp ccie
+ address-family ipv4 unicast autonomous-system 65006
+  af-interface Tunnel0
+   no passive-interface
+
+<span class="h">R61 (Spoke) — P1-P3:</span>
+<span class="w">crypto keyring KR vrf WAN</span>                 <span class="c">! ← VRFなのでkeyring必須！</span>
+ pre-shared-key address 0.0.0.0 0.0.0.0 key CC!E!nfr4
+!
+interface Tunnel0
+ ip mtu 1440
+ ip nhrp map 10.200.0.1 200.99.24.2      <span class="c">! Hub のNBMA→Tunnel IP マッピング</span>
+ ip nhrp map multicast 200.99.24.2       <span class="c">! Hub にマルチキャスト転送</span>
+ tunnel source GigabitEthernet0/4         <span class="c">! vrf WAN の IF</span>
+ <span class="w">tunnel vrf WAN</span>                           <span class="c">! ← tunnel先の到達性はVRF WANで解決</span>
+!
+router eigrp ccie
+ address-family ipv4 unicast autonomous-system 65006
+  af-interface Tunnel0
+   no passive-interface
+!
+router bgp 65006
+ address-family ipv4 vrf WAN
+  neighbor 200.99.61.1 remote-as 19999    <span class="c">! ISP向け（tunnel underlay reachability）</span></pre>
+
+    <hr>
+    <div class="sub-label">⚠ Crypto Key: isakmp key vs keyring — VRF が決め手</div>
+    <table>
+      <tbody><tr><th>ルーター</th><th>tunnel source</th><th>VRF?</th><th>鍵の方式</th></tr>
+      <tr><td><strong>R24 (Hub)</strong></td><td>GigabitEthernet1</td><td>グローバル</td><td><code>crypto isakmp key</code></td></tr>
+      <tr><td><strong>R61 (Spoke)</strong></td><td>GigabitEthernet0/4</td><td><strong>VRF WAN</strong></td><td><code>crypto keyring KR vrf WAN</code></td></tr>
+      <tr><td><strong>R70 (Spoke)</strong></td><td>GigabitEthernet0/1</td><td><strong>VRF WAN</strong></td><td><code>crypto keyring KR vrf WAN</code></td></tr>
+      <tr><td><strong>R62 (P3 Spoke)</strong></td><td>GigabitEthernet0/4</td><td><strong>VRF WAN</strong></td><td><code>crypto keyring KR vrf WAN</code></td></tr>
+    </tbody></table>
+    <div class="warn"><strong>なぜ keyring が必要か:</strong>
+<br>・<code>crypto isakmp key</code> はグローバルRTでしかIKE SAをマッチできない
+<br>・tunnel source が VRF 内にある場合、IKE ネゴシエーションはその VRF で行われる
+<br>・→ <strong><code>crypto keyring &lt;name&gt; vrf &lt;vrf&gt;</code></strong> で VRF を明示する必要がある
+<br>・<code>crypto isakmp profile</code> で keyring を参照し、<code>crypto ipsec profile</code> で isakmp profile を指定</div>
+
+    <hr>
+    <div class="sub-label">P4 予想: Point-to-Point GRE 設定</div>
+<pre><span class="h">R24 — P4 GRE (Hub → P2P変更):</span>
+crypto isakmp policy 10
+ hash md5
+crypto isakmp key CC!E!nfr4 address 0.0.0.0  <span class="c">! Gi1=グローバル → isakmp key OK</span>
+!
+<span class="c">! DMVPN関連を削除:</span>
+<span class="w">no ip nhrp map multicast dynamic</span>
+<span class="w">no tunnel mode gre multipoint</span>
+!
+interface Tunnel0
+ ip address 10.200.0.1 255.255.255.0
+ tunnel source GigabitEthernet1
+ <span class="w">tunnel destination 200.99.61.2</span>           <span class="c">! ← P2P: 対向IP指定</span>
+ tunnel mode gre ip                       <span class="c">! デフォルト（省略可）</span>
+ tunnel protection ipsec profile prof
+ ip mtu 1440
+!
+<span class="c">! 複数Spoke → Tunnel IF を複数作成</span>
+interface Tunnel1
+ ip address 10.200.1.1 255.255.255.252
+ tunnel source GigabitEthernet1
+ tunnel destination 200.99.70.2           <span class="c">! R70宛</span>
+ tunnel protection ipsec profile prof
+ ip mtu 1440
+!
+router eigrp ccie
+ address-family ipv4 unicast autonomous-system 65006
+  af-interface Tunnel0
+   no passive-interface
+  af-interface Tunnel1
+   no passive-interface
+
+<span class="h">R61 — P4 GRE (Spoke → P2P変更):</span>
+<span class="w">crypto keyring KR vrf WAN</span>                 <span class="c">! ← VRF WAN なのでkeyring！isakmp keyではダメ</span>
+ pre-shared-key address 0.0.0.0 0.0.0.0 key CC!E!nfr4
+!
+crypto isakmp profile IPROF
+ keyring KR
+ match identity address 0.0.0.0 WAN      <span class="c">! VRF WAN内のすべてのpeerにマッチ</span>
+!
+crypto ipsec profile prof
+ set transform-set TSET
+ set isakmp-profile IPROF                <span class="c">! ← keyringを使うprofileを参照</span>
+!
+<span class="c">! DMVPN関連を削除:</span>
+<span class="w">no ip nhrp map 10.200.0.1 200.99.24.2</span>
+<span class="w">no ip nhrp map multicast 200.99.24.2</span>
+!
+interface Tunnel0
+ ip address 10.200.0.2 255.255.255.0
+ tunnel source GigabitEthernet0/4         <span class="c">! vrf WAN</span>
+ <span class="w">tunnel destination 200.99.24.2</span>           <span class="c">! ← P2P: R24のWAN IP</span>
+ tunnel vrf WAN                           <span class="c">! ← underlay到達性はVRF WANで解決</span>
+ tunnel mode gre ip
+ tunnel protection ipsec profile prof
+ ip mtu 1440
+!
+router eigrp ccie
+ address-family ipv4 unicast autonomous-system 65006
+  af-interface Tunnel0
+   no passive-interface</pre>
+
+    <hr>
+    <div class="sub-label">EIGRP Named Mode over Tunnel（全パターン共通）</div>
+<pre><span class="h">EIGRP Named Mode 設定:</span>
+router eigrp ccie                         <span class="c">! named mode（virtual-instance名: ccie）</span>
+ address-family ipv4 unicast autonomous-system 65006
+  <span class="c">!</span>
+  af-interface default
+   passive-interface                      <span class="c">! デフォルトはpassive</span>
+  af-interface Tunnel0
+   <span class="w">no passive-interface</span>                  <span class="c">! Tunnel上でEIGRP有効化</span>
+  <span class="c">! P2Pなら af-interface Tunnel1 も追加</span>
+  <span class="c">!</span>
+  topology base
+   redistribute connected                <span class="c">! 必要に応じて</span></pre>
+
+    <div class="note"><strong>EIGRP Named Mode ポイント:</strong>
+<br>・<code>router eigrp &lt;name&gt;</code> → classic の <code>router eigrp &lt;AS&gt;</code> とは構文が違う
+<br>・<code>address-family ipv4 unicast autonomous-system 65006</code> でASを指定
+<br>・<code>af-interface</code> で各IFのパラメータを個別設定（classic の <code>passive-interface</code> に相当）
+<br>・<code>network</code> コマンドは <code>af-interface</code> 配下ではなく <code>address-family</code> 直下
+<br>・P1-P3 は AS <strong>65006</strong>（R24, R61, R62, R70 間）</div>
+
+    <hr>
+    <div class="sub-label">Crypto フルスタック構成図</div>
+<pre><span class="h">VRF側（R61/R70/R62）のフルスタック:</span>
+  crypto keyring KR vrf WAN
+   └→ pre-shared-key address 0.0.0.0 0.0.0.0 key CC!E!nfr4
+
+  crypto isakmp policy 10                  <span class="c">! Phase 1 パラメータ</span>
+   └→ hash md5, authentication pre-share
+
+  crypto isakmp profile IPROF              <span class="c">! keyring ↔ peer紐付け</span>
+   └→ keyring KR
+   └→ match identity address 0.0.0.0 WAN
+
+  crypto ipsec transform-set TSET          <span class="c">! Phase 2 暗号化</span>
+   └→ esp-aes / esp-sha-hmac
+   └→ mode transport                      <span class="c">! GREの場合はtransport</span>
+
+  crypto ipsec profile prof                <span class="c">! Tunnel IF に適用するプロファイル</span>
+   └→ set transform-set TSET
+   └→ set isakmp-profile IPROF
+
+  interface Tunnel0
+   └→ tunnel protection ipsec profile prof
+
+<span class="h">グローバル側（R24）はシンプル:</span>
+  crypto isakmp key CC!E!nfr4 address 0.0.0.0  <span class="c">! keyring不要</span>
+  crypto ipsec profile prof
+   └→ set transform-set TSET
+  interface Tunnel0
+   └→ tunnel protection ipsec profile prof</pre>
+
+    <div class="sub-label">確認コマンド</div>
+    <div class="verify">show interface Tunnel0
+show ip route | include Tunnel
+show ip eigrp neighbors                 <span style="color:var(--muted)">! EIGRP over tunnel確認</span>
+show crypto isakmp sa                   <span style="color:var(--muted)">! Phase 1 SA状態</span>
+show crypto ipsec sa                    <span style="color:var(--muted)">! Phase 2 SA状態</span>
+show crypto isakmp profile              <span style="color:var(--muted)">! VRF-aware profile確認</span>
+show crypto keyring                     <span style="color:var(--muted)">! keyring確認</span>
+ping 10.200.0.1 source Tunnel0</div>
+
+    <div class="warn"><strong>落とし穴:</strong>
+・<strong>Spoke の tunnel source が VRF 内 → <code>crypto keyring vrf WAN</code> 必須。<code>crypto isakmp key</code> では IKE が成立しない</strong>
+・<code>tunnel vrf WAN</code> = underlay（物理到達性）が VRF WAN 経由。overlay（Tunnel IP）はグローバル
+・<code>tunnel source</code> と <code>tunnel destination</code> が<strong>対称</strong>であること
+・MTU: GRE(24B) + IPsec(50-70B) → <code>ip mtu 1400</code>〜<code>1440</code> が安全圏
+・<code>tunnel mode gre ip</code> はデフォルトなので省略可能
+・tunnel source/destination のルーティングがトンネル自身を通らないこと（<strong>再帰ルーティング回避</strong>）
+・P2P GRE では Spoke 数分だけ Tunnel IF を作る必要がある（DMVPN との最大の違い）
+・<code>crypto ipsec transform-set</code> の <code>mode transport</code>: GRE が既にカプセル化しているのでトンネルモード不要</div>
+
+  </div>
+</div>
+
+</div><!-- end RS domain -->
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--                         SDN                               -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="domain">
+<div class="domain-title">SDN — SD-WAN</div>
+
+<!-- ──────────── QoS ──────────── -->
+<div class="section" id="qos">
+  <div class="section-header">
+    <span class="badge badge-sdn">SDN</span>
+    <h2>11. SD-WAN Policy + Site設定</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="warn"><strong>確定情報:</strong> P4のSD-WANは基本的な流れは同じ。PolicyでSite設定あり。選択問題1-2問あり。<br>以下は <strong>vManage 20.9</strong> の GUI パスで記載。</div>
+
+    <div class="sub-label">予想選択問題（遠回し英語）</div>
+    <div class="exam-en"><strong>Q1:</strong> "Which of the following must be completed <strong>BEFORE</strong> configuring Application-Aware Routing rules in a centralized policy?"<br>
+    A) Activate the policy on vSmart<br>
+    B) Create the SLA Class and Application List in Groups of Interest<br>
+    C) Attach the policy to a device template<br>
+    D) Configure a QoS Map in the localized policy</div>
+    <div class="decode">
+      <strong>答え: B</strong><br>
+      Groups of Interest のオブジェクトは先に作らないと Traffic Rules で参照できない。<br>
+      AはSave後の最終ステップ。CはLocalized Policyの話。DはCentralized Policyとは無関係。
+    </div>
+
+    <div class="exam-en"><strong>Q2:</strong> "A data policy has been configured and saved, but traffic is <strong>not being affected</strong>. The policy was applied to SITE_21 with VPN_999. What is the <strong>most likely cause</strong>?"<br>
+    A) The policy was not activated<br>
+    B) The direction was set to "From Tunnel" instead of "From Service"<br>
+    C) The SLA Class threshold was not exceeded<br>
+    D) The QoS Map was not applied to the WAN interface</div>
+    <div class="decode">
+      <strong>答え: A</strong>（最優先チェック項目）<br>
+      Save ≠ Activate。Activate しないと vSmart にプッシュされない。<br>
+      Bもあり得るが、「most likely」ではActivate忘れが第一。
+    </div>
+
+    <div class="exam-en"><strong>Q3:</strong> "A network administrator needs to ensure that <strong>voice traffic traverses the lowest-latency path</strong> between sites. The policy should <strong>fall back to an alternate path</strong> if the primary link <strong>exceeds the defined SLA thresholds</strong>. Which type of policy should be configured?"<br>
+    A) Control Policy<br>
+    B) Data Policy<br>
+    C) Application-Aware Routing Policy<br>
+    D) Localized QoS Policy</div>
+    <div class="decode">
+      <strong>答え: C</strong><br>
+      ・"lowest-latency path" + "SLA thresholds" + "fall back" = <strong>AAR</strong>の典型的ユースケース<br>
+      ・Control Policy はルート制御、Data Policy はパケット転送制御、QoSは帯域制御
+    </div>
+    <hr>
+
+    <div class="sub-label">ポリシー種別の判断</div>
+    <table>
+      <tbody><tr><th>影響範囲</th><th>ポリシー種別</th><th>適用場所</th><th>用途</th></tr>
+      <tr><td rowspan="2">全拠点</td><td>Control Policy</td><td>vSmart</td><td>ルート広告/フィルタ</td></tr>
+      <tr><td>Data Policy</td><td>cEdge</td><td>パケット転送方法</td></tr>
+      <tr><td rowspan="3">特定cEdge</td><td>QoS Map</td><td>cEdge</td><td>帯域・優先度</td></tr>
+      <tr><td>ACL</td><td>cEdge</td><td>IPフィルタ</td></tr>
+      <tr><td>Route Policy</td><td>cEdge</td><td>OSPF/BGP再配布</td></tr>
+    </tbody></table>
+
+    <hr>
+
+    <!-- ── Centralized Policy 全体フロー ── -->
+    <div class="sub-label">Centralized Policy 作成フロー（vManage 20.9）</div>
+    <div class="note">メニューパス: <strong>Configuration → Policies</strong></div>
+    <table>
+      <tbody><tr><th>Step</th><th>画面</th><th>操作</th></tr>
+      <tr><td><strong>1</strong></td><td>Centralized Policy タブ</td><td><strong>Add Policy</strong> クリック</td></tr>
+      <tr><td><strong>2</strong></td><td>Groups of Interest</td><td>App List / Data Prefix / Site List / VPN List / SLA Class 等を作成</td></tr>
+      <tr><td><strong>3</strong></td><td>Topology</td><td>Hub-and-Spoke / Mesh / Custom Control を選択</td></tr>
+      <tr><td><strong>4</strong></td><td>Traffic Rules</td><td>Application-Aware Routing / Data Policy / cflowd を追加</td></tr>
+      <tr><td><strong>5</strong></td><td>Apply Policies to Sites and VPNs</td><td>作成したルールに <strong>Site-List</strong> と <strong>VPN-List</strong> を紐付け</td></tr>
+      <tr><td><strong>6</strong></td><td>Policy Name</td><td>名前を付けて <strong>Save Policy</strong></td></tr>
+      <tr><td><strong>7</strong></td><td>一覧画面</td><td>作成したポリシーの <strong>⋮ → Activate</strong></td></tr>
+    </tbody></table>
+    <div class="warn"><strong>注意:</strong> Save だけでは適用されない。必ず <strong>Activate</strong> が必要。Activate で vSmart にプッシュされる。</div>
+
+    <hr>
+
+    <!-- ── Step 2: Groups of Interest 詳細 ── -->
+    <div class="sub-label">Step 2 詳細 — Groups of Interest</div>
+    <div class="note">パス: Add Policy → <strong>Groups of Interest</strong>（左サイド各タブ）</div>
+
+    <table>
+      <tbody><tr><th>タブ</th><th>作成するもの</th><th>設定内容</th></tr>
+      <tr><td><strong>Data Prefix</strong></td><td>送信元/宛先プレフィックス</td><td>例: <code>10.21.0.0/16</code></td></tr>
+      <tr><td><strong>App List</strong></td><td>アプリケーション名リスト</td><td>例: <code>ssh</code>, <code>voice-and-video</code></td></tr>
+      <tr><td><strong>Site</strong></td><td>Site-List（P4で重要）</td><td>例: <code>SITE_21</code> → site-id <code>65002</code></td></tr>
+      <tr><td><strong>VPN</strong></td><td>VPN-List</td><td>例: <code>VPN_999</code> → vpn <code>999</code></td></tr>
+      <tr><td><strong>SLA Class</strong></td><td>SLA条件</td><td>Loss / Latency / Jitter の閾値</td></tr>
+      <tr><td><strong>Preferred Color Group</strong></td><td>優先トンネル色</td><td>例: <code>private1</code> → <code>private2</code> fallback</td></tr>
+    </tbody></table>
+
+    <hr>
+
+    <!-- ── SLA Class 作成 ── -->
+    <div class="sub-label">SLA Class 作成（Groups of Interest → SLA Class）</div>
+<pre><span class="h">パス:</span> Add Policy → Groups of Interest → <span class="w">SLA Class</span> → New SLA Class
+
+<span class="h">設定項目:</span>
+  SLA Class Name:     VOICE_SLA
+  Loss:               1          <span class="c">! % 単位</span>
+  Latency:            150        <span class="c">! ms 単位</span>
+  Jitter:             30         <span class="c">! ms 単位</span>
+  → <span class="w">Save</span></pre>
+
+    <hr>
+
+    <!-- ── App-Aware Routing ── -->
+    <div class="sub-label">App-Aware Routing（AAR）設定 — Traffic Rules</div>
+    <div class="note">パス: Add Policy → Traffic Rules → <strong>Application-Aware Routing</strong> → Add</div>
+
+    <table>
+      <tbody><tr><th>Step</th><th>操作</th><th>詳細</th></tr>
+      <tr><td>1</td><td>Name</td><td>ポリシー名（例: <code>AAR_VOICE</code>）</td></tr>
+      <tr><td>2</td><td><strong>Add Sequence</strong></td><td>Sequence Type: <code>Application-Aware Routing</code></td></tr>
+      <tr><td>3</td><td>Match</td><td><strong>App List</strong> → 作成した App List を選択</td></tr>
+      <tr><td>4</td><td>Actions</td><td><strong>SLA Class</strong> → 作成した SLA Class を選択<br><strong>Preferred Color Group</strong> → 優先色を選択</td></tr>
+      <tr><td>5</td><td>Default Action</td><td>通常は <code>Accept</code>（マッチしないトラフィックは通す）</td></tr>
+      <tr><td>6</td><td>Save</td><td>Application-Aware Routing Policy を保存</td></tr>
+    </tbody></table>
+
+    <div class="warn"><strong>落とし穴:</strong>
+・<strong>Default Action を設定しないと暗黙 Drop</strong> — 必ず Accept を明示
+・App List は Groups of Interest で<strong>先に作成</strong>しておく必要がある
+・SLA Class も<strong>先に作成</strong>が必要</div>
+
+    <hr>
+
+    <!-- ── Data Policy ── -->
+    <div class="sub-label">Data Policy 設定 — Traffic Rules</div>
+    <div class="note">パス: Add Policy → Traffic Rules → <strong>Data Policy</strong> → Add</div>
+
+    <table>
+      <tbody><tr><th>Step</th><th>操作</th><th>詳細</th></tr>
+      <tr><td>1</td><td>Name + Description</td><td>ポリシー名</td></tr>
+      <tr><td>2</td><td>Add Sequence</td><td>Sequence Type: <code>Data</code></td></tr>
+      <tr><td>3</td><td>Match</td><td><strong>Source Data Prefix</strong> / <strong>Destination Data Prefix</strong> / <strong>App List</strong> / <strong>DSCP</strong> 等</td></tr>
+      <tr><td>4</td><td>Actions</td><td><strong>Set</strong>: Next-Hop / DSCP / Forwarding Class / Local TLOC / Service 等<br><strong>Accept / Drop / Redirect</strong></td></tr>
+      <tr><td>5</td><td>Default Action</td><td><code>Accept</code>（忘れずに）</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">Data Policy でよく使う Action</div>
+    <table>
+      <tbody><tr><th>Action</th><th>用途</th><th>例</th></tr>
+      <tr><td><code>set DSCP</code></td><td>DSCPマーキング</td><td>EF / AF41 / CS6</td></tr>
+      <tr><td><code>set next-hop</code></td><td>パケット転送先指定</td><td>Service Chain</td></tr>
+      <tr><td><code>set local-tloc</code></td><td>特定トンネルへ転送</td><td>color: private1, encap: ipsec</td></tr>
+      <tr><td><code>set forwarding-class</code></td><td>QoSキュー指定</td><td>VOICE / CRITICAL</td></tr>
+      <tr><td><code>redirect-dns</code></td><td>DNS リダイレクト</td><td>Umbrella連携</td></tr>
+    </tbody></table>
+
+    <hr>
+
+    <!-- ── Step 5: Apply to Sites ── -->
+    <div class="sub-label">Step 5 — Apply Policies to Sites and VPNs（P4のポイント）</div>
+    <div class="note">パス: Add Policy → <strong>Apply Policies to Sites and VPNs</strong></div>
+
+    <table>
+      <tbody><tr><th>ポリシー種別</th><th>紐付けるもの</th><th>方向</th></tr>
+      <tr><td>App-Aware Routing</td><td>Site-List + VPN-List</td><td>—</td></tr>
+      <tr><td>Data Policy</td><td>Site-List + VPN-List</td><td><strong>From-Service</strong> / <strong>From-Tunnel</strong> / <strong>All</strong></td></tr>
+      <tr><td>Control Policy</td><td>Site-List</td><td><strong>In</strong> / <strong>Out</strong></td></tr>
+    </tbody></table>
+
+<pre><span class="h">GUI操作:</span>
+  1. Application-Aware Routing の横の <span class="w">New Site List and VPN List</span> クリック
+  2. Site List:  ドロップダウンから <span class="w">SITE_21</span> を選択
+  3. VPN List:   ドロップダウンから <span class="w">VPN_999</span> を選択
+  4. <span class="w">Add</span> → Save
+
+  <span class="c">! Data Policy の場合、Direction の選択が追加される</span>
+  5. Data Policy → New Site List → <span class="w">From Service</span> を選択
+     <span class="c">! From Service = LAN→WAN方向のトラフィックに適用</span>
+     <span class="c">! From Tunnel  = WAN→LAN方向のトラフィックに適用</span>
+     <span class="c">! All          = 両方向</span></pre>
+
+    <div class="warn"><strong>注意:</strong>
+・Data Policy の <strong>Direction</strong> を間違えるとポリシーが効かない
+・<code>From Service</code> = ユーザ → WAN（最も一般的）
+・<code>From Tunnel</code> = WAN → ユーザ（受信側フィルタ）</div>
+
+    <hr>
+
+    <!-- ── Localized Policy (QoS Map) ── -->
+    <div class="sub-label">Localized Policy — QoS Map 設定</div>
+    <div class="note">パス: <strong>Configuration → Policies → Localized Policy</strong> タブ → Add Policy</div>
+
+    <table>
+      <tbody><tr><th>Step</th><th>画面</th><th>操作</th></tr>
+      <tr><td>1</td><td>Policy Settings</td><td>Name / Description</td></tr>
+      <tr><td>2</td><td>QoS タブ</td><td><strong>Add QoS Map</strong> → Create New</td></tr>
+      <tr><td>3</td><td>QoS Map</td><td>Queue 0〜7 に対して帯域割当・優先度設定</td></tr>
+      <tr><td>4</td><td>Save</td><td>Localized Policy を保存</td></tr>
+      <tr><td>5</td><td>Device Template</td><td>Template に Localized Policy を紐付け → <strong>Update</strong></td></tr>
+    </tbody></table>
+
+<pre><span class="h">QoS Map の Queue 設定:</span>
+  Queue 0: <span class="w">class-default</span>  — bandwidth remaining 100%
+  Queue 1: <span class="w">VOICE</span>          — priority, police 10%
+  Queue 2: <span class="w">CRITICAL</span>       — bandwidth 30%
+  Queue 3: <span class="w">VIDEO</span>          — bandwidth 20%
+
+<span class="h">Forwarding Class → Queue マッピング:</span>
+  Forwarding Class Name → Queue Number → Scheduler 設定</pre>
+
+    <div class="sub-label">Localized Policy → Device Template への適用</div>
+<pre><span class="h">パス:</span> Configuration → Templates → Device Template
+  1. 対象 Template の <span class="w">⋮ → Edit</span>
+  2. Additional Templates セクション
+  3. <span class="w">Policy</span> ドロップダウン → 作成した Localized Policy を選択
+  4. <span class="w">Update</span> → デバイスに Push</pre>
+
+    <hr>
+
+    <!-- ── App List / App Probe Class ── -->
+    <div class="sub-label">App List 作成</div>
+    <div class="note">パス: Add Policy → Groups of Interest → <strong>App List</strong> タブ → New Application List</div>
+<pre><span class="h">設定項目:</span>
+  Application List Name:  <span class="w">VOICE_APPS</span>
+  Search → <span class="w">voice-and-video</span> を選択
+  → Add → Save
+
+  <span class="c">! 個別アプリ指定の例</span>
+  Application List Name:  <span class="w">SSH_APP</span>
+  Search → <span class="w">ssh</span> を選択</pre>
+
+    <div class="sub-label">App Probe Class 作成</div>
+    <div class="note">パス: Add Policy → Groups of Interest → <strong>App Probe Class</strong> タブ</div>
+<pre><span class="h">設定項目:</span>
+  App Probe Class Name:   <span class="w">PROBE_VOICE</span>
+  Forwarding Class:       VOICE
+  Color:                  <span class="w">private1</span>        <span class="c">! プローブ先のトンネル色</span>
+  DSCP:                   <span class="w">ef</span>              <span class="c">! EF = 46</span>
+  → Add → Save</pre>
+
+    <hr>
+
+    <!-- ── Control Policy ── -->
+    <div class="sub-label">Control Policy（ルート制御）</div>
+    <div class="note">パス: Add Policy → Topology → <strong>Custom Control (Route &amp; TLOC)</strong></div>
+
+    <table>
+      <tbody><tr><th>Step</th><th>操作</th></tr>
+      <tr><td>1</td><td>Add Topology → <strong>Custom Control</strong></td></tr>
+      <tr><td>2</td><td>Name + Description</td></tr>
+      <tr><td>3</td><td>Add Sequence → Type: <code>Route</code> or <code>TLOC</code></td></tr>
+      <tr><td>4</td><td>Match: <strong>Site List</strong> / <strong>VPN List</strong> / <strong>Prefix List</strong> / <strong>TLOC</strong></td></tr>
+      <tr><td>5</td><td>Action: <strong>Accept</strong> (set preference/community) / <strong>Reject</strong></td></tr>
+      <tr><td>6</td><td>Default Action: <code>Accept</code> or <code>Reject</code></td></tr>
+    </tbody></table>
+
+    <div class="warn"><strong>Control Policy 落とし穴:</strong>
+・Control Policy は <strong>vSmart 上</strong>でOMP ルートを操作（cEdgeには直接プッシュされない）
+・<code>set preference</code> でルート優先度変更（高い値 = 優先）
+・Default Action <code>Reject</code> にすると<strong>全ルートが落ちる</strong>ので注意</div>
+
+    <hr>
+
+    <!-- ── 全体チェックリスト ── -->
+    <div class="sub-label">SD-WAN ポリシー設定チェックリスト</div>
+    <table>
+      <tbody><tr><th>✓</th><th>確認項目</th><th>よくあるミス</th></tr>
+      <tr><td>□</td><td>Groups of Interest を<strong>先に</strong>全部作成したか</td><td>Traffic Rules 内で参照できない</td></tr>
+      <tr><td>□</td><td>App List に正しいアプリを入れたか</td><td>アプリ名のスペル / カテゴリ間違い</td></tr>
+      <tr><td>□</td><td>SLA Class の値は正しいか</td><td>Loss=%, Latency=ms, Jitter=ms</td></tr>
+      <tr><td>□</td><td>Default Action を <code>Accept</code> にしたか</td><td>未設定=暗黙Drop → 全通信断</td></tr>
+      <tr><td>□</td><td>Apply で Site-List と VPN-List を紐付けたか</td><td>Save しても未紐付けだと適用されない</td></tr>
+      <tr><td>□</td><td>Data Policy の Direction は正しいか</td><td>From Service / From Tunnel の選択ミス</td></tr>
+      <tr><td>□</td><td>ポリシーを <strong>Activate</strong> したか</td><td>Save だけでは vSmart にプッシュされない</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">cEdge CLI で直接設定するパターン（Localized）</div>
+<pre>config-transaction
+
+policy-map type qos PM_QOS
+ class VOICE
+  priority level 1
+  police rate percent 10
+ class CRITICAL
+  bandwidth percent 30
+ class class-default
+  bandwidth remaining percent 100
+
+interface GigabitEthernet4
+ service-policy output PM_QOS
+commit</pre>
+
+    <div class="warn"><strong>注意:</strong> cEdge で設定変更する場合は <code>config-transaction</code> → <code>commit</code> が必須</div>
+
+    <div class="sub-label">確認コマンド（cEdge CLI）</div>
+    <div class="verify">show sdwan policy from-vsmart
+show sdwan policy app-route-policy-filter
+show sdwan app-route stats
+show policy-map interface GigabitEthernet4
+show sdwan policy data-policy-filter</div>
+
+  </div>
+</div>
+
+<!-- ──────────── VRF ──────────── -->
+<div class="section" id="vrf">
+  <div class="section-header">
+    <span class="badge badge-sdn">SDN</span>
+    <h2>12. SD-WAN VRF / VPN / Template</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="sub-label">VPN番号 = VRF</div>
+    <table>
+      <tbody><tr><th>VPN番号</th><th>用途</th><th>備考</th></tr>
+      <tr><td>VPN 0</td><td>Transport（WAN側）</td><td>インターネット / MPLS 接続</td></tr>
+      <tr><td>VPN 512</td><td>Management</td><td>OOB管理</td></tr>
+      <tr><td>VPN 999</td><td>Service VPN（ユーザトラフィック）</td><td>試験で一番触る</td></tr>
+      <tr><td>VPN 1-511</td><td>カスタム Service VPN</td><td>追加VRF</td></tr>
+    </tbody></table>
+
+    <hr>
+
+    <!-- ── Device Template ── -->
+    <div class="sub-label">Device Template 構造（vManage 20.9）</div>
+    <div class="note">パス: <strong>Configuration → Templates</strong></div>
+
+    <table>
+      <tbody><tr><th>テンプレート種別</th><th>説明</th><th>GUI パス</th></tr>
+      <tr><td><strong>Feature Template</strong></td><td>個別機能の設定（IF, OSPF, BGP等）</td><td>Feature タブ → Add Template</td></tr>
+      <tr><td><strong>Device Template</strong></td><td>Feature Template の<strong>組み合わせ</strong></td><td>Device タブ → Create Template → From Feature Template</td></tr>
+    </tbody></table>
+
+<pre><span class="h">Device Template 構成:</span>
+  ┌─ Basic Configuration（System, Logging, NTP）
+  ├─ Transport &amp; Management VPN
+  │    ├─ VPN 0（Transport）
+  │    │    ├─ VPN Interface（GigabitEthernet1）
+  │    │    └─ VPN Interface（GigabitEthernet2）
+  │    └─ VPN 512（Management）
+  ├─ Service VPN
+  │    └─ VPN 999
+  │         ├─ VPN Interface（GigabitEthernet3.3999）
+  │         ├─ OSPF
+  │         └─ Static Route
+  └─ Additional Templates
+       ├─ Policy（Localized Policy）
+       └─ AAA, Banner 等</pre>
+
+    <hr>
+
+    <!-- ── Template 適用フロー ── -->
+    <div class="sub-label">Template 適用フロー</div>
+<pre><span class="h">パス:</span> Configuration → Templates → Device Template
+  1. 対象の Template → <span class="w">⋮ → Attach Devices</span>
+  2. Available Devices から cEdge を選択 → →ボタンで Selected に移動
+  3. <span class="w">Attach</span>
+  4. Variable 値を入力（または CSV アップロード）
+  5. <span class="w">Next → Configure Devices</span>
+
+<span class="h">変数入力画面（Variable List）で穴埋め:</span>
+  System IP:      <span class="w">1.1.21.1</span>
+  Site ID:        <span class="w">65002</span>
+  Hostname:       <span class="w">cEdge21</span>
+  Interface IP:   <span class="w">10.21.0.1/24</span>
+  Color:          <span class="w">private1</span>
+  Tunnel Group:   <span class="w">100</span></pre>
+
+    <div class="warn"><strong>Template 操作の注意:</strong>
+・Template 変更後は <strong>Update → Push</strong> でデバイスに反映
+・Variable の値を間違えると<strong>デバイスが到達不能</strong>になるリスクあり
+・変更前に <strong>Config Preview</strong> で差分を必ず確認</div>
+
+    <div class="sub-label">Variable List でよく穴埋めされる項目</div>
+    <table>
+      <tbody><tr><th>項目</th><th>例</th><th>覚え方</th></tr>
+      <tr><td>IP MTU</td><td><code>1496</code></td><td>SD-WANトンネルオーバーヘッド分引く</td></tr>
+      <tr><td>Color</td><td><code>private1</code> / <code>biz-internet</code></td><td>WAN種別で決まる</td></tr>
+      <tr><td>System IP</td><td><code>1.1.X.Y</code></td><td>拠点番号で決まる</td></tr>
+      <tr><td>Site ID</td><td><code>65002</code></td><td>AS番号と揃えることが多い</td></tr>
+      <tr><td>Max Control Connections</td><td><code>1</code></td><td>WAN回線数に合わせる</td></tr>
+      <tr><td>Tunnel Group</td><td><code>100</code> / <code>200</code></td><td>同じグループ内で冗長</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">確認コマンド（cEdge CLI）</div>
+    <div class="verify">show sdwan running-config | section vrf
+show ip vrf
+show ip route vrf 999
+show sdwan control connections
+show sdwan bfd sessionsedirect-dnsDNS リダイレクトUmbrella連携
+    
+
+    <hr>
+
+    <!-- ── Step 5: Apply to Sites ── -->
+    <div class="sub-label">Step 5 — Apply Policies to Sites and VPNs（P4のポイント）</div>
+    <div class="note">パス: Add Policy → <strong>Apply Policies to Sites and VPNs</strong></div>
+
+    <table>
+      <tbody><tr><th>ポリシー種別</th><th>紐付けるもの</th><th>方向</th></tr>
+      <tr><td>App-Aware Routing</td><td>Site-List + VPN-List</td><td>—</td></tr>
+      <tr><td>Data Policy</td><td>Site-List + VPN-List</td><td><strong>From-Service</strong> / <strong>From-Tunnel</strong> / <strong>All</strong></td></tr>
+      <tr><td>Control Policy</td><td>Site-List</td><td><strong>In</strong> / <strong>Out</strong></td></tr>
+    </tbody></table>
+
+<pre><span class="h">GUI操作:</span>
+  1. Application-Aware Routing の横の <span class="w">New Site List and VPN List</span> クリック
+  2. Site List:  ドロップダウンから <span class="w">SITE_21</span> を選択
+  3. VPN List:   ドロップダウンから <span class="w">VPN_999</span> を選択
+  4. <span class="w">Add</span> → Save
+
+  <span class="c">! Data Policy の場合、Direction の選択が追加される</span>
+  5. Data Policy → New Site List → <span class="w">From Service</span> を選択
+     <span class="c">! From Service = LAN→WAN方向のトラフィックに適用</span>
+     <span class="c">! From Tunnel  = WAN→LAN方向のトラフィックに適用</span>
+     <span class="c">! All          = 両方向</span></pre>
+
+    <div class="warn"><strong>注意:</strong>
+・Data Policy の <strong>Direction</strong> を間違えるとポリシーが効かない
+・<code>From Service</code> = ユーザ → WAN（最も一般的）
+・<code>From Tunnel</code> = WAN → ユーザ（受信側フィルタ）</div>
+
+    <hr>
+
+    <!-- ── Localized Policy (QoS Map) ── -->
+    <div class="sub-label">Localized Policy — QoS Map 設定</div>
+    <div class="note">パス: <strong>Configuration → Policies → Localized Policy</strong> タブ → Add Policy</div>
+
+    <table>
+      <tbody><tr><th>Step</th><th>画面</th><th>操作</th></tr>
+      <tr><td>1</td><td>Policy Settings</td><td>Name / Description</td></tr>
+      <tr><td>2</td><td>QoS タブ</td><td><strong>Add QoS Map</strong> → Create New</td></tr>
+      <tr><td>3</td><td>QoS Map</td><td>Queue 0〜7 に対して帯域割当・優先度設定</td></tr>
+      <tr><td>4</td><td>Save</td><td>Localized Policy を保存</td></tr>
+      <tr><td>5</td><td>Device Template</td><td>Template に Localized Policy を紐付け → <strong>Update</strong></td></tr>
+    </tbody></table>
+
+<pre><span class="h">QoS Map の Queue 設定:</span>
+  Queue 0: <span class="w">class-default</span>  — bandwidth remaining 100%
+  Queue 1: <span class="w">VOICE</span>          — priority, police 10%
+  Queue 2: <span class="w">CRITICAL</span>       — bandwidth 30%
+  Queue 3: <span class="w">VIDEO</span>          — bandwidth 20%
+
+<span class="h">Forwarding Class → Queue マッピング:</span>
+  Forwarding Class Name → Queue Number → Scheduler 設定</pre>
+
+    <div class="sub-label">Localized Policy → Device Template への適用</div>
+<pre><span class="h">パス:</span> Configuration → Templates → Device Template
+  1. 対象 Template の <span class="w">⋮ → Edit</span>
+  2. Additional Templates セクション
+  3. <span class="w">Policy</span> ドロップダウン → 作成した Localized Policy を選択
+  4. <span class="w">Update</span> → デバイスに Push</pre>
+
+    <hr>
+
+    <!-- ── App List / App Probe Class ── -->
+    <div class="sub-label">App List 作成</div>
+    <div class="note">パス: Add Policy → Groups of Interest → <strong>App List</strong> タブ → New Application List</div>
+<pre><span class="h">設定項目:</span>
+  Application List Name:  <span class="w">VOICE_APPS</span>
+  Search → <span class="w">voice-and-video</span> を選択
+  → Add → Save
+
+  <span class="c">! 個別アプリ指定の例</span>
+  Application List Name:  <span class="w">SSH_APP</span>
+  Search → <span class="w">ssh</span> を選択</pre>
+
+    <div class="sub-label">App Probe Class 作成</div>
+    <div class="note">パス: Add Policy → Groups of Interest → <strong>App Probe Class</strong> タブ</div>
+<pre><span class="h">設定項目:</span>
+  App Probe Class Name:   <span class="w">PROBE_VOICE</span>
+  Forwarding Class:       VOICE
+  Color:                  <span class="w">private1</span>        <span class="c">! プローブ先のトンネル色</span>
+  DSCP:                   <span class="w">ef</span>              <span class="c">! EF = 46</span>
+  → Add → Save</pre>
+
+    <hr>
+
+    <!-- ── Control Policy ── -->
+    <div class="sub-label">Control Policy（ルート制御）</div>
+    <div class="note">パス: Add Policy → Topology → <strong>Custom Control (Route &amp; TLOC)</strong></div>
+
+    <table>
+      <tbody><tr><th>Step</th><th>操作</th></tr>
+      <tr><td>1</td><td>Add Topology → <strong>Custom Control</strong></td></tr>
+      <tr><td>2</td><td>Name + Description</td></tr>
+      <tr><td>3</td><td>Add Sequence → Type: <code>Route</code> or <code>TLOC</code></td></tr>
+      <tr><td>4</td><td>Match: <strong>Site List</strong> / <strong>VPN List</strong> / <strong>Prefix List</strong> / <strong>TLOC</strong></td></tr>
+      <tr><td>5</td><td>Action: <strong>Accept</strong> (set preference/community) / <strong>Reject</strong></td></tr>
+      <tr><td>6</td><td>Default Action: <code>Accept</code> or <code>Reject</code></td></tr>
+    </tbody></table>
+
+    <div class="warn"><strong>Control Policy 落とし穴:</strong>
+・Control Policy は <strong>vSmart 上</strong>でOMP ルートを操作（cEdgeには直接プッシュされない）
+・<code>set preference</code> でルート優先度変更（高い値 = 優先）
+・Default Action <code>Reject</code> にすると<strong>全ルートが落ちる</strong>ので注意</div>
+
+    <hr>
+
+    <!-- ── 全体チェックリスト ── -->
+    <div class="sub-label">SD-WAN ポリシー設定チェックリスト</div>
+    <table>
+      <tbody><tr><th>✓</th><th>確認項目</th><th>よくあるミス</th></tr>
+      <tr><td>□</td><td>Groups of Interest を<strong>先に</strong>全部作成したか</td><td>Traffic Rules 内で参照できない</td></tr>
+      <tr><td>□</td><td>App List に正しいアプリを入れたか</td><td>アプリ名のスペル / カテゴリ間違い</td></tr>
+      <tr><td>□</td><td>SLA Class の値は正しいか</td><td>Loss=%, Latency=ms, Jitter=ms</td></tr>
+      <tr><td>□</td><td>Default Action を <code>Accept</code> にしたか</td><td>未設定=暗黙Drop → 全通信断</td></tr>
+      <tr><td>□</td><td>Apply で Site-List と VPN-List を紐付けたか</td><td>Save しても未紐付けだと適用されない</td></tr>
+      <tr><td>□</td><td>Data Policy の Direction は正しいか</td><td>From Service / From Tunnel の選択ミス</td></tr>
+      <tr><td>□</td><td>ポリシーを <strong>Activate</strong> したか</td><td>Save だけでは vSmart にプッシュされない</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">cEdge CLI で直接設定するパターン（Localized）</div>
+<pre>config-transaction
+
+policy-map type qos PM_QOS
+ class VOICE
+  priority level 1
+  police rate percent 10
+ class CRITICAL
+  bandwidth percent 30
+ class class-default
+  bandwidth remaining percent 100
+
+interface GigabitEthernet4
+ service-policy output PM_QOS
+commit</pre>
+
+    <div class="warn"><strong>注意:</strong> cEdge で設定変更する場合は <code>config-transaction</code> → <code>commit</code> が必須</div>
+
+    <div class="sub-label">確認コマンド（cEdge CLI）</div>
+    <div class="verify">show sdwan policy from-vsmart
+show sdwan policy app-route-policy-filter
+show sdwan app-route stats
+show policy-map interface GigabitEthernet4
+show sdwan policy data-policy-filter</div>
+
+  </div>
+</div>
+
+<!-- ──────────── VRF ──────────── -->
+<div class="section" id="vrf">
+  <div class="section-header">
+    <span class="badge badge-sdn">SDN</span>
+    <h2>12. SD-WAN VRF / VPN / Template</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="sub-label">VPN番号 = VRF</div>
+    <table>
+      <tbody><tr><th>VPN番号</th><th>用途</th><th>備考</th></tr>
+      <tr><td>VPN 0</td><td>Transport（WAN側）</td><td>インターネット / MPLS 接続</td></tr>
+      <tr><td>VPN 512</td><td>Management</td><td>OOB管理</td></tr>
+      <tr><td>VPN 999</td><td>Service VPN（ユーザトラフィック）</td><td>試験で一番触る</td></tr>
+      <tr><td>VPN 1-511</td><td>カスタム Service VPN</td><td>追加VRF</td></tr>
+    </tbody></table>
+
+    <hr>
+
+    <!-- ── Device Template ── -->
+    <div class="sub-label">Device Template 構造（vManage 20.9）</div>
+    <div class="note">パス: <strong>Configuration → Templates</strong></div>
+
+    <table>
+      <tbody><tr><th>テンプレート種別</th><th>説明</th><th>GUI パス</th></tr>
+      <tr><td><strong>Feature Template</strong></td><td>個別機能の設定（IF, OSPF, BGP等）</td><td>Feature タブ → Add Template</td></tr>
+      <tr><td><strong>Device Template</strong></td><td>Feature Template の<strong>組み合わせ</strong></td><td>Device タブ → Create Template → From Feature Template</td></tr>
+    </tbody></table>
+
+<pre><span class="h">Device Template 構成:</span>
+  ┌─ Basic Configuration（System, Logging, NTP）
+  ├─ Transport &amp; Management VPN
+  │    ├─ VPN 0（Transport）
+  │    │    ├─ VPN Interface（GigabitEthernet1）
+  │    │    └─ VPN Interface（GigabitEthernet2）
+  │    └─ VPN 512（Management）
+  ├─ Service VPN
+  │    └─ VPN 999
+  │         ├─ VPN Interface（GigabitEthernet3.3999）
+  │         ├─ OSPF
+  │         └─ Static Route
+  └─ Additional Templates
+       ├─ Policy（Localized Policy）
+       └─ AAA, Banner 等</pre>
+
+    <hr>
+
+    <!-- ── Template 適用フロー ── -->
+    <div class="sub-label">Template 適用フロー</div>
+<pre><span class="h">パス:</span> Configuration → Templates → Device Template
+  1. 対象の Template → <span class="w">⋮ → Attach Devices</span>
+  2. Available Devices から cEdge を選択 → →ボタンで Selected に移動
+  3. <span class="w">Attach</span>
+  4. Variable 値を入力（または CSV アップロード）
+  5. <span class="w">Next → Configure Devices</span>
+
+<span class="h">変数入力画面（Variable List）で穴埋め:</span>
+  System IP:      <span class="w">1.1.21.1</span>
+  Site ID:        <span class="w">65002</span>
+  Hostname:       <span class="w">cEdge21</span>
+  Interface IP:   <span class="w">10.21.0.1/24</span>
+  Color:          <span class="w">private1</span>
+  Tunnel Group:   <span class="w">100</span></pre>
+
+    <div class="warn"><strong>Template 操作の注意:</strong>
+・Template 変更後は <strong>Update → Push</strong> でデバイスに反映
+・Variable の値を間違えると<strong>デバイスが到達不能</strong>になるリスクあり
+・変更前に <strong>Config Preview</strong> で差分を必ず確認</div>
+
+    <div class="sub-label">Variable List でよく穴埋めされる項目</div>
+    <table>
+      <tbody><tr><th>項目</th><th>例</th><th>覚え方</th></tr>
+      <tr><td>IP MTU</td><td><code>1496</code></td><td>SD-WANトンネルオーバーヘッド分引く</td></tr>
+      <tr><td>Color</td><td><code>private1</code> / <code>biz-internet</code></td><td>WAN種別で決まる</td></tr>
+      <tr><td>System IP</td><td><code>1.1.X.Y</code></td><td>拠点番号で決まる</td></tr>
+      <tr><td>Site ID</td><td><code>65002</code></td><td>AS番号と揃えることが多い</td></tr>
+      <tr><td>Max Control Connections</td><td><code>1</code></td><td>WAN回線数に合わせる</td></tr>
+      <tr><td>Tunnel Group</td><td><code>100</code> / <code>200</code></td><td>同じグループ内で冗長</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">確認コマンド（cEdge CLI）</div>
+    <div class="verify">show sdwan running-config | section vrf
+show ip vrf
+show ip route vrf 999
+show sdwan control connections
+show sdwan bfd sessions</div>
+
+  </div>
+</div>
+
+</div><!-- end SDN domain -->
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--                    Programmability                        -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="domain">
+<div class="domain-title">Programmability</div>
+
+<!-- ──────────── EEM ──────────── -->
+<div class="section" id="eem">
+  <div class="section-header">
+    <span class="badge badge-prog">PROG</span>
+    <h2>10. EEM + GuestShell + Python（Task 3.1）</h2>
+  </div>
+  <div class="section-body">
+    <div class="warn"><strong>確定情報:</strong> Programming 3問。P4 は「<strong>pingの到達性変化を検知して自動で情報収集</strong>」するタイプの問題。</div>
+
+    <div class="sub-label">P1-P3 → P4 の変化</div>
+    <table>
+      <tbody><tr><th></th><th>P1-P3</th><th>P4（予想）</th></tr>
+      <tr><td>トリガ</td><td>Track: Loopback10 line-protocol ダウン</td><td><strong>IP SLA: 対向ルーターへの ping 到達性変化</strong></td></tr>
+      <tr><td>EEM event</td><td><code>event track 1 state down</code></td><td><code>event track 1 state any</code></td></tr>
+      <tr><td>目的</td><td>RCA データ収集</td><td><strong>ping 状態変化時の情報キャプチャ</strong></td></tr>
+      <tr><td>出力先</td><td><code>RCA_Capture.txt</code></td><td><code>ping_report.txt</code></td></tr>
+      <tr><td>共通</td><td colspan="2">VPG0 + IOx + app-hosting + GuestShell + <code>cli.execute()</code></td></tr>
+    </tbody></table>
+
+    <hr>
+    <div class="sub-label">⚠ IP SLA + Track の核心ルール</div>
+    <div class="warn"><strong>EEM <code>event track</code> は「状態変化」でしか発火しない:</strong>
+<br>・ずっと UP → 発火しない
+<br>・ずっと DOWN → 発火しない
+<br>・<strong>UP → DOWN</strong>（到達不能になった）→ <code>state down</code> / <code>state any</code> で発火
+<br>・<strong>DOWN → UP</strong>（復旧した）→ <code>state up</code> / <code>state any</code> で発火
+<br>
+<br><strong>だから:</strong>
+<br>・ping 先を <strong>自分自身にしてはダメ</strong>（常に成功 → 永遠に状態変化なし）
+<br>・ping 先は <strong>別ルーター</strong>（例: R24 の 10.2.255.24）にする</div>
+
+    <hr>
+    <div class="sub-label">予想英語問題文（遠回し表現）</div>
+    <div class="exam-en">"On R23, configure <strong>reachability monitoring</strong> toward R24 (10.2.255.24) using <strong>ICMP probes every 10 seconds</strong>. When the <strong>reachability state changes</strong>, R23 should <strong>automatically collect</strong> interface status, routing table, and probe statistics via a <strong>GuestShell Python script</strong>, appending the results with a timestamp to <code>/bootflash/guest-share/ping_report.txt</code>. Generate a <strong>syslog notification</strong> upon completion."</div>
+    <div class="decode">
+      <strong>読み解き:</strong><br>
+      ・"reachability monitoring" + "ICMP probes every 10 seconds" → <code>ip sla 1</code> + <code>icmp-echo</code> + <code>frequency 10</code><br>
+      ・"reachability state changes" → <code>track 1 ip sla 1 reachability</code> + EEM <code>event track 1 state any</code><br>
+      ・"automatically collect ... via GuestShell Python script" → EEM → <code>guestshell run python3</code><br>
+      ・"appending the results with a timestamp" → Python: <code>datetime.now()</code> + <code>open("a+")</code><br>
+      ・"syslog notification" → <code>action 3.0 syslog priority notifications msg "..."</code>
+    </div>
+
+    <hr>
+    <div class="sub-label">完全解答（Step 1〜5 をこの順で投入）</div>
+
+<pre><span class="h">Step 1: IOS-XE 基盤設定（P1-P3 と共通）</span>
+configure terminal
+!
+logging console
+!
+<span class="c">! GuestShell 接続用の仮想L3インターフェース</span>
+interface VirtualPortGroup0
+ ip address 192.168.0.1 255.255.255.0
+!
+router ospf 1
+ network 192.168.0.<span class="w">0</span> 0.0.0.255 area 0    <span class="c">! ← .0（ネットワークアドレス）.1 ではない</span>
+ passive-interface VirtualPortGroup0</pre>
+
+<pre><span class="h">Step 2: IP SLA + Track + EEM（P4 新規）</span>
+<span class="c">! R23 から R24 への ping 監視（別ルーター宛！自分宛はダメ）</span>
+ip sla 1
+ icmp-echo <span class="w">10.2.255.24</span>                  <span class="c">! ← R24 の Loopback（自分自身ではない）</span>
+ frequency 10                            <span class="c">! 10秒ごとに ping</span>
+ip sla schedule 1 life forever start-time now
+!
+track 1 ip sla 1 reachability
+!
+event manager applet PING_CAPTURE
+ event track 1 <span class="w">state any</span>                 <span class="c">! ← any = DOWN/UP どちらの変化でも発火</span>
+ action 1.0 cli command "enable"
+ action 2.0 cli command "guestshell run python3 <span class="w">/bootflash/guest-share/ping_report.py</span>"
+ action 3.0 syslog priority <span class="w">notifications</span> msg "Ping Capture Complete"
+ exit</pre>
+
+<pre><span class="h">Step 3: IOx + GuestShell コンテナ設定（P1-P3 と共通）</span>
+iox
+!
+app-hosting appid guestshell
+ app-vnic <span class="w">gateway0 virtualportgroup 0 guest-interface 0</span>
+  <span class="w">guest-ipaddress 192.168.0.2 netmask 255.255.255.0</span>
+  exit
+ app-default-gateway 192.168.0.1 <span class="w">guest-interface 0</span>
+end</pre>
+
+<pre><span class="h">Step 4: GuestShell 起動</span>
+guestshell enable
+show iox-service
+show app-hosting list</pre>
+
+    <div class="sub-label">Step 5: Python スクリプト</div>
+<pre><span class="h">vi /bootflash/guest-share/ping_report.py</span>   <span class="c">! ← ファイル名をEEM側と一致させる（ハイフンではなくアンダースコア）</span></pre>
+    <div class="script"><span class="c">#!/usr/bin/env python3</span>
+
+<span class="kw">import</span> cli
+<span class="kw">from</span> datetime <span class="kw">import</span> datetime
+
+cmds = [
+    <span class="str">"show ip interface brief"</span>,
+    <span class="str">"show ip route"</span>,
+    <span class="str">"show ip sla statistics"</span>,
+]
+
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"/bootflash/guest-share/ping_report.txt"</span>, <span class="str">"a+"</span>) <span class="kw">as</span> f:
+    f.write(<span class="kw">f</span><span class="str">"\\n=== Ping Report: {datetime.now()} ===\\n"</span>)
+    <span class="kw">for</span> cmd <span class="kw">in</span> cmds:
+        output = cli.<span class="fn">execute</span>(cmd)
+        f.write(<span class="kw">f</span><span class="str">"\\n--- {cmd} ---\\n{output}\\n"</span>)</div>
+
+    <div class="sub-label">テスト手順</div>
+<pre><span class="c">! R23 上で track 状態を確認:</span>
+show track 1                              <span class="c">! → State is "Up"</span>
+!
+<span class="c">! R24 上で対向IFを落とす（= R23 の track が DOWN に変化 → EEM発火）:</span>
+R24# conf t
+R24(config)# interface Loopback0
+R24(config-if)# shutdown
+!
+<span class="c">! R23 で10秒以内に syslog "Ping Capture Complete" 確認</span>
+<span class="c">! 結果ファイル確認:</span>
+more bootflash:guest-share/ping_report.txt
+!
+<span class="c">! R24 を復旧（state any なら再度発火）:</span>
+R24(config-if)# no shutdown</pre>
+
+    <hr>
+    <div class="sub-label">⚠ よくある間違い（暗記必須）</div>
+    <table>
+      <tbody><tr><th>間違い</th><th>正解</th><th>理由</th></tr>
+      <tr><td><code>icmp-echo 10.2.255.23</code>（自分宛）</td><td><code>icmp-echo 10.2.255.24</code>（別ルーター）</td><td><strong>自分宛は常にUP → EEM発火しない</strong></td></tr>
+      <tr><td><code>network 192.168.0.1</code></td><td><code>network 192.168.0.0</code></td><td><strong>ネットワークアドレスを指定</strong>（ホストではない）</td></tr>
+      <tr><td><code>vi ping-report.py</code>（ハイフン）</td><td><code>vi ping_report.py</code>（アンダースコア）</td><td><strong>EEM側のファイル名と一致させる</strong></td></tr>
+      <tr><td><code>app-vnic gatway 0</code></td><td><code>app-vnic gateway0</code></td><td>typo + <strong>gateway0はスペースなし</strong></td></tr>
+      <tr><td><code>guest-int 0</code></td><td><code>guest-interface 0</code></td><td><strong>省略不可</strong></td></tr>
+      <tr><td><code>netmask 0.0.0.255</code></td><td><code>netmask 255.255.255.0</code></td><td><strong>サブネットマスク形式</strong>（ワイルドカードではない）</td></tr>
+      <tr><td><code>priority notification</code></td><td><code>priority notifications</code></td><td><strong>s が必要</strong></td></tr>
+      <tr><td><code>cli.execut(cmd)</code></td><td><code>cli.execute(cmd)</code></td><td>typo</td></tr>
+      <tr><td><code>Import cli</code> / <code>With open</code></td><td><code>import</code> / <code>with</code></td><td>Python は<strong>全て小文字</strong></td></tr>
+    </tbody></table>
+
+    <div class="sub-label">VPG アーキテクチャ</div>
+<pre><span class="h">IOS-XE ルーター                GuestShell コンテナ</span>
+┌──────────────────────┐      ┌──────────────────────┐
+│ VirtualPortGroup0    │──────│ guest-interface 0    │
+│  192.168.0.<span class="w">1</span>         │      │  192.168.0.<span class="w">2</span>         │
+│  (default-gateway)   │      │  (container IP)      │
+└──────────────────────┘      └──────────────────────┘
+         │
+    OSPF area 0                cli.execute() は
+    network 192.168.0.0        <span class="c">内部IPC（ネットワーク不経由）</span>
+    passive-interface VPG0     <span class="c">→ VPG不要だがコンテナ起動に必須</span></pre>
+
+    <div class="warn"><strong>落とし穴:</strong>
+・<code>action</code> で CLI 実行する場合、最初に <code>action 1.0 cli command "enable"</code> が <strong>必須</strong>
+・action番号は <strong>辞書順</strong>で実行される（1.0 → 2.0 → 3.0）
+・GuestShellスクリプトのパスは <code>/bootflash/guest-share/</code>（フルパス指定が安全）
+・<code>iox</code> を入れ忘れると GuestShell が起動しない
+・<code>guestshell enable</code> は config mode ではなく <strong>exec mode</strong> で実行
+・EEM <code>event track</code> は <strong>状態変化</strong> でのみ発火。ずっと UP/DOWN なら何も起きない</div>
+
+  </div>
+</div>
+
+</div><!-- end Prog domain -->
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--              P4 トポロジー予想                             -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="domain">
+<div class="domain-title">P4 確定情報 — Task別マッピング</div>
+
+<div class="section" id="topology">
+  <div class="section-header">
+    <span class="badge" style="background:rgba(220,38,38,.12);color:var(--accent-5);font-size:10px;font-weight:700;padding:3px 10px;border-radius:4px;">確定</span>
+    <h2>13. P4 変更点まとめ</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="warn"><strong>実情報ベース:</strong> Design/DOOに各1パターン追加。RS 14問＋選択2問、Prog 3問、SD-WAN選択1-2問あり。</div>
+
+    <div class="sub-label">Task別 P4 確定変更</div>
+    <table>
+      <tbody><tr><th>Task</th><th>P1-P3</th><th style="background:rgba(220,38,38,.1);color:var(--accent-5);">P4 確定</th><th>ポイント</th></tr>
+      <tr><td><strong>1.3</strong></td><td>LACP + rapid-pvst</td><td><strong>PAgP + MST</strong></td><td>PAgP desirable/auto、MST name/rev/mapping一致</td></tr>
+      <tr><td><strong>1.4</strong></td><td>HSRP / VRRP</td><td><strong>DAI + DHCP Snooping</strong></td><td>FHRPではなくセキュリティに変更</td></tr>
+      <tr><td><strong>1.5</strong></td><td>OSPF single-area</td><td><strong>OSPF multi-area</strong></td><td>新要件でエリア分割</td></tr>
+      <tr><td><strong>1.6</strong></td><td>EIGRP named mode</td><td><strong>iBGP R61-R62</strong></td><td>EIGRPからiBGPに完全変更</td></tr>
+      <tr><td><strong>1.7</strong></td><td>MPLS LDP</td><td><strong>MPLS 新要件</strong></td><td>認証方式変更の可能性</td></tr>
+      <tr><td><strong>1.8</strong></td><td>VRF同一RD + PE間直結</td><td><strong>PE毎異なるRD + R1=RR</strong></td><td>Route Reflector構成</td></tr>
+      <tr><td><strong>1.11</strong></td><td>DMVPN (mGRE+NHRP)</td><td><strong>GRE（DMVPNなし）</strong></td><td>P2P GRE、NHRPなし</td></tr>
+      <tr><td><strong>VRRP</strong></td><td>—</td><td><strong>既存standby削除→VRRP</strong></td><td>先にno standby必要</td></tr>
+      <tr><td><strong>AAA</strong></td><td>AAA/RADIUS</td><td><strong>NETCONF-YANG用AAA</strong></td><td>NETCONFでログインできるように</td></tr>
+      <tr><td><strong>SD-WAN</strong></td><td>AAR/Template</td><td><strong>Policy + Site設定</strong></td><td>基本流れ同じ、選択問題あり</td></tr>
+      <tr><td><strong>Prog</strong></td><td>EEM+GuestShell 3問</td><td><strong>新スクリプト 3問</strong></td><td>ping出力系の問題</td></tr>
+    </tbody></table>
+
+    <hr>
+
+    <div class="sub-label">注目ポイント: 予測 vs 確定の差分</div>
+    <table>
+      <tbody><tr><th>項目</th><th>当初予測</th><th>実際</th><th>教訓</th></tr>
+      <tr><td>1.3</td><td>MST + EtherChannel</td><td><strong>PAgP</strong> + MST</td><td>LACP→PAgPの変更は想定外</td></tr>
+      <tr><td>1.4</td><td>VRRPv3</td><td><strong>DAI + DHCP Snooping</strong></td><td>FHRPがセキュリティに完全交替</td></tr>
+      <tr><td>1.5</td><td>OSPF+認証</td><td><strong>OSPF multi-area</strong></td><td>エリア分割は新パターン</td></tr>
+      <tr><td>1.6</td><td>EIGRP stub</td><td><strong>iBGP</strong></td><td>プロトコル自体が変更</td></tr>
+      <tr><td>1.8</td><td>soft-reconfig等</td><td><strong>異なるRD + RR</strong></td><td>VPNv4設計レベルの変更</td></tr>
+      <tr><td>1.11</td><td>DMVPN Phase 2</td><td><strong>GRE（DMVPN無し）</strong></td><td>mGRE→P2P GREに単純化</td></tr>
+    </tbody></table>
+
+    <hr>
+
+    <div class="sub-label">試験構成まとめ</div>
+    <table>
+      <tbody><tr><th>セクション</th><th>問題数</th><th>備考</th></tr>
+      <tr><td>RS</td><td>14問 + 選択2問</td><td>Task 1.3〜1.14 + 2.1</td></tr>
+      <tr><td>Programming</td><td>3問</td><td>ping検知→出力系</td></tr>
+      <tr><td>SD-WAN</td><td>設定 + 選択1-2問</td><td>Policy Site設定あり</td></tr>
+      <tr><td>Design</td><td>+1パターン追加</td><td>新問題あり</td></tr>
+      <tr><td>DOO</td><td>+1パターン追加</td><td>新問題あり</td></tr>
+    </tbody></table>
+
+  </div>
+</div>
+
+</div><!-- end prediction domain -->
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--                 付録: タイマーデフォルト値                  -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="domain">
+<div class="domain-title" id="defaults">付録 — タイマー &amp; 数値デフォルト値</div>
+
+<div class="section">
+  <div class="section-header"><span class="badge badge-rs">REF</span><h2>全プロトコル デフォルト値一覧</h2></div>
+  <div class="section-body">
+
+    <div class="sub-label">OSPF</div>
+    <table>
+      <tbody><tr><th>パラメータ</th><th>デフォルト</th><th>備考</th></tr>
+      <tr><td>hello interval</td><td>10秒</td><td>NBMA: 30秒</td></tr>
+      <tr><td>dead interval</td><td>40秒</td><td>NBMA: 120秒</td></tr>
+      <tr><td>priority</td><td>1</td><td>0=DR/BDR除外</td></tr>
+      <tr><td>reference bandwidth</td><td>100 Mbps</td><td><code>auto-cost reference-bandwidth</code></td></tr>
+      <tr><td>cost（GigE）</td><td>1</td><td></td></tr>
+      <tr><td>AD（internal）</td><td>110</td><td></td></tr>
+    </tbody></table>
+
+    <div class="sub-label">EIGRP</div>
+    <table>
+      <tbody><tr><th>パラメータ</th><th>デフォルト</th><th>備考</th></tr>
+      <tr><td>hello interval</td><td>5秒</td><td>T1以下: 60秒</td></tr>
+      <tr><td>hold time</td><td>15秒</td><td>T1以下: 180秒</td></tr>
+      <tr><td>variance</td><td>1</td><td>等コストのみ</td></tr>
+      <tr><td>maximum-paths</td><td>4</td><td></td></tr>
+      <tr><td>AD（internal / external）</td><td>90 / 170</td><td></td></tr>
+    </tbody></table>
+
+    <div class="sub-label">BGP</div>
+    <table>
+      <tbody><tr><th>パラメータ</th><th>デフォルト</th><th>備考</th></tr>
+      <tr><td>keepalive</td><td>60秒</td><td></td></tr>
+      <tr><td>hold time</td><td>180秒</td><td></td></tr>
+      <tr><td>advertisement-interval（eBGP）</td><td>30秒</td><td></td></tr>
+      <tr><td>advertisement-interval（iBGP）</td><td>0秒</td><td></td></tr>
+      <tr><td>AD（eBGP / iBGP）</td><td>20 / 200</td><td></td></tr>
+    </tbody></table>
+
+    <div class="sub-label">STP / MST</div>
+    <table>
+      <tbody><tr><th>パラメータ</th><th>デフォルト</th></tr>
+      <tr><td>bridge priority</td><td>32768</td></tr>
+      <tr><td>port priority</td><td>128</td></tr>
+      <tr><td>hello time</td><td>2秒</td></tr>
+      <tr><td>forward delay</td><td>15秒</td></tr>
+      <tr><td>max age</td><td>20秒</td></tr>
+      <tr><td>MST max-hops</td><td>20</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">MPLS / LDP</div>
+    <table>
+      <tbody><tr><th>パラメータ</th><th>デフォルト</th></tr>
+      <tr><td>LDP hello interval</td><td>5秒</td></tr>
+      <tr><td>LDP hello holdtime</td><td>15秒</td></tr>
+      <tr><td>session holdtime</td><td>180秒</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">CDP / LLDP</div>
+    <table>
+      <tbody><tr><th></th><th>timer</th><th>holdtime</th></tr>
+      <tr><td>CDP</td><td>60秒</td><td>180秒</td></tr>
+      <tr><td>LLDP</td><td>30秒</td><td>120秒</td></tr>
+    </tbody></table>
+
+  </div>
+</div>
+
+</div><!-- end appendix -->
+
+<!-- ═════════════════════════════════════════════════════════════ -->
+<!--              付録: 英語読み解きガイド                      -->
+<!-- ═════════════════════════════════════════════════════════════ -->
+<div class="domain">
+<div class="domain-title" id="reading-tips">付録 — 英語読み解きガイド</div>
+
+<div class="section">
+  <div class="section-header"><span class="badge" style="background:rgba(220,38,38,.12);color:var(--accent-5);font-size:10px;font-weight:700;padding:3px 10px;border-radius:4px;">EXAM</span><h2>遠回し英語表現 → 本当の意味</h2></div>
+  <div class="section-body">
+
+    <div class="sub-label">プロトコル・技術の識別</div>
+    <table>
+      <tbody><tr><th>遠回し英語表現</th><th>本当の意味</th><th>ポイント</th></tr>
+      <tr><td>"Cisco-proprietary" (L2 bundling)</td><td><strong>PAgP</strong></td><td>LACPはIEEE 802.3ad</td></tr>
+      <tr><td>"Cisco-proprietary" (FHRP)</td><td><strong>HSRP</strong></td><td>削除対象の可能性</td></tr>
+      <tr><td>"IEEE standard" / "IETF standard" (FHRP)</td><td><strong>VRRP</strong></td><td>v3推奨</td></tr>
+      <tr><td>"single spanning-tree region"</td><td><strong>MST</strong></td><td>PVST+ではregionと言わない</td></tr>
+      <tr><td>"same administrative domain"</td><td><strong>iBGP</strong>（同AS）</td><td>update-source + next-hop-self</td></tr>
+      <tr><td>"IETF network configuration protocol"</td><td><strong>NETCONF</strong></td><td>RESTCONFではない</td></tr>
+      <tr><td>"label binding protocol"</td><td><strong>LDP</strong></td><td>RSVP-TEではない</td></tr>
+      <tr><td>"proprietary negotiation" (EtherChannel)</td><td><strong>PAgP</strong></td><td>desirable/auto</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">設計・アーキテクチャの識別</div>
+    <table>
+      <tbody><tr><th>遠回し英語表現</th><th>本当の意味</th><th>コマンド</th></tr>
+      <tr><td>"isolated from external routing information"</td><td><strong>Stub Area</strong></td><td><code>area X stub</code></td></tr>
+      <tr><td>"minimize LSDB" / "only a default route"</td><td><strong>Totally Stub</strong></td><td><code>area X stub no-summary</code>（ABRのみ）</td></tr>
+      <tr><td>"central point that reflects routes"</td><td><strong>Route Reflector</strong></td><td><code>route-reflector-client</code></td></tr>
+      <tr><td>"unique per PE" (RD context)</td><td><strong>RD変更</strong></td><td>RTは維持</td></tr>
+      <tr><td>"full-mesh iBGP elimination"</td><td><strong>RR or Confederation</strong></td><td>RRが一般的</td></tr>
+      <tr><td>"without multipoint resolution"</td><td><strong>GRE</strong>（not DMVPN）</td><td>tunnel destination 必須</td></tr>
+      <tr><td>"encapsulated path"</td><td><strong>Tunnel</strong>（GRE/IPsec）</td><td>tunnel mode gre ip</td></tr>
+      <tr><td>"different forwarding path"</td><td><strong>MST Instance分割</strong></td><td>instance X vlan Y</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">パラメータ・設定値の識別</div>
+    <table>
+      <tbody><tr><th>遠回し英語表現</th><th>本当の意味</th><th>コマンド</th></tr>
+      <tr><td>"default transport" (NETCONF)</td><td>SSH port <strong>830</strong></td><td>変更不要</td></tr>
+      <tr><td>"locally defined credentials"</td><td><code>default local</code></td><td>RADIUSではない</td></tr>
+      <tr><td>"full configuration privileges"</td><td><code>privilege 15</code></td><td></td></tr>
+      <tr><td>"preferred root"</td><td><strong>priority変更</strong></td><td>4096の倍数</td></tr>
+      <tr><td>"actively initiate" (EtherChannel)</td><td><code>desirable</code> / <code>active</code></td><td>PAgP/LACPによる</td></tr>
+      <tr><td>"priority N higher than the default"</td><td>default + N</td><td>VRRP default=100 → 110</td></tr>
+      <tr><td>"Adjust path MTU" / "prevent fragmentation"</td><td><code>ip mtu</code> + <code>tcp adjust-mss</code></td><td>GRE: 1400/1360が安全</td></tr>
+      <tr><td>"host routes only" (MPLS)</td><td><code>label allocate global host-routes</code></td><td>/32のみラベル割当</td></tr>
+      <tr><td>"run indefinitely" (monitoring)</td><td><code>life forever start-time now</code></td><td>IP SLA schedule</td></tr>
+    </tbody></table>
+
+    <div class="sub-label">SD-WAN 選択問題のキーワード</div>
+    <table>
+      <tbody><tr><th>英語表現</th><th>答え</th></tr>
+      <tr><td>"BEFORE configuring rules"</td><td><strong>Groups of Interest を先に作る</strong></td></tr>
+      <tr><td>"saved but not affecting traffic"</td><td><strong>Activate 忘れ</strong>  or Direction 間違い</td></tr>
+      <tr><td>"lowest-latency path" + "SLA thresholds"</td><td><strong>AAR (App-Aware Routing)</strong></td></tr>
+      <tr><td>"route advertisement filtering on vSmart"</td><td><strong>Control Policy</strong></td></tr>
+      <tr><td>"DSCP marking" + "forwarding class"</td><td><strong>Data Policy</strong></td></tr>
+      <tr><td>"bandwidth allocation per queue"</td><td><strong>Localized QoS Policy</strong></td></tr>
+    </tbody></table>
+
+    <hr>
+    <div class="sub-label">読み解き 3ステップ戦略</div>
+    <div class="note">
+      <strong>Step 1:</strong> 形容詞を拾う — "proprietary" / "standard" / "IETF" / "Cisco" → プロトコル特定<br>
+      <strong>Step 2:</strong> 制約条件を拾う — "without" / "not rely on" / "minimize" / "only" → 何をやらないかがヒント<br>
+      <strong>Step 3:</strong> 期待結果を拾う — "sufficient" / "preferred" / "ensure" → 最終的に何が動くべきか
+    </div>
+
+  </div>
+</div>
+
+</div><!-- end reading-tips -->
+
+<!-- ──────────── Default Values ──────────── -->
+<div class="section" id="defaults">
+<h2>12. 数値パラメータ × IOS デフォルト値一覧</h2>
+<div class="note">全パターン(P1-P3)で入力が必要だった数値。デフォルトと違う値は<span style="color:#e74c3c;font-weight:bold;">赤字</span>で強調。</div>
+
+<div class="sub-label">FHRP（HSRP / VRRP）</div>
+<table>
+  <tbody><tr><th>パラメータ</th><th>設定値</th><th>IOS デフォルト</th><th>Pattern</th></tr>
+  <tr><td>HSRP priority</td><td>110</td><td>100</td><td>P1, P2</td></tr>
+  <tr><td>HSRP timers (hello/hold)</td><td style="color:#e74c3c;font-weight:bold;">1 / 5</td><td>3 / 10</td><td>P2</td></tr>
+  <tr><td>HSRP preempt delay minimum</td><td style="color:#e74c3c;font-weight:bold;">15</td><td>0（即時）</td><td>P2</td></tr>
+  <tr><td>HSRP track decrement</td><td style="color:#e74c3c;font-weight:bold;">20</td><td>10</td><td>P2</td></tr>
+  <tr><td>VRRP priority</td><td>110</td><td>100</td><td>P3</td></tr>
+  <tr><td>VRRP timers advertise</td><td style="color:#e74c3c;font-weight:bold;">3</td><td>1 sec</td><td>P3</td></tr>
+</tbody></table>
+
+<div class="sub-label">STP</div>
+<table>
+  <tbody><tr><th>パラメータ</th><th>設定値</th><th>IOS デフォルト</th></tr>
+  <tr><td>STP priority (Root)</td><td>0</td><td>32768</td></tr>
+  <tr><td>STP priority (Secondary)</td><td>4096</td><td>32768</td></tr>
+</tbody></table>
+
+<div class="sub-label">OSPF</div>
+<table>
+  <tbody><tr><th>パラメータ</th><th>設定値</th><th>IOS デフォルト</th><th>Pattern</th></tr>
+  <tr><td>timers pacing flood</td><td style="color:#e74c3c;font-weight:bold;">66</td><td>33 ms</td><td>P3</td></tr>
+  <tr><td>queue-depth update</td><td style="color:#e74c3c;font-weight:bold;">400</td><td>200</td><td>P3</td></tr>
+  <tr><td>timers throttle lsa (start/hold/max)</td><td style="color:#e74c3c;font-weight:bold;">0 / 4000 / 4000</td><td>0 / 5000 / 5000</td><td>P3</td></tr>
+</tbody></table>
+
+<div class="sub-label">BGP</div>
+<table>
+  <tbody><tr><th>パラメータ</th><th>設定値</th><th>IOS デフォルト</th><th>Pattern</th></tr>
+  <tr><td>neighbor timers (keepalive/hold)</td><td style="color:#e74c3c;font-weight:bold;">30 / 90</td><td>60 / 180</td><td>P3</td></tr>
+  <tr><td>maximum-prefix</td><td>100000 90 restart 5</td><td>なし（無制限）</td><td>P2</td></tr>
+</tbody></table>
+
+<div class="sub-label">BFD</div>
+<table>
+  <tbody><tr><th>パラメータ</th><th>設定値</th><th>IOS デフォルト</th></tr>
+  <tr><td>interval / min_rx</td><td>333 ms</td><td>指定必須</td></tr>
+  <tr><td>multiplier</td><td>3</td><td>指定必須</td></tr>
+</tbody></table>
+
+<div class="sub-label">MPLS LDP</div>
+<table>
+  <tbody><tr><th>パラメータ</th><th>設定値</th><th>IOS デフォルト</th><th>Pattern</th></tr>
+  <tr><td>session protection duration</td><td style="color:#e74c3c;font-weight:bold;">infinite</td><td>86400 sec (24h)</td><td>P3</td></tr>
+</tbody></table>
+
+<div class="sub-label">QoS Policing（R70）</div>
+<table>
+  <tbody><tr><th>パラメータ</th><th>設定値</th><th>IOS デフォルト</th><th>Pattern</th></tr>
+  <tr><td>police cir</td><td>500000 bps</td><td>指定必須</td><td>P3</td></tr>
+  <tr><td>bc (burst commit)</td><td>31250 bytes</td><td>cir ÷ 8000 × 1500ms</td><td>P3</td></tr>
+  <tr><td>be (burst excess)</td><td>62500 bytes</td><td>= bc</td><td>P3</td></tr>
+</tbody></table>
+
+<div class="sub-label">RADIUS / AAA</div>
+<table>
+  <tbody><tr><th>パラメータ</th><th>設定値</th><th>IOS デフォルト</th><th>Pattern</th></tr>
+  <tr><td>auth-port</td><td>1645 (P1/P2) / <span style="color:#e74c3c;font-weight:bold;">1812</span> (P3)</td><td>1645</td><td>All</td></tr>
+  <tr><td>acct-port</td><td>1646 (P1/P2) / <span style="color:#e74c3c;font-weight:bold;">1813</span> (P3)</td><td>1646</td><td>All</td></tr>
+  <tr><td>radius-server retransmit</td><td style="color:#e74c3c;font-weight:bold;">6</td><td>3</td><td>P2</td></tr>
+  <tr><td>radius-server timeout</td><td style="color:#e74c3c;font-weight:bold;">10 sec</td><td>5 sec</td><td>P2</td></tr>
+</tbody></table>
+
+<div class="sub-label">Port Security / Errdisable（P1/P2）</div>
+<table>
+  <tbody><tr><th>パラメータ</th><th>設定値</th><th>IOS デフォルト</th><th>Pattern</th></tr>
+  <tr><td>port-security max</td><td>1</td><td>1（同じ）</td><td>P1, P2</td></tr>
+  <tr><td>port-security aging time</td><td>1 min</td><td>0（aging なし）</td><td>P1, P2</td></tr>
+  <tr><td>errdisable recovery interval</td><td style="color:#e74c3c;font-weight:bold;">120 (P1) / 180 (P2)</td><td>300 sec</td><td>P1, P2</td></tr>
+</tbody></table>
+
+<div class="sub-label">DMVPN / Tunnel</div>
+<table>
+  <tbody><tr><th>パラメータ</th><th>設定値</th><th>IOS デフォルト</th></tr>
+  <tr><td>ip mtu (Tunnel)</td><td style="color:#e74c3c;font-weight:bold;">1440</td><td>1476 (GRE)</td></tr>
+  <tr><td>EEM ratelimit</td><td>5 sec</td><td>指定必須</td></tr>
+</tbody></table>
+
+<div class="sub-label">その他</div>
+<table>
+  <tbody><tr><th>パラメータ</th><th>設定値</th><th>IOS デフォルト</th><th>Pattern</th></tr>
+  <tr><td>rotary</td><td>3 → port 3003</td><td>なし</td><td>All</td></tr>
+  <tr><td>netconf-yang ssh port</td><td style="color:#e74c3c;font-weight:bold;">888</td><td>830</td><td>P3</td></tr>
+  <tr><td>SNMP v3 priv aes</td><td>128</td><td>指定必須</td><td>P3</td></tr>
+</tbody></table>
+
+<div class="sub-label">暗記ポイント — デフォルトと異なる値（覚えるべき）</div>
+<pre><span class="h">パラメータ          設定値        デフォルト     覚え方</span>
+VRRP advertise    : 3           / 1           ← 3倍に
+OSPF pacing flood : 66          / 33          ← 倍
+OSPF queue-depth  : 400         / 200         ← 倍
+OSPF throttle lsa : 0/4000/4000 / 0/5000/5000 ← hold/max を 4000 に縮小
+BGP timers        : 30/90       / 60/180      ← 半分
+LDP session prot  : infinite    / 86400(24h)  ← 永久に
+RADIUS auth-port  : P3=1812     / default=1645 ← 新ポート
+netconf ssh port  : 888         / 830         ← +58
+errdisable intv   : 120/180     / 300         ← 縮小
+Tunnel MTU        : 1440        / 1476        ← −36
+HSRP timers       : 1/5         / 3/10        ← 高速化
+HSRP preempt delay: 15          / 0           ← 遅延追加
+HSRP track dec    : 20          / 10          ← 倍</pre>
+
+</div><!-- end defaults -->
+
+</div><!-- end page -->
+
+<script>
+(function(){
+  if(window.matchMedia('(prefers-color-scheme:dark)').matches)
+    document.documentElement.setAttribute('data-theme','dark');
+  window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){
+    if(e.matches) document.documentElement.setAttribute('data-theme','dark');
+    else document.documentElement.removeAttribute('data-theme');
+  });
+})();
+</script>
+<a id="hub-back" href="/index.html" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:#1e293b;color:#f1f5f9;border:1px solid #475569;border-radius:99px;padding:10px 18px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.4);display:flex;align-items:center;gap:6px;-webkit-tap-highlight-color:transparent;">🏠 Hub</a>
+
+</div></body></html>
