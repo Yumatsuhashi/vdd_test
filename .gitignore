@@ -1,3 +1,7 @@
 .DS_Store
 node_modules/
 *.log
+.worktrees/
+.local-docs/
+.claude/agent-memory-local/
+.claude/settings.local.json
