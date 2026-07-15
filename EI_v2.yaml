@@ -1,0 +1,4838 @@
+annotations:
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#BE0000'
+    rotation: 0
+    text_bold: false
+    text_content: HQ
+    text_font: monospace
+    text_italic: false
+    text_size: 20
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -560.0
+    y1: -400.0
+    z_index: 0
+  - border_color: '#FFFFFF00'
+    border_radius: 0
+    border_style: ''
+    color: '#FFC5C65A'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -560.0
+    y1: -360.0
+    x2: 400.0
+    y2: 360.0
+    z_index: 1
+  - border_color: '#FFFFFF00'
+    border_radius: 0
+    border_style: ''
+    color: '#C5D3FF5A'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -120.0
+    y1: -360.0
+    x2: 640.0
+    y2: 520.0
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#0054BE'
+    rotation: 0
+    text_bold: false
+    text_content: DC
+    text_font: monospace
+    text_italic: false
+    text_size: 20
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -120.0
+    y1: -400.0
+    z_index: 0
+  - border_color: '#FFFFFF00'
+    border_radius: 0
+    border_style: ''
+    color: '#FFC5FF5A'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -80.0
+    y1: 200.0
+    x2: 560.0
+    y2: 240.0
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#B600BE'
+    rotation: 0
+    text_bold: false
+    text_content: SP
+    text_font: monospace
+    text_italic: false
+    text_size: 20
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -120.0
+    y1: 240.0
+    z_index: 0
+  - border_color: '#FFFFFF00'
+    border_radius: 0
+    border_style: ''
+    color: '#D1C5FF5A'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: 520.0
+    y1: 400.0
+    x2: 240.0
+    y2: 400.0
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#6200BE'
+    rotation: 0
+    text_bold: false
+    text_content: Branch4
+    text_font: monospace
+    text_italic: false
+    text_size: 20
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 600.0
+    y1: 360.0
+    z_index: 0
+  - border_color: '#FFFFFF00'
+    border_radius: 0
+    border_style: ''
+    color: '#C5EAFF5A'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -80.0
+    y1: 480.0
+    x2: 560.0
+    y2: 440.0
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#00B6BE'
+    rotation: 0
+    text_bold: false
+    text_content: Branch3
+    text_font: monospace
+    text_italic: false
+    text_size: 20
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -200.0
+    y1: 480.0
+    z_index: 0
+  - border_color: '#808080FF'
+    border_style: ''
+    color: '#FFFFFFFF'
+    line_end: null
+    line_start: null
+    thickness: 1
+    type: line
+    x1: -480.0
+    y1: -320.0
+    x2: -240.0
+    y2: -320.0
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: host11
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -560.0
+    y1: -320.0
+    z_index: 3
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: host12
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -240.0
+    y1: -320.0
+    z_index: 3
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: Gi0/0
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -440.0
+    y1: -360.0
+    z_index: 3
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: Gi0/1
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -320.0
+    y1: -360.0
+    z_index: 3
+  - border_color: '#808080FF'
+    border_style: ''
+    color: '#FFFFFFFF'
+    line_end: null
+    line_start: null
+    thickness: 1
+    type: line
+    x1: 80.0
+    y1: -200.0
+    x2: 80.0
+    y2: -200.0
+    z_index: 4
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: Gi0/1
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 240.0
+    y1: 840.0
+    z_index: 3
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: PC 62
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 320.0
+    y1: 880.0
+    z_index: 3
+  - border_color: '#808080FF'
+    border_style: ''
+    color: '#FFFFFFFF'
+    line_end: null
+    line_start: null
+    thickness: 1
+    type: line
+    x1: 320.0
+    y1: 880.0
+    x2: 200.0
+    y2: 840.0
+    z_index: 6
+  - border_color: '#808080FF'
+    border_style: ''
+    color: '#FFFFFFFF'
+    line_end: null
+    line_start: null
+    thickness: 1
+    type: line
+    x1: 80.0
+    y1: 880.0
+    x2: 200.0
+    y2: 840.0
+    z_index: 6
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: PC 61
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 40.0
+    y1: 880.0
+    z_index: 3
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: Gi0/0
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 120.0
+    y1: 840.0
+    z_index: 3
+smart_annotations: []
+nodes:
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SW101
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          spanning-tree mode pvst
+          spanning-tree extend system-id
+          vlan internal allocation policy ascending
+          !
+          vlan 2000-2001
+          !
+          interface Loopback0
+           ip address 10.1.255.101 255.255.255.255
+           ip ospf 1 area 0
+          !
+          interface Port-channel1
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface Port-channel3
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface GigabitEthernet0/0
+           no switchport
+           ip address 10.1.10.2 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::101 link-local
+          !
+          interface GigabitEthernet0/1
+           no switchport
+           ip address 10.1.12.2 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::101 link-local
+          !
+          interface GigabitEthernet0/2
+           no switchport
+           ip address 10.2.241.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/2
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface GigabitEthernet1/3
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface GigabitEthernet2/0
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+           channel-group 3 mode active
+          !
+          interface GigabitEthernet2/1
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+           channel-group 3 mode active
+          !
+          interface Vlan2000
+           ip address 10.1.100.2 255.255.255.0
+           ipv6 address FE80::101 link-local
+          !
+          interface Vlan2001
+           ip address 10.1.101.2 255.255.255.0
+           ipv6 address FE80::101 link-local
+          !
+          router ospf 1
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain-lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n0
+    image_definition: null
+    label: SW101
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: -520
+    y: -200
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet2/0
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i10
+        label: GigabitEthernet2/1
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i11
+        label: GigabitEthernet2/2
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i12
+        label: GigabitEthernet2/3
+        mac_address: null
+        type: physical
+        slot: 11
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SW110
+          !
+          spanning-tree mode pvst
+          spanning-tree extend system-id
+          !
+          vlan internal allocation policy ascending
+          !
+          vlan 2000-2001
+          !
+          interface Port-channel1
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface Port-channel2
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface GigabitEthernet1/0
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+           channel-group 1 mode on
+          !
+          interface GigabitEthernet1/1
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+           channel-group 1 mode on
+          !
+          interface GigabitEthernet1/2
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+           channel-group 2 mode passive
+          !
+          interface GigabitEthernet1/3
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+           channel-group 2 mode passive
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain-lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n1
+    image_definition: null
+    label: SW110
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: -360
+    y: -320
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet2/0
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i10
+        label: GigabitEthernet2/1
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i11
+        label: GigabitEthernet2/2
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i12
+        label: GigabitEthernet2/3
+        mac_address: null
+        type: physical
+        slot: 11
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SW102
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          spanning-tree mode pvst
+          spanning-tree extend system-id
+          !
+          vlan internal allocation policy ascending
+          !
+          vlan 2000-2001
+          !
+          interface Loopback0
+           ip address 10.1.255.102 255.255.255.255
+           ip ospf 1 area 0
+          !
+          interface Port-channel2
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface Port-channel3
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface GigabitEthernet0/0
+           no switchport
+           ip address 10.1.11.2 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::102 link-local
+          !
+          interface GigabitEthernet0/1
+           no switchport
+           ip address 10.1.13.2 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::102 link-local
+          !
+          interface GigabitEthernet0/2
+           no switchport
+           ip address 10.2.242.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/2
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+           channel-group 2 mode passive
+          !
+          interface GigabitEthernet1/3
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+           channel-group 2 mode passive
+          !
+          interface GigabitEthernet2/0
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+           channel-group 3 mode active
+          !
+          interface GigabitEthernet2/1
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+           channel-group 3 mode active
+          !
+          interface Vlan2000
+           ip address 10.1.100.3 255.255.255.0
+           ipv6 address FE80::102 link-local
+          !
+          interface Vlan2001
+           ip address 10.1.101.3 255.255.255.0
+           ipv6 address FE80::102 link-local
+          !
+          router ospf 1
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain-lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n2
+    image_definition: null
+    label: SW102
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: -200
+    y: -200
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet2/0
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i10
+        label: GigabitEthernet2/1
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i11
+        label: GigabitEthernet2/2
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i12
+        label: GigabitEthernet2/3
+        mac_address: null
+        type: physical
+        slot: 11
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname R11
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Loopback0
+           ip address 10.1.255.11 255.255.255.255
+           ipv6 address 2001:DB8:1:255::11/128
+           ipv6 enable
+          !
+          interface GigabitEthernet0/0
+           ip address 100.3.11.2 255.255.255.252
+           ipv6 address FE80::11 link-local
+           no shutdown
+          !
+          interface GigabitEthernet0/1
+           ip address 10.1.99.1 255.255.255.252
+           ipv6 address FE80::11 link-local
+           no shutdown
+          !
+          interface GigabitEthernet0/2
+           ip address 10.1.13.1 255.255.255.252
+           ipv6 address FE80::11 link-local
+           no shutdown
+          !
+          interface GigabitEthernet0/3
+           ip address 10.1.10.1 255.255.255.252
+           ipv6 address FE80::11 link-local
+           no shutdown
+          !
+          router bgp 65001
+           bgp log-neighbor-changes
+           no bgp default ipv4-unicast
+           neighbor 100.3.11.1 remote-as 10000
+           !
+           address-family ipv4
+            neighbor 100.3.11.1 activate
+           exit-address-family
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n3
+    image_definition: null
+    label: R11
+    node_definition: iosv
+    parameters: {}
+    ram: null
+    tags: []
+    x: -520
+    y: -40
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet0/4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet0/5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet0/6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet0/7
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet0/8
+        mac_address: null
+        type: physical
+        slot: 8
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname R12
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Loopback0
+           ip address 10.1.255.12 255.255.255.255
+           ipv6 address 2001:DB8:1:255::12/128
+          !
+          interface GigabitEthernet0/0
+           ip address 200.99.12.2 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet0/1
+           ip address 10.1.99.2 255.255.255.252
+           ipv6 address FE80::12 link-local
+           no shutdown
+          !
+          interface GigabitEthernet0/2
+           ip address 10.1.12.1 255.255.255.252
+           ipv6 address FE80::12 link-local
+           no shutdown
+          !
+          interface GigabitEthernet0/3
+           ip address 10.1.11.1 255.255.255.252
+           ipv6 address FE80::12 link-local
+           no shutdown
+          !
+          router bgp 65001
+           bgp log-neighbor-changes
+           no bgp default ipv4-unicast
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n4
+    image_definition: null
+    label: R12
+    node_definition: iosv
+    parameters: {}
+    ram: null
+    tags: []
+    x: -200
+    y: -40
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet0/4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet0/5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet0/6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet0/7
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet0/8
+        mac_address: null
+        type: physical
+        slot: 8
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SW211
+          !
+          ip dhcp relay information trust-all
+          !
+          ip dhcp pool hq_v2000
+           network 10.1.100.0 255.255.255.0
+           default-router 10.1.100.1
+          !
+          ip dhcp pool hq_v2001
+           network 10.1.101.0 255.255.255.0
+           default-router 10.1.101.1
+          !
+          ip audit notify log
+          ip audit po max-events 100
+          !
+          vtp version 1
+          multilink bundle-name authenticated
+          !
+          memory free low-watermark processor 80589
+          !
+          spanning-tree mode rapid-pvst
+          spanning-tree extend system-id
+          !
+          username iseuser password 0 CC!E!nfr4
+          !
+          vlan internal allocation policy ascending
+          !
+          interface Loopback0
+           ip address 10.2.255.211 255.255.255.255
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/0
+           no switchport
+           ip address 10.2.20.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/1
+           no switchport
+           ip address 10.2.22.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/2
+           no switchport
+           ip address 10.2.119.1 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/3
+           no switchport
+           ip address 10.2.115.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/0
+           no switchport
+           ip address 10.2.114.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/1
+           no switchport
+           ip address 10.2.252.1 255.255.255.0
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/2
+           no switchport
+           ip address 10.2.251.1 255.255.255.0
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/3
+           no switchport
+           ip address 10.2.250.1 255.255.255.0
+           ip ospf 1 area 0
+          !
+          router ospf 1
+          !
+          ip http server
+          ip http secure-server
+          ip ssh bulk-mode 131072
+          ip ssh server algorithm mac hmac-sha1
+          ip ssh server algorithm kex diffie-hellman-group14-sha1
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain-lookup
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n5
+    image_definition: null
+    label: SW211
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: 80
+    y: -200
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet2/0
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i10
+        label: GigabitEthernet2/1
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i11
+        label: GigabitEthernet2/2
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i12
+        label: GigabitEthernet2/3
+        mac_address: null
+        type: physical
+        slot: 11
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SW212
+          !
+          spanning-tree mode pvst
+          spanning-tree extend system-id
+          !
+          vlan internal allocation policy ascending
+          !
+          interface Loopback0
+           ip address 10.2.255.212 255.255.255.255
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/0
+           no switchport
+           ip address 10.2.21.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/1
+           no switchport
+           ip address 10.2.23.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/2
+           no switchport
+           ip address 10.2.119.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/3
+           no switchport
+           ip address 10.2.215.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/0
+           no switchport
+           ip address 10.2.214.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/1
+           no switchport
+           ip address 10.2.254.1 255.255.255.0
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/2
+           no switchport
+           ip address 10.2.253.1 255.255.255.0
+           ip ospf 1 area 0
+          !
+          router ospf 1
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain-lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n6
+    image_definition: null
+    label: SW212
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: 320
+    y: -200
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet2/0
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i10
+        label: GigabitEthernet2/1
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i11
+        label: GigabitEthernet2/2
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i12
+        label: GigabitEthernet2/3
+        mac_address: null
+        type: physical
+        slot: 11
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SW201
+          !
+          spanning-tree mode pvst
+          spanning-tree extend system-id
+          !
+          vlan internal allocation policy ascending
+          !
+          vlan 3999-4000
+          !
+          interface Loopback0
+           ip address 10.2.255.201 255.255.255.255
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/0
+           no switchport
+           ip address 10.2.10.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/1
+           no switchport
+           ip address 10.2.12.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/2
+           switchport trunk encapsulation dot1q
+           switchport trunk native vlan 4000
+           switchport mode trunk
+          !
+          interface GigabitEthernet0/3
+           no switchport
+           ip address 10.2.109.1 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/0
+           no switchport
+           ip address 10.2.23.1 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/1
+           no switchport
+           ip address 10.2.20.1 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/2
+           no switchport
+           ip address 10.2.241.1 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/3
+           switchport trunk encapsulation dot1q
+           switchport trunk native vlan 4000
+           switchport mode trunk
+          !
+          interface Vlan3999
+           ip address 10.2.201.11 255.255.255.248
+           ip ospf 1 area 0
+          !
+          interface Vlan4000
+           ip address 10.2.201.3 255.255.255.248
+           ip ospf 1 area 0
+          !
+          router ospf 1
+          !
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain-lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n7
+    image_definition: null
+    label: SW201
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: 80
+    y: -40
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet2/0
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i10
+        label: GigabitEthernet2/1
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i11
+        label: GigabitEthernet2/2
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i12
+        label: GigabitEthernet2/3
+        mac_address: null
+        type: physical
+        slot: 11
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SW202
+          !
+          spanning-tree mode pvst
+          spanning-tree extend system-id
+          !
+          vlan internal allocation policy ascending
+          !
+          vlan 3999-4000
+          !
+          interface Loopback0
+           ip address 10.2.255.202 255.255.255.255
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/0
+           no switchport
+           ip address 10.2.11.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/1
+           no switchport
+           ip address 10.2.13.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet0/2
+           switchport trunk encapsulation dot1q
+           switchport trunk native vlan 4000
+           switchport mode trunk
+          !
+          interface GigabitEthernet0/3
+           no switchport
+           ip address 10.2.109.2 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/0
+           no switchport
+           ip address 10.2.22.1 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/1
+           no switchport
+           ip address 10.2.21.1 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/2
+           no switchport
+           ip address 10.2.242.1 255.255.255.252
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1/3
+           switchport trunk encapsulation dot1q
+           switchport trunk native vlan 4000
+           switchport mode trunk
+          !
+          interface Vlan3999
+           ip address 10.2.202.11 255.255.255.248
+           ip ospf 1 area 0
+          !
+          interface Vlan4000
+           ip address 10.2.202.3 255.255.255.248
+           ip ospf 1 area 0
+          !
+          router ospf 1
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain-lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n8
+    image_definition: null
+    label: SW202
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: 320
+    y: -40
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet2/0
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i10
+        label: GigabitEthernet2/1
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i11
+        label: GigabitEthernet2/2
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i12
+        label: GigabitEthernet2/3
+        mac_address: null
+        type: physical
+        slot: 11
+  - boot_disk_size: null
+    configuration:
+      - name: iosxe_config.txt
+        content: |-
+          hostname R23
+          !
+          ip cef
+          no ipv6 cef
+          !
+          interface Loopback0
+           ip address 10.2.255.23 255.255.255.255
+          !
+          interface GigabitEthernet1
+           ip address 200.99.23.2 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet2
+           ip address 10.2.115.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet3
+           ip address 10.2.215.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet4
+           no ip address
+           no shutdown
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n9
+    image_definition: null
+    label: R23
+    node_definition: csr1000v
+    parameters: {}
+    ram: null
+    tags: []
+    x: -80
+    y: -320
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: iosxe_config.txt
+        content: |-
+          hostname R24
+          !
+          ip cef
+          no ipv6 cef
+          !
+          crypto isakmp policy 10
+           encr 3des
+           authentication pre-share
+           group 2
+          crypto isakmp key cisco address 0.0.0.0
+          !
+          !
+          crypto ipsec transform-set trans esp-3des esp-md5-hmac
+           mode tunnel
+          !
+          !
+          crypto ipsec profile prof
+           set security-association lifetime seconds 900
+           set transform-set trans
+          !
+          interface Loopback0
+           ip address 10.2.255.24 255.255.255.255
+          !
+          interface Loopback14
+           ip address 14.14.14.14 255.255.255.255
+          !
+          interface Loopback114
+           ip address 14.14.14.114 255.255.255.255
+          !
+          interface Tunnel0
+           ip address 10.200.0.1 255.255.255.0
+           no ip redirects
+           ip mtu 1440
+           ip nhrp network-id 1010
+           tunnel source Ethernet0/3
+           tunnel mode gre multipoint
+          !
+          interface GigabitEthernet1
+           ip address 200.99.24.2 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet2
+           ip address 10.2.114.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet3
+           ip address 10.2.214.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet4
+           no ip address
+           no shutdown
+          !
+          router eigrp ccie
+           !
+           address-family ipv4 unicast autonomous-system 65006
+            !
+            af-interface default
+             passive-interface
+            exit-af-interface
+            !
+            af-interface Tunnel0
+             no passive-interface
+            exit-af-interface
+            !
+            topology base
+            exit-af-topology
+            network 10.2.0.0 0.0.255.255
+            network 10.200.0.0 0.0.0.255
+           exit-address-family
+          !
+          router bgp 65002
+           bgp log-neighbor-changes
+           neighbor 200.99.24.1 remote-as 19999
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n10
+    image_definition: null
+    label: R24
+    node_definition: csr1000v
+    parameters: {}
+    ram: null
+    tags: []
+    x: 480
+    y: -320
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname cEdge21
+          !
+          vrf definition 999
+           rd 1:999
+           !
+           address-family ipv4
+            route-target export 1:999
+            route-target import 1:999
+           exit-address-family
+           !
+           address-family ipv6
+           exit-address-family
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Ethernet0/0
+           ip address 10.2.201.1 255.255.255.248
+           ip ospf 1 area 0
+           no shutdown
+          !
+          interface Ethernet0/0.3999
+           encapsulation dot1Q 3999
+           vrf forwarding 999
+           ip mtu 1496
+           ip ospf 999 area 0
+           no shutdown
+          !
+          interface Ethernet0/1
+           ip address 10.2.202.1 255.255.255.248
+           ip ospf 1 area 0
+           no shutdown
+          !
+          interface Ethernet0/1.3999
+           encapsulation dot1Q 3999
+           vrf forwarding 999
+           no ip redirects
+           ip mtu 1496
+           ip ospf 999 area 0
+           no shutdown
+          !
+          router ospf 999 vrf 999
+           router-id 1.99.2.1
+           timers throttle spf 200 1000 10000
+          !
+          router ospf 1
+           timers throttle spf 200 1000 10000
+          !
+          ip forward-protocol nd
+          !
+          ip route 0.0.0.0 0.0.0.0 10.2.201.3
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n11
+    image_definition: null
+    label: cEdge21
+    node_definition: iol-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: -80
+    y: 80
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname cEdge22
+          !
+          vrf definition 999
+           rd 1:999
+           !
+           address-family ipv4
+            route-target export 1:999
+            route-target import 1:999
+           exit-address-family
+           !
+           address-family ipv6
+           exit-address-family
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Ethernet0/0
+           ip address 10.2.201.2 255.255.255.248
+           ip ospf 1 area 0
+           no shutdown
+          !
+          interface Ethernet0/0.3999
+           encapsulation dot1Q 3999
+           vrf forwarding 999
+           ip address 10.2.201.10 255.255.255.248
+           ip mtu 1496
+           ip ospf 999 area 0
+           no shutdown
+          !
+          interface Ethernet0/1
+           ip address 10.2.202.2 255.255.255.248
+           ip ospf 1 area 0
+           no shutdown
+          !
+          interface Ethernet0/1.3999
+           encapsulation dot1Q 3999
+           vrf forwarding 999
+           ip address 10.2.202.10 255.255.255.248
+           no ip redirects
+           ip mtu 1496
+           ip ospf 999 area 0
+           no shutdown
+          !
+          router ospf 999 vrf 999
+           router-id 1.99.2.2
+           timers throttle spf 200 1000 10000
+          !
+          router ospf 1
+           timers throttle spf 200 1000 10000
+          !
+          ip forward-protocol nd
+          !
+          ip route 0.0.0.0 0.0.0.0 10.2.201.3
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n12
+    image_definition: null
+    label: cEdge22
+    node_definition: iol-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: 480
+    y: 80
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration:
+      - name: iosxe_config.txt
+        content: |-
+          hostname R21
+          !
+          ip cef
+          no ipv6 cef
+          !
+          interface Loopback0
+           ip address 10.2.255.21 255.255.255.255
+           ip ospf 1 area 0
+          !
+          interface GigabitEthernet1
+           ip address 100.3.21.2 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet2
+           ip address 10.2.99.1 255.255.255.252
+           ip ospf 1 area 0
+           no shutdown
+          !
+          interface GigabitEthernet3
+           ip address 10.2.13.1 255.255.255.252
+           ip ospf 1 area 0
+           no shutdown
+          !
+          interface GigabitEthernet4
+           ip address 10.2.10.1 255.255.255.252
+           ip ospf 1 area 0
+           no shutdown
+          !
+          router ospf 1
+           redistribute bgp 65002 subnets
+          !
+          router bgp 65002
+           bgp router-id 10.2.255.21
+           bgp redistribute-internal
+           bgp log-neighbor-changes
+           network 10.2.255.21 mask 255.255.255.255
+           neighbor 10.2.255.22 remote-as 65002
+           neighbor 10.2.255.22 update-source Loopback0
+           neighbor 100.3.21.1 remote-as 10000
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n13
+    image_definition: null
+    label: R21
+    node_definition: csr1000v
+    parameters: {}
+    ram: null
+    tags: []
+    x: 80
+    y: 120
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: iosxe_config.txt
+        content: |-
+          hostname R22
+          !
+          ip cef
+          no ipv6 cef
+          !
+          interface Loopback0
+           ip address 10.2.255.22 255.255.255.255
+          !
+          interface GigabitEthernet1
+           ip address 101.22.0.2 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet2
+           ip address 10.2.99.2 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet3
+           ip address 10.2.12.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet4
+           ip address 10.2.11.1 255.255.255.252
+           no shutdown
+          !
+          router ospf 1
+          !
+          router bgp 65002
+           bgp router-id 10.2.255.22
+           bgp log-neighbor-changes
+           network 10.2.255.22 mask 255.255.255.255
+           neighbor 10.2.255.21 remote-as 65002
+           neighbor 10.2.255.21 update-source Loopback0
+           neighbor 10.2.255.21 next-hop-self
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n14
+    image_definition: null
+    label: R22
+    node_definition: csr1000v
+    parameters: {}
+    ram: null
+    tags: []
+    x: 320
+    y: 120
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: iosxe_config.txt
+        content: |-
+          hostname R3
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Loopback0
+           ip address 100.255.254.3 255.255.255.255
+           ipv6 address FE80::3 link-local
+          !
+          interface GigabitEthernet1
+           ip address 100.3.11.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet2
+           ip address 100.3.21.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet8
+           ip address 100.0.13.2 255.255.255.252
+           ip ospf 1 area 0
+           no shutdown
+          !
+          router ospf 1
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n15
+    image_definition: null
+    label: R3
+    node_definition: csr1000v
+    parameters: {}
+    ram: null
+    tags: []
+    x: -40
+    y: 240
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SP2
+          !
+          interface Ethernet 0/0
+           ip address 101.22.0.1 255.255.255.252
+           no shutdown
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n16
+    image_definition: null
+    label: SP_2
+    node_definition: iol-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: -400
+    y: 240
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SP1
+          !
+          interface Ethernet 0/0
+           ip address 200.99.23.1 255.255.255.252
+           no shutdown
+          !
+          interface Ethernet 0/1
+           ip address 200.99.24.1 255.255.255.252
+           no shutdown
+          !
+          interface Ethernet 0/2
+           ip address 200.99.12.1 255.255.255.252
+           no shutdown
+          !
+          interface Ethernet 0/3
+           ip address 200.99.61.1 255.255.255.252
+           no shutdown
+          !
+          interface Ethernet 1/0
+           ip address 200.99.70.1 255.255.255.252
+           no shutdown
+          !
+          interface Ethernet 1/1
+           ip address 200.99.62.1 255.255.255.252
+           no shutdown
+          !
+          router bgp 19999
+           bgp log-neighbor-changes
+           redistribute static
+           neighbor 200.99.24.2 remote-as 65002
+           neighbor 200.99.61.2 remote-as 65006
+           neighbor 200.99.62.2 remote-as 65006
+           neighbor 200.99.70.2 remote-as 65007
+           default-information originate
+          !
+          ip route 0.0.0.0 0.0.0.0 Null0
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n17
+    image_definition: null
+    label: SP_1
+    node_definition: iol-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: 200
+    y: -480
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: Ethernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: Ethernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname R1
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Loopback0
+           ip address 100.255.254.1 255.255.255.255
+           ip ospf 1 area 0
+           ipv6 address FE80::1 link-local
+           no shutdown
+          !
+          interface GigabitEthernet0/0
+           ip address 100.0.12.1 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::1 link-local
+           no shutdown
+          !
+          interface GigabitEthernet0/1
+           ip address 100.0.13.1 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::1 link-local
+           no shutdown
+          !
+          interface GigabitEthernet0/2
+           ip address 100.0.15.1 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::1 link-local
+           no shutdown
+          !
+          router ospf 1
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n18
+    image_definition: null
+    label: R1
+    node_definition: iosv
+    parameters: {}
+    ram: null
+    tags: []
+    x: 120
+    y: 320
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet0/4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet0/5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet0/6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet0/7
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet0/8
+        mac_address: null
+        type: physical
+        slot: 8
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname R2
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Loopback0
+           ip address 100.255.254.2 255.255.255.255
+           ip ospf 1 area 0
+           ipv6 address FE80::2 link-local
+           no shutdown
+          !
+          interface GigabitEthernet0/0
+           ip address 100.0.12.2 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::2 link-local
+           no shutdown
+          !
+          interface GigabitEthernet0/1
+           ip address 100.0.24.1 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::2 link-local
+           no shutdown
+          !
+          interface GigabitEthernet0/2
+           ip address 100.0.26.1 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::2 link-local
+           no shutdown
+          !
+          router ospf 1
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n19
+    image_definition: null
+    label: R2
+    node_definition: iosv
+    parameters: {}
+    ram: null
+    tags: []
+    x: 280
+    y: 320
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet0/4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet0/5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet0/6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet0/7
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet0/8
+        mac_address: null
+        type: physical
+        slot: 8
+  - boot_disk_size: null
+    configuration:
+      - name: iosxe_config.txt
+        content: |-
+          hostname R4
+          !
+          vrf definition fabd2
+           rd 10000:4
+           route-target export 10000:4
+           route-target import 10000:4
+           !
+           address-family ipv4
+           exit-address-family
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Loopback0
+           ip address 100.255.254.4 255.255.255.254
+           ip ospf 1 area 0
+           ipv6 address FE80::4 link-local
+          !
+          interface GigabitEthernet1
+           no ip address
+           no shutdown
+          !
+          interface GigabitEthernet1.100
+           encapsulation dot1Q 100
+           ip address 100.4.30.1 255.255.255.252
+          !
+          interface GigabitEthernet1.414
+           encapsulation dot1Q 414
+           ip address 100.4.30.5 255.255.255.252
+           ipv6 address 2001:DB8:4:30::1/64
+          !
+          interface GigabitEthernet8
+           ip address 100.0.24.2 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::4 link-local
+           no shutdown
+          !
+          router ospf 1
+          !
+          router bgp 10000
+           bgp router-id 100.255.254.4
+           bgp log-neighbor-changes
+           no bgp default ipv4-unicast
+           neighbor 100.255.254.3 remote-as 10000
+           neighbor 100.255.254.3 update-source Loopback0
+           neighbor 100.255.254.5 remote-as 10000
+           neighbor 100.255.254.5 update-source Loopback0
+           neighbor 100.255.254.6 remote-as 10000
+           neighbor 100.255.254.6 update-source Loopback0
+           !
+           address-family ipv4
+           exit-address-family
+           !
+           address-family vpnv4
+            neighbor 100.255.254.3 activate
+            neighbor 100.255.254.3 send-community extended
+            neighbor 100.255.254.5 activate
+            neighbor 100.255.254.5 send-community extended
+            neighbor 100.255.254.6 activate
+            neighbor 100.255.254.6 send-community extended
+           exit-address-family
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n20
+    image_definition: null
+    label: R4
+    node_definition: csr1000v
+    parameters: {}
+    ram: null
+    tags: []
+    x: 440
+    y: 240
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: iosxe_config.txt
+        content: |-
+          hostname R5
+          !
+          vrf definition fabd2
+           rd 10000:5
+           route-target export 10000:1
+           route-target import 10000:1
+           !
+           address-family ipv4
+           exit-address-family
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Loopback0
+           ip address 100.255.254.5 255.255.255.255
+           ipv6 address FE80::5 link-local
+          !
+          interface GigabitEthernet1
+           vrf forwarding fabd2
+           ip address 100.5.61.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet2
+           ip address 100.61.0.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet8
+           ip address 100.0.15.2 255.255.255.252
+           ipv6 address FE80::5 link-local
+           no shutdown
+          !
+          router bgp 10000
+           bgp router-id 100.255.254.5
+           bgp log-neighbor-changes
+           no bgp default ipv4-unicast
+           neighbor 100.255.254.3 remote-as 10000
+           neighbor 100.255.254.3 update-source Loopback0
+           neighbor 100.255.254.4 remote-as 10000
+           neighbor 100.255.254.4 update-source Loopback0
+           neighbor 100.255.254.6 remote-as 10000
+           neighbor 100.255.254.6 update-source Loopback0
+           !
+           address-family ipv4
+           exit-address-family
+           !
+           address-family vpnv4
+            neighbor 100.255.254.3 activate
+            neighbor 100.255.254.3 send-community extended
+            neighbor 100.255.254.4 activate
+            neighbor 100.255.254.4 send-community extended
+            neighbor 100.255.254.6 activate
+            neighbor 100.255.254.6 send-community extended
+           exit-address-family
+           !
+           address-family ipv4 vrf fabd2
+            redistribute connected
+            neighbor 100.5.61.2 remote-as 65006
+            neighbor 100.5.61.2 activate
+           exit-address-family
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n21
+    image_definition: null
+    label: R5
+    node_definition: csr1000v
+    parameters: {}
+    ram: null
+    tags: []
+    x: -40
+    y: 400
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: iosxe_config.txt
+        content: |-
+          hostname R6
+          !
+          vrf definition fabd2
+           rd 10000:6
+           route-target export 10000:1
+           route-target import 10000:1
+           !
+           address-family ipv4
+           exit-address-family
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Loopback0
+           ip address 100.255.254.6 255.255.255.255
+           ip ospf 1 area 0
+           ipv6 address FE80::6 link-local
+          !
+          interface GigabitEthernet1
+           vrf forwarding fabd2
+           ip address 100.6.62.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet2
+           no ip address
+           no shutdown
+          !
+          interface GigabitEthernet2.100
+           encapsulation dot1Q 100
+           vrf forwarding fabd2
+           ip address 100.6.70.1 255.255.255.252
+          !
+          interface GigabitEthernet2.414
+           encapsulation dot1Q 414
+           ip address 100.6.70.5 255.255.255.252
+           ipv6 address 2001:DB8:6:70::1/64
+          !
+          interface GigabitEthernet8
+           ip address 100.0.26.2 255.255.255.252
+           ip ospf 1 area 0
+           ipv6 address FE80::6 link-local
+           no shutdown
+          !
+          router ospfv3 414
+          !
+          router ospf 1
+          !
+          router bgp 10000
+           bgp router-id 100.255.254.6
+           bgp log-neighbor-changes
+           no bgp default ipv4-unicast
+           neighbor 100.255.254.3 remote-as 10000
+           neighbor 100.255.254.3 update-source Loopback0
+           neighbor 100.255.254.4 remote-as 10000
+           neighbor 100.255.254.4 update-source Loopback0
+           neighbor 100.255.254.5 remote-as 10000
+           neighbor 100.255.254.5 update-source Loopback0
+           !
+           address-family ipv4
+           exit-address-family
+           !
+           address-family vpnv4
+            neighbor 100.255.254.3 activate
+            neighbor 100.255.254.3 send-community extended
+            neighbor 100.255.254.4 activate
+            neighbor 100.255.254.4 send-community extended
+            neighbor 100.255.254.5 activate
+            neighbor 100.255.254.5 send-community extended
+           exit-address-family
+           !
+           address-family ipv4 vrf fabd2
+            redistribute connected
+            neighbor 100.6.62.2 remote-as 65006
+            neighbor 100.6.62.2 activate
+            neighbor 100.6.70.2 remote-as 65007
+            neighbor 100.6.70.2 activate
+           exit-address-family
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n22
+    image_definition: null
+    label: R6
+    node_definition: csr1000v
+    parameters: {}
+    ram: null
+    tags: []
+    x: 440
+    y: 400
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname R61
+          !
+          vrf definition WAN
+           rd 65006:61
+           !
+           address-family ipv4
+           exit-address-family
+          !
+          ip cef
+          no ipv6 cef
+          !
+          crypto isakmp policy 10
+           encr 3des
+           hash md5
+           authentication pre-share
+           group 2
+          crypto isakmp key cisco address 0.0.0.0
+          !
+          !
+          crypto ipsec transform-set trans esp-3des esp-md5-hmac
+           mode tunnel
+          !
+          !
+          crypto ipsec profile prof
+           set security-association lifetime seconds 900
+           set transform-set trans
+          !
+          interface Loopback0
+           ip address 10.6.255.61 255.255.255.255
+          !
+          interface Tunnel0
+           ip address 10.200.0.61 255.255.255.0
+           no ip redirects
+           ip nhrp map multicast 10.2.255.24
+           ip nhrp map 10.2.255.24 10.200.0.1
+           ip nhrp network-id 1010
+           ip nhrp nhs 10.200.0.1
+           ip nhrp redirect
+           tunnel source Loopback0
+           tunnel mode gre multipoint
+           tunnel protection ipsec profile prof
+          !
+          interface GigabitEthernet0/0
+           ip address 100.5.61.2 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet0/1
+           ip address 10.6.99.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet0/2
+           ip address 10.6.12.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet0/3
+           ip address 10.6.10.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet0/4
+           vrf forwarding WAN
+           ip address 200.99.61.2 255.255.255.252
+           no shutdown
+          !
+          router eigrp ccie
+           !
+           address-family ipv4 unicast autonomous-system 65006
+            !
+            af-interface default
+             passive-interface
+            exit-af-interface
+            !
+            topology base
+            exit-af-topology
+           exit-address-family
+          !
+          router bgp 65006
+           bgp log-neighbor-changes
+           network 10.6.255.61 mask 255.255.255.255
+           neighbor 100.5.61.1 remote-as 10000
+           !
+           address-family ipv4 vrf WAN
+            neighbor 200.99.61.1 remote-as 19999
+            neighbor 200.99.61.1 activate
+           exit-address-family
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n23
+    image_definition: null
+    label: R61
+    node_definition: iosv
+    parameters: {}
+    ram: null
+    tags: []
+    x: -40
+    y: 560
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet0/4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet0/5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet0/6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet0/7
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet0/8
+        mac_address: null
+        type: physical
+        slot: 8
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname R62
+          !
+          vrf definition WAN
+           rd 65006:62
+           !
+           address-family ipv4
+           exit-address-family
+          !
+          ip cef
+          no ipv6 cef
+          !
+          crypto isakmp policy 10
+           encr 3des
+           hash md5
+           authentication pre-share
+           group 2
+          crypto isakmp key cisco address 0.0.0.0
+          !
+          !
+          crypto ipsec transform-set trans esp-3des esp-md5-hmac
+           mode tunnel
+          !
+          !
+          crypto ipsec profile prof
+           set security-association lifetime seconds 900
+           set transform-set trans
+          !
+          interface Loopback0
+           ip address 10.6.255.62 255.255.255.255
+          !
+          interface Tunnel0
+           ip address 10.200.0.62 255.255.255.0
+           no ip redirects
+           ip nhrp map multicast 10.2.255.24
+           ip nhrp map 10.200.0.1 10.2.255.24
+           ip nhrp network-id 1010
+           ip nhrp nhs 10.200.0.1
+           ip nhrp redirect
+           shutdown
+           tunnel source Loopback0
+           tunnel mode gre multipoint
+           tunnel protection ipsec profile prof
+          !
+          interface GigabitEthernet0/0
+           ip address 100.6.62.2 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet0/1
+           ip address 10.6.99.2 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet0/2
+           ip address 10.6.13.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet0/3
+           ip address 10.6.11.1 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet0/4
+           no shutdown
+          !
+          router eigrp ccie
+           !
+           address-family ipv4 unicast autonomous-system 65006
+            !
+            af-interface default
+             passive-interface
+            exit-af-interface
+            !
+            af-interface GigabitEthernet0/1
+             authentication mode md5
+             authentication key-chain CCIE_MD5
+             no passive-interface
+            exit-af-interface
+            !
+            af-interface GigabitEthernet0/2
+             authentication mode md5
+             authentication key-chain CCIE_MD5
+             no passive-interface
+            exit-af-interface
+            !
+            af-interface GigabitEthernet0/3
+             authentication mode md5
+             authentication key-chain CCIE_MD5
+             no passive-interface
+            exit-af-interface
+            !
+            topology base
+            exit-af-topology
+            network 10.0.0.0
+           exit-address-family
+          !
+          router bgp 65006
+           bgp log-neighbor-changes
+           network 10.6.255.62 mask 255.255.255.255
+           neighbor 100.6.62.1 remote-as 10000
+           !
+           address-family ipv4 vrf WAN
+           exit-address-family
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n24
+    image_definition: null
+    label: R62
+    node_definition: iosv
+    parameters: {}
+    ram: null
+    tags: []
+    x: 440
+    y: 560
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet0/4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet0/5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet0/6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet0/7
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet0/8
+        mac_address: null
+        type: physical
+        slot: 8
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname R70
+          !
+          vrf definition WAN
+           rd 65006:70
+           !
+           address-family ipv4
+           exit-address-family
+          !
+          vrf definition kiosk
+           rd 65535:1
+           !
+           address-family ipv4
+           exit-address-family
+          !
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          crypto keyring KR vrf WAN
+            pre-shared-key address 0.0.0.0 0.0.0.0 key cisco
+          !
+          crypto isakmp policy 10
+           encr 3des
+           hash md5
+           authentication pre-share
+           group 2
+          !
+          !
+          crypto ipsec transform-set trans esp-3des esp-md5-hmac
+           mode tunnel
+          !
+          !
+          crypto ipsec profile prof
+           set security-association lifetime seconds 900
+           set transform-set trans
+          !
+          interface Loopback0
+           vrf forwarding WAN
+           ip address 10.7.255.70 255.255.255.255
+          !
+          interface Loopback14
+           ip address 10.6.14.14 255.255.255.255
+           ip igmp join-group 239.1.1.24
+          !
+          interface Tunnel0
+           ip address 10.200.0.70 255.255.255.0
+           no ip redirects
+           ip mtu 1440
+           ip nhrp map multicast 10.2.255.24
+           ip nhrp map 10.2.255.24 10.200.0.1
+           ip nhrp network-id 1010
+           ip nhrp nhs 10.200.0.1
+           tunnel source Loopback0
+           tunnel mode gre multipoint
+           tunnel protection ipsec profile prof
+          !
+          interface GigabitEthernet0/0
+           no ip address
+           no shutdown
+          !
+          interface GigabitEthernet0/0.100
+           encapsulation dot1Q 100
+           vrf forwarding WAN
+           ip address 100.6.70.2 255.255.255.252
+           no cdp enable
+          !
+          interface GigabitEthernet0/0.414
+           encapsulation dot1Q 414
+           ip address 100.6.70.6 255.255.255.252
+           no cdp enable
+          !
+          interface GigabitEthernet0/1
+           ip address 200.99.70.2 255.255.255.252
+           no shutdown
+          !
+          interface GigabitEthernet0/2
+           no ip address
+           no shutdown
+          !
+          interface GigabitEthernet0/2.100
+           encapsulation dot1Q 100
+           vrf forwarding WAN
+           ip address 192.168.0.1 255.255.255.0
+           no cdp enable
+          !
+          interface GigabitEthernet0/2.414
+           encapsulation dot1Q 414
+           vrf forwarding kiosk
+           ip address 172.31.70.1 255.255.255.0
+           no cdp enable
+          !
+          router eigrp ccie
+           !
+           address-family ipv4 unicast autonomous-system 65006
+            !
+            af-interface default
+             passive-interface
+            exit-af-interface
+            !
+            topology base
+            exit-af-topology
+            network 10.6.14.14 0.0.0.0
+            network 10.200.0.0 0.0.0.255
+           exit-address-family
+          !
+          router bgp 65007
+           bgp log-neighbor-changes
+           !
+           address-family ipv4 vrf WAN
+            network 10.7.255.70 mask 255.255.255.255
+            neighbor 100.6.70.1 remote-as 10000
+            neighbor 100.6.70.1 activate
+           exit-address-family
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n25
+    image_definition: null
+    label: R70
+    node_definition: iosv
+    parameters: {}
+    ram: null
+    tags: []
+    x: 640
+    y: 480
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet0/4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet0/5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet0/6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet0/7
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet0/8
+        mac_address: null
+        type: physical
+        slot: 8
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SW601
+          !
+          vtp mode transparent
+          !
+          spanning-tree mode pvst
+          spanning-tree extend system-id
+          !
+          vlan internal allocation policy ascending
+          !
+          vlan 2000-2001
+          !
+          interface Loopback0
+           ip address 10.6.255.161 255.255.255.255
+          !
+          interface GigabitEthernet0/0
+           no switchport
+           ip address 10.6.109.1 255.255.255.252
+          !
+          interface GigabitEthernet0/1
+           no switchport
+           ip address 10.6.13.2 255.255.255.252
+          !
+          interface GigabitEthernet0/2
+           no switchport
+           ip address 10.6.10.2 255.255.255.252
+          !
+          interface GigabitEthernet2/0
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface Vlan2000
+           ip address 10.6.100.2 255.255.255.0
+           standby version 2
+           standby 100 ip 10.6.100.1
+           standby 100 priority 110
+          !
+          interface Vlan2001
+           ip address 10.6.101.2 255.255.255.0
+           standby 101 ip 10.6.101.1
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain-lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n26
+    image_definition: null
+    label: SW601
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: -40
+    y: 720
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet2/0
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i10
+        label: GigabitEthernet2/1
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i11
+        label: GigabitEthernet2/2
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i12
+        label: GigabitEthernet2/3
+        mac_address: null
+        type: physical
+        slot: 11
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SW602
+          !
+          vtp mode transparent
+          !
+          spanning-tree mode pvst
+          spanning-tree extend system-id
+          !
+          vlan internal allocation policy ascending
+          !
+          vlan 2000-2001
+          !
+          interface Loopback0
+           ip address 10.6.255.162 255.255.255.255
+          !
+          interface GigabitEthernet0/0
+           no switchport
+           ip address 10.6.109.2 255.255.255.252
+          !
+          interface GigabitEthernet0/1
+           no switchport
+           ip address 10.6.12.2 255.255.255.252
+          !
+          interface GigabitEthernet0/2
+           no switchport
+           ip address 10.6.11.2 255.255.255.252
+          !
+          interface GigabitEthernet2/0
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface Vlan2000
+           ip address 10.6.100.3 255.255.255.0
+           standby 100 ip 10.6.100.1
+          !
+          interface Vlan2001
+           ip address 10.6.101.3 255.255.255.0
+           standby 0 ip 10.6.101.1
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain-lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n27
+    image_definition: null
+    label: SW602
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: 440
+    y: 720
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet2/0
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i10
+        label: GigabitEthernet2/1
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i11
+        label: GigabitEthernet2/2
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i12
+        label: GigabitEthernet2/3
+        mac_address: null
+        type: physical
+        slot: 11
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SW610
+          !
+          vtp mode transparent
+          !
+          spanning-tree mode pvst
+          spanning-tree extend system-id
+          !
+          vlan internal allocation policy ascending
+          !
+          vlan 2001
+          !
+          interface GigabitEthernet2/0
+           switchport trunk allowed vlan 1,2000
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface GigabitEthernet2/1
+           switchport trunk allowed vlan 1,2000
+           switchport trunk encapsulation dot1q
+           switchport mode trunk
+          !
+          interface Vlan2000
+           ip address 10.6.100.10 255.255.255.0
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain-lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n28
+    image_definition: null
+    label: SW610
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: 200
+    y: 840
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet2/0
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i10
+        label: GigabitEthernet2/1
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i11
+        label: GigabitEthernet2/2
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i12
+        label: GigabitEthernet2/3
+        mac_address: null
+        type: physical
+        slot: 11
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname SW700
+          !
+          spanning-tree mode pvst
+          spanning-tree extend system-id
+          !
+          vlan internal allocation policy ascending
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain-lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n29
+    image_definition: null
+    label: SW700
+    node_definition: iosvl2
+    parameters: {}
+    ram: null
+    tags: []
+    x: 640
+    y: 640
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i9
+        label: GigabitEthernet2/0
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i10
+        label: GigabitEthernet2/1
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i11
+        label: GigabitEthernet2/2
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i12
+        label: GigabitEthernet2/3
+        mac_address: null
+        type: physical
+        slot: 11
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname host71
+          !
+          interface Ethernet 0/0
+           ip address 192.168.0.123 255.255.255.0
+           no shutdown
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n30
+    image_definition: null
+    label: host71
+    node_definition: iol-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: 560
+    y: 760
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname host72
+          !
+          interface Ethernet 0/0
+           ip address 172.31.70.123 255.255.255.0
+           no shutdown
+          !
+          no banner login
+          no banner exec
+          no banner incoming
+          no ip domain lookup
+          no ip http server
+          no ip http secure-server
+          line con 0
+            logging synchronous
+            exec-timeout 0 0
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n31
+    image_definition: null
+    label: host72
+    node_definition: iol-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: 720
+    y: 760
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration:
+      - name: clients.conf
+        content: |-
+          client ccie {
+              ipaddr = 0.0.0.0/0
+              secret = CC!E!nfr4
+              require_message_authenticator = no
+              nas_type = cisco
+          }
+
+          client 10.2.252.1 {
+              ipaddr = 10.2.252.1
+              secret = CC!E!nfr4
+              require_message_authenticator = no
+              nas_type = cisco
+          }
+
+          client localhost {
+              ipaddr = 127.0.0.1
+              secret = testing123
+              require_message_authenticator = no
+              nas_type = other
+          }
+      - name: radiusd.conf
+        content: |
+          log {
+              # Send all log messages to stdout
+              destination = stdout
+          }
+
+          listen {
+              type = auth
+              ipaddr = *
+              port = 1645
+          }
+
+          listen {
+              type = acct
+              ipaddr = *
+              port = 1646
+          }
+
+          $INCLUDE clients.conf
+      - name: users
+        content: |-
+          iseuser Cleartext-Password := "CC!E!nfr4"
+              Service-Type = NAS-Prompt-User,
+              Cisco-AVPair = "shell:priv-lvl=15"
+          admin Cleartext-Password := "cisco"
+      - name: boot.sh
+        content: |-
+          # insert more commands here
+          ip address add dev eth1 10.2.252.11/24
+          ip route add 0.0.0.0/0 via 10.2.252.11
+          ip link set dev eth1 up
+          #
+          # keep the next line to indicate that the machine is ready
+          echo "READY" >/dev/console
+          exit 0
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n32
+    image_definition: null
+    label: ISE
+    node_definition: radius
+    parameters: {}
+    ram: null
+    tags: []
+    x: -40
+    y: -80
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: eth1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: eth2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: eth3
+        mac_address: null
+        type: physical
+        slot: 3
+links:
+  - id: l0
+    n1: n3
+    n2: n0
+    i1: i4
+    i2: i1
+    conditioning: {}
+    label: R11-GigabitEthernet0/3<->SW101-GigabitEthernet0/0
+  - id: l1
+    n1: n4
+    n2: n2
+    i1: i4
+    i2: i1
+    conditioning: {}
+    label: R12-GigabitEthernet0/3<->SW102-GigabitEthernet0/0
+  - id: l2
+    n1: n4
+    n2: n0
+    i1: i3
+    i2: i2
+    conditioning: {}
+    label: R12-GigabitEthernet0/2<->SW101-GigabitEthernet0/1
+  - id: l3
+    n1: n3
+    n2: n2
+    i1: i3
+    i2: i2
+    conditioning: {}
+    label: R11-GigabitEthernet0/2<->SW102-GigabitEthernet0/1
+  - id: l4
+    n1: n0
+    n2: n2
+    i1: i9
+    i2: i9
+    conditioning: {}
+    label: SW101-GigabitEthernet2/0<->SW102-GigabitEthernet2/0
+  - id: l5
+    n1: n0
+    n2: n2
+    i1: i10
+    i2: i10
+    conditioning: {}
+    label: SW101-GigabitEthernet2/1<->SW102-GigabitEthernet2/1
+  - id: l6
+    n1: n1
+    n2: n2
+    i1: i7
+    i2: i7
+    conditioning: {}
+    label: SW110-GigabitEthernet1/2<->SW102-GigabitEthernet1/2
+  - id: l7
+    n1: n1
+    n2: n0
+    i1: i5
+    i2: i7
+    conditioning: {}
+    label: SW110-GigabitEthernet1/0<->SW101-GigabitEthernet1/2
+  - id: l8
+    n1: n1
+    n2: n0
+    i1: i6
+    i2: i8
+    conditioning: {}
+    label: SW110-GigabitEthernet1/1<->SW101-GigabitEthernet1/3
+  - id: l9
+    n1: n1
+    n2: n2
+    i1: i8
+    i2: i8
+    conditioning: {}
+    label: SW110-GigabitEthernet1/3<->SW102-GigabitEthernet1/3
+  - id: l10
+    n1: n3
+    n2: n15
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: R11-GigabitEthernet0/0<->R3-GigabitEthernet1
+  - id: l11
+    n1: n13
+    n2: n15
+    i1: i1
+    i2: i2
+    conditioning: {}
+    label: R21-GigabitEthernet1<->R3-GigabitEthernet2
+  - id: l12
+    n1: n13
+    n2: n14
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: R21-GigabitEthernet2<->R22-GigabitEthernet2
+  - id: l13
+    n1: n13
+    n2: n7
+    i1: i4
+    i2: i1
+    conditioning: {}
+    label: R21-GigabitEthernet4<->SW201-GigabitEthernet0/0
+  - id: l14
+    n1: n8
+    n2: n14
+    i1: i1
+    i2: i4
+    conditioning: {}
+    label: SW202-GigabitEthernet0/0<->R22-GigabitEthernet4
+  - id: l15
+    n1: n7
+    n2: n14
+    i1: i2
+    i2: i3
+    conditioning: {}
+    label: SW201-GigabitEthernet0/1<->R22-GigabitEthernet3
+  - id: l16
+    n1: n13
+    n2: n8
+    i1: i3
+    i2: i2
+    conditioning: {}
+    label: R21-GigabitEthernet3<->SW202-GigabitEthernet0/1
+  - id: l17
+    n1: n7
+    n2: n12
+    i1: i3
+    i2: i1
+    conditioning: {}
+    label: SW201-GigabitEthernet0/2<->cEdge22-Ethernet0/0
+  - id: l18
+    n1: n8
+    n2: n11
+    i1: i3
+    i2: i2
+    conditioning: {}
+    label: SW202-GigabitEthernet0/2<->cEdge21-Ethernet0/1
+  - id: l19
+    n1: n7
+    n2: n11
+    i1: i8
+    i2: i1
+    conditioning: {}
+    label: SW201-GigabitEthernet1/3<->cEdge21-Ethernet0/0
+  - id: l20
+    n1: n8
+    n2: n12
+    i1: i8
+    i2: i2
+    conditioning: {}
+    label: SW202-GigabitEthernet1/3<->cEdge22-Ethernet0/1
+  - id: l21
+    n1: n5
+    n2: n7
+    i1: i1
+    i2: i6
+    conditioning: {}
+    label: SW211-GigabitEthernet0/0<->SW201-GigabitEthernet1/1
+  - id: l22
+    n1: n7
+    n2: n6
+    i1: i5
+    i2: i2
+    conditioning: {}
+    label: SW201-GigabitEthernet1/0<->SW212-GigabitEthernet0/1
+  - id: l23
+    n1: n8
+    n2: n5
+    i1: i5
+    i2: i2
+    conditioning: {}
+    label: SW202-GigabitEthernet1/0<->SW211-GigabitEthernet0/1
+  - id: l24
+    n1: n6
+    n2: n8
+    i1: i1
+    i2: i6
+    conditioning: {}
+    label: SW212-GigabitEthernet0/0<->SW202-GigabitEthernet1/1
+  - id: l25
+    n1: n16
+    n2: n14
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: SP_2-Ethernet0/0<->R22-GigabitEthernet1
+  - id: l26
+    n1: n9
+    n2: n17
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: R23-GigabitEthernet1<->SP_1-Ethernet0/0
+  - id: l27
+    n1: n10
+    n2: n17
+    i1: i1
+    i2: i2
+    conditioning: {}
+    label: R24-GigabitEthernet1<->SP_1-Ethernet0/1
+  - id: l28
+    n1: n9
+    n2: n5
+    i1: i2
+    i2: i4
+    conditioning: {}
+    label: R23-GigabitEthernet2<->SW211-GigabitEthernet0/3
+  - id: l29
+    n1: n6
+    n2: n10
+    i1: i5
+    i2: i3
+    conditioning: {}
+    label: SW212-GigabitEthernet1/0<->R24-GigabitEthernet3
+  - id: l30
+    n1: n5
+    n2: n10
+    i1: i5
+    i2: i2
+    conditioning: {}
+    label: SW211-GigabitEthernet1/0<->R24-GigabitEthernet2
+  - id: l31
+    n1: n6
+    n2: n9
+    i1: i4
+    i2: i3
+    conditioning: {}
+    label: SW212-GigabitEthernet0/3<->R23-GigabitEthernet3
+  - id: l32
+    n1: n5
+    n2: n6
+    i1: i3
+    i2: i3
+    conditioning: {}
+    label: SW211-GigabitEthernet0/2<->SW212-GigabitEthernet0/2
+  - id: l33
+    n1: n10
+    n2: n12
+    i1: i4
+    i2: i3
+    conditioning: {}
+    label: R24-GigabitEthernet4<->cEdge22-Ethernet0/2
+  - id: l34
+    n1: n9
+    n2: n11
+    i1: i4
+    i2: i3
+    conditioning: {}
+    label: R23-GigabitEthernet4<->cEdge21-Ethernet0/2
+  - id: l35
+    n1: n4
+    n2: n17
+    i1: i1
+    i2: i3
+    conditioning: {}
+    label: R12-GigabitEthernet0/0<->SP_1-Ethernet0/2
+  - id: l36
+    n1: n18
+    n2: n19
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: R1-GigabitEthernet0/0<->R2-GigabitEthernet0/0
+  - id: l37
+    n1: n15
+    n2: n18
+    i1: i8
+    i2: i2
+    conditioning: {}
+    label: R3-GigabitEthernet8<->R1-GigabitEthernet0/1
+  - id: l38
+    n1: n23
+    n2: n21
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: R61-GigabitEthernet0/0<->R5-GigabitEthernet1
+  - id: l39
+    n1: n24
+    n2: n22
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: R62-GigabitEthernet0/0<->R6-GigabitEthernet1
+  - id: l40
+    n1: n25
+    n2: n22
+    i1: i1
+    i2: i2
+    conditioning: {}
+    label: R70-GigabitEthernet0/0<->R6-GigabitEthernet2
+  - id: l41
+    n1: n21
+    n2: n18
+    i1: i8
+    i2: i3
+    conditioning: {}
+    label: R5-GigabitEthernet8<->R1-GigabitEthernet0/2
+  - id: l42
+    n1: n20
+    n2: n19
+    i1: i8
+    i2: i2
+    conditioning: {}
+    label: R4-GigabitEthernet8<->R2-GigabitEthernet0/1
+  - id: l43
+    n1: n19
+    n2: n22
+    i1: i3
+    i2: i8
+    conditioning: {}
+    label: R2-GigabitEthernet0/2<->R6-GigabitEthernet8
+  - id: l44
+    n1: n23
+    n2: n24
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: R61-GigabitEthernet0/1<->R62-GigabitEthernet0/1
+  - id: l45
+    n1: n26
+    n2: n27
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: SW601-GigabitEthernet0/0<->SW602-GigabitEthernet0/0
+  - id: l46
+    n1: n26
+    n2: n24
+    i1: i2
+    i2: i3
+    conditioning: {}
+    label: SW601-GigabitEthernet0/1<->R62-GigabitEthernet0/2
+  - id: l47
+    n1: n27
+    n2: n23
+    i1: i2
+    i2: i3
+    conditioning: {}
+    label: SW602-GigabitEthernet0/1<->R61-GigabitEthernet0/2
+  - id: l48
+    n1: n27
+    n2: n24
+    i1: i3
+    i2: i4
+    conditioning: {}
+    label: SW602-GigabitEthernet0/2<->R62-GigabitEthernet0/3
+  - id: l49
+    n1: n26
+    n2: n23
+    i1: i3
+    i2: i4
+    conditioning: {}
+    label: SW601-GigabitEthernet0/2<->R61-GigabitEthernet0/3
+  - id: l50
+    n1: n26
+    n2: n28
+    i1: i9
+    i2: i9
+    conditioning: {}
+    label: SW601-GigabitEthernet2/0<->SW610-GigabitEthernet2/0
+  - id: l51
+    n1: n28
+    n2: n27
+    i1: i10
+    i2: i9
+    conditioning: {}
+    label: SW610-GigabitEthernet2/1<->SW602-GigabitEthernet2/0
+  - id: l52
+    n1: n29
+    n2: n25
+    i1: i10
+    i2: i3
+    conditioning: {}
+    label: SW700-GigabitEthernet2/1<->R70-GigabitEthernet0/2
+  - id: l53
+    n1: n0
+    n2: n7
+    i1: i3
+    i2: i7
+    conditioning: {}
+    label: SW101-GigabitEthernet0/2<->SW201-GigabitEthernet1/2
+  - id: l54
+    n1: n8
+    n2: n2
+    i1: i7
+    i2: i3
+    conditioning: {}
+    label: SW202-GigabitEthernet1/2<->SW102-GigabitEthernet0/2
+  - id: l55
+    n1: n23
+    n2: n17
+    i1: i5
+    i2: i4
+    conditioning: {}
+    label: R61-GigabitEthernet0/4<->SP_1-Ethernet0/3
+  - id: l56
+    n1: n25
+    n2: n17
+    i1: i2
+    i2: i5
+    conditioning: {}
+    label: R70-GigabitEthernet0/1<->SP_1-Ethernet1/0
+  - id: l57
+    n1: n3
+    n2: n4
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: R11-GigabitEthernet0/1<->R12-GigabitEthernet0/1
+  - id: l58
+    n1: n7
+    n2: n8
+    i1: i4
+    i2: i4
+    conditioning: {}
+    label: SW201-GigabitEthernet0/3<->SW202-GigabitEthernet0/3
+  - id: l59
+    n1: n29
+    n2: n30
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: SW700-GigabitEthernet0/0<->host71-Ethernet0/0
+  - id: l60
+    n1: n29
+    n2: n31
+    i1: i2
+    i2: i1
+    conditioning: {}
+    label: SW700-GigabitEthernet0/1<->host72-Ethernet0/0
+  - id: l61
+    n1: n32
+    n2: n5
+    i1: i1
+    i2: i6
+    conditioning: {}
+    label: ISE-eth1<->SW211-GigabitEthernet1/1
+  - id: l62
+    n1: n24
+    n2: n17
+    i1: i5
+    i2: i6
+    conditioning: {}
+    label: R62-GigabitEthernet0/4<->SP_1-Ethernet1/1
+lab:
+  description: ''
+  notes: ''
+  title: EI_v2
+  version: 0.3.0
