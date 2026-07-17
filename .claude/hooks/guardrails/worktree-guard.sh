@@ -79,6 +79,8 @@ case "$RELATIVE_PATH" in
   CLAUDE.md)         exit 0 ;;  # 自己改善プロトコル
   .gitignore)        exit 0 ;;  # gitignore の更新
   .github/*)         exit 0 ;;  # CI/CD 設定
+  QA/*)              exit 0 ;;  # CCIE 学習 Q&A ノート（リリースフロー対象外）
+  Questions/*)       exit 0 ;;  # CCIE 問題文（リリースフロー対象外）
 esac
 
 # メインワークツリーでの編集をブロック
