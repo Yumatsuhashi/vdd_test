@@ -81,6 +81,7 @@ case "$RELATIVE_PATH" in
   .github/*)         exit 0 ;;  # CI/CD 設定
   QA/*)              exit 0 ;;  # CCIE 学習 Q&A ノート（リリースフロー対象外）
   Questions/*)       exit 0 ;;  # CCIE 問題文（リリースフロー対象外）
+  Answers/*)         exit 0 ;;  # CCIE 解答 config キャッシュ（リリースフロー対象外）
 esac
 
 # メインワークツリーでの編集をブロック

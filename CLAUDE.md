@@ -386,8 +386,10 @@ CCIE_train_hub/
 ├── topology1.png    # HQ/DC 周辺のトポロジ画像
 ├── topology2.png    # SP/Branch 周辺のトポロジ画像
 ├── Questions/       # 問題文（patternN/patternN_qX.md 形式）
+├── Answers/         # 解答 config キャッシュ（patternN/patternN_qX.md 形式。original/ から抽出済み）
 └── QA/              # 質問と回答の蓄積（patternN/ 別ディレクトリ + README.md 索引）
 ```
 
 - **QA 運用ルールの正本は `.claude/skills/ccie-qa/SKILL.md`**。パターンN・問題Xへの質問（設計理由・config の意図など）を受けると ccie-qa スキルが起動し、資料を突き合わせて回答したうえで `QA/patternN/YYYY-MM-DD_qX_<概要>.md` に蓄積する。
-- `QA/` と `Questions/` は学習ノートでありリリースフロー対象外。worktree-guard の除外パスに含まれ、メインワークツリーから直接書き込める。
+- 回答時に抽出・検証した config は `Answers/patternN/patternN_qX.md` にキャッシュし、次回以降は original/*.html の grep を省略する（トークン節約）。正本は original/ で、矛盾時はキャッシュ側を修正する。
+- `QA/`・`Questions/`・`Answers/` は学習ノートでありリリースフロー対象外。worktree-guard の除外パスに含まれ、メインワークツリーから直接書き込める。
