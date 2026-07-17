@@ -74,6 +74,60 @@ key chain CCIE_MD5
 
 Pattern 3 のみ、R62 の Tunnel0（DMVPN, NHRP redirect対応）をEIGRPに参加させるための追加network文がある（`network 10.200.0.0 0.0.0.255` 等、`no network 10.0.0.0` で置き換え）。
 
+### SW601 / SW602（L3スイッチ、Branch3のVLANゲートウェイ）
+
+初期コンフィグ（EI_v2.yaml）はGi0/0〜0/2が `no switchport`（ルーテッドポート）、Vlan2000/2001がSVI+HSRP(`standby`)。af-interface（Gi0/0, Gi0/1, Gi0/2, vlan 2000, vlan 2001）は初期コンフィグの時点で定義済みだが `network` 文がまだ無いため、Task 1.6ではPattern 1/2で `network 10.0.0.0` / `exit-address-family` の追加が必要（R62と違いここは差分あり）。
+
+SW601 初期コンフィグ（抜粋、EI_v2.yaml）:
+
+```ios
+interface Loopback0
+ ip address 10.6.255.161 255.255.255.255
+interface GigabitEthernet0/0
+ no switchport
+ ip address 10.6.109.1 255.255.255.252
+interface GigabitEthernet0/1
+ no switchport
+ ip address 10.6.13.2 255.255.255.252
+interface GigabitEthernet0/2
+ no switchport
+ ip address 10.6.10.2 255.255.255.252
+interface GigabitEthernet2/0
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+interface Vlan2000
+ ip address 10.6.100.2 255.255.255.0
+ standby version 2
+ standby 100 ip 10.6.100.1
+ standby 100 priority 110
+interface Vlan2001
+ ip address 10.6.101.2 255.255.255.0
+ standby 101 ip 10.6.101.1
+```
+
+### SW610（L2アクセススイッチ、EIGRP対象外）
+
+初期コンフィグ（EI_v2.yaml）に `router eigrp` セクション自体が存在しない。理由:
+
+```ios
+hostname SW610
+vlan 2001
+interface GigabitEthernet2/0
+ switchport trunk allowed vlan 1,2000
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+interface GigabitEthernet2/1
+ switchport trunk allowed vlan 1,2000
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+interface Vlan2000
+ ip address 10.6.100.10 255.255.255.0
+```
+
+- SW601/SW602への2本のアップリンク(Gi2/0, Gi2/1)は両方とも `switchport mode trunk`（純粋なL2トランク）で、`no switchport`のルーテッドポートが1本もない。ルーテッドインターフェースが無いのでEIGRPが乗る場所がそもそも無い。
+- 唯一のL3アドレス（Vlan2000 SVI, 10.6.100.10/24）は、SW601/SW602が既に `network 10.0.0.0`（Pattern1/2）または `network 10.6.100.0 0.0.0.255`（Pattern3）でEIGRP広報済みの**同一サブネット**上のホストアドレスに過ぎない。新たに広報すべき別サブネットを持たない。
+- L3ゲートウェイ（HSRP VIP 10.6.100.1）はSW601/SW602側にあり、SW610はそこにぶら下がる純粋なアクセス層スイッチ（PC61/PC62収容）。VLAN間ルーティングも行わない（`vlan 2001`の宣言はあるがSVIは無い＝トランクで素通しするだけ）。
+
 ## R61 インターフェース対応表（EI_v2.yaml より）
 
 | I/F | IPアドレス | 接続先 | 役割 |
@@ -96,11 +150,12 @@ show ip eigrp interfaces
 
 ## 出典
 
-- `original/RS コンフィグ パターン比較 (Task 1.2〜1.14).html` — Task 1.6（939〜1013行目付近、R61/R62の3パターン比較）
-- `EI_v2.yaml` — R61/R62ノードの初期コンフィグ、リンク定義（4665〜4833行目）
-- `topology2.png` — Branch3内のR61/R62配線
+- `original/RS コンフィグ パターン比較 (Task 1.2〜1.14).html` — Task 1.6（939〜1105行目付近、R61/R62/SW601/SW602の3パターン比較）
+- `EI_v2.yaml` — R61/R62/SW601/SW610ノードの初期コンフィグ、リンク定義（4665〜4833行目、SW610リンクは4749/4756行目）
+- `topology2.png` — Branch3内の配線（R61⇄R62、SW601⇄SW610⇄SW602のクロス、SW610⇄PC61/PC62）
 - 関連QA:
   - `QA/pattern2/2026-07-17_q6_R61のpassive-interfaceデフォルト設計理由.md`
   - `QA/pattern2/2026-07-17_q6_R62にEIGRP設定がない理由.md`
+  - `QA/pattern2/2026-07-17_q6_SW610にEIGRP設定がない理由.md`
 
 最終更新: 2026-07-17
