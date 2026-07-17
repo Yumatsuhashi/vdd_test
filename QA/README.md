@@ -12,6 +12,7 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.5 SW101 の interface range GigabitEthernet0/0-1 の選定理由](pattern2/2026-07-17_q5_SW101のGi0-0-1選定理由.md) — 2026-07-17
 - [Task 1.5 R21 の BGP→OSPF 再配布の設計意図（HQ-DC 接続との関係）](pattern2/2026-07-17_q5_R21のBGP再配布とHQ-DC接続の関係.md) — 2026-07-17
 - [Task 1.5 SW102 で「OSPF will not operate...」が出た件](pattern2/2026-07-17_q5_SW102のOSPFエラーの原因.md) — 2026-07-17
+- [Task 1.6 R61 の passive-interface デフォルト設計理由（af-interface に range がない理由）](pattern2/2026-07-17_q6_R61のpassive-interfaceデフォルト設計理由.md) — 2026-07-17
 
 ## pattern3
 
