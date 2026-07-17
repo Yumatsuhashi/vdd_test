@@ -35,6 +35,23 @@ python3 -m http.server 8000 --directory public
 カードをタップすると各コンテンツページへ遷移し、ページ右下の「🏠 Hub」ボタンで
 ホームに戻れる。
 
+## Podman / Docker で実行
+
+依存関係のインストールなしで、どの環境でも `public/` を配信できる。
+
+```bash
+podman build -t ccie-train-hub -f Containerfile .
+podman run -d --name ccie-train-hub -p 8080:80 ccie-train-hub
+# → http://localhost:8080
+
+# Docker でも同じ Containerfile を -f 指定で利用可能:
+# docker build -t ccie-train-hub -f Containerfile .
+```
+
+`original/` や `assets/` を変更したときは、従来どおりホスト側で `bash scripts/build.sh`
+を実行して `public/` を再生成・コミットしてからイメージを再ビルドする
+（イメージ内では再ビルドしない）。
+
 ## 再ビルド（original/ や assets/ を変更したとき）
 
 ```bash
