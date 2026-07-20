@@ -1,0 +1,15 @@
+.git
+.claude
+.local-docs
+.worktrees
+process
+original
+Answers
+QA
+Questions
+scripts
+*.md
+EI_v2.yaml
+topology1.png
+topology2.png
+.DS_Store
