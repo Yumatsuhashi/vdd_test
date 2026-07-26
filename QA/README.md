@@ -18,6 +18,8 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.6 SW610 に EIGRP 設定がない理由（L2アクセススイッチはルーテッドI/Fを持たない）](pattern2/2026-07-17_q6_SW610にEIGRP設定がない理由.md) — 2026-07-17
 - [Task 1.7 MPLS アンダーレイ 各コマンドの意味と PE/P 役割](pattern2/2026-07-20_q7_MPLSアンダーレイ各コマンドの意味とPE-P役割.md) — 2026-07-20
 - [Task 1.7 MPLS アンダーレイ 設計理由の深掘り（ACL/prefix-suppression/autoconfig/range/required）](pattern2/2026-07-20_q7_MPLSアンダーレイ設計理由の深掘り.md) — 2026-07-20
+- [Task 1.8 R3 だけ vrf forwarding + ip address が必要な理由と「アクティブな BGP ピア 5 つ」の正体](pattern2/2026-07-26_q8_R3だけVRF設定が必要な理由とアクティブBGPピア5つの正体.md) — 2026-07-26
+- [Task 1.8 `route-target export 10000:1` の設定先（R1 ではない）と値 10000:1 の根拠 / RD と RT の違い](pattern2/2026-07-26_q8_RT10000対1の設定先と値の根拠.md) — 2026-07-26
 
 ## pattern3
 
