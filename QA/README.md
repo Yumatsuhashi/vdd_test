@@ -23,6 +23,8 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.9 「クラスフルな状態で広報されないようにすること」を満たすコマンドは？（`subnets` と `metric-type 1` の役割分担）](pattern2/2026-07-27_q9_クラスフル広報禁止を満たすコマンド.md) — 2026-07-27
 - [Task 1.11 `crypto isakmp policy` の番号がなぜ「10」なのか（初期コンフィグ流用の理由）](pattern2/2026-07-27_q11_isakmppolicy10の番号の理由.md) — 2026-07-27
 - [Task 1.11 `vrf forwarding WAN` が Task 1.11 で初めて出てくる理由（R61は既存/R70は新規という非対称性）](pattern2/2026-07-27_q11_vrfforwardingWANが必要な理由.md) — 2026-07-27
+- [Task 1.12 `ip http server` とは何か（スタティックPATの変換先ポート80との関係）](pattern2/2026-07-29_q12_ip_http_serverの役割.md) — 2026-07-29
+- [Task 1.12 static PAT コマンドの文法解説（`ip nat inside source static tcp ...`）と問題文との対応](pattern2/2026-07-29_q12_staticPATコマンドの文法解説.md) — 2026-07-29
 
 ## pattern3
 
