@@ -27,6 +27,8 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.12 static PAT コマンドの文法解説（`ip nat inside source static tcp ...`）と問題文との対応](pattern2/2026-07-29_q12_staticPATコマンドの文法解説.md) — 2026-07-29
 - [Task 1.12 Telnet ACL / rotary 設定が問題文のどの要件を満たすか（listenとfilterの役割分担）](pattern2/2026-07-30_q12_TelnetACLとrotaryの役割分担.md) — 2026-07-30
 - [Task 1.14 dynamic-author / line vty / 認証と認可を2種類設定する理由](pattern2/2026-07-30_q14_dynamic-authorとAAA認証認可2種類の理由.md) — 2026-07-30
+- [Task 1.14 コンソール無認証とVTY(RADIUS)認証必須の設計理由](pattern2/2026-07-30_q14_コンソール無認証とVTY認証必須の設計理由.md) — 2026-07-30
+- [Pattern 2全体 `CCIE!nfr4`(`CC!E!nfr4`)が使われる7タスクの整理と事前鍵設定の要否（q5/q6/q7/q8/q10/q11/q12/q14）](pattern2/2026-07-30_q5-14_CCIEnfr4パスワード使用タスクと事前鍵設定要否.md) — 2026-07-30
 
 ## pattern3
 
