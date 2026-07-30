@@ -10,6 +10,7 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 
 - [Task 1.2 SW101が解答に出てこない理由 / SW110で既に設定済みに見える理由（初期コンフィグとの関係）](pattern2/2026-07-30_q2_SW101とSW110のVLAN設定が空白の理由.md) — 2026-07-30
 - [Task 1.2 表のPo行とGi行は別要件（PoはSW110の解答に出てこない理由の続き）](pattern2/2026-07-30_q2_PoとGiは別要件でありPoは初期設定済み.md) — 2026-07-30
+- [Task 1.2 SW602の show interfaces trunk 確認と初期コンフィグとの差分](pattern2/2026-07-31_q2_SW602のshowintertrunk確認と初期コンフィグとの差分.md) — 2026-07-31
 - [Task 1.5 OSPF Q&A — 設計意図と設定対象の理由](pattern2/2026-07-17_q5_OSPF設計と設定理由.md) — 2026-07-17
 - [Task 1.5 SW101 の interface range GigabitEthernet0/0-1 の選定理由](pattern2/2026-07-17_q5_SW101のGi0-0-1選定理由.md) — 2026-07-17
 - [Task 1.5 R21 の BGP→OSPF 再配布の設計意図（HQ-DC 接続との関係）](pattern2/2026-07-17_q5_R21のBGP再配布とHQ-DC接続の関係.md) — 2026-07-17
