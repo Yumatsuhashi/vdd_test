@@ -26,6 +26,7 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.12 `ip http server` とは何か（スタティックPATの変換先ポート80との関係）](pattern2/2026-07-29_q12_ip_http_serverの役割.md) — 2026-07-29
 - [Task 1.12 static PAT コマンドの文法解説（`ip nat inside source static tcp ...`）と問題文との対応](pattern2/2026-07-29_q12_staticPATコマンドの文法解説.md) — 2026-07-29
 - [Task 1.12 Telnet ACL / rotary 設定が問題文のどの要件を満たすか（listenとfilterの役割分担）](pattern2/2026-07-30_q12_TelnetACLとrotaryの役割分担.md) — 2026-07-30
+- [Task 1.14 dynamic-author / line vty / 認証と認可を2種類設定する理由](pattern2/2026-07-30_q14_dynamic-authorとAAA認証認可2種類の理由.md) — 2026-07-30
 
 ## pattern3
 
