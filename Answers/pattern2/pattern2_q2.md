@@ -96,6 +96,18 @@ SW102も同様（`channel-group 2 mode active` / `channel-group 3 mode active`�
 
 Ciscoのトランクポートは`switchport trunk allowed vlan`を明示しない限りデフォルトで全VLAN（1-4094）をタグ付きで許可するため、VLANが既に作成済み＋トランクが既に組まれていれば、追加コマンドなしでタグ付き転送要件を満たす。
 
+### SW601/SW602は初期状態では未制限（要注意）
+
+SW602の初期コンフィグ（`EI_v2.yaml`）は次の通りで、`switchport trunk allowed vlan`による制限が**一切ない**（SW101/SW110と違い、こちらは「制限なし＝全VLAN許可」止まりで、明示的なVLAN絞り込みは初期コンフィグに含まれない）:
+
+```
+interface GigabitEthernet2/0
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+```
+
+`show interfaces trunk`の「Vlans allowed on trunk」セクションは、制限コマンドが無ければ常に`1-4094`と表示される（実在VLANだけに絞られるのは「allowed and active in management domain」以降のセクション）。もしこのセクションで既に`1,2000-2001`のように絞られて表示される場合、それは初期状態ではなく**`switchport trunk allowed vlan 1,2000,2001`が既に投入済み**であることを意味する。SW602はSW101/SW110と違い「初期コンフィグだけで要件を満たす」パターンではないため、混同注意。
+
 ## 検証コマンド
 
 - `show vlan brief`（VLANが既に存在するか）
@@ -107,4 +119,4 @@ Ciscoのトランクポートは`switchport trunk allowed vlan`を明示しな�
 - `original/RS コンフィグ パターン比較 (Task 1.2〜1.14).html`（Task 1.2 — VLAN/Access/Trunk セクション、Pattern 2、および Task 1.3 — EtherChannel/STP セクション、SW101/SW102）
 - `EI_v2.yaml`（SW101, SW102, SW110 各ノードの初期コンフィグ）
 
-最終更新: 2026-07-30
+最終更新: 2026-07-31
