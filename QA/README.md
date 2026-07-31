@@ -32,6 +32,8 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.14 コンソール無認証とVTY(RADIUS)認証必須の設計理由](pattern2/2026-07-30_q14_コンソール無認証とVTY認証必須の設計理由.md) — 2026-07-30
 - [Pattern 2全体 `CCIE!nfr4`(`CC!E!nfr4`)が使われる7タスクの整理と事前鍵設定の要否（q5/q6/q7/q8/q10/q11/q12/q14）](pattern2/2026-07-30_q5-14_CCIEnfr4パスワード使用タスクと事前鍵設定要否.md) — 2026-07-30
 - [Task 1.2 SW602の show interfaces trunk が既に絞られている＝設定済みの証拠（allowed on trunkセクションの読み方）](pattern2/2026-07-31_q2_SW602で既に絞られたトランクは適用済みの証拠.md) — 2026-07-31
+- [Task 1.2 SW601をwipeして初期コンフィグ確認したらtrunkが既に入っていた件（SW602の裏付け）](pattern2/2026-07-31_q2_SW601wipe後の初期コンフィグ確認とSW602の裏付け.md) — 2026-07-31
+- [Task 1.3 spanning-tree guard root がどの要件を満たすか、なぜこの範囲に適用するか（SW101は全ポート／SW102はSW101向けリンクを除外）](pattern2/2026-07-31_q3_spanning-tree_guard_rootの適用範囲と役割.md) — 2026-07-31
 
 ## pattern3
 
