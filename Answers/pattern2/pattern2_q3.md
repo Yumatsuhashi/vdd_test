@@ -113,9 +113,42 @@ SW110はroot/secondary rootではないため、priority指定・root-guardと�
 - **SW102**（セカンダリルート、priority 4096）: SW101へ繋がるGi2/0-1・Po3を**除外**し、それ以外（Gi1/0-3, Gi0/3, Po2）にのみ適用。SW101方向は正当なルートポートになるべきリンクのため、root-guardをかけると自分の正しいルートパスを塞いでしまう。
 - **SW110**（非ルート）: root-guardなし。Po1（SW101経由）・Po2（SW102経由）のどちらも正当なルートポートになり得るため。
 
+## 初期コンフィグとの差分（何が本当に「必要」か）
+
+`EI_v2.yaml` の初期状態と突き合わせると、必要な差分は以下だけ:
+
+| デバイス | 初期状態 | 必要な差分 |
+|---|---|---|
+| SW101 Gi1/2-3（Po1） | trunk/dot1q 済み、**`channel-group` なし** | `channel-group 1 mode active` ＋ allowed vlan |
+| SW101 Gi2/0-1（Po3） | **`channel-group 3 mode active` 済み** | allowed vlan のみ（EtherChannel 自体は成立済み） |
+| SW102 Gi1/2-3（Po2） | `channel-group 2 mode passive` | 対向 SW110 も passive のため**バンドル不成立** → `mode active` へ |
+| SW102 Gi2/0-1（Po3） | `channel-group 3 mode active` 済み | allowed vlan のみ |
+| SW110 Gi1/0-1（Po1） | **`channel-group 1 mode on`**（静的＝LACPでない） | 802.3ad 要件違反 → `mode active` へ |
+| SW110 Gi1/2-3（Po2） | `channel-group 2 mode passive` | `mode active` へ |
+| 全スイッチ | `spanning-tree mode pvst` | `rapid-pvst` へ |
+
+`no interface port-channel N` から始まるのは、初期コンフィグの Po に残る設定（許可VLAN未制限など）を消して物理ポート側から再生成するため。
+
 ## 検証コマンド
 
-（原本に明記なし。`show spanning-tree vlan 2000`、`show spanning-tree interface <if> detail`、`show spanning-tree summary`等で確認可能）
+### 事前チェック（この設定が必要だと判断するため）
+
+| コマンド | 見るポイント | 「必要」と判断する出力 |
+|---|---|---|
+| `show etherchannel summary` | Ports 欄・Protocol 欄 | Ports が空 / `Po1(SD)` ＝ メンバー未割当。Protocol が `-` ＝ `mode on` で LACP でない。`(I)`/`(s)` ＝ バンドル不成立 |
+| `show lacp neighbor` | ネイバーの有無 | 空 ＝ 対向が `mode on` か passive-passive で LACPDU が来ていない |
+| `show run \| section GigabitEthernet` | `channel-group` 行と mode | 行がない、または mode が `on`/`passive` |
+| `show interfaces trunk` | Vlans allowed on trunk | `1-4094` ＝ 未制限（allowed vlan 要）／`1,2000-2001` ＝ 投入済み |
+| `show interfaces Gi1/2 switchport` | Switchport / Administrative Mode / Encapsulation | Disabled ＝ `switchport` 要、dynamic auto ＝ `mode trunk` 要 |
+| `show interfaces status` | 状態 | `disabled` ＝ `no shutdown` 要 |
+| `show cdp neighbors` | 対向ポート | 問題文の表と実配線の一致確認 |
+| `show spanning-tree summary` | STP モード | `pvst` ＝ `rapid-pvst` へ変更要 |
+
+LACP モード組み合わせ: active↔active/passive は成立、**passive↔passive は不成立**、`on` は LACP でないため 802.3ad 要件を満たさない。
+
+### 事後確認
+
+`show etherchannel summary`（`Po1(SU)` ＋ Protocol `LACP` ＋ 全メンバー `(P)`）、`show interfaces trunk`、`show spanning-tree vlan 2000`、`show spanning-tree interface <if> detail`、`show spanning-tree summary`
 
 ## 出典
 
