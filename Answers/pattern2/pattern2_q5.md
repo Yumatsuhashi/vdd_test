@@ -91,6 +91,8 @@ show ip ospf interface | include authentication   ! SW101/SW102, R11/R12 で mes
 ## 補足（設計上の注意）
 
 - SW201/SW202/SW211/SW212 が解答に出てこないのは、EI_v2.yaml の初期コンフィグで OSPF process 1 / area 0 が設定済みのため（追加要件なし）
+  - SW201 の実測（EI_v2.yaml）: Lo0(10.2.255.201) / Gi0/0(→R21 Gi4) / Gi0/1(→R22 Gi3) / Gi0/3(→SW202) / Gi1/0(→SW212) / Gi1/1(→SW211) / Gi1/2(→SW101 Gi0/2) / Vlan3999 / Vlan4000 の**L3 9本すべてに `ip ospf 1 area 0` 済み**。Gi0/2(→cEdge22) と Gi1/3(→cEdge21) は `switchport mode trunk` の L2 ポートで OSPF 対象外（SD-WAN 側）
+  - original で SW201 が登場するのは **Pattern 3 のみ**（875行: router-id、1507/4917行: Gi1/2 の MD5）。Pattern 2 Task 1.5 には SW201 の config は 1 行も無い
 - SP 向きインターフェース（R11/R12 の Gi0/0、R21/R22 の Gi1、R23/R24 の Gi1）は BGP 用のため OSPF に入れない
 - 設計意図・機器ごとの理由の詳細は `QA/pattern2/2026-07-17_q5_OSPF設計と設定理由.md` を参照
 
