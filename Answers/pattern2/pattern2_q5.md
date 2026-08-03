@@ -88,11 +88,53 @@ show ip ospf interface
 show ip ospf interface | include authentication   ! SW101/SW102, R11/R12 で message-digest が有効か確認
 ```
 
+### 「どのI/Fに設定が必要か」を洗い出す2コマンド
+
+```ios
+show ip interface brief | exclude unassigned   ! IP を持つ（＝L3 の）インターフェース一覧
+show ip ospf interface brief                   ! OSPF が有効なインターフェース一覧
+```
+
+**前者にあって後者に無いもの = 設定が必要なインターフェース**。SW101 ではこの差分が
+Vlan2000/Vlan2001 の 2 本だけになる。SW201/SW202/SW211/SW212 では差分ゼロ（＝設定不要）。
+
+**罠**: 本ラボは `network` 文ではなくインターフェース直付け方式（`ip ospf 1 area 0`）のため、
+`show run | section router ospf` は中身が空。これを見て「未設定」と誤判定しないこと。
+`show ip protocols` の "Routing on Interfaces Configured Explicitly (Area 0)" には一覧が出る。
+MD5 認証の有無は `show ip ospf interface brief` には出ないので `show ip ospf interface <if>`
+（`Message digest authentication enabled` / `Youngest key id is 1`）で確認する。
+
+## 初期コンフィグ（EI_v2.yaml）での OSPF 設定状況
+
+### SW101 / SW102
+
+| インターフェース（SW101） | 種別 | 初期コンフィグの OSPF | Task 1.5 で必要な作業 |
+|---|---|---|---|
+| Loopback0 (10.1.255.101) | L3 | `ip ospf 1 area 0` 済 | なし |
+| Gi0/0 (10.1.10.2) → R11 Gi0/3 | L3 | `ip ospf 1 area 0` 済 | **MD5 認証のみ追加** |
+| Gi0/1 (10.1.12.2) → R12 Gi0/2 | L3 | `ip ospf 1 area 0` 済 | **MD5 認証のみ追加** |
+| Gi0/2 (10.2.241.2) → SW201 Gi1/2 | L3 | `ip ospf 1 area 0` 済 | なし（対向が R11/R12 でないため認証不要） |
+| Vlan2000 (10.1.100.2) | L3 | **なし** | **`ip ospf 1 area 0` 追加** |
+| Vlan2001 (10.1.101.2) | L3 | **なし** | **`ip ospf 1 area 0` 追加** |
+| Gi1/2, Gi1/3, Gi2/0, Gi2/1, Po1, Po3 | L2 trunk | — | 対象外（IP なし） |
+
+→ 解答の `interface range Gi0/0-1` に含まれる `ip ospf 1 area 0` は**既に入っており冗長**（無害）。
+このrangeの本来の目的は **MD5 認証の追加**。
+
+### R11 / R12
+
+初期コンフィグに OSPF 設定が**一切ない**。そのため解答では Loopback0 と Gi0/1-3 を明示している
+（Gi0/0 は SP 向き 100.3.11.2 で問題文の除外リスト対象）。
+
+### SW201（設定不要の根拠）
+
+Lo0 / Gi0/0 / Gi0/1 / Gi0/3 / Gi1/0 / Gi1/1 / Gi1/2 / Vlan3999 / Vlan4000 すべてに
+`ip ospf 1 area 0` が投入済み。残る Gi0/2・Gi1/3 は trunk（native vlan 4000）で IP を持たない。
+→ L3 インターフェースは全数カバー済みのため追加設定ゼロ。
+
 ## 補足（設計上の注意）
 
 - SW201/SW202/SW211/SW212 が解答に出てこないのは、EI_v2.yaml の初期コンフィグで OSPF process 1 / area 0 が設定済みのため（追加要件なし）
-  - SW201 の実測（EI_v2.yaml）: Lo0(10.2.255.201) / Gi0/0(→R21 Gi4) / Gi0/1(→R22 Gi3) / Gi0/3(→SW202) / Gi1/0(→SW212) / Gi1/1(→SW211) / Gi1/2(→SW101 Gi0/2) / Vlan3999 / Vlan4000 の**L3 9本すべてに `ip ospf 1 area 0` 済み**。Gi0/2(→cEdge22) と Gi1/3(→cEdge21) は `switchport mode trunk` の L2 ポートで OSPF 対象外（SD-WAN 側）
-  - original で SW201 が登場するのは **Pattern 3 のみ**（875行: router-id、1507/4917行: Gi1/2 の MD5）。Pattern 2 Task 1.5 には SW201 の config は 1 行も無い
 - SP 向きインターフェース（R11/R12 の Gi0/0、R21/R22 の Gi1、R23/R24 の Gi1）は BGP 用のため OSPF に入れない
 - 設計意図・機器ごとの理由の詳細は `QA/pattern2/2026-07-17_q5_OSPF設計と設定理由.md` を参照
 

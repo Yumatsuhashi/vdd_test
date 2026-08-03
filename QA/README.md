@@ -39,7 +39,7 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.3 root guard をこのポート範囲にかける理由（Gi0/3の正体＝モジュール0で唯一残ったL2ポート／SW102はGi2/0-1・Po3を除外）](pattern2/2026-08-03_q3_root_guardのポート範囲とGi0-3の理由.md) — 2026-08-03
 - [Task 1.4 `ip dhcp relay information option/trust` が満たす要件と、SW102 にも decrement が必要な理由（Standby側trackingは切替の抑止装置）](pattern2/2026-08-03_q4_DHCPリレー2行の役割とSW102にdecrementが必要な理由.md) — 2026-08-03
 - [Task 1.4 HSRP 仮想 IP が問題文のデフォルト GW IP である理由（実IPは.2/.3で.1は意図的に空き）と `ip helper-address` の役割（giaddr でスコープ選択・両機に入れる理由）](pattern2/2026-08-03_q4_HSRP仮想IPがデフォルトGWである理由とhelper-addressの役割.md) — 2026-08-03
-- [Task 1.5 SW201 に解答 config が無い理由と「全インターフェースで OSPF 有効化」要件の読み方（解答は差分のみ／Gi0/0-1 は SW101・SW102 の話）](pattern2/2026-08-03_q5_SW201に解答configが無い理由と全IF有効化要件の読み方.md) — 2026-08-03
+- [Task 1.5 OSPF 設定済み I/F の確認コマンド（`show ip int brief` と `show ip ospf int brief` の差分）と SW101 で追加が要るのは Vlan2000/2001 だけである理由](pattern2/2026-08-03_q5_OSPF設定済みIFの確認コマンドと追加設定の見分け方.md) — 2026-08-03
 
 ## pattern3
 
