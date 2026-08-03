@@ -37,6 +37,7 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.3 spanning-tree portfast edge default とは何か・対応する要件（個別設定なしの制約との関係）](pattern2/2026-07-31_q3_portfast_edge_defaultの意味と対応要件.md) — 2026-07-31
 - [Task 1.3 「この設定が必要だ」と判断するための確認コマンド（Gi1/2-3はchannel-group無し／Gi2/0-1は設定済み・SW110はmode on）](pattern2/2026-08-01_q3_この設定が必要と判断するための確認コマンド.md) — 2026-08-01
 - [Task 1.3 root guard をこのポート範囲にかける理由（Gi0/3の正体＝モジュール0で唯一残ったL2ポート／SW102はGi2/0-1・Po3を除外）](pattern2/2026-08-03_q3_root_guardのポート範囲とGi0-3の理由.md) — 2026-08-03
+- [Task 1.4 `ip dhcp relay information option/trust` が満たす要件と、SW102 にも decrement が必要な理由（Standby側trackingは切替の抑止装置）](pattern2/2026-08-03_q4_DHCPリレー2行の役割とSW102にdecrementが必要な理由.md) — 2026-08-03
 
 ## pattern3
 
