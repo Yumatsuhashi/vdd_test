@@ -40,6 +40,13 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.4 `ip dhcp relay information option/trust` が満たす要件と、SW102 にも decrement が必要な理由（Standby側trackingは切替の抑止装置）](pattern2/2026-08-03_q4_DHCPリレー2行の役割とSW102にdecrementが必要な理由.md) — 2026-08-03
 - [Task 1.4 HSRP 仮想 IP が問題文のデフォルト GW IP である理由（実IPは.2/.3で.1は意図的に空き）と `ip helper-address` の役割（giaddr でスコープ選択・両機に入れる理由）](pattern2/2026-08-03_q4_HSRP仮想IPがデフォルトGWである理由とhelper-addressの役割.md) — 2026-08-03
 - [Task 1.5 OSPF 設定済み I/F の確認コマンド（`show ip int brief` と `show ip ospf int brief` の差分）と SW101 で追加が要るのは Vlan2000/2001 だけである理由](pattern2/2026-08-03_q5_OSPF設定済みIFの確認コマンドと追加設定の見分け方.md) — 2026-08-03
+- [Task 1.5 SW201/SW202 が解答に出てこない理由（全L3 I/F が初期投入済みで差分ゼロ／L2トランクの先は cEdge＝SD-WAN）と HQ/DC 全機の初期OSPF状態一覧](pattern2/2026-08-04_q5_SW201とSW202が解答に出てこない理由.md) — 2026-08-04
+- [Task 1.5 `sh ip ospf int b` で設定済みに見えるのに解答に Gi0/0-1 がある理由（brief に認証欄はない／`Nbrs F/C` 0-0 は対向未設定のサイン）と要件別コマンド割り当て](pattern2/2026-08-04_q5_ospf_int_briefで済に見えるのに解答に設定がある理由.md) — 2026-08-04
+- [Task 1.6 `key chain CCIE_MD5` のお手本は実機にあるか（ラボ内に実例0件＝ここだけ暗記／`sec eigrp` では出ない／R62 コピペが効く範囲と SW601·SW602 は全量必要）](pattern2/2026-08-04_q6_key_chainのお手本が実機にあるか.md) — 2026-08-04
+- [Task 1.6 SW610 に何も設定しない理由（ルーテッドI/F 0本・SVI は上位と同一サブネット／ただし Task 1.2 では設定対象）](pattern2/2026-08-04_q6_SW610に何も設定しない理由.md) — 2026-08-04
+- [Task 1.6 ISAKMP の PSK と EIGRP の key chain は無関係（鍵を Key ID で引くか ピアIP で引くかの違い／ラボで `CC!E!nfr4` が出る6形式の対比）](pattern2/2026-08-04_q6_isakmpのPSKとeigrpのkey-chainの関係.md) — 2026-08-04
+- [Task 1.7 事前設定で OSPF ネイバーが既にあるのに Gi0/0-2 と Lo0 に設定する理由（`FULL/DR` 自体が Type 2 LSA 生成＝要件違反の証拠／ネイバー2行しかないのは R5 が OSPF 皆無だから）](pattern2/2026-08-06_q7_ospfネイバー済でも設定する理由.md) — 2026-08-06
+- [Task 1.7 本番で最短で解く動き方（差分を探さず機器別6ブロックを貼る／順番は PE→P／検証は R1・R2 の2台だけ／R4 Lo0 の /31 罠）](pattern2/2026-08-07_q7_本番最短手順コピペ前提の動き方.md) — 2026-08-07
 
 ## pattern3
 

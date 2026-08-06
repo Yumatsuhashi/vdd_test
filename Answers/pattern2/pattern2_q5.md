@@ -98,6 +98,24 @@ show ip ospf interface brief                   ! OSPF が有効なインター�
 **前者にあって後者に無いもの = 設定が必要なインターフェース**。SW101 ではこの差分が
 Vlan2000/Vlan2001 の 2 本だけになる。SW201/SW202/SW211/SW212 では差分ゼロ（＝設定不要）。
 
+### 要件 → 確認コマンドの割り当て（brief だけでは足りない）
+
+| 問題文の要件 | 確認コマンド | brief で見えるか |
+|---|---|---|
+| すべての I/F で OSPF 有効化 | `sh ip int b \| ex unassigned` と `sh ip ospf int b` の差分 | ✅ |
+| すべての OSPF ネイバーを確立 | `sh ip ospf neighbor` / brief の **Nbrs F/C 列** | ✅ |
+| **R11/R12 は MD5 認証** | `sh ip ospf int <if>` / `sh run int <if>` | ❌ **見えない** |
+| R21 で BGP を再配布 | `sh ip protocols` / `sh run \| sec router ospf` | ❌ |
+
+**`show ip ospf interface brief` に認証欄はない**。SW101 の `interface range Gi0/0-1` が解答にあるのは
+OSPF 有効化のためではなく **MD5 認証のため**（`ip ospf 1 area 0` は既存の再入力で冗長）。
+認証の一括監査は `show ip ospf interface | include is up|Message digest|authentication`
+（未設定なら `Message digest authentication enabled` の行がそもそも出ない）。
+
+**`Nbrs F/C` の読み方**: Full 状態のネイバー数 / 検出したネイバー総数。設定前の SW101 実機出力では
+Gi0/2（→SW201）が `1/1`、Gi0/0（→R11）と Gi0/1（→R12）が `0/0`。R11/R12 は初期コンフィグに OSPF が
+一切ないため。**0/0 は「対向機器が未設定」のサイン**で、要件「すべてのネイバーを確立」の違反を示す。
+
 **罠**: 本ラボは `network` 文ではなくインターフェース直付け方式（`ip ospf 1 area 0`）のため、
 `show run | section router ospf` は中身が空。これを見て「未設定」と誤判定しないこと。
 `show ip protocols` の "Routing on Interfaces Configured Explicitly (Area 0)" には一覧が出る。
@@ -126,11 +144,45 @@ MD5 認証の有無は `show ip ospf interface brief` には出ないので `sho
 初期コンフィグに OSPF 設定が**一切ない**。そのため解答では Loopback0 と Gi0/1-3 を明示している
 （Gi0/0 は SP 向き 100.3.11.2 で問題文の除外リスト対象）。
 
-### SW201（設定不要の根拠）
+### R21 / R22 / R23 / R24
 
-Lo0 / Gi0/0 / Gi0/1 / Gi0/3 / Gi1/0 / Gi1/1 / Gi1/2 / Vlan3999 / Vlan4000 すべてに
-`ip ospf 1 area 0` が投入済み。残る Gi0/2・Gi1/3 は trunk（native vlan 4000）で IP を持たない。
-→ L3 インターフェースは全数カバー済みのため追加設定ゼロ。
+| 機器 | 初期コンフィグの OSPF | 解答での実質的な追加 |
+|---|---|---|
+| R21 | Lo0 / Gi2 / Gi3 / Gi4 すべて `ip ospf 1 area 0` 済（`router ospf 1` あり・中身は空） | **`redistribute bgp 65002 metric-type 1 subnets` のみ**（interface 行は再入力で冗長） |
+| R22 | `router ospf 1` の箱だけ。インターフェース側は未設定 | Lo0 + Gi2-4 を area 0 へ |
+| R23 / R24 | **何もなし** | router-id 明示 + Lo0 + Gi2-3 |
+
+### SW201 / SW202 / SW211 / SW212（設定不要の根拠）
+
+**全 L3 インターフェースに `ip ospf 1 area 0` が投入済み**。差分ゼロのため解答に登場しない。
+
+SW201: Lo0 / Gi0/0 / Gi0/1 / Gi0/3 / Gi1/0 / Gi1/1 / Gi1/2 / Vlan3999 / Vlan4000（計9本）
+SW202: Lo0 / Gi0/0 / Gi0/1 / Gi0/3 / Gi1/0 / Gi1/1 / Gi1/2 / Vlan3999 / Vlan4000（計9本）
+SW211: Lo0 / Gi0/0-3 / Gi1/0-3（計9本）
+SW212: Lo0 / Gi0/0-3 / Gi1/0-2（計8本）
+
+SW201/SW202 に残る Gi0/2・Gi1/3 は trunk（native vlan 4000）で IP を持たない。この 2 本の接続先は
+**cEdge21 / cEdge22（SD-WAN ルータ）**であり、問題文の「非 SD-WAN ルータ間」という限定に対応する:
+
+```
+SW201-Gi0/2 <-> cEdge22-Eth0/0 (4518行)   SW201-Gi1/3 <-> cEdge21-Eth0/0 (4532行)
+SW202-Gi0/2 <-> cEdge21-Eth0/1 (4525行)   SW202-Gi1/3 <-> cEdge22-Eth0/1 (4539行)
+```
+
+MD5 も不要（要件は R11/R12 の隣接に限定。SW201 の隣接相手は R21/R22/SW211/SW212/SW101/SW202）。
+
+### 一覧（Task 1.5 で「実際に手を動かす」のはどこか）
+
+| 機器 | 初期 OSPF | 実質的な作業 |
+|---|---|---|
+| R11 / R12 | なし | Lo0 + Gi0/1-3 を area 0 ＋ MD5 認証 |
+| R21 | 全 L3 済 | redistribute bgp のみ |
+| R22 | プロセスのみ | Lo0 + Gi2-4 |
+| R23 / R24 | なし | router-id + Lo0 + Gi2-3 |
+| SW101 / SW102 | Vlan2000/2001 のみ未 | Vlan2000/2001 ＋ Gi0/0-1 に MD5 |
+| SW201 / SW202 / SW211 / SW212 | 全 L3 済 | **なし** |
+
+**読み方の原則**: 「解答に無い = 使わない」ではなく「解答に無い = 既に入っている」。
 
 ## 補足（設計上の注意）
 

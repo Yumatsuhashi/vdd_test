@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/yumatsuh/Desktop/CCIE/CCIE_train_hub/.codex/hooks/guardrails/worktree-guard.sh'"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/yumatsuh/Desktop/CCIE/CCIE_train_hub/.codex/hooks/guardrails/commit-guard.sh'"
+          },
+          {
+            "type": "command",
+            "command": "bash '/Users/yumatsuh/Desktop/CCIE/CCIE_train_hub/.codex/hooks/guardrails/gh-guard.sh'"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/yumatsuh/Desktop/CCIE/CCIE_train_hub/.codex/hooks/rdd-reminder/remind.sh'"
+          }
+        ]
+      }
+    ]
+  }
+}

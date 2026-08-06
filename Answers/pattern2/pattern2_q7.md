@@ -93,7 +93,7 @@ interface GigabitEthernet8
  ip ospf network point-to-point
  mpls ip
 ```
-（注: R4 の `ip address 100.255.254.4/32` は Pattern 1/3 のみ差分。Pattern 2 は初期コンフィグ済みで本タスク差分外）
+（注: R4 の `ip address 100.255.254.4/32` は original 上 Pattern 1/3 のみ差分。ただし **EI_v2.yaml の R4 初期コンフィグは `100.255.254.4 255.255.255.254`（/31）**であり /32 ではない。/32 前提の LDP router-id・BGP update-source と噛み合わないため、実機で LDP/iBGP が上がらない場合はここを疑う）
 
 ### R5（PE。ピア=R1）
 
@@ -132,6 +132,26 @@ interface GigabitEthernet8
  ip ospf network point-to-point
  mpls ip
 ```
+
+## 初期コンフィグの OSPF 状態（EI_v2.yaml 実測）
+
+**重要: 事前設定で OSPF ネイバーは一部すでに上がっている。**ただし「隣接が上がっている」≠「要件を満たす」。
+
+| 機器 | `router ospf 1` | Lo0 | コア I/F | 本タスクで実際に不足している分 |
+|---|---|---|---|---|
+| R1 | ✅ | ✅ | Gi0/0 ✅ Gi0/1 ✅ Gi0/2 ✅ | **P2P のみ**（`ip ospf area 0` は冪等） |
+| R2 | ✅ | ✅ | Gi0/0 ✅ Gi0/1 ✅ Gi0/2 ✅ | **P2P のみ** |
+| R3 | ✅ | ❌ | Gi8 ✅ | **Lo0 + P2P** |
+| R4 | ✅ | ✅ (mask /31) | Gi8 ✅ | **P2P のみ** |
+| R5 | ❌ | ❌ | Gi8 ❌ | **全部（`router ospf 1` すら無い）** |
+| R6 | ✅ | ✅ | Gi8 ✅ | **P2P のみ** |
+
+- 未設定時の `R1#sh ip ospf nei` は **2行しか出ない**（Gi0/0↔R2、Gi0/1↔R3）。
+  Gi0/2↔R5 が出ないのは R5 側が OSPF 皆無だから。要件「すべての内部リンクでネイバー確立」の未達サイン。
+- 状態が `FULL/**DR**` なのは network type が broadcast のまま = **Type 2 LSA が生成されている** = 要件違反。
+  P2P 化で `FULL/  -` になり Type 2 が消える。ネットワークタイプは Hello に含まれないため
+  **片側だけ P2P にしても隣接は上がるが Type 2 は消えない** → 6台全 I/F に打つ。
+- 解答の `interface range Gi0/0-2` / `int lo0` は 6台共通のテンプレート。R1/R2 では `ip ospf area 0` 部分が冪等。
 
 ## コマンドと要件の対応（要点）
 
@@ -177,7 +197,11 @@ interface GigabitEthernet8
 show mpls ldp neighbor detail        # password option + required の適用確認
 show mpls ldp parameters             # LDP パラメータ（router-id/password）
 show ip ospf database                # Type 2 LSA が無いこと / transit prefix が無いこと
-show ip ospf interface brief         # network type = P2P
+show ip ospf database network        # Type 2 LSA 不在の直接証明（空になること）
+show ip ospf database router         # transit link の /30 が消えていること（prefix-suppression）
+show ip ospf interface brief         # network type = P2P（Type 列が BCST なら未達）
+show ip ospf neighbor                # FULL/DR が残っていないか（全て FULL/ - が正）。行数=リンク数か確認
+show ip protocols                    # R5 で OSPF プロセスが無いことの確認
 show mpls interfaces                 # 各コア IF で LDP 有効
 ```
 
@@ -186,5 +210,7 @@ show mpls interfaces                 # 各コア IF で LDP 有効
 - `original/RS コンフィグ パターン比較 (Task 1.2〜1.14).html` 1116〜1292 行（Task 1.7, Pattern 2 列）
 - 役割識別: 同 HTML Task 1.8（VRF fabd2 = R3〜R6 のみ）、`topology2.png`
 - Loopback/ピア関係: 上記 config の access-list / mpls ldp neighbor 記述
+- 初期 OSPF 状態: `EI_v2.yaml` R1〜R6 各ノードの ios_config.txt / iosxe_config.txt（2026-08-06 実測）
+- 配線: `EI_v2.yaml` links 4651 行 `R1-Gi0/0<->R2-Gi0/0` / 4658 行 `R3-Gi8<->R1-Gi0/1` / 4686 行 `R5-Gi8<->R1-Gi0/2`
 
-最終更新: 2026-07-20
+最終更新: 2026-08-06
