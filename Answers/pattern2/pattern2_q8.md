@@ -105,10 +105,17 @@ router bgp 10000
   neighbor 100.3.11.2 activate
   neighbor 100.3.21.2 remote-as 65002
   neighbor 100.3.21.2 activate
+  neighbor 100.3.21.2 maximum-prefix 100000 90 restart 5
 ```
 
 **注意**: `vrf forwarding` を入れると IOS が IP アドレスを削除するため、
 必ず直後に `ip address` を再入力する（アドレス自体は初期コンフィグと同値）。
+
+**`maximum-prefix 100000 90 restart 5` は Pattern 2 のみの追加要件**（original 1346 行 = P2 列）。
+`100000`=受信上限 / `90`=90% で警告ログ / `restart 5`=超過で落とした後 5 分で自動復旧。
+**R21 向けにだけ**付く（DC 側 CE の誤設定で経路が溢れても PE を守る）。
+Pattern 1 にはなく、**Pattern 3 は代わりに `neighbor 100.3.11.2 timer 30 90`**（R3↔R11）。
+解答 HTML のこの行は**行頭が全角スペース（U+3000）**なので、コピペ時は打ち直すこと。
 
 ### R4（PE。ピア 3 本）
 
@@ -166,6 +173,40 @@ router bgp 10000
 
 R3 Gi8 (100.0.13.2) は R1 向けのアンダーレイ = global のまま。BGP ピアではない。
 
+#### neighbor に指定する IP の使い分け（AF で決まる）
+
+| AF | 指定する IP | 何のアドレスか | 種別 |
+|---|---|---|---|
+| `address-family vpnv4` | `100.255.254.4/.5/.6` | **PE の Loopback0** | iBGP（マルチホップ） |
+| `address-family ipv4 vrf fabd2` | `100.3.11.2` / `100.3.21.2` | **CE の直結物理 I/F** | eBGP（1 ホップ） |
+
+#### PE-CE リンクのアドレス命名規則（暗記不要・導出できる）
+
+`100.<PE番号>.<CE番号>.x` で、**`.1` が PE / `.2` が CE**。
+
+| リンク | サブネット | PE 側（.1） | CE 側（.2） | CE の AS |
+|---|---|---|---|---|
+| R3 ↔ R11 | 100.3.11.0/30 | R3 Gi1 | R11 Gi0/0 | 65001 |
+| R3 ↔ R21 | 100.3.21.0/30 | R3 Gi2 | R21 Gi1 | 65002 |
+| R5 ↔ R61 | 100.5.61.0/30 | R5 Gi1 | R61 | 65006 |
+| R6 ↔ R62 | 100.6.62.0/30 | R6 Gi1 | R62 Gi0/0 | 65006 |
+| R6 ↔ R70 | 100.6.70.0/30 | R6 Gi2.100 | R70 Gi0/0.100 | 65007 |
+
+アンダーレイ（PE-P）は `100.0.<x><y>.0/30`（例 R3-R1 = 100.0.13.0/30）で第2オクテットが `0`。
+**第2オクテットが 0 か否かで「コア向け global」「顧客向け VRF」が一目で判別できる。**
+
+#### CE 側は初期コンフィグ済み → R3 側だけでセッションが上がる
+
+```
+# R11 初期コンフィグ           # R21 初期コンフィグ
+router bgp 65001               router bgp 65002
+ neighbor 100.3.11.1            network 10.2.255.21 mask 255.255.255.255
+   remote-as 10000              neighbor 10.2.255.22 remote-as 65002  ← R22 と DC 内 iBGP
+  neighbor 100.3.11.1 activate  neighbor 100.3.21.1 remote-as 10000
+```
+
+CE 側を触る必要はない。
+
 ### R6
 
 | # | 機器 | 指定 IP | 種別 | AS | AF | 配線 |
@@ -220,6 +261,7 @@ show ip vrf interfaces                     # Gi1/Gi2 が fabd2 に所属
 show ip route vrf fabd2                    # 他拠点の B 経路が入っている
 show vrf detail fabd2                      # RD / import・export RT の確認
 show bgp vpnv4 unicast all neighbors <ip> | inc MD5   # password 適用確認
+show ip bgp neighbors 100.3.21.2 | include prefix     # P2 のみ: maximum-prefix 適用確認
 ```
 
 ## 出典
@@ -229,5 +271,7 @@ show bgp vpnv4 unicast all neighbors <ip> | inc MD5   # password 適用確認
 - `EI_v2.yaml` node n15(R3) / n20(R4) / n21(R5) / n22(R6) 初期コンフィグ
 - `EI_v2.yaml` links 4469 / 4476 / 4658 / 4672 / 4679 行
 - `EI_v2.yaml` R11 / R21 / R62 / R70 の `router bgp`（AS 65001 / 65002 / 65006 / 65007）
+- `maximum-prefix`: 同 HTML 1346 行（P2 列のみ）/ 5333 行（検証表「Pattern 2 追加（maximum-prefix） P2のみ」）
+- `timer 30 90` は **Pattern 3 のみ**: 同 HTML 1342 行 / 5334 行（検証表「Pattern 3 追加（BGP timers） P3のみ」）
 
-最終更新: 2026-07-26
+最終更新: 2026-08-07

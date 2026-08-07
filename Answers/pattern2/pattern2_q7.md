@@ -170,6 +170,23 @@ interface GigabitEthernet8
 - R1 は直接 LDP を張る R2/R3/R5、R2 は R1/R4/R6 の Loopback を列挙。「認証したい直接 LDP ネイバーの LDP-ID を全部並べる」発想。
 - `for 11` でこの集合に一括適用 → ピアが多いハブ（R1/R2）でも1コマンドで全ピアに同じポリシー。これが「グループ/グローバル設定」の実体。
 
+#### 番号「11」に必然性はない（暗記不要）
+- **1〜99 のどれでも動作は同じ。**唯一の制約は `mpls ldp password option <n> for <acl>` が **標準 ACL（1–99 / 1300–1999）しか受け付けない**こと。マッチ対象が LDP-ID という単一の送信元 IP なので標準 ACL で足りる。
+- 証拠: **Pattern 3 は同じ「LDP ピア一覧」の役割で `access-list 10`** を使っている（`mpls ldp session protection for 10 duration infinite`）。作問者が用途ごとに番号を割り振っているだけ。
+- `EI_v2.yaml` の初期コンフィグに access-list は **0 件** → 既存 ACL 回避が理由ではない。
+- Pattern 2 内の番号付き ACL は **11（Task 1.7 LDP）** と **66（Task 1.9 系 BGP distribute-list）** のみで衝突なし。
+
+#### 罠: `option 1 for 11` の「1」は ACL 番号ではない
+```
+mpls ldp password option 1 for 11 CC!E!nfr4
+                        ↑        ↑
+                        │        └─ ACL 番号（= 11）
+                        └─ 優先順位(precedence)。ACL とは無関係
+```
+- ACL を 1 番にすると `option 1 for 1` となり混乱する。11 なら目視で区別できる。
+- **番号がズレても IOS はエラーを出さない。**存在しない ACL を参照 = 誰にもマッチせず認証が一切適用されないまま素通りし、`required for 11` 側だけ生きて LDP が上がらなくなる。
+- 要件は「`access-list 11` / `password option 1 for **11**` / `password required for **11**` の 3 箇所が同じ番号を指していること」だけ。
+
 ### トランジット情報を LSA に含めないメリット（prefix-suppression）
 - LSDB/RIB の縮小（コア間 /30 が全ルータに載らない）→ メモリ・SPF 負荷減。
 - インフラ隠蔽（コアのリンクアドレスが OSPF ドメイン/再配布先に漏れない → 攻撃対象化しにくい）。
@@ -194,8 +211,9 @@ interface GigabitEthernet8
 ## 検証コマンド
 
 ```
+show access-lists 11                 # R1/R2 とも 3 行出るか。空なら番号ズレ（Pattern 3 は 10）
 show mpls ldp neighbor detail        # password option + required の適用確認
-show mpls ldp parameters             # LDP パラメータ（router-id/password）
+show mpls ldp parameters             # LDP パラメータ（router-id/password）。11 を参照しているか
 show ip ospf database                # Type 2 LSA が無いこと / transit prefix が無いこと
 show ip ospf database network        # Type 2 LSA 不在の直接証明（空になること）
 show ip ospf database router         # transit link の /30 が消えていること（prefix-suppression）
@@ -211,6 +229,8 @@ show mpls interfaces                 # 各コア IF で LDP 有効
 - 役割識別: 同 HTML Task 1.8（VRF fabd2 = R3〜R6 のみ）、`topology2.png`
 - Loopback/ピア関係: 上記 config の access-list / mpls ldp neighbor 記述
 - 初期 OSPF 状態: `EI_v2.yaml` R1〜R6 各ノードの ios_config.txt / iosxe_config.txt（2026-08-06 実測）
+- ACL 番号の根拠: 同 HTML 1133〜1172 行（P2=`access-list 11` / P3=`access-list 10` の横並び）、4653・4675 行（P3 単独ページ）、5322・5323 行（検証コマンド表 `show access-lists 11` / `10`）
+- ACL 衝突確認: `EI_v2.yaml` 全体 grep `access-list|access-class` → 0 件
 - 配線: `EI_v2.yaml` links 4651 行 `R1-Gi0/0<->R2-Gi0/0` / 4658 行 `R3-Gi8<->R1-Gi0/1` / 4686 行 `R5-Gi8<->R1-Gi0/2`
 
 最終更新: 2026-08-06

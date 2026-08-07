@@ -48,6 +48,8 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.7 事前設定で OSPF ネイバーが既にあるのに Gi0/0-2 と Lo0 に設定する理由（`FULL/DR` 自体が Type 2 LSA 生成＝要件違反の証拠／ネイバー2行しかないのは R5 が OSPF 皆無だから）](pattern2/2026-08-06_q7_ospfネイバー済でも設定する理由.md) — 2026-08-06
 - [Task 1.7 本番で最短で解く動き方（差分を探さず機器別6ブロックを貼る／順番は PE→P／検証は R1・R2 の2台だけ／R4 Lo0 の /31 罠）](pattern2/2026-08-07_q7_本番最短手順コピペ前提の動き方.md) — 2026-08-07
 - [Task 1.7 R3 の Lo0 が OSPF 未参加だと見抜くコマンド（`sh ip ospf int b` に行が無い／RID に .3 が出るのは罠＝RID は参加有無と無関係）と、設定済みの Gi8 に3行打つ理由（本命は P2P・R3 が DR ＝ Type 2 の生成元）](pattern2/2026-08-07_q7_R3のLo0未参加を見抜くコマンドとGi8に打ち直す理由.md) — 2026-08-07
+- [Task 1.7 `access-list` が 11 番である理由（数字に必然性なし＝Pattern 3 は同じ役割で 10／制約は標準 ACL であることだけ／`option 1 for 11` の 1 は ACL 番号ではない／番号ズレはエラーが出ず無言で認証が効かなくなる）](pattern2/2026-08-07_q7_access-listが11番である理由.md) — 2026-08-07
+- [Task 1.8 `address-family ipv4 vrf fabd2` の neighbor IP の正体（100.3.11.2=R11・100.3.21.2=R21 の直結 I/F＝CE 側／vpnv4 は Loopback で iBGP という使い分け／`.1`=PE・`.2`=CE の命名規則／CE 側は初期設定済みで R3 だけで上がる／maximum-prefix は P2 のみ・行頭が全角スペース）](pattern2/2026-08-07_q8_af_ipv4_vrf内のneighborIPの正体.md) — 2026-08-07
 
 ## pattern3
 
