@@ -47,6 +47,7 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.6 ISAKMP の PSK と EIGRP の key chain は無関係（鍵を Key ID で引くか ピアIP で引くかの違い／ラボで `CC!E!nfr4` が出る6形式の対比）](pattern2/2026-08-04_q6_isakmpのPSKとeigrpのkey-chainの関係.md) — 2026-08-04
 - [Task 1.7 事前設定で OSPF ネイバーが既にあるのに Gi0/0-2 と Lo0 に設定する理由（`FULL/DR` 自体が Type 2 LSA 生成＝要件違反の証拠／ネイバー2行しかないのは R5 が OSPF 皆無だから）](pattern2/2026-08-06_q7_ospfネイバー済でも設定する理由.md) — 2026-08-06
 - [Task 1.7 本番で最短で解く動き方（差分を探さず機器別6ブロックを貼る／順番は PE→P／検証は R1・R2 の2台だけ／R4 Lo0 の /31 罠）](pattern2/2026-08-07_q7_本番最短手順コピペ前提の動き方.md) — 2026-08-07
+- [Task 1.7 R3 の Lo0 が OSPF 未参加だと見抜くコマンド（`sh ip ospf int b` に行が無い／RID に .3 が出るのは罠＝RID は参加有無と無関係）と、設定済みの Gi8 に3行打つ理由（本命は P2P・R3 が DR ＝ Type 2 の生成元）](pattern2/2026-08-07_q7_R3のLo0未参加を見抜くコマンドとGi8に打ち直す理由.md) — 2026-08-07
 
 ## pattern3
 
