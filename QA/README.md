@@ -50,6 +50,9 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.7 R3 の Lo0 が OSPF 未参加だと見抜くコマンド（`sh ip ospf int b` に行が無い／RID に .3 が出るのは罠＝RID は参加有無と無関係）と、設定済みの Gi8 に3行打つ理由（本命は P2P・R3 が DR ＝ Type 2 の生成元）](pattern2/2026-08-07_q7_R3のLo0未参加を見抜くコマンドとGi8に打ち直す理由.md) — 2026-08-07
 - [Task 1.7 `access-list` が 11 番である理由（数字に必然性なし＝Pattern 3 は同じ役割で 10／制約は標準 ACL であることだけ／`option 1 for 11` の 1 は ACL 番号ではない／番号ズレはエラーが出ず無言で認証が効かなくなる）](pattern2/2026-08-07_q7_access-listが11番である理由.md) — 2026-08-07
 - [Task 1.8 `address-family ipv4 vrf fabd2` の neighbor IP の正体（100.3.11.2=R11・100.3.21.2=R21 の直結 I/F＝CE 側／vpnv4 は Loopback で iBGP という使い分け／`.1`=PE・`.2`=CE の命名規則／CE 側は初期設定済みで R3 だけで上がる／maximum-prefix は P2 のみ・行頭が全角スペース）](pattern2/2026-08-07_q8_af_ipv4_vrf内のneighborIPの正体.md) — 2026-08-07
+- [Task 1.8 本番で最短で解く動き方（貼るのは4ブロックのみ・R1R2 は作業ゼロ／**Task 1.7 が絶対前提**＝R3R5 の Lo0 が OSPF 未参加で iBGP が上がらない／**問題文 80,000 と解答資料 90 の矛盾**／R4 に af ipv4 vrf が無いのは IaaS 対象外だから／検証は 3台5コマンド）](pattern2/2026-08-07_q8_本番最短手順コピペ前提の動き方.md) — 2026-08-07
+- [Task 1.8 R3 の iBGP neighbor に R1/R2 が入らない理由（P ルータは問題文で BGP 禁止＝BGP-free core／転送は外側ラベル1枚で完結するので VRF も BGP も不要／**「経路上にいる」≠「ピアである」**＝R1R2 は OSPF/LDP では不可欠／RR 禁止でフルメッシュ3台／3+2=5 がピア数要件の検算）](pattern2/2026-08-07_q8_R3のiBGPにR1R2が入らない理由.md) — 2026-08-07
+- [Task 1.8 問題文の3要件がどのコマンドで満たされるか（`maximum-prefix 100000 80 restart 5` の1行が3要件を全部満たす・第2引数は%であり本数ではない・`warning-only` は付けない／`send-community extended` は解答HTMLに0件・ラボに9件で全て vpnv4 AF＝IOS 自動付加だが打つのが安全／`neighbor password` の根拠は問題文3章のみで 6セッション=12行・CE は範囲外）](pattern2/2026-08-07_q8_maximum-prefixとsend-communityとpasswordの根拠.md) — 2026-08-07
 
 ## pattern3
 
