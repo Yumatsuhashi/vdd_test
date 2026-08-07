@@ -53,6 +53,7 @@ CCIE 学習中の質問と回答の蓄積。運用ルールは `.claude/skills/c
 - [Task 1.8 本番で最短で解く動き方（貼るのは4ブロックのみ・R1R2 は作業ゼロ／**Task 1.7 が絶対前提**＝R3R5 の Lo0 が OSPF 未参加で iBGP が上がらない／**問題文 80,000 と解答資料 90 の矛盾**／R4 に af ipv4 vrf が無いのは IaaS 対象外だから／検証は 3台5コマンド）](pattern2/2026-08-07_q8_本番最短手順コピペ前提の動き方.md) — 2026-08-07
 - [Task 1.8 R3 の iBGP neighbor に R1/R2 が入らない理由（P ルータは問題文で BGP 禁止＝BGP-free core／転送は外側ラベル1枚で完結するので VRF も BGP も不要／**「経路上にいる」≠「ピアである」**＝R1R2 は OSPF/LDP では不可欠／RR 禁止でフルメッシュ3台／3+2=5 がピア数要件の検算）](pattern2/2026-08-07_q8_R3のiBGPにR1R2が入らない理由.md) — 2026-08-07
 - [Task 1.8 問題文の3要件がどのコマンドで満たされるか（`maximum-prefix 100000 80 restart 5` の1行が3要件を全部満たす・第2引数は%であり本数ではない・`warning-only` は付けない／`send-community extended` は解答HTMLに0件・ラボに9件で全て vpnv4 AF＝IOS 自動付加だが打つのが安全／`neighbor password` の根拠は問題文3章のみで 6セッション=12行・CE は範囲外）](pattern2/2026-08-07_q8_maximum-prefixとsend-communityとpasswordの根拠.md) — 2026-08-07
+- [Task 1.9 `distribute-list` に隠れた事前設定はあるか（前提は3つで2つは同じブロック内／`router ospf 1` が唐突に見えるのは Task 1.5 がインターフェース直付け方式でプロセスを暗黙生成しているから／存在しない prefix-list 参照は**無言で全 permit**／`permit 0.0.0.0/0 le 32` の暗黙 deny／R12 だけ connected 再配布なのは BGP neighbor が 0 本だから／**101.22.0.0/30 は Pattern 2 では経路源が無い＝予防フィルタ**・注入は Pattern 3 の Task 2.1）と Task 1.9 時点の R11·R12 積み上げ全体像](pattern2/2026-08-07_q9_distribute-listの前提設定とTask1.9時点の全体像.md) — 2026-08-07
 
 ## pattern3
 
