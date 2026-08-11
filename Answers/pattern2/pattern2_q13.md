@@ -70,6 +70,31 @@ SW700 の MAC を書くと全フレームが違反になり、Gi0/0 は restrict
 
 ### VLAN 番号は 100 と 414（114 ではない）
 
+R70 が `encapsulation dot1Q 414` なので、114 で作るとタグ不一致で疎通しない。
+
+### `vlan 100,414` であって `interface vlan` ではない
+
+| コマンド | 作られるもの | 確認 |
+|---|---|---|
+| `vlan 100`（グローバル） | **L2 VLAN**（VLAN データベース） | `show vlan brief` |
+| `interface vlan 100` | SVI（L3 論理 I/F） | `show ip interface brief` |
+
+**SVI を作っても L2 VLAN は作られない。** VLAN を作らずに `switchport access vlan 414` を打つと:
+
+```
+% Access VLAN does not exist. Creating vlan 414
+```
+
+これは**エラーではなく自動作成の通知**（拒否なら `Command rejected:` の形）。ただし作成直後は
+ポートが `inactive` のまま反映が遅れることがあり、`shutdown`/`no shutdown` で再評価される。
+根本対策は **`vlan 100,414` を先に打つこと**。加えて pvst のため新 VLAN は
+Listening→Learning→Forwarding に約 30 秒かかる。
+
+**Task 1.13 に SVI は不要**。SW700 は純 L2 で、L3 は R70 のサブインターフェースが担当する。
+
+診断は `show vlan brief`（VLAN の存在）と `show interfaces status` の Status 列
+（`connected` / **`inactive`** ＝VLAN 未存在 / `notconnect` / `err-disabled`）。
+
 ### errdisable recovery の cause 名を間違えない
 
 | cause 名 | 何の違反か |
