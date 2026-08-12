@@ -84,6 +84,36 @@ no shutdown
 
 SW102も同様（`channel-group 2 mode active` / `channel-group 3 mode active`、`switchport trunk allowed vlan 1,2000,2001`）。
 
+### SW110 の Po1/Po2 も同じく Task 1.3 の解答に含まれる
+
+Task 1.2 の SW110 解答は Gi0/0・Gi0/1 だけだが、**表の「SW110 Po1・Po2 タグあり」要件に対応する
+`switchport trunk allowed vlan 1,2000,2001` は Task 1.3 の SW110 解答に入っている**:
+
+```
+no interface port-channel 1
+no interface port-channel 2
+
+interface range GigabitEthernet1/0-1          ← Po1
+switchport
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1,2000,2001     ← Task 1.2 の「Po1 タグあり」要件はここ
+channel-group 1 mode active
+no shutdown
+
+interface range GigabitEthernet1/2-3          ← Po2（同内容 + channel-group 2 mode active）
+```
+
+つまり **HQ 3台（SW101 / SW102 / SW110）とも、Po のタグ付け設定は Task 1.3 側にまとめられている**。
+Task 1.2 で先に打っても Task 1.3 の `no interface port-channel` で消えるため。
+
+責任分界:
+
+| 観点 | 担当タスク | 初期状態 |
+|---|---|---|
+| Po が VLAN2000/2001 を**タグ付き転送**する | Task 1.2 | トランク＋全VLAN許可で成立済み → 追加不要 |
+| Po が **LACP で正しくバンドル**する | Task 1.3 | `mode on` / passive↔passive を `active` へ修正が必要 |
+
 ## 初期コンフィグとの関係（重要）
 
 `EI_v2.yaml` の初期コンフィグで、以下がすでに設定済み:

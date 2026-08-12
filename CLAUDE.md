@@ -382,7 +382,8 @@ Task tool でサブエージェントを起動する際は、以下のルール�
 
 ```text
 CCIE_train_hub/
-├── EI_v2.yaml       # CML ラボ（ノード、リンク、初期コンフィグ内蔵。約4,800行 — 全読み禁止）
+├── EI_v2.yaml       # CML ラボ EI_v2 の実体（ノード、リンク、初期コンフィグ内蔵。約4,800行 — 全読み禁止）
+│                   #   ※ CML 上の同名ラボと連動。詳細は「CML MCP サーバー」節を参照
 ├── topology1.png    # HQ/DC 周辺のトポロジ画像
 ├── topology2.png    # SP/Branch 周辺のトポロジ画像
 ├── Questions/       # 問題文（patternN/patternN_qX.md 形式）
@@ -393,3 +394,69 @@ CCIE_train_hub/
 - **QA 運用ルールの正本は `.claude/skills/ccie-qa/SKILL.md`**。パターンN・問題Xへの質問（設計理由・config の意図など）を受けると ccie-qa スキルが起動し、資料を突き合わせて回答したうえで `QA/patternN/YYYY-MM-DD_qX_<概要>.md` に蓄積する。
 - 回答時に抽出・検証した config は `Answers/patternN/patternN_qX.md` にキャッシュし、次回以降は original/*.html の grep を省略する（トークン節約）。正本は original/ で、矛盾時はキャッシュ側を修正する。
 - `QA/`・`Questions/`・`Answers/` は学習ノートでありリリースフロー対象外。worktree-guard の除外パスに含まれ、メインワークツリーから直接書き込める。
+
+## CML MCP サーバー（ラボ操作） <!-- CUSTOMIZE -->
+
+CML (`https://10.71.157.93`, v3.2.4) の内蔵 MCP サーバーに接続し、Claude Code / Cursor から
+CCIE ラボのノード起動・停止・config 投入・状態確認を**自然言語で**操作できる。
+
+### 操作ルール（最重要） `[L2: プロンプト内ルール]`
+
+> **運用ルールの正本は `.claude/skills/cml-ops/SKILL.md`**。CML の MCP ツール
+> (`mcp__cml__*`) を使う前に必ず読むこと。以下はその要約。
+
+1. **ユーザーの明示指示があるまで CML の状態を変更しない。**
+   読み取り（`get_*`、`send_cli_command` の `show` / `ping` / `traceroute`）は自由。
+   **書き込みは全て都度承認**（config 投入・起動停止・wipe・delete・ラボ作成・トポロジ変更）。
+   「どうせ戻せるから」で先回り実行しないこと。承認は操作単位で取り、次の操作に流用しない。
+2. 変更を提案するときは **対象 / 実行内容 / 影響範囲 / 戻し方 / 正本との差分** の 5 点を提示する。
+3. `send_cli_command` は読み書き両用のため**投入文字列で判定**する。
+   `configure terminal` 以降・`clear`・`reload`・`write`・`copy`・`debug` は承認必須。
+4. **MCP 接続設定（`~/.claude.json` / `~/.cursor/mcp.json`）も指示なしに変更しない。**
+
+### EI_v2.yaml と CML ラボの連動関係
+
+リポジトリの `EI_v2.yaml` は、CML 上の**ラボ `EI_v2`（id `5d87eb31-50c9-4416-829e-5e84da081dc9`、
+33 ノード / 63 リンク）そのもの**である（構成一致を確認済み）。ユーザーはこのラボで CCIE の学習をしている。
+
+- **`EI_v2.yaml` が正本**（＝問題の初期状態の基準）。**原則書き換えない。**
+- CML 実機の config が yaml と違うのは、ユーザーの学習作業による**意図的なドリフト**。異常ではない。
+- ドリフトを見つけても**報告するだけ**。yaml → CML の初期化も、CML → yaml の再エクスポートも承認必須。
+- 質問に答えるときは「yaml の初期 config」を基準に、実機との差分を学習成果として説明する。
+- 実機で検証した結果は `QA/patternN/` の Q&A ファイルに「## CML 実機での確認」節として記録する
+  （`ccie-qa` スキルと同じ蓄積先。専用ディレクトリは作らない）。
+
+### 接続方式
+
+- `mcp-remote`（stdio 子プロセス）経由で CML の `/mcp`（Streamable HTTP）に接続。
+- 認証は `X-Authorization: Basic <base64(user:pass)>` ヘッダー。
+- CML 証明書は IP SAN を持たないため `NODE_TLS_REJECT_UNAUTHORIZED=0` が必須。
+  mcp-remote を噛ませて TLS 検証の無効化を**その子プロセス内だけに閉じ込める**
+  （クライアント本体の TLS 検証は無効化しない）。
+
+### 設定ファイル（**認証情報を含むためリポジトリには置かない**）
+
+- Claude Code: `~/.claude.json`（user スコープ、サーバー名 `cml`）
+- Cursor: `~/.cursor/mcp.json`
+- どちらも `chmod 600`。`npx` は nvm の**絶対パス**指定必須
+  （`/Users/yumatsuh/.nvm/versions/node/v24.14.1/bin/npx`。Dock 起動時は PATH 非継承のため）。
+
+### 使い方
+
+1. `claude mcp list` で `cml` が `✔ Connected` を確認。
+2. **Claude Code を再起動**（起動中のセッションには MCP ツールが読み込まれない）。
+3. `/mcp` でツール一覧を確認。あとは「CML のラボ一覧を見せて」等の自然言語で操作。
+4. Cursor は**完全終了→再起動**で反映（設定リロードだけでは stdio が起動し直らない）。
+
+### 更新は「時間」では不要（＝失効しない）
+
+Basic 認証はリクエストごとに再認証するため、**時間経過では切れない**。放置して OK。
+CML の JWT トークンは 24h で失効するが、この構成は Basic 認証なので**関係ない**。
+以下の**環境変化のときだけ**設定を直す:
+
+- **CML のパスワード変更時**: `claude mcp add cml -s user ...` で base64 を入れ直し + `~/.cursor/mcp.json` の `CML_AUTH_HEADER` を更新
+- **CML の IP 変更時**: 両ファイルの `10.71.157.93` を書き換え
+- **node (nvm) アップグレード時**: 両ファイルの npx 絶対パス（`.../v24.14.1/...`）を書き換え
+
+> 注: 現在のパスワードは末尾に半角スペースを含む。CML はパスワードを trim しないため、
+> スペースを落とすと 403 になる（過去にハマった。詳細はエージェントメモリ参照）。

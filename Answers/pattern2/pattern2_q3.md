@@ -126,6 +126,25 @@ SW110はroot/secondary rootではないため、priority指定・root-guardと�
 - 未接続ポートに root guard をかけても superior BPDU を受けない限り発動しないため無害。`spanning-tree portfast edge default` と組み合わせて「空きポートに不正スイッチが挿された瞬間に遮断する」保険になる。
 - 厳密に全 L2 ポートを網羅するなら `Gi0/3, Gi1/0-3, Gi2/0-3` が正確（Gi2/2-3 は原本の範囲から漏れている。Pattern 1/2/3 すべて同一）。
 
+### root-guard の範囲を1コマンドで導出する
+
+選定基準は「使っていないポート」ではなく **「L2 ポートかどうか（＝STP が動きうるか）」**。
+`show interfaces status` の Vlan 列を見れば機械的に仕分けできる:
+
+| Vlan 列 | 意味 | root guard |
+|---|---|---|
+| `routed` | `no switchport` の L3 ポート | **対象外**（STP が動かない） |
+| 数字（`1` など） | L2 アクセスポート | 対象 |
+| `trunk` | L2 トランクポート | **対象（本命）** |
+
+`show vlan brief` でも代用できる: VLAN 1 の行に並ぶポート ＝ 素の L2 ポート、
+そこに載っていないトランクポート ＝ L2、L3 ポートはそもそも出てこない。
+実機の SW101 では `1 default active Gi0/3, Gi1/0, Gi1/1, Gi2/2, Gi2/3` + トランク Gi1/2-3・Gi2/0-1 = L2 は9本。
+
+**本命は「使っているポート」の方**（SW101 なら Gi1/2-3 → SW110、Gi2/0-1 → SW102）。
+要件文の「本社内の他のスイッチから受信する優先度の高い BPDU」が実際に飛んでくるのはこの2組だけで、
+未接続ポート（Gi0/3・Gi1/0-1）は副作用ゼロなので掛けている保険にすぎない。
+
 ### root-guardの適用範囲の設計ロジック
 
 - **SW101**（真のルート、priority 0）: 他スイッチへ繋がる全L2ポート（Gi1/0-3, Gi2/0-1, Gi0/3, Po1, Po3）にroot-guardを適用。ルートブリッジ自身にはルートポートが存在しないため、全ポートに適用しても問題ない。Gi0/0-0/2はL3ルーテッド（`no switchport`）のためSTP非対象で除外。
@@ -146,7 +165,32 @@ SW110はroot/secondary rootではないため、priority指定・root-guardと�
 | SW110 Gi1/2-3（Po2） | `channel-group 2 mode passive` | `mode active` へ |
 | 全スイッチ | `spanning-tree mode pvst` | `rapid-pvst` へ |
 
-`no interface port-channel N` から始まるのは、初期コンフィグの Po に残る設定（許可VLAN未制限など）を消して物理ポート側から再生成するため。
+### なぜ `no interface port-channel N` から始めるのか
+
+初期コンフィグの Po が**機器ごとに違う壊れ方**で残っているため（SW101 Po1 はメンバーゼロの空 Po、
+SW110 Po1 は `mode on`、SW102/SW110 Po2 は `mode passive`）。理由は4つ:
+
+1. **互換性チェック回避（本命）**: EtherChannel はメンバー物理ポートと Po の間で
+   mode / encapsulation / **allowed VLAN リスト** / native VLAN / speed / duplex / STP コストが
+   一致しないとバンドルしない。初期 Po は allowed vlan 未指定＝`1-4094` なので、Po を残したまま
+   物理に `switchport trunk allowed vlan 1,2000,2001` を打つと
+   `%EC-5-CANNOT_BUNDLE2: ... (trunk vlans allowed mismatch)` でメンバーが `(s) suspended` になる。
+   **Po を先に消せば `channel-group` を打った瞬間に Po が自動生成され、物理側の設定がそのまま
+   Po にコピーされる**ので不一致が起きない
+2. **`channel-group` 行も一括で消える**: Po を削除するとメンバーの `channel-group N mode xxx` も外れ、
+   `mode on` / `mode passive` が同時にクリアされる。`mode on` → `mode active` は
+   メンバーシップを外さずに直接切り替えようとすると素直に通らない
+3. **802.3ad＝LACP 要件**: `mode on` は LACP を喋らず `show etherchannel summary` の Protocol が `-`。
+   passive↔passive も LACPDU を誰も開始しないので永久に不成立。全部 `active` に統一する必要がある
+4. **解答の並び順が証拠**: 「消す → 物理から再生成 → 生まれ直した Po に `spanning-tree guard root` を
+   打ち直す」という順序は、Po 削除で Po 側の設定が全部消えることを前提にしている
+
+**別解**: Po インターフェースに打った `switchport` 系設定はメンバーへ伝播するので、
+`interface Port-channel1` に `switchport trunk allowed vlan 1,2000,2001` を打ち、物理側は
+`no channel-group 1` → `channel-group 1 mode active` でも成立する。ただし機器ごとに手順がバラつく。
+
+**注意**: 削除の瞬間にリンクが落ちる（Task 1.2 の VLAN 転送も一時停止）。打ち忘れると素の access VLAN 1 に戻る。
+削除後は `show run | section ^interface GigabitEthernet1/` で `channel-group` が消えたか確認する。
 
 ## 検証コマンド
 
@@ -168,6 +212,22 @@ LACP モード組み合わせ: active↔active/passive は成立、**passive↔p
 ### 事後確認
 
 `show etherchannel summary`（`Po1(SU)` ＋ Protocol `LACP` ＋ 全メンバー `(P)`）、`show interfaces trunk`、`show spanning-tree vlan 2000`、`show spanning-tree interface <if> detail`、`show spanning-tree summary`
+
+### root guard 専用の確認（3段階）
+
+| 段階 | コマンド | 見るポイント |
+|---|---|---|
+| 事前（範囲決め） | `show interfaces status` | Vlan 列が `routed` 以外＝対象（条件①） |
+| 事前（範囲決め） | `show spanning-tree vlan 2000` | `This bridge is the root` なら全ポート可。そうでなければ Role が **`Root`** のポートを除外（条件②） |
+| 事後（適用確認） | **`show run \| include ^interface\|guard root`** | どの I/F に付いているかの一覧。適用漏れの洗い出しに最速 |
+| 事後（適用確認） | `show spanning-tree interface <if> detail` | **`Root guard is enabled on the port`** の行 |
+| 運用（発動確認） | **`show spanning-tree inconsistentports`** | 正常時は**空**。ここに出たら superior BPDU を受信中 |
+| 運用（発動確認） | `show spanning-tree vlan 2000` | Sts 列 `BKN*` / Type 列 **`*ROOT_Inc`** |
+
+- **`show spanning-tree summary` に root guard は出ない**。BPDU guard / BPDU filter / loop guard と違い、root guard には**グローバルデフォルト設定が存在しない**（必ずポート単位）ため
+- **設定はポート単位だが、ブロック状態は VLAN 単位**で管理される（VLAN2000 だけ `root-inconsistent`、VLAN2001 は正常があり得る）。superior BPDU が止まれば自動復旧
+- ログ: `%SPANTREE-2-ROOTGUARD_BLOCK` / `%SPANTREE-2-ROOTGUARD_UNBLOCK`
+- **誤って SW102 の Po3 に掛けた時の症状**: SW101(priority 0) からの正当な superior BPDU で Po3 が `*ROOT_Inc` に落ち、`show spanning-tree inconsistentports` に Po3 が現れる
 
 ## 出典
 
